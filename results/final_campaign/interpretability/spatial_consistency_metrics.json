@@ -1,0 +1,44 @@
+[
+  {
+    "spatial_correlation": 0.6219,
+    "top_20pct_dice_overlap": 0.4967,
+    "center_of_mass_distance_voxels": 30.78,
+    "com1": [
+      41.7,
+      46.0,
+      64.3
+    ],
+    "com2": [
+      65.1,
+      40.4,
+      83.6
+    ],
+    "comparison": "Cross-Dataset Disease (ResNet-18): OASIS vs ADNI",
+    "model": "ResNet-18",
+    "cohort_pair": "OASIS-1 vs ADNI",
+    "condition": "True Positive (Dementia/AD)",
+    "subject_1": "OAS1_0028_MR1",
+    "subject_2": "021_S_0753"
+  },
+  {
+    "spatial_correlation": 0.2371,
+    "top_20pct_dice_overlap": 0.3333,
+    "center_of_mass_distance_voxels": 45.16,
+    "com1": [
+      41.7,
+      46.0,
+      64.3
+    ],
+    "com2": [
+      81.3,
+      66.1,
+      72.9
+    ],
+    "comparison": "Inter-Model (OASIS-1): ResNet-18 vs ResNet-34",
+    "model": "ResNet-18 vs ResNet-34",
+    "cohort_pair": "OASIS-1 Internal",
+    "condition": "True Positive (Dementia/AD)",
+    "subject_1": "OAS1_0028_MR1",
+    "subject_2": "OAS1_0035_MR1"
+  }
+]

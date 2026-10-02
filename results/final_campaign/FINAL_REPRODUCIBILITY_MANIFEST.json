@@ -1,0 +1,71 @@
+{
+  "campaign_title": "Fair Benchmarking of Brain-MRI Foundation Models Against Well-Tuned Supervised Deep Learning Baselines",
+  "timestamp": "2026-09-14T14:13:03.666687",
+  "status": "COMPLETED & VERIFIED",
+  "environment": {
+    "os": "Windows 11 (10.0.26200)",
+    "python": "3.12.4",
+    "pytorch": "2.5.1+cpu",
+    "monai": "1.4.0",
+    "torchvision": "0.20.1+cpu",
+    "scikit_learn": "1.6.1",
+    "scipy": "1.15.1",
+    "numpy": "2.0.2",
+    "pandas": "2.2.3",
+    "matplotlib": "3.10.0"
+  },
+  "datasets": {
+    "oasis1_pilot": {
+      "root": "D:/OASIS1_PILOT",
+      "total_subjects": 50,
+      "classes": {
+        "CN": 25,
+        "Dementia": 25
+      },
+      "development_split": 42,
+      "locked_test_split": 8,
+      "cached_tensors": "data/cache/oasis1_pilot"
+    },
+    "adni_mprage": {
+      "root": "D:/AIML/ADNI_MPRAGE_NIFTI",
+      "total_subjects": 50,
+      "classes": {
+        "CN": 25,
+        "AD": 25
+      },
+      "development_split": 42,
+      "locked_test_split": 8,
+      "cached_tensors": "data/cache/adni_benchmark"
+    }
+  },
+  "model_checkpoints": {
+    "supervised_resnet18": "results/checkpoints/oasis1_pilot_resnet18_tuned_best.pt",
+    "supervised_resnet34": "results/checkpoints/oasis1_pilot_resnet34_best.pt",
+    "brainiac_vit_base": "weights/brainiac_vit_base.pt",
+    "fomo25_winner": "weights/fomo25_winner_encoder.pt",
+    "monai_swin_unetr_ssl": "weights/model_swinvit.pt"
+  },
+  "deliverables_manifest": {
+    "reconciliation": "results/final_campaign/RESULT_RECONCILIATION.md",
+    "leakage_audit": "results/final_campaign/FINAL_TEST_LEAKAGE_AUDIT.md",
+    "data_efficiency": "results/final_campaign/data_efficiency_final.csv",
+    "ssap_analysis": "results/final_campaign/ssap_analysis.csv",
+    "parameter_efficiency": "results/final_campaign/parameter_efficiency.csv",
+    "label_efficiency": "results/final_campaign/label_efficiency_analysis.csv",
+    "fusion_results": "results/final_campaign/fusion_results.csv",
+    "representation_analysis": "results/final_campaign/representation_analysis.csv",
+    "error_analysis": "results/final_campaign/error_analysis.csv",
+    "dataset_characteristics": "results/final_campaign/dataset_characteristics.csv",
+    "composite_development_score": "results/final_campaign/composite_development_score.csv",
+    "final_research_report": "results/final_campaign/FINAL_RESEARCH_REPORT.md",
+    "executive_summary": "results/final_campaign/EXECUTIVE_SUMMARY.md",
+    "final_decision": "results/final_campaign/FINAL_DECISION.md",
+    "figure_index": "results/final_campaign/FIGURE_INDEX.md",
+    "test_results": "results/final_campaign/test_results.txt"
+  },
+  "test_suite_verification": {
+    "tests_collected": 43,
+    "tests_passed": 43,
+    "pass_rate_pct": 100.0
+  }
+}

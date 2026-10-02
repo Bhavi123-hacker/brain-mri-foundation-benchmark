@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fair Benchmarking of Brain-MRI Foundation Models Against Well-Tuned Supervised Deep Learning Baselines</title>
+  
+  <!-- Modern Scientific Typography & Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/presentation.css">
+  
+  <!-- Standalone Local Vendor Chart.js -->
+  <script src="vendor/chart.min.js"></script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       SIDEBAR NAVIGATION
+       ======================================================================== -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-title">
+        <div class="brand-icon">BM</div>
+        <span>Brain-MRI Benchmark</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-heading">Core Benchmark</div>
+      <a href="#overview" class="nav-link active" data-section="overview">
+        <span class="nav-num">01</span>
+        <span>Overview</span>
+      </a>
+      <a href="#question" class="nav-link" data-section="question">
+        <span class="nav-num">02</span>
+        <span>Research Question</span>
+      </a>
+      <a href="#datasets" class="nav-link" data-section="datasets">
+        <span class="nav-num">03</span>
+        <span>Datasets & Cohorts</span>
+      </a>
+      <a href="#models" class="nav-link" data-section="models">
+        <span class="nav-num">04</span>
+        <span>Evaluated Models</span>
+      </a>
+      <a href="#cnn-benchmark" class="nav-link" data-section="cnn-benchmark">
+        <span class="nav-num">05</span>
+        <span>3D CNN Benchmark</span>
+      </a>
+      <a href="#leaderboard" class="nav-link" data-section="leaderboard">
+        <span class="nav-num">06</span>
+        <span>Leaderboard</span>
+      </a>
+
+      <div class="nav-section-heading">Multi-Axis Audits</div>
+      <a href="#data-efficiency" class="nav-link" data-section="data-efficiency">
+        <span class="nav-num">07</span>
+        <span>Data Efficiency</span>
+      </a>
+      <a href="#parameter-compute" class="nav-link" data-section="parameter-compute">
+        <span class="nav-num">08</span>
+        <span>Parameter & Compute</span>
+      </a>
+      <a href="#calibration" class="nav-link" data-section="calibration">
+        <span class="nav-num">09</span>
+        <span>Calibration</span>
+      </a>
+      <a href="#domain-shift" class="nav-link" data-section="domain-shift">
+        <span class="nav-num">10</span>
+        <span>Domain Shift (ADNI)</span>
+      </a>
+      <a href="#representation" class="nav-link" data-section="representation">
+        <span class="nav-num">11</span>
+        <span>Representation Geometry</span>
+      </a>
+      <a href="#fusion" class="nav-link" data-section="fusion">
+        <span class="nav-num">12</span>
+        <span>Hybrid Feature Fusion</span>
+      </a>
+      <a href="#error-analysis" class="nav-link" data-section="error-analysis">
+        <span class="nav-num">13</span>
+        <span>Error Analysis</span>
+      </a>
+      <a href="#interpretability" class="nav-link" data-section="interpretability">
+        <span class="nav-num">14</span>
+        <span>CNN Grad-CAM</span>
+      </a>
+      <a href="#statistics" class="nav-link" data-section="statistics">
+        <span class="nav-num">15</span>
+        <span>Statistics & CIs</span>
+      </a>
+      <a href="#training-dynamics" class="nav-link" data-section="training-dynamics">
+        <span class="nav-num">16</span>
+        <span>Training Dynamics</span>
+      </a>
+      <a href="#foundation-adaptation" class="nav-link" data-section="foundation-adaptation">
+        <span class="nav-num">17</span>
+        <span>Foundation Adaptation</span>
+      </a>
+      <a href="#statistical-uncertainty" class="nav-link" data-section="statistical-uncertainty">
+        <span class="nav-num">18</span>
+        <span>Statistical Uncertainty</span>
+      </a>
+
+      <div class="nav-section-heading">Integrity & Assets</div>
+      <a href="#methodology" class="nav-link" data-section="methodology">
+        <span class="nav-num">19</span>
+        <span>Methodology</span>
+      </a>
+      <a href="#reproducibility" class="nav-link" data-section="reproducibility">
+        <span class="nav-num">20</span>
+        <span>Reproducibility</span>
+      </a>
+      <a href="#limitations" class="nav-link" data-section="limitations">
+        <span class="nav-num">21</span>
+        <span>Limitations</span>
+      </a>
+      <a href="#conclusion" class="nav-link" data-section="conclusion">
+        <span class="nav-num">22</span>
+        <span>Conclusion</span>
+      </a>
+      <a href="#gallery" class="nav-link" data-section="gallery" style="color: var(--accent-cyan);">
+        <span class="nav-num">23</span>
+        <span>Figure Gallery (28)</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button id="presentation-toggle" class="presentation-toggle-btn" title="Optimize view for viva / thesis presentation">
+        <span>📽</span>
+        <span>Presentation Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MAIN APP CONTAINER
+       ======================================================================== -->
+  <div id="app-main">
+    
+    <!-- Sticky Global Header -->
+    <header id="header">
+      <div class="header-left">
+        <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle navigation menu">☰</button>
+        <div>
+          <div class="project-title">Brain-MRI Foundation Model Benchmark</div>
+          <div class="project-subtitle">Supervised 3D CNNs vs. Foundation Representations Across 100 Scans</div>
+        </div>
+      </div>
+
+      <div class="header-badges">
+        <div class="presentation-bar">
+          <button id="pres-exit-btn" class="presentation-nav-btn">Exit Presentation Mode</button>
+        </div>
+        <span class="badge badge-pilot">Research Benchmark • Pilot Study</span>
+        <span id="badge-audit" class="badge badge-audit">59/59 Tests Passing</span>
+        <span id="badge-status" class="badge badge-status">Frontend Ready With Documented Limitations</span>
+      </div>
+    </header>
+
+    <!-- Main Dynamic Content Container -->
+    <main id="content-container">
+      <section id="section-overview" class="dashboard-section active"></section>
+      <section id="section-question" class="dashboard-section"></section>
+      <section id="section-datasets" class="dashboard-section"></section>
+      <section id="section-models" class="dashboard-section"></section>
+      <section id="section-cnn-benchmark" class="dashboard-section"></section>
+      <section id="section-leaderboard" class="dashboard-section"></section>
+      <section id="section-data-efficiency" class="dashboard-section"></section>
+      <section id="section-parameter-compute" class="dashboard-section"></section>
+      <section id="section-calibration" class="dashboard-section"></section>
+      <section id="section-domain-shift" class="dashboard-section"></section>
+      <section id="section-representation" class="dashboard-section"></section>
+      <section id="section-fusion" class="dashboard-section"></section>
+      <section id="section-error-analysis" class="dashboard-section"></section>
+      <section id="section-interpretability" class="dashboard-section"></section>
+      <section id="section-statistics" class="dashboard-section"></section>
+      <section id="section-training-dynamics" class="dashboard-section"></section>
+      <section id="section-foundation-adaptation" class="dashboard-section"></section>
+      <section id="section-statistical-uncertainty" class="dashboard-section"></section>
+      <section id="section-methodology" class="dashboard-section"></section>
+      <section id="section-reproducibility" class="dashboard-section"></section>
+      <section id="section-limitations" class="dashboard-section"></section>
+      <section id="section-conclusion" class="dashboard-section"></section>
+      <section id="section-gallery" class="dashboard-section"></section>
+    </main>
+
+    <!-- Global Persistent Footer -->
+    <footer id="footer">
+      <div class="footer-disclaimer">
+        <strong>Research Use Only:</strong> This benchmark is not a clinical diagnostic system. Results represent preliminary pilot evidence across small cohorts ($N=50$) and must not be interpreted as validated medical advice or clinical diagnostic performance.
+      </div>
+      <div class="footer-links">
+        <span>Audited Research Freeze</span>
+        <span>•</span>
+        <span>Single Source of Truth</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- High-Resolution Image Zoom Modal -->
+  <div id="zoom-modal" role="dialog" aria-modal="true">
+    <button id="modal-close-btn" class="modal-close-btn" aria-label="Close zoom modal">✕</button>
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="Zoomed view">
+      <div id="modal-caption" class="modal-caption"></div>
+    </div>
+  </div>
+
+  <!-- Application Bootstrap -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

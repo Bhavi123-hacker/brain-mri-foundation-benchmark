@@ -1,0 +1,68 @@
+[
+  {
+    "model": "Supervised 3D ResNet-18",
+    "temperature_factor_T": 1.35,
+    "temperature_fit_data": "OASIS-1 Development Validation Folds Only",
+    "test_used_for_fitting": false,
+    "raw_brier_score": 0.0912,
+    "recomputed_ece": 0.175,
+    "recomputed_mce": 0.325,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "leakage_status": "PASS (Fitted on Dev Data Only)"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "temperature_factor_T": 1.4,
+    "temperature_fit_data": "OASIS-1 Development Validation Folds Only",
+    "test_used_for_fitting": false,
+    "raw_brier_score": 0.0371,
+    "recomputed_ece": 0.165,
+    "recomputed_mce": 0.35,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "leakage_status": "PASS (Fitted on Dev Data Only)"
+  },
+  {
+    "model": "BrainIAC",
+    "temperature_factor_T": 1.85,
+    "temperature_fit_data": "OASIS-1 Development Validation Folds Only",
+    "test_used_for_fitting": false,
+    "raw_brier_score": 0.1583,
+    "recomputed_ece": 0.1162,
+    "recomputed_mce": 0.22,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "leakage_status": "PASS (Fitted on Dev Data Only)"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "temperature_factor_T": 1.65,
+    "temperature_fit_data": "OASIS-1 Development Validation Folds Only",
+    "test_used_for_fitting": false,
+    "raw_brier_score": 0.1785,
+    "recomputed_ece": 0.1137,
+    "recomputed_mce": 0.25,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "leakage_status": "PASS (Fitted on Dev Data Only)"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "temperature_factor_T": 1.65,
+    "temperature_fit_data": "OASIS-1 Development Validation Folds Only",
+    "test_used_for_fitting": false,
+    "raw_brier_score": 0.2259,
+    "recomputed_ece": 0.085,
+    "recomputed_mce": 0.48,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "leakage_status": "PASS (Fitted on Dev Data Only)"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "temperature_factor_T": 1.0,
+    "temperature_fit_data": "OASIS-1 Development Validation Folds Only",
+    "test_used_for_fitting": false,
+    "raw_brier_score": 0.0864,
+    "recomputed_ece": 0.285,
+    "recomputed_mce": 0.3193,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "leakage_status": "PASS (Fitted on Dev Data Only)"
+  }
+]

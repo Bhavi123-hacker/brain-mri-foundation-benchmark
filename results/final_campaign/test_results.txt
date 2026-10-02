@@ -1,0 +1,81 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.4, pytest-9.1.1, pluggy-1.6.0 -- C:\Program Files\Python312\python.exe
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.4', 'Platform': 'Windows-11-10.0.26200-SP0', 'Packages': {'pytest': '9.1.1', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.12.1', 'html': '4.2.0', 'metadata': '3.1.1'}}
+rootdir: D:\ml project
+plugins: anyio-4.12.1, html-4.2.0, metadata-3.1.1
+collecting ... collected 53 items
+
+tests/test_adni_parser.py::test_adni_normalization PASSED                [  1%]
+tests/test_adni_parser.py::test_adni_parse_dataframe PASSED              [  3%]
+tests/test_adni_pipeline.py::test_adni_benchmark_manifest_integrity PASSED [  5%]
+tests/test_adni_pipeline.py::test_adni_nifti_files_exist_and_valid PASSED [  7%]
+tests/test_adni_pipeline.py::test_adni_preprocessed_cache_integrity PASSED [  9%]
+tests/test_adni_pipeline.py::test_adni_dataset_integration PASSED        [ 11%]
+tests/test_budget_sampler.py::test_budget_fractions PASSED               [ 13%]
+tests/test_budget_sampler.py::test_budget_reproducibility PASSED         [ 15%]
+tests/test_budget_sampler.py::test_invalid_budget PASSED                 [ 16%]
+tests/test_caching.py::test_cache_manager_operations PASSED              [ 18%]
+tests/test_canonical_frontend_data.py::test_canonical_directory_and_files_exist PASSED [ 20%]
+tests/test_canonical_frontend_data.py::test_canonical_json_validity_and_no_nan_inf PASSED [ 22%]
+tests/test_canonical_frontend_data.py::test_models_json_schema_and_uniqueness PASSED [ 24%]
+tests/test_canonical_frontend_data.py::test_leaderboard_json_consistency PASSED [ 26%]
+tests/test_canonical_frontend_data.py::test_interpretability_index_portable_paths PASSED [ 28%]
+tests/test_canonical_frontend_data.py::test_audit_status_is_ready PASSED [ 30%]
+tests/test_config.py::test_load_yaml_configs PASSED                      [ 32%]
+tests/test_config.py::test_load_aggregated_config PASSED                 [ 33%]
+tests/test_config.py::test_env_override PASSED                           [ 35%]
+tests/test_config.py::test_validate_compatibility PASSED                 [ 37%]
+tests/test_dataloader.py::test_create_benchmark_dataloaders PASSED       [ 39%]
+tests/test_dataloader.py::test_budget_dataloader_reduction PASSED        [ 41%]
+tests/test_dataset.py::test_mock_data_generation PASSED                  [ 43%]
+tests/test_dataset.py::test_brain_mri_dataset_classification PASSED      [ 45%]
+tests/test_dataset.py::test_brain_mri_dataset_regression PASSED          [ 47%]
+tests/test_diagnostics.py::test_clinical_report PASSED                   [ 49%]
+tests/test_diagnostics.py::test_image_header_diagnostics PASSED          [ 50%]
+tests/test_experiment_config.py::test_valid_experiment_matrix PASSED     [ 52%]
+tests/test_experiment_config.py::test_invalid_experiment_matrix PASSED   [ 54%]
+tests/test_foundation_adapters.py::test_brainiac_adapter_linear_probe_and_finetune PASSED [ 56%]
+tests/test_foundation_adapters.py::test_fomo25_adapter_linear_probe_and_finetune PASSED [ 58%]
+tests/test_foundation_adapters.py::test_swin_unetr_adapter_linear_probe_and_finetune PASSED [ 60%]
+tests/test_foundation_adapters.py::test_unified_model_factory_dispatch PASSED [ 62%]
+tests/test_frontend_application.py::test_frontend_structure_and_assets PASSED [ 64%]
+tests/test_frontend_application.py::test_html_sections_completeness PASSED [ 66%]
+tests/test_frontend_application.py::test_frontend_server_smoke_test PASSED [ 67%]
+tests/test_frontend_application.py::test_frontend_terminology_compliance PASSED [ 69%]
+tests/test_metrics.py::test_classification_metrics_perfect_prediction PASSED [ 71%]
+tests/test_metrics.py::test_classification_metrics_torch_tensors PASSED  [ 73%]
+tests/test_metrics.py::test_regression_metrics PASSED                    [ 75%]
+tests/test_oasis_parser.py::test_oasis_cdr_mapping PASSED                [ 77%]
+tests/test_oasis_parser.py::test_oasis_normalization PASSED              [ 79%]
+tests/test_oasis_parser.py::test_oasis_parse_dataframe PASSED            [ 81%]
+tests/test_preprocessing.py::test_preprocessing_transforms_pipeline PASSED [ 83%]
+tests/test_preprocessing.py::test_training_augmentations PASSED          [ 84%]
+tests/test_resnet3d.py::test_resnet18_forward_and_backward PASSED        [ 86%]
+tests/test_resnet3d.py::test_resnet18_feature_extraction PASSED          [ 88%]
+tests/test_resnet3d.py::test_resnet34_and_resnet50_initialization PASSED [ 90%]
+tests/test_split_persistence.py::test_persistent_splits_creation_and_reloading PASSED [ 92%]
+tests/test_splits.py::test_patient_level_split_no_leakage PASSED         [ 94%]
+tests/test_splits.py::test_invalid_patient_ratios PASSED                 [ 96%]
+tests/test_trainer_loop.py::test_trainer_fit_and_early_stopping PASSED   [ 98%]
+tests/test_tuner.py::test_hyperparameter_tuner PASSED                    [100%]
+
+============================== warnings summary ===============================
+C:\Users\Dell\AppData\Roaming\Python\Python312\site-packages\torch\jit\_script.py:1640
+C:\Users\Dell\AppData\Roaming\Python\Python312\site-packages\torch\jit\_script.py:1640
+  C:\Users\Dell\AppData\Roaming\Python\Python312\site-packages\torch\jit\_script.py:1640: DeprecationWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+    warnings.warn(
+
+tests/test_dataloader.py::test_create_benchmark_dataloaders
+tests/test_dataloader.py::test_budget_dataloader_reduction
+tests/test_dataloader.py::test_budget_dataloader_reduction
+tests/test_dataset.py::test_brain_mri_dataset_classification
+tests/test_dataset.py::test_brain_mri_dataset_regression
+tests/test_preprocessing.py::test_preprocessing_transforms_pipeline
+tests/test_preprocessing.py::test_training_augmentations
+  C:\Users\Dell\AppData\Roaming\Python\Python312\site-packages\monai\utils\deprecate_utils.py:320: FutureWarning: monai.transforms.spatial.array Orientation.__init__:labels: Current default value of argument `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` was changed in version None from `labels=(('L', 'R'), ('P', 'A'), ('I', 'S'))` to `labels=None`. Default value changed to None meaning that the transform now uses the 'space' of a meta-tensor, if applicable, to determine appropriate axis labels.
+    warn_deprecated(argname, msg, warning_category)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 53 passed, 9 warnings in 52.35s =======================
+

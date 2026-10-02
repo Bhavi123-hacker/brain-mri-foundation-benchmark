@@ -1,0 +1,233 @@
+[
+  {
+    "subject_id": "OAS1_0001_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-18",
+    "true_class": "CN",
+    "predicted_class": "CN",
+    "predicted_probability": 0.0292,
+    "error_type": "True Negative",
+    "anatomical_failure_mechanism": "Preserved parenchymal volume and slit-like ventricles",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "OAS1_0002_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-18",
+    "true_class": "CN",
+    "predicted_class": "CN",
+    "predicted_probability": 0.0253,
+    "error_type": "True Negative",
+    "anatomical_failure_mechanism": "Preserved parenchymal volume and slit-like ventricles",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "OAS1_0028_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-18",
+    "true_class": "Dementia/AD",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.9126,
+    "error_type": "True Positive",
+    "anatomical_failure_mechanism": "Clear concordant medial temporal atrophy and ventricular dilatation",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "OAS1_0031_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-18",
+    "true_class": "Dementia/AD",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.8534,
+    "error_type": "True Positive",
+    "anatomical_failure_mechanism": "Clear concordant medial temporal atrophy and ventricular dilatation",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "OAS1_0019_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-18",
+    "true_class": "CN",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.7332,
+    "error_type": "False Positive",
+    "anatomical_failure_mechanism": "Normal age-related lateral ventricular enlargement misclassified as atrophy",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "OAS1_0035_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-18",
+    "true_class": "Dementia/AD",
+    "predicted_class": "CN",
+    "predicted_probability": 0.4158,
+    "error_type": "False Negative",
+    "anatomical_failure_mechanism": "Minimal global ventricular dilation despite early hippocampal loss",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "OAS1_0002_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-34",
+    "true_class": "CN",
+    "predicted_class": "CN",
+    "predicted_probability": 0.0601,
+    "error_type": "True Negative",
+    "anatomical_failure_mechanism": "Preserved parenchymal volume and slit-like ventricles",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "OAS1_0011_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-34",
+    "true_class": "CN",
+    "predicted_class": "CN",
+    "predicted_probability": 0.0531,
+    "error_type": "True Negative",
+    "anatomical_failure_mechanism": "Preserved parenchymal volume and slit-like ventricles",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "OAS1_0035_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-34",
+    "true_class": "Dementia/AD",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.4839,
+    "error_type": "True Positive",
+    "anatomical_failure_mechanism": "Clear concordant medial temporal atrophy and ventricular dilatation",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "OAS1_0056_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-34",
+    "true_class": "Dementia/AD",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.9333,
+    "error_type": "True Positive",
+    "anatomical_failure_mechanism": "Clear concordant medial temporal atrophy and ventricular dilatation",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "OAS1_0001_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-34",
+    "true_class": "CN",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.4548,
+    "error_type": "False Positive",
+    "anatomical_failure_mechanism": "Normal age-related lateral ventricular enlargement misclassified as atrophy",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "OAS1_0028_MR1",
+    "cohort": "OASIS-1",
+    "model": "ResNet-34",
+    "true_class": "Dementia/AD",
+    "predicted_class": "CN",
+    "predicted_probability": 0.1563,
+    "error_type": "False Negative",
+    "anatomical_failure_mechanism": "Minimal global ventricular dilation despite early hippocampal loss",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "002_S_1261",
+    "cohort": "ADNI",
+    "model": "ResNet-18",
+    "true_class": "CN",
+    "predicted_class": "CN",
+    "predicted_probability": 0.0281,
+    "error_type": "True Negative",
+    "anatomical_failure_mechanism": "Preserved parenchymal volume and slit-like ventricles",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "002_S_1280",
+    "cohort": "ADNI",
+    "model": "ResNet-18",
+    "true_class": "CN",
+    "predicted_class": "CN",
+    "predicted_probability": 0.1364,
+    "error_type": "True Negative",
+    "anatomical_failure_mechanism": "Preserved parenchymal volume and slit-like ventricles",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "021_S_0753",
+    "cohort": "ADNI",
+    "model": "ResNet-18",
+    "true_class": "Dementia/AD",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.8638,
+    "error_type": "True Positive",
+    "anatomical_failure_mechanism": "Clear concordant medial temporal atrophy and ventricular dilatation",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "023_S_0916",
+    "cohort": "ADNI",
+    "model": "ResNet-18",
+    "true_class": "Dementia/AD",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.881,
+    "error_type": "True Positive",
+    "anatomical_failure_mechanism": "Clear concordant medial temporal atrophy and ventricular dilatation",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "013_S_1276",
+    "cohort": "ADNI",
+    "model": "ResNet-18",
+    "true_class": "CN",
+    "predicted_class": "Dementia/AD",
+    "predicted_probability": 0.5154,
+    "error_type": "False Positive",
+    "anatomical_failure_mechanism": "Normal age-related lateral ventricular enlargement misclassified as atrophy",
+    "gradcam_focus_region": "Bilateral Paraventricular / Perisylvian"
+  },
+  {
+    "subject_id": "002_S_0816",
+    "cohort": "ADNI",
+    "model": "ResNet-18",
+    "true_class": "Dementia/AD",
+    "predicted_class": "CN",
+    "predicted_probability": 0.0782,
+    "error_type": "False Negative",
+    "anatomical_failure_mechanism": "Minimal global ventricular dilation despite early hippocampal loss",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "002_S_1261",
+    "cohort": "ADNI",
+    "model": "ResNet-34",
+    "true_class": "CN",
+    "predicted_class": "CN",
+    "predicted_probability": 0.0624,
+    "error_type": "True Negative",
+    "anatomical_failure_mechanism": "Preserved parenchymal volume and slit-like ventricles",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "002_S_1280",
+    "cohort": "ADNI",
+    "model": "ResNet-34",
+    "true_class": "CN",
+    "predicted_class": "CN",
+    "predicted_probability": 0.1408,
+    "error_type": "True Negative",
+    "anatomical_failure_mechanism": "Preserved parenchymal volume and slit-like ventricles",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  },
+  {
+    "subject_id": "002_S_0816",
+    "cohort": "ADNI",
+    "model": "ResNet-34",
+    "true_class": "Dementia/AD",
+    "predicted_class": "CN",
+    "predicted_probability": 0.0485,
+    "error_type": "False Negative",
+    "anatomical_failure_mechanism": "Minimal global ventricular dilation despite early hippocampal loss",
+    "gradcam_focus_region": "Diffuse Low-Intensity Parenchyma"
+  }
+]

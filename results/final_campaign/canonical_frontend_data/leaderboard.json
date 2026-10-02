@@ -1,0 +1,85 @@
+{
+  "leaderboard_title": "Comprehensive Benchmark Leaderboard",
+  "description": "Multi-tiered scientific ranking separating In-Domain Development, Locked Holdout, External Transfer, Stability, and Parameter Efficiency.",
+  "composite_score_note": "Study-specific composite development score (70% Perf, 15% Stability, 10% Param Eff, 5% Compute). Not a clinical diagnostic metric.",
+  "entries": [
+    {
+      "rank": 1,
+      "model_id": "ensemble_r34_swin",
+      "model_name": "Ensemble (ResNet-34 + Swin UNETR)",
+      "development_cv_auc": 0.9325,
+      "locked_test_auc": 1.0,
+      "external_adni_auc": 1.0,
+      "ssap_score": 0.895,
+      "ece": 0.048,
+      "trainable_params": 63556994,
+      "composite_development_score": 0.8872,
+      "category": "Hybrid Multimodal Leader"
+    },
+    {
+      "rank": 2,
+      "model_id": "resnet34",
+      "model_name": "Supervised 3D ResNet-34",
+      "development_cv_auc": 0.895,
+      "locked_test_auc": 1.0,
+      "external_adni_auc": 0.8125,
+      "ssap_score": 0.868,
+      "ece": 0.065,
+      "trainable_params": 63556225,
+      "composite_development_score": 0.8404,
+      "category": "High Capacity In-Domain Benchmark"
+    },
+    {
+      "rank": 3,
+      "model_id": "resnet18",
+      "model_name": "Supervised 3D ResNet-18",
+      "development_cv_auc": 0.845,
+      "locked_test_auc": 1.0,
+      "external_adni_auc": 0.9375,
+      "ssap_score": 0.8204,
+      "ece": 0.052,
+      "trainable_params": 33160513,
+      "composite_development_score": 0.8109,
+      "category": "Stable Supervised Baseline"
+    },
+    {
+      "rank": 4,
+      "model_id": "swin_unetr_ssl",
+      "model_name": "MONAI Swin UNETR SSL",
+      "development_cv_auc": 0.6175,
+      "locked_test_auc": 0.8125,
+      "external_adni_auc": 1.0,
+      "ssap_score": 0.542,
+      "ece": 0.124,
+      "trainable_params": 769,
+      "composite_development_score": 0.6659,
+      "category": "Top Generalizing Foundation Encoder"
+    },
+    {
+      "rank": 5,
+      "model_id": "brainiac",
+      "model_name": "BrainIAC",
+      "development_cv_auc": 0.54,
+      "locked_test_auc": 0.9375,
+      "external_adni_auc": 1.0,
+      "ssap_score": 0.4448,
+      "ece": 0.158,
+      "trainable_params": 769,
+      "composite_development_score": 0.6126,
+      "category": "In-Domain Weak / Transfer Robust"
+    },
+    {
+      "rank": 6,
+      "model_id": "fomo25_winner",
+      "model_name": "FOMO25 Winner",
+      "development_cv_auc": 0.525,
+      "locked_test_auc": 0.8125,
+      "external_adni_auc": 0.625,
+      "ssap_score": 0.435,
+      "ece": 0.171,
+      "trainable_params": 513,
+      "composite_development_score": 0.6186,
+      "category": "Compact Parameter Efficient"
+    }
+  ]
+}

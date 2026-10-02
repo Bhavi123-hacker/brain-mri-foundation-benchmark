@@ -1,0 +1,11 @@
+characteristic,oasis_1_pilot,adni_mprage,comparison_notes
+Total Subjects (N),50,50,Identically sized cohorts for fair cross-dataset comparison
+Class Distribution (CN / Dementia or AD),25 CN / 25 Dementia (50% / 50%),28 CN / 22 AD in manifest (25 CN / 25 AD matched benchmark),Balanced binary classification setup
+Diagnostic Criteria,Clinical Dementia Rating (CDR=0 vs CDR>=1; CDR=0.5 excluded),Consensus clinical NINCDS-ADRDA diagnosis (baseline DX: CN vs AD),Different clinical diagnostic instruments between cohorts
+Mean Age +/- Std (Years),71.0 +/- 15.0 [Range: 33 - 96],73.8 +/- 6.4 [Range: 57 - 88],OASIS-1 includes younger controls; ADNI age distribution is tightly elderly
+Sex Distribution (% Female),Approximately 60.0% F / 40.0% M,33 F / 17 M (66.0% F / 34.0% M),Both cohorts have slight female predominance typical of AD epidemiology
+Magnetic Field Strength,1.5 Tesla (100%),3.0 Tesla (100% - Siemens 2.89T / 3.0T),Domain shift: 1.5T vs 3.0T alters signal-to-noise ratio (SNR) and contrast
+Scanner Manufacturer,Siemens (100% Vision 1.5T),"Siemens (94% Trio/Verio/Skyra), Philips (6% Achieva)",Multi-site ADNI introduces scanner variation
+Raw MRI Dimensions (Voxels),256 x 256 x 128 / 256 x 256 x 160,"240 x 256 x 160 (94%), 256 x 256 x 170 (6%)",Different native acquisition grids and field-of-view
+Native Voxel Spacing (mm),1.0 x 1.0 x 1.25 mm (typical),1.0 x 1.0 x 1.20 mm,Near-isotropic sagittal 3D T1 MPRAGE
+Processed Model Input Dimensions,"[1, 128, 128, 128] float32","[1, 128, 128, 128] float32",Identical standardized affine resampling and robust z-score normalization

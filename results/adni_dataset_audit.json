@@ -1,0 +1,156 @@
+{
+  "dataset_name": "ADNI MPRAGE Benchmark Extracted Dataset",
+  "dataset_root": "D:\\AIML\\ADNI_MPRAGE_Benchmark_Extracted\\ADNI",
+  "audit_summary": {
+    "total_unique_subjects": 59,
+    "total_dicom_series": 68,
+    "total_dicom_files": 10990,
+    "subjects_with_exactly_one_series": 50,
+    "subjects_with_multiple_series": 9,
+    "subjects_selected_automatically": 50,
+    "subjects_ambiguous": 9,
+    "subjects_missing_or_invalid": 0,
+    "series_with_read_errors": 0,
+    "series_incomplete_or_irregular": 0
+  },
+  "distributions": {
+    "manufacturers": {
+      "by_subject": {
+        "SIEMENS": 52,
+        "Philips Medical Systems": 7
+      },
+      "by_series": {
+        "SIEMENS": 57,
+        "Philips Medical Systems": 11
+      }
+    },
+    "field_strength_tesla": {
+      "by_subject": {
+        "2.89": 35,
+        "3.0": 24
+      },
+      "by_series": {
+        "2.89": 40,
+        "3.0": 28
+      }
+    },
+    "matrix_size_rows_by_cols": {
+      "by_subject": {
+        "256x240": 52,
+        "256x256": 7
+      },
+      "by_series": {
+        "256x240": 57,
+        "256x256": 11
+      }
+    },
+    "slice_thickness": {
+      "by_subject": {
+        "1.2 mm": 59
+      },
+      "by_series": {
+        "1.2 mm": 68
+      }
+    },
+    "slice_count_per_volume": {
+      "160": 57,
+      "170": 11
+    }
+  },
+  "spatial_consistency_validation": {
+    "orientation_consistent_all_series": true,
+    "continuous_instance_numbers_all_series": true,
+    "regular_slice_spacing_all_series": true,
+    "all_ipp_present_all_series": true,
+    "incomplete_series_list": []
+  },
+  "ambiguous_subjects_summary": [
+    {
+      "subject_id": "002_S_1018",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I33832",
+        "I33831"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I33832, I33831; Series Numbers: 301, 401; Acquisition Numbers: 3, 4). Both series have identical matrix size (256x256), slice count (170), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    },
+    {
+      "subject_id": "013_S_0996",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I35294",
+        "I35296"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I35294, I35296; Series Numbers: 3, 7; Acquisition Numbers: 1, 1). Both series have identical matrix size (256x240), slice count (160), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    },
+    {
+      "subject_id": "018_S_0369",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I15110",
+        "I15109"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I15110, I15109; Series Numbers: 301, 401; Acquisition Numbers: 3, 4). Both series have identical matrix size (256x256), slice count (170), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    },
+    {
+      "subject_id": "018_S_0425",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I17167",
+        "I17168"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I17167, I17168; Series Numbers: 501, 601; Acquisition Numbers: 5, 6). Both series have identical matrix size (256x256), slice count (170), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    },
+    {
+      "subject_id": "018_S_0633",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I19093",
+        "I19092"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I19093, I19092; Series Numbers: 401, 501; Acquisition Numbers: 4, 5). Both series have identical matrix size (256x256), slice count (170), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    },
+    {
+      "subject_id": "133_S_0433",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I15757",
+        "I15756"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I15757, I15756; Series Numbers: 2, 3; Acquisition Numbers: 1, 1). Both series have identical matrix size (256x240), slice count (160), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    },
+    {
+      "subject_id": "133_S_0488",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I16438",
+        "I16437"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I16438, I16437; Series Numbers: 3, 4; Acquisition Numbers: 1, 1). Both series have identical matrix size (256x240), slice count (160), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    },
+    {
+      "subject_id": "133_S_0525",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I18379",
+        "I18380"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I18379, I18380; Series Numbers: 2, 3; Acquisition Numbers: 1, 1). Both series have identical matrix size (256x240), slice count (160), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    },
+    {
+      "subject_id": "133_S_1055",
+      "candidate_series_count": 2,
+      "candidate_series_ids": [
+        "I32117",
+        "I32118"
+      ],
+      "reason": "Subject has 2 complete repeat 3D MPRAGE acquisitions in the same study session (Series IDs: I32117, I32118; Series Numbers: 2, 3; Acquisition Numbers: 1, 1). Both series have identical matrix size (256x240), slice count (160), slice thickness (1.2mm), pixel spacing (1.0000\\1.0000), sequence parameters (TR/TE/FA), and zero slice gaps. No objective basis exists in raw DICOM metadata alone to favor one run over the duplicate without visual/external QC."
+    }
+  ],
+  "generated_audit_artifacts": [
+    "results/adni_series_audit.csv",
+    "results/adni_series_selection.csv",
+    "results/adni_ambiguous_subjects.csv",
+    "results/adni_dataset_audit.json"
+  ]
+}

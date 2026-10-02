@@ -1,0 +1,17 @@
+dataset,subject_id,partition,label,label_name,source_split_file,used_for_model_selection,used_for_threshold_selection,used_for_calibration,used_for_ensemble_selection,used_for_fusion_selection,used_for_gradcam_selection
+OASIS-1 Pilot,OAS1_0122_MR1,LOCKED_TEST,1,DEMENTIA,D:/OASIS1_PILOT/pilot_splits.csv,False,False,False,False,False,False
+OASIS-1 Pilot,OAS1_0033_MR1,LOCKED_TEST,0,CN,D:/OASIS1_PILOT/pilot_splits.csv,False,False,False,False,False,False
+OASIS-1 Pilot,OAS1_0070_MR1,LOCKED_TEST,0,CN,D:/OASIS1_PILOT/pilot_splits.csv,False,False,False,False,False,False
+OASIS-1 Pilot,OAS1_0053_MR1,LOCKED_TEST,1,DEMENTIA,D:/OASIS1_PILOT/pilot_splits.csv,False,False,False,False,False,False
+OASIS-1 Pilot,OAS1_0072_MR1,LOCKED_TEST,0,CN,D:/OASIS1_PILOT/pilot_splits.csv,False,False,False,False,False,False
+OASIS-1 Pilot,OAS1_0373_MR1,LOCKED_TEST,1,DEMENTIA,D:/OASIS1_PILOT/pilot_splits.csv,False,False,False,False,False,False
+OASIS-1 Pilot,OAS1_0074_MR1,LOCKED_TEST,0,CN,D:/OASIS1_PILOT/pilot_splits.csv,False,False,False,False,False,False
+OASIS-1 Pilot,OAS1_0223_MR1,LOCKED_TEST,1,DEMENTIA,D:/OASIS1_PILOT/pilot_splits.csv,False,False,False,False,False,False
+ADNI Benchmark,023_S_0058,LOCKED_TEST,0,CN,results/adni_cn_ad_split.csv,False,False,False,False,False,False
+ADNI Benchmark,023_S_1190,LOCKED_TEST,0,CN,results/adni_cn_ad_split.csv,False,False,False,False,False,False
+ADNI Benchmark,027_S_0404,LOCKED_TEST,1,AD,results/adni_cn_ad_split.csv,False,False,False,False,False,False
+ADNI Benchmark,031_S_1209,LOCKED_TEST,1,AD,results/adni_cn_ad_split.csv,False,False,False,False,False,False
+ADNI Benchmark,033_S_0920,LOCKED_TEST,0,CN,results/adni_cn_ad_split.csv,False,False,False,False,False,False
+ADNI Benchmark,051_S_1123,LOCKED_TEST,0,CN,results/adni_cn_ad_split.csv,False,False,False,False,False,False
+ADNI Benchmark,067_S_0812,LOCKED_TEST,1,AD,results/adni_cn_ad_split.csv,False,False,False,False,False,False
+ADNI Benchmark,116_S_0487,LOCKED_TEST,1,AD,results/adni_cn_ad_split.csv,False,False,False,False,False,False

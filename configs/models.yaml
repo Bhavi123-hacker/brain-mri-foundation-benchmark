@@ -1,0 +1,78 @@
+# Model Configurations for Baseline and Foundation Architectures
+
+baseline_resnet18:
+  name: "3D-ResNet-18"
+  type: "supervised_baseline"
+  architecture: "resnet18_3d"
+  in_channels: 1
+  spatial_dims: 3
+  dropout: 0.2
+  pretrained: false
+  weights_path: null
+  input_shape: [1, 128, 128, 128]
+  hyperparameters:
+    learning_rate: 1.0e-3
+    weight_decay: 1.0e-4
+    optimizer: "adamw"
+    scheduler: "cosine"
+    warmup_epochs: 3
+
+foundation_brainiac:
+  name: "BrainIAC"
+  type: "foundation_model"
+  architecture: "vit_base_patch16_3d"
+  in_channels: 1
+  spatial_dims: 3
+  patch_size: 16
+  embed_dim: 768
+  depth: 12
+  num_heads: 12
+  pretrained: true
+  hf_repo: "AIM-Harvard/BrainIAC"
+  checkpoint_url: "https://huggingface.co/AIM-Harvard/BrainIAC"
+  weights_path: "weights/brainiac_vit_base.pt"
+  input_shape: [1, 160, 192, 160]
+  adaptation_mode: "linear_probe" # options: linear_probe, fine_tune
+  hyperparameters:
+    learning_rate: 1.0e-4
+    weight_decay: 1.0e-3
+    optimizer: "adamw"
+    scheduler: "cosine"
+    warmup_epochs: 2
+
+foundation_fomo25:
+  name: "FOMO25-Winner"
+  type: "foundation_model"
+  architecture: "fomo_ssl3d_encoder"
+  in_channels: 1
+  spatial_dims: 3
+  pretrained: true
+  official_repo: "https://github.com/jbanusco/BrainFM4Challenges"
+  weights_path: "weights/fomo25_winner_encoder.pt"
+  input_shape: [1, 96, 96, 96]
+  adaptation_mode: "linear_probe" # options: linear_probe, fine_tune
+  hyperparameters:
+    learning_rate: 1.0e-4
+    weight_decay: 1.0e-3
+    optimizer: "adamw"
+    scheduler: "cosine"
+    warmup_epochs: 2
+
+foundation_swin_unetr:
+  name: "MONAI-SwinUNETR-SSL"
+  type: "foundation_model"
+  architecture: "swin_unetr_ssl"
+  in_channels: 1
+  spatial_dims: 3
+  feature_size: 48
+  pretrained: true
+  official_repo: "https://github.com/Project-MONAI/research-contributions"
+  weights_path: "weights/model_swinvit.pt"
+  input_shape: [1, 96, 96, 96]
+  adaptation_mode: "linear_probe" # options: linear_probe, fine_tune
+  hyperparameters:
+    learning_rate: 1.0e-4
+    weight_decay: 1.0e-3
+    optimizer: "adamw"
+    scheduler: "cosine"
+    warmup_epochs: 2

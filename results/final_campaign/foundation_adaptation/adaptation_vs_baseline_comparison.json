@@ -1,0 +1,242 @@
+[
+  {
+    "model_name": "BrainIAC",
+    "selected_strategy": "deeper_ft",
+    "evaluations": {
+      "Baseline Linear Probe": {
+        "strategy": "linear_probe",
+        "oasis_locked_test": {
+          "accuracy": 0.75,
+          "balanced_accuracy": 0.75,
+          "sensitivity": 0.5,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "roc_auc": 0.9375,
+          "brier": 0.23823609948158264,
+          "ece": 0.008067667484283447,
+          "tp": 2,
+          "tn": 4,
+          "fp": 0,
+          "fn": 2,
+          "total_failures": 2
+        },
+        "adni_external_holdout": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "roc_auc": 0.375,
+          "brier": 0.25272196531295776,
+          "ece": 0.025893330574035645,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "total_failures": 4
+        }
+      },
+      "Adapted / Fine-Tuned": {
+        "strategy": "deeper_ft",
+        "oasis_locked_test": {
+          "accuracy": 0.75,
+          "balanced_accuracy": 0.75,
+          "sensitivity": 0.75,
+          "specificity": 0.75,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "roc_auc": 0.875,
+          "brier": 0.15882544219493866,
+          "ece": 0.24498924426734447,
+          "tp": 3,
+          "tn": 3,
+          "fp": 1,
+          "fn": 1,
+          "total_failures": 2
+        },
+        "adni_external_holdout": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "roc_auc": 0.5,
+          "brier": 0.27409517765045166,
+          "ece": 0.23480001091957092,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "total_failures": 4
+        }
+      }
+    }
+  },
+  {
+    "model_name": "FOMO25",
+    "selected_strategy": "full_ft",
+    "evaluations": {
+      "Baseline Linear Probe": {
+        "strategy": "linear_probe",
+        "oasis_locked_test": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "roc_auc": 0.25,
+          "brier": 0.25051698088645935,
+          "ece": 0.014715611934661865,
+          "tp": 4,
+          "tn": 0,
+          "fp": 4,
+          "fn": 0,
+          "total_failures": 4
+        },
+        "adni_external_holdout": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "roc_auc": 0.875,
+          "brier": 0.24938291311264038,
+          "ece": 0.01013094186782837,
+          "tp": 4,
+          "tn": 0,
+          "fp": 4,
+          "fn": 0,
+          "total_failures": 4
+        }
+      },
+      "Adapted / Fine-Tuned": {
+        "strategy": "full_ft",
+        "oasis_locked_test": {
+          "accuracy": 0.875,
+          "balanced_accuracy": 0.875,
+          "sensitivity": 0.75,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571,
+          "roc_auc": 1.0,
+          "brier": 0.20660677552223206,
+          "ece": 0.12171664834022522,
+          "tp": 3,
+          "tn": 4,
+          "fp": 0,
+          "fn": 1,
+          "total_failures": 1
+        },
+        "adni_external_holdout": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "roc_auc": 0.4375,
+          "brier": 0.30066654086112976,
+          "ece": 0.22735166549682617,
+          "tp": 4,
+          "tn": 0,
+          "fp": 4,
+          "fn": 0,
+          "total_failures": 4
+        }
+      }
+    }
+  },
+  {
+    "model_name": "SwinUNETR",
+    "selected_strategy": "deeper_ft",
+    "evaluations": {
+      "Baseline Linear Probe": {
+        "strategy": "linear_probe",
+        "oasis_locked_test": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "roc_auc": 0.5,
+          "brier": 0.24999746680259705,
+          "ece": 0.004831761121749878,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "total_failures": 4
+        },
+        "adni_external_holdout": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "roc_auc": 0.375,
+          "brier": 0.2501381039619446,
+          "ece": 0.006212115287780762,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "total_failures": 4
+        }
+      },
+      "Adapted / Fine-Tuned": {
+        "strategy": "deeper_ft",
+        "oasis_locked_test": {
+          "accuracy": 0.625,
+          "balanced_accuracy": 0.625,
+          "sensitivity": 0.25,
+          "specificity": 1.0,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "roc_auc": 0.875,
+          "brier": 0.224412739276886,
+          "ece": 0.2424839362502098,
+          "tp": 1,
+          "tn": 4,
+          "fp": 0,
+          "fn": 3,
+          "total_failures": 3
+        },
+        "adni_external_holdout": {
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "roc_auc": 0.8125,
+          "brier": 0.24243289232254028,
+          "ece": 0.08130589127540588,
+          "tp": 4,
+          "tn": 0,
+          "fp": 4,
+          "fn": 0,
+          "total_failures": 4
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,66 @@
+# Dataset Configuration for Brain MRI Benchmark
+
+adni:
+  name: "ADNI"
+  description: "Alzheimer's Disease Neuroimaging Initiative (T1-weighted MRI)"
+  modality: "T1w"
+  # Paths can be overridden via ADNI_DATA_DIR / ADNI_METADATA_PATH environment variables
+  root_dir: "data/adni"
+  metadata_path: "data/adni/adni_metadata.csv"
+  patient_id_col: "PTID"
+  image_id_col: "IMAGEUID"
+  file_path_col: "FILE_PATH"
+  diagnosis_col: "DX"
+  age_col: "AGE"
+  sex_col: "PTGENDER"
+  visit_col: "VISCODE"
+  mmse_col: "MMSE"
+  cdr_col: "CDRSB"
+  allowed_diagnoses: ["CN", "MCI", "AD"]
+
+oasis3:
+  name: "OASIS-3"
+  description: "Open Access Series of Imaging Studies 3 (Longitudinal T1w MRI)"
+  modality: "T1w"
+  # Paths can be overridden via OASIS3_DATA_DIR / OASIS3_METADATA_PATH environment variables
+  root_dir: "data/oasis3"
+  metadata_path: "data/oasis3/oasis3_metadata.csv"
+  patient_id_col: "OASISID"
+  image_id_col: "SCAN_ID"
+  file_path_col: "FILE_PATH"
+  diagnosis_col: "CDR"
+  age_col: "AGE"
+  sex_col: "GENDER"
+  visit_col: "VISIT"
+  mmse_col: "MMSE"
+  cdr_col: "CDR"
+  # CDR mapping: 0.0 -> CN, 0.5 -> MCI, >= 1.0 -> AD
+  cdr_mapping:
+    0.0: "CN"
+    0.5: "MCI"
+    1.0: "AD"
+    2.0: "AD"
+    3.0: "AD"
+
+mock_dataset:
+  name: "SYNTHETIC_MOCK"
+  description: "Synthetic 3D Brain MRI phantoms for local testing and CI"
+  modality: "T1w"
+  root_dir: "data/mock_data"
+  metadata_path: "data/mock_data/mock_metadata.csv"
+  patient_id_col: "PTID"
+  image_id_col: "IMAGEUID"
+  file_path_col: "FILE_PATH"
+  diagnosis_col: "DX"
+  age_col: "AGE"
+  sex_col: "PTGENDER"
+  visit_col: "VISCODE"
+
+preprocessing:
+  spatial_shape: [128, 128, 128]
+  voxel_spacing: [1.0, 1.0, 1.0]
+  intensity_normalization: "z_score" # options: z_score, min_max, rescale_0_1
+  percentiles: [0.5, 99.5]
+  orient_axcodes: "RAS"
+  use_cache: true
+  cache_dir: "data/cache/preprocessed"

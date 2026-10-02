@@ -1,0 +1,7 @@
+model,temperature_factor_T,temperature_fit_data,test_used_for_fitting,raw_brier_score,recomputed_ece,recomputed_mce,calibration_status,leakage_status
+Supervised 3D ResNet-18,1.35,OASIS-1 Development Validation Folds Only,False,0.0912,0.175,0.325,CALIBRATED_POST_HOC,PASS (Fitted on Dev Data Only)
+Supervised 3D ResNet-34,1.4,OASIS-1 Development Validation Folds Only,False,0.0371,0.165,0.35,CALIBRATED_POST_HOC,PASS (Fitted on Dev Data Only)
+BrainIAC,1.85,OASIS-1 Development Validation Folds Only,False,0.1583,0.1162,0.22,CALIBRATED_POST_HOC,PASS (Fitted on Dev Data Only)
+FOMO25 Winner,1.65,OASIS-1 Development Validation Folds Only,False,0.1785,0.1137,0.25,CALIBRATED_POST_HOC,PASS (Fitted on Dev Data Only)
+MONAI Swin UNETR SSL,1.65,OASIS-1 Development Validation Folds Only,False,0.2259,0.085,0.48,CALIBRATED_POST_HOC,PASS (Fitted on Dev Data Only)
+Ensemble (ResNet-34 + Swin),1.0,OASIS-1 Development Validation Folds Only,False,0.0864,0.285,0.3193,CALIBRATED_POST_HOC,PASS (Fitted on Dev Data Only)

@@ -1,0 +1,6 @@
+model,paradigm,total_params,trainable_params,train_time_sec,inf_latency_sec,cv_auc,test_auc,auc_per_million_trainable_params,auc_per_training_second
+MONAI Swin UNETR SSL,Foundation (Linear Probe),774913,769,0.28,0.0004,0.655,0.425,851.76,2.3393
+FOMO25 Winner,Foundation (Linear Probe),1296641,513,0.21,0.0004,0.6687,0.5375,1303.51,3.1843
+BrainIAC,Foundation (Linear Probe),6538049,769,0.15,0.0002,0.5862,0.5375,762.29,3.908
+3D ResNet-18,Supervised Deep CNN,33160513,33160513,15.2,0.027,0.9,0.8375,0.03,0.0592
+3D ResNet-34,Supervised Deep CNN,63556225,63556225,28.5,0.052,0.7425,0.925,0.01,0.0261

@@ -1,0 +1,11 @@
+model,classifier,cv_roc_auc_mean,cv_roc_auc_std,cv_accuracy_mean,cv_balanced_acc_mean,cv_f1_mean
+BrainIAC,Nearest Centroid,0.5862,0.1269,0.5694,0.57,0.5464
+BrainIAC,Logistic Regression,0.5475,0.1443,0.575,0.585,0.5869
+FOMO25 Winner,Nearest Centroid,0.6687,0.1237,0.5722,0.57,0.4988
+FOMO25 Winner,Logistic Regression,0.7,0.1132,0.5722,0.59,0.4788
+MONAI Swin UNETR SSL,Nearest Centroid,0.655,0.1449,0.6194,0.615,0.6131
+MONAI Swin UNETR SSL,Logistic Regression,0.6575,0.0873,0.575,0.58,0.5967
+Supervised 3D ResNet-18,Nearest Centroid,0.9,0.0559,0.9028,0.9,0.9025
+Supervised 3D ResNet-18,Logistic Regression,0.9675,0.0464,0.9028,0.9,0.8961
+Supervised 3D ResNet-34,Nearest Centroid,0.7425,0.2124,0.6917,0.695,0.729
+Supervised 3D ResNet-34,Logistic Regression,0.7625,0.2075,0.7111,0.71,0.7018

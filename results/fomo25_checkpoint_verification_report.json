@@ -1,0 +1,53 @@
+{
+  "step": "Phase 5D Step 2 \u2014 FOMO25 Winner Checkpoint Verification",
+  "checkpoint_info": {
+    "checkpoint_name": "fomo25_winner_encoder.pt",
+    "file_path": "D:\\ml project\\weights\\fomo25_winner_encoder.pt",
+    "file_exists": true,
+    "file_size_bytes": 5202157,
+    "file_size_mb": 4.96,
+    "sha256_hash": "bea8a7d00010607b025198579c86ef1b5755aafa1f36162b1b195d602e3e5d16",
+    "official_source": "BrainFM4Challenges / CHUV (MICCAI FOMO 2025 Winner)"
+  },
+  "model_adapter_verification": {
+    "model_name": "FOMO25-Winner",
+    "adapter_class": "FOMO25Adapter",
+    "device": "cpu",
+    "total_parameters": 1296641,
+    "checkpoint_keys_loaded_successfully": true,
+    "missing_keys_count": 0,
+    "unexpected_keys_count": 0,
+    "critical_missing_keys": [],
+    "unexpected_keys": []
+  },
+  "single_tensor_forward_pass_verification": {
+    "source_tensor": "Real OASIS-1 Preprocessed Tensor (Cache File: 0eee0e5c57f93a5b.pt)",
+    "input_tensor_shape": [
+      1,
+      1,
+      128,
+      128,
+      128
+    ],
+    "output_logits_shape": [
+      1,
+      1
+    ],
+    "expected_logits_shape": [
+      1,
+      1
+    ],
+    "extracted_embedding_shape": [
+      1,
+      512
+    ],
+    "expected_embedding_shape": [
+      1,
+      512
+    ],
+    "output_is_finite": true,
+    "features_are_finite": true,
+    "weights_loaded_verification": true
+  },
+  "status": "PASS"
+}

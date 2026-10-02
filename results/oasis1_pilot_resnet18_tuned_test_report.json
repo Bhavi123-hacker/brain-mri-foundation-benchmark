@@ -1,0 +1,49 @@
+{
+  "dataset_name": "OASIS-1 Pilot",
+  "evaluation_stage": "Phase 5C Final Tuned 3D ResNet-18 Baseline Test Evaluation",
+  "selected_configuration": {
+    "trial_id": 4,
+    "learning_rate": 0.0003,
+    "weight_decay": 1e-05,
+    "best_validation_loss": 0.4122,
+    "best_validation_epoch": 17,
+    "checkpoint_evaluated": "results\\checkpoints\\oasis1_pilot_resnet18_tuned_best.pt"
+  },
+  "verification_checks": {
+    "test_subjects_count": 8,
+    "test_subjects_never_used_in_tuning": true,
+    "patient_overlap_detected": false,
+    "patient_overlap_verification": "0% Patient Overlap (PASSED)",
+    "selected_checkpoint_corresponds_to_trial_4": true,
+    "test_evaluated_exact_number_of_times": 1,
+    "checkpoint_file_preserved": true
+  },
+  "final_untouched_test_metrics": {
+    "test_loss": 0.3525,
+    "accuracy": 0.75,
+    "balanced_accuracy": 0.75,
+    "precision": 1.0,
+    "recall": 0.5,
+    "sensitivity": 0.5,
+    "specificity": 1.0,
+    "f1": 0.6667,
+    "roc_auc": 1.0,
+    "brier_score": 0.1245,
+    "confusion_matrix": {
+      "tp": 2,
+      "tn": 4,
+      "fp": 0,
+      "fn": 2
+    }
+  },
+  "compute_hardware_and_latency": {
+    "device": "cpu",
+    "device_name": "CPU (Host)",
+    "cuda_available": false,
+    "test_eval_time_seconds": 5.0899,
+    "latency_ms_per_sample": 636.24,
+    "throughput_samples_per_sec": 1.57
+  },
+  "methodological_disclaimer": "This final test evaluation was performed exactly ONCE on the 8-subject holdout test set using the validation-selected Trial-4 checkpoint. This pilot benchmark verifies pipeline reproducibility on 50 subjects prior to full scaling.",
+  "warnings_or_errors": []
+}

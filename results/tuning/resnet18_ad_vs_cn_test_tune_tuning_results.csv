@@ -1,0 +1,3 @@
+trial_id,trial_name,val_loss,is_best,total_epochs,elapsed_seconds,peak_vram_mb,total_parameters,learning_rate,weight_decay,optimizer,scheduler,dropout
+1,resnet18_ad_vs_cn_test_tune_trial_01,0.7605180740356445,True,2,7.88,0.0,33160513,0.0003,0.0001,adamw,cosine,0.2
+2,resnet18_ad_vs_cn_test_tune_trial_02,1.0581438541412354,False,2,7.96,0.0,33160513,0.001,0.0001,adamw,cosine,0.2

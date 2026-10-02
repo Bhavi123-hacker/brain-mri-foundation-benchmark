@@ -1,0 +1,29 @@
+{
+  "dataset_name": "ADNI MPRAGE CN vs AD Benchmark",
+  "total_processed_subjects": 50,
+  "total_failures": 0,
+  "preprocessed_tensor_shape": [
+    1,
+    128,
+    128,
+    128
+  ],
+  "tensor_dtype": "torch.float32 (cached as float16 in .pt, float32 in .npy)",
+  "intensity_normalization": "non-zero z-score (channel-wise)",
+  "spatial_resampling": "trilinear interpolation to (128, 128, 128)",
+  "cache_directory": "D:\\ml project\\data\\cache\\adni_cn_ad",
+  "total_cache_size_mb": 600.31,
+  "processing_time_seconds": 76.37,
+  "aggregate_intensity_statistics": {
+    "mean_of_mins": -0.6804,
+    "mean_of_maxs": 8.3254,
+    "global_mean": 0.0001,
+    "global_std": 0.9557
+  },
+  "all_validations_passed": true,
+  "zero_nan_inf_verified": true,
+  "class_distribution": {
+    "CN": 28,
+    "AD": 22
+  }
+}

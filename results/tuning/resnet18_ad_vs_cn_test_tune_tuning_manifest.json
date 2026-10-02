@@ -1,0 +1,14 @@
+{
+  "experiment": "resnet18_ad_vs_cn_test_tune",
+  "num_trials": 2,
+  "best_config": {
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "optimizer": "adamw",
+    "scheduler": "cosine",
+    "dropout": 0.2
+  },
+  "best_val_score": -0.7605180740356445,
+  "best_checkpoint_path": "results\\tuning\\checkpoints\\resnet18_ad_vs_cn_test_tune_trial_01_best.pt",
+  "results_csv": "results\\tuning\\resnet18_ad_vs_cn_test_tune_tuning_results.csv"
+}

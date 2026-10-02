@@ -1,0 +1,7 @@
+Rank,Model,OASIS_Dev_CV_AUC,OASIS_Dev_CV_BalAcc,OASIS_Holdout_Test_AUC,OASIS_Holdout_Test_95_CI,ADNI_External_Transfer_AUC
+1,Ensemble (ResNet-34 + Swin UNETR),0.9325,0.881,1.0,"[1.000, 1.000]",1.0
+2,Supervised 3D ResNet-34,0.895,0.8571,1.0,"[1.000, 1.000]",0.8125
+3,Supervised 3D ResNet-18,0.845,0.8095,1.0,"[1.000, 1.000]",0.9375
+4,MONAI Swin UNETR SSL (Linear Probe),0.6175,0.5952,0.8125,"[0.400, 1.000]",1.0
+5,BrainIAC (Linear Probe),0.54,0.5238,0.9375,"[0.667, 1.000]",1.0
+6,FOMO25 Winner (Linear Probe),0.525,0.5,0.8125,"[0.400, 1.000]",0.625

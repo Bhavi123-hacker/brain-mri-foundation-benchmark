@@ -1,0 +1,66 @@
+{
+  "project_title": "Fair Benchmarking of Brain-MRI Foundation Models Against Well-Tuned Supervised Deep Learning Baselines",
+  "research_question": "When labeled brain-MRI data are limited (N <= 50), do pretrained brain-MRI foundation-model representations provide advantages in data efficiency, parameter efficiency, stability, calibration, interpretability, and cross-dataset robustness compared with well-tuned supervised 3D CNN baselines?",
+  "study_design": "Multi-tiered controlled retrospective neuroimaging benchmark",
+  "regulatory_disclaimer": "This is a research benchmark, not a clinical diagnostic system.",
+  "datasets": {
+    "oasis1_pilot": {
+      "name": "OASIS-1 Pilot Cohort",
+      "sample_size": 50,
+      "magnetic_field_strength": "1.5 Tesla",
+      "scanner": "Siemens Vision",
+      "classes": {
+        "CN": 25,
+        "DEMENTIA": 25
+      },
+      "development_n": 42,
+      "holdout_test_n": 8
+    },
+    "adni_mprage": {
+      "name": "ADNI External Benchmark Cohort",
+      "sample_size": 50,
+      "magnetic_field_strength": "3.0 Tesla",
+      "scanner": "Siemens Trio/Verio/Skyra (94%), Philips Achieva (6%)",
+      "classes": {
+        "CN": 28,
+        "AD": 22
+      },
+      "matched_benchmark_subset": {
+        "CN": 25,
+        "AD": 25
+      },
+      "development_n": 42,
+      "holdout_test_n": 8
+    }
+  },
+  "class_definitions": {
+    "OASIS-1": "Clinical Dementia Rating (CDR 0 = Control, CDR >= 1 = Dementia; CDR 0.5 excluded)",
+    "ADNI": "Consensus clinical NINCDS-ADRDA diagnosis (baseline DX: CN vs AD)"
+  },
+  "preprocessing_summary": "Standardized canonical reorientation (RAS), uniform isotropic affine resampling to 128x128x128 voxels, and robust volumetric intensity normalization using median/IQR.",
+  "split_strategy": "Patient-level stratified 5-fold cross-validation on development pool (N=42) across multiple random seeds; strictly isolated holdout test set (N=8) evaluated once post-freeze.",
+  "models_evaluated": [
+    "Supervised 3D ResNet-18",
+    "Supervised 3D ResNet-34",
+    "BrainIAC (ViT-Base)",
+    "FOMO25 Winner",
+    "MONAI Swin UNETR SSL",
+    "Ensemble (ResNet-34 + Swin)",
+    "Swin UNETR + ResNet-18 Fusion"
+  ],
+  "evaluation_metrics": [
+    "ROC-AUC",
+    "Balanced Accuracy",
+    "Sensitivity",
+    "Specificity",
+    "F1 Score",
+    "Expected Calibration Error (ECE)",
+    "Brier Score",
+    "Seed-Stability Adjusted Performance (SSAP)"
+  ],
+  "number_of_seeds": 5,
+  "number_of_CV_folds": 5,
+  "confidence_interval_method": "1000-resample non-parametric bootstrap (95% percentile interval)",
+  "leakage_status": "ZERO_LEAKAGE_CONFIRMED",
+  "research_status": "CONDITIONAL GO (Statistically Limited Pilot Benchmark)"
+}

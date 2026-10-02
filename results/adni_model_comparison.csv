@@ -1,0 +1,5 @@
+model_family,model_slug,model_type,total_params,trainable_params,test_roc_auc_mean,test_roc_auc_std,test_accuracy_mean,test_accuracy_std,test_balanced_acc_mean,test_balanced_acc_std,test_f1_mean,test_f1_std,test_recall_mean,test_specificity_mean,test_brier_mean,ensemble_roc_auc,ensemble_accuracy,ensemble_f1,ensemble_brier,ensemble_roc_auc_ci_95
+Supervised 3D ResNet-18,resnet18,supervised_baseline,33160513,33160513,0.525,0.261,0.45,0.1871,0.45,0.1871,0.379,0.2521,0.45,0.45,0.2916,0.625,0.625,0.6667,0.2566,"[0.1333, 1.0]"
+BrainIAC (Linear Probe),brainiac,foundation_linear_probe,6538049,769,0.6625,0.1016,0.55,0.1275,0.55,0.1275,0.4305,0.1883,0.4,0.7,0.4084,0.6875,0.5,0.3333,0.2531,"[0.1908, 1.0]"
+FOMO25 Winner (Linear Probe),fomo25,foundation_linear_probe,1296641,513,0.4375,0.1723,0.475,0.1225,0.475,0.1225,0.2,0.2667,0.2,0.75,0.3144,0.375,0.5,0.0,0.277,"[0.0, 0.8597]"
+MONAI Swin UNETR SSL (Linear Probe),swin_unetr,foundation_linear_probe,774913,769,0.6,0.192,0.525,0.05,0.525,0.05,0.1455,0.2909,0.2,0.85,0.3951,0.8125,0.5,0.0,0.3364,"[0.4286, 1.0]"

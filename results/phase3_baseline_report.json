@@ -1,0 +1,124 @@
+{
+  "Task_1_AD_vs_CN": {
+    "fit_summary": {
+      "best_val_loss": 0.9739408493041992,
+      "total_epochs": 3,
+      "total_training_time_seconds": 12.304429292678833,
+      "best_checkpoint_path": "results\\checkpoints\\baseline_resnet18_ad_vs_cn_mock_best.pt",
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.6052562246719996,
+          "val_loss": 2.6514651775360107,
+          "epoch_time_seconds": 2.93709135055542,
+          "is_best": true
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.4509830176830292,
+          "val_loss": 0.9739408493041992,
+          "epoch_time_seconds": 2.9030818939208984,
+          "is_best": true
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.48297592004140216,
+          "val_loss": 3.3457045555114746,
+          "epoch_time_seconds": 5.923569202423096,
+          "is_best": false
+        }
+      ]
+    },
+    "test_metrics": {
+      "roc_auc": 0.5,
+      "accuracy": 0.0,
+      "balanced_accuracy": 0.0,
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "sensitivity": 0.0,
+      "specificity": 0.0,
+      "brier_score": 0.3864,
+      "tp": 0,
+      "tn": 0,
+      "fp": 0,
+      "fn": 4,
+      "latency_ms_per_sample": 39.59,
+      "throughput_samples_per_sec": 25.26
+    },
+    "compute_profile": {
+      "elapsed_seconds": 13.77,
+      "gpu_hours": 0.0,
+      "peak_vram_mb": 0.0,
+      "host_ram_mb": 1270.37,
+      "device": "cpu",
+      "total_parameters": 33160513,
+      "trainable_parameters": 33160513,
+      "checkpoint_size_mb": 126.58
+    }
+  },
+  "Task_2_Brain_Age": {
+    "fit_summary": {
+      "best_val_loss": 2536.4140625,
+      "total_epochs": 3,
+      "total_training_time_seconds": 19.590837240219116,
+      "best_checkpoint_path": "results\\checkpoints\\baseline_resnet18_brain_age_mock_best.pt",
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 4762.702941894531,
+          "val_loss": 4672.26904296875,
+          "epoch_time_seconds": 7.165512800216675,
+          "is_best": true
+        },
+        {
+          "epoch": 2,
+          "train_loss": 4535.654968261719,
+          "val_loss": 5595.55126953125,
+          "epoch_time_seconds": 6.4380409717559814,
+          "is_best": false
+        },
+        {
+          "epoch": 3,
+          "train_loss": 4356.407775878906,
+          "val_loss": 2536.4140625,
+          "epoch_time_seconds": 5.33090615272522,
+          "is_best": true
+        }
+      ]
+    },
+    "test_metrics": {
+      "mae": 45.8599,
+      "rmse": 46.4327,
+      "r2": -39.8513,
+      "pearson_r": -0.0254,
+      "spearman_rho": 0.0286,
+      "latency_ms_per_sample": 35.34,
+      "throughput_samples_per_sec": 28.3
+    },
+    "compute_profile": {
+      "elapsed_seconds": 21.08,
+      "gpu_hours": 0.0,
+      "peak_vram_mb": 0.0,
+      "host_ram_mb": 1608.55,
+      "device": "cpu",
+      "total_parameters": 33160513,
+      "trainable_parameters": 33160513,
+      "checkpoint_size_mb": 126.58
+    }
+  },
+  "Tuning_Infrastructure_Verification": {
+    "experiment": "resnet18_ad_vs_cn_test_tune",
+    "num_trials": 2,
+    "best_config": {
+      "learning_rate": 0.0003,
+      "weight_decay": 0.0001,
+      "optimizer": "adamw",
+      "scheduler": "cosine",
+      "dropout": 0.2
+    },
+    "best_val_score": -0.7605180740356445,
+    "best_checkpoint_path": "results\\tuning\\checkpoints\\resnet18_ad_vs_cn_test_tune_trial_01_best.pt",
+    "results_csv": "results\\tuning\\resnet18_ad_vs_cn_test_tune_tuning_results.csv"
+  }
+}

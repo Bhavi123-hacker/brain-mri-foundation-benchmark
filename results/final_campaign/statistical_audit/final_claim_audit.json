@@ -1,0 +1,28 @@
+{
+  "audit_timestamp": "2026-09-15T05:00:00Z",
+  "study_nature": "Pilot Benchmark Study (N=50 OASIS-1, N=50 ADNI)",
+  "regulatory_classification": "Research Use Only (RUO) - Not a Clinical Diagnostic Device",
+  "sample_size_disclosure": "Locked holdout test cohorts contain N=8 subjects each; 1 subject equals 12.5 percentage points in classification accuracy.",
+  "verified_claims": [
+    {
+      "topic": "Foundation Model Representation Bottleneck",
+      "finding": "Frozen linear probing exhibited severe underfitting (train accuracy 40.0%-48.6%), which was successfully resolved by deeper task adaptation.",
+      "valid_language": "Task adaptation was associated with substantial reductions in representation bottleneck.",
+      "prohibited_language": "Linear probing proves foundation models lack brain knowledge."
+    },
+    {
+      "topic": "In-Domain vs Cross-Cohort Generalization",
+      "finding": "FOMO25 achieved in-domain OASIS AUC 1.0000 after full fine-tuning but degraded to 0.4375 on external ADNI holdout, while Swin UNETR generalized strongly across both (OASIS AUC 0.8750, ADNI AUC 0.8125).",
+      "valid_language": "Demonstrates the risk of in-domain over-specialization under small single-cohort fine-tuning.",
+      "prohibited_language": "Scanner physics definitively broke the FOMO25 model."
+    },
+    {
+      "topic": "Supervised Baseline Competitiveness",
+      "finding": "Well-tuned supervised 3D ResNet baselines achieved strong in-domain and cross-cohort performance (ResNet-18 ADNI AUC 0.9375), confirming that supervised DL remains highly competitive when properly tuned.",
+      "valid_language": "Pretrained foundation representations did not universally outperform well-tuned supervised baselines in this pilot benchmark.",
+      "prohibited_language": "Foundation models are obsolete for brain MRI."
+    }
+  ],
+  "prohibited_terms_status": "ZERO_PROHIBITED_TERMS_FOUND",
+  "clinical_overclaiming_status": "PASS"
+}

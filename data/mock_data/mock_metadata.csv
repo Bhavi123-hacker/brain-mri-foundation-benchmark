@@ -1,0 +1,25 @@
+PTID,IMAGEUID,VISCODE,FILE_PATH,DX,AGE,PTGENDER,MMSE,CDRSB,IS_SYNTHETIC
+MOCK_PT_000,MOCK_IMG_0000,m00,D:\ml project\data\mock_data\scans\MOCK_PT_000_m00_MOCK_IMG_0000.nii.gz,CN,67.0,M,22,0.0,True
+MOCK_PT_000,MOCK_IMG_0001,m12,D:\ml project\data\mock_data\scans\MOCK_PT_000_m12_MOCK_IMG_0001.nii.gz,CN,68.0,M,25,0.0,True
+MOCK_PT_001,MOCK_IMG_0002,m00,D:\ml project\data\mock_data\scans\MOCK_PT_001_m00_MOCK_IMG_0002.nii.gz,CN,67.5,F,18,0.5,True
+MOCK_PT_001,MOCK_IMG_0003,m12,D:\ml project\data\mock_data\scans\MOCK_PT_001_m12_MOCK_IMG_0003.nii.gz,CN,68.5,F,30,0.5,True
+MOCK_PT_002,MOCK_IMG_0004,m00,D:\ml project\data\mock_data\scans\MOCK_PT_002_m00_MOCK_IMG_0004.nii.gz,CN,81.3,M,20,1.0,True
+MOCK_PT_002,MOCK_IMG_0005,m12,D:\ml project\data\mock_data\scans\MOCK_PT_002_m12_MOCK_IMG_0005.nii.gz,CN,82.3,M,19,4.5,True
+MOCK_PT_003,MOCK_IMG_0006,m00,D:\ml project\data\mock_data\scans\MOCK_PT_003_m00_MOCK_IMG_0006.nii.gz,AD,68.5,M,21,2.0,True
+MOCK_PT_003,MOCK_IMG_0007,m12,D:\ml project\data\mock_data\scans\MOCK_PT_003_m12_MOCK_IMG_0007.nii.gz,AD,69.5,M,30,4.5,True
+MOCK_PT_004,MOCK_IMG_0008,m00,D:\ml project\data\mock_data\scans\MOCK_PT_004_m00_MOCK_IMG_0008.nii.gz,AD,75.3,M,28,1.0,True
+MOCK_PT_004,MOCK_IMG_0009,m12,D:\ml project\data\mock_data\scans\MOCK_PT_004_m12_MOCK_IMG_0009.nii.gz,AD,76.3,M,21,4.5,True
+MOCK_PT_005,MOCK_IMG_0010,m00,D:\ml project\data\mock_data\scans\MOCK_PT_005_m00_MOCK_IMG_0010.nii.gz,AD,67.6,F,24,0.5,True
+MOCK_PT_005,MOCK_IMG_0011,m12,D:\ml project\data\mock_data\scans\MOCK_PT_005_m12_MOCK_IMG_0011.nii.gz,AD,68.6,F,29,1.0,True
+MOCK_PT_006,MOCK_IMG_0012,m00,D:\ml project\data\mock_data\scans\MOCK_PT_006_m00_MOCK_IMG_0012.nii.gz,MCI,80.6,F,19,2.0,True
+MOCK_PT_006,MOCK_IMG_0013,m12,D:\ml project\data\mock_data\scans\MOCK_PT_006_m12_MOCK_IMG_0013.nii.gz,MCI,81.6,F,18,1.0,True
+MOCK_PT_007,MOCK_IMG_0014,m00,D:\ml project\data\mock_data\scans\MOCK_PT_007_m00_MOCK_IMG_0014.nii.gz,MCI,63.3,F,30,1.0,True
+MOCK_PT_007,MOCK_IMG_0015,m12,D:\ml project\data\mock_data\scans\MOCK_PT_007_m12_MOCK_IMG_0015.nii.gz,MCI,64.3,F,22,1.0,True
+MOCK_PT_008,MOCK_IMG_0016,m00,D:\ml project\data\mock_data\scans\MOCK_PT_008_m00_MOCK_IMG_0016.nii.gz,AD,68.7,F,18,1.0,True
+MOCK_PT_008,MOCK_IMG_0017,m12,D:\ml project\data\mock_data\scans\MOCK_PT_008_m12_MOCK_IMG_0017.nii.gz,AD,69.7,F,18,2.0,True
+MOCK_PT_009,MOCK_IMG_0018,m00,D:\ml project\data\mock_data\scans\MOCK_PT_009_m00_MOCK_IMG_0018.nii.gz,CN,63.4,F,22,0.0,True
+MOCK_PT_009,MOCK_IMG_0019,m12,D:\ml project\data\mock_data\scans\MOCK_PT_009_m12_MOCK_IMG_0019.nii.gz,CN,64.4,F,20,0.5,True
+MOCK_PT_010,MOCK_IMG_0020,m00,D:\ml project\data\mock_data\scans\MOCK_PT_010_m00_MOCK_IMG_0020.nii.gz,CN,60.4,F,27,2.0,True
+MOCK_PT_010,MOCK_IMG_0021,m12,D:\ml project\data\mock_data\scans\MOCK_PT_010_m12_MOCK_IMG_0021.nii.gz,CN,61.4,F,29,1.0,True
+MOCK_PT_011,MOCK_IMG_0022,m00,D:\ml project\data\mock_data\scans\MOCK_PT_011_m00_MOCK_IMG_0022.nii.gz,MCI,81.2,M,30,4.5,True
+MOCK_PT_011,MOCK_IMG_0023,m12,D:\ml project\data\mock_data\scans\MOCK_PT_011_m12_MOCK_IMG_0023.nii.gz,MCI,82.2,M,26,1.0,True

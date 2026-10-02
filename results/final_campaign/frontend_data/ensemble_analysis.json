@@ -1,0 +1,26 @@
+[
+  {
+    "ensemble_name": "ResNet-34 + Swin UNETR",
+    "model_1": "3D ResNet-34",
+    "model_2": "MONAI Swin UNETR SSL",
+    "weight_1": 0.6,
+    "weight_2": 0.4,
+    "cv_auc_mean": 0.9325,
+    "cv_auc_std": 0.041,
+    "cv_accuracy": 0.881,
+    "cv_f1": 0.875,
+    "brier": 0.184
+  },
+  {
+    "ensemble_name": "ResNet-18 + BrainIAC",
+    "model_1": "3D ResNet-18",
+    "model_2": "BrainIAC",
+    "weight_1": 0.65,
+    "weight_2": 0.35,
+    "cv_auc_mean": 0.915,
+    "cv_auc_std": 0.0435,
+    "cv_accuracy": 0.8571,
+    "cv_f1": 0.85,
+    "brier": 0.198
+  }
+]

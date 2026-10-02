@@ -1,0 +1,32 @@
+[
+  {
+    "combination": "BrainIAC + ResNet-18",
+    "foundation_encoder": "BrainIAC",
+    "cnn_encoder": "Supervised 3D ResNet-18",
+    "fused_feature_dim": 1280,
+    "cv_auc_mean": 0.955,
+    "cv_auc_std": 0.0438,
+    "cv_accuracy_mean": 0.9028,
+    "cv_f1_mean": 0.9025
+  },
+  {
+    "combination": "Swin + ResNet-18",
+    "foundation_encoder": "MONAI Swin UNETR SSL",
+    "cnn_encoder": "Supervised 3D ResNet-18",
+    "fused_feature_dim": 1280,
+    "cv_auc_mean": 0.98,
+    "cv_auc_std": 0.0447,
+    "cv_accuracy_mean": 0.9278,
+    "cv_f1_mean": 0.9247
+  },
+  {
+    "combination": "FOMO25 + ResNet-18",
+    "foundation_encoder": "FOMO25 Winner",
+    "cnn_encoder": "Supervised 3D ResNet-18",
+    "fused_feature_dim": 1024,
+    "cv_auc_mean": 0.9675,
+    "cv_auc_std": 0.0464,
+    "cv_accuracy_mean": 0.8778,
+    "cv_f1_mean": 0.8747
+  }
+]

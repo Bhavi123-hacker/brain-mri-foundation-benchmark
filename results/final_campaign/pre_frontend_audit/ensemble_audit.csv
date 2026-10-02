@@ -1,0 +1,2 @@
+ensemble_model,member_models,aggregation_method,weights,weighting_procedure,test_labels_used_for_weighting,development_cv_auc,locked_test_auc,locked_test_bal_acc,ece,audit_verdict
+Ensemble (Supervised 3D ResNet-34 + MONAI Swin UNETR SSL),"['Supervised 3D ResNet-34', 'MONAI Swin UNETR SSL']",Soft Weighted Probability Averaging,"{'Supervised 3D ResNet-34': 0.6, 'MONAI Swin UNETR SSL': 0.4}",Evaluated on Stratified 5-Fold Development CV Data across grid [0.1 to 0.9],False,0.9325,1.0,1.0,0.048,PASS (Weights Chosen on Dev Data Prior to Holdout Test)

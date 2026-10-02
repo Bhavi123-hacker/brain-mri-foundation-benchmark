@@ -1,0 +1,67 @@
+[
+  {
+    "Model": "3D ResNet-18",
+    "Paradigm": "Supervised Baseline",
+    "Total_Parameters": 33160513,
+    "Trainable_Parameters": 33160513,
+    "Trainable_Ratio_Pct": 100.0,
+    "Checkpoint_Size_MB": 126.57,
+    "Inference_Latency_ms_mean": 2012.93,
+    "Inference_Latency_ms_std": 113.08,
+    "Training_Epoch_Time_sec": 70.0,
+    "Test_ROC_AUC": 0.8375,
+    "FLOPs_GFLOPS": "N/A (3D Conv/ViT profiling uninstrumented on CPU)"
+  },
+  {
+    "Model": "3D ResNet-34",
+    "Paradigm": "Supervised Baseline",
+    "Total_Parameters": 63470145,
+    "Trainable_Parameters": 63470145,
+    "Trainable_Ratio_Pct": 100.0,
+    "Checkpoint_Size_MB": 242.25,
+    "Inference_Latency_ms_mean": 2291.82,
+    "Inference_Latency_ms_std": 663.35,
+    "Training_Epoch_Time_sec": 83.0,
+    "Test_ROC_AUC": 0.925,
+    "FLOPs_GFLOPS": "N/A (3D Conv/ViT profiling uninstrumented on CPU)"
+  },
+  {
+    "Model": "BrainIAC (Linear)",
+    "Paradigm": "Foundation Linear Probe",
+    "Total_Parameters": 6538049,
+    "Trainable_Parameters": 769,
+    "Trainable_Ratio_Pct": 0.0118,
+    "Checkpoint_Size_MB": 24.95,
+    "Inference_Latency_ms_mean": 1260.6,
+    "Inference_Latency_ms_std": 543.42,
+    "Training_Epoch_Time_sec": 0.05,
+    "Test_ROC_AUC": 0.5375,
+    "FLOPs_GFLOPS": "N/A (3D Conv/ViT profiling uninstrumented on CPU)"
+  },
+  {
+    "Model": "FOMO25 Winner (Linear)",
+    "Paradigm": "Foundation Linear Probe",
+    "Total_Parameters": 1296641,
+    "Trainable_Parameters": 513,
+    "Trainable_Ratio_Pct": 0.0396,
+    "Checkpoint_Size_MB": 4.96,
+    "Inference_Latency_ms_mean": 209.3,
+    "Inference_Latency_ms_std": 34.74,
+    "Training_Epoch_Time_sec": 0.05,
+    "Test_ROC_AUC": 0.5375,
+    "FLOPs_GFLOPS": "N/A (3D Conv/ViT profiling uninstrumented on CPU)"
+  },
+  {
+    "Model": "MONAI Swin UNETR (Linear)",
+    "Paradigm": "Foundation Linear Probe",
+    "Total_Parameters": 774913,
+    "Trainable_Parameters": 769,
+    "Trainable_Ratio_Pct": 0.0992,
+    "Checkpoint_Size_MB": 2.97,
+    "Inference_Latency_ms_mean": 321.18,
+    "Inference_Latency_ms_std": 27.26,
+    "Training_Epoch_Time_sec": 0.05,
+    "Test_ROC_AUC": 0.425,
+    "FLOPs_GFLOPS": "N/A (3D Conv/ViT profiling uninstrumented on CPU)"
+  }
+]

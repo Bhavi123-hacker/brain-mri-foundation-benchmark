@@ -1,0 +1,2431 @@
+{
+  "benchmark_title": "Fair Benchmarking of Brain-MRI Foundation Models Against Well-Tuned Supervised Baselines (ADNI Locked Test Cohort)",
+  "cohort": "ADNI MPRAGE (CN vs AD)",
+  "test_subjects_count": 8,
+  "test_subjects": [
+    "023_S_0058",
+    "023_S_1190",
+    "027_S_0404",
+    "031_S_1209",
+    "033_S_0920",
+    "051_S_1123",
+    "067_S_0812",
+    "116_S_0487"
+  ],
+  "ground_truth_labels": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1
+  ],
+  "ground_truth_diagnoses": [
+    "CN",
+    "CN",
+    "AD",
+    "AD",
+    "CN",
+    "CN",
+    "AD",
+    "AD"
+  ],
+  "class_balance": {
+    "CN": 4,
+    "AD": 4
+  },
+  "model_comparison_table": [
+    {
+      "model_family": "Supervised 3D ResNet-18",
+      "model_slug": "resnet18",
+      "model_type": "supervised_baseline",
+      "total_params": 33160513,
+      "trainable_params": 33160513,
+      "test_roc_auc_mean": 0.525,
+      "test_roc_auc_std": 0.261,
+      "test_accuracy_mean": 0.45,
+      "test_accuracy_std": 0.1871,
+      "test_balanced_acc_mean": 0.45,
+      "test_balanced_acc_std": 0.1871,
+      "test_f1_mean": 0.379,
+      "test_f1_std": 0.2521,
+      "test_recall_mean": 0.45,
+      "test_specificity_mean": 0.45,
+      "test_brier_mean": 0.2916,
+      "ensemble_roc_auc": 0.625,
+      "ensemble_accuracy": 0.625,
+      "ensemble_f1": 0.6667,
+      "ensemble_brier": 0.2566,
+      "ensemble_roc_auc_ci_95": "[0.1333, 1.0]"
+    },
+    {
+      "model_family": "BrainIAC (Linear Probe)",
+      "model_slug": "brainiac",
+      "model_type": "foundation_linear_probe",
+      "total_params": 6538049,
+      "trainable_params": 769,
+      "test_roc_auc_mean": 0.6625,
+      "test_roc_auc_std": 0.1016,
+      "test_accuracy_mean": 0.55,
+      "test_accuracy_std": 0.1275,
+      "test_balanced_acc_mean": 0.55,
+      "test_balanced_acc_std": 0.1275,
+      "test_f1_mean": 0.4305,
+      "test_f1_std": 0.1883,
+      "test_recall_mean": 0.4,
+      "test_specificity_mean": 0.7,
+      "test_brier_mean": 0.4084,
+      "ensemble_roc_auc": 0.6875,
+      "ensemble_accuracy": 0.5,
+      "ensemble_f1": 0.3333,
+      "ensemble_brier": 0.2531,
+      "ensemble_roc_auc_ci_95": "[0.1908, 1.0]"
+    },
+    {
+      "model_family": "FOMO25 Winner (Linear Probe)",
+      "model_slug": "fomo25",
+      "model_type": "foundation_linear_probe",
+      "total_params": 1296641,
+      "trainable_params": 513,
+      "test_roc_auc_mean": 0.4375,
+      "test_roc_auc_std": 0.1723,
+      "test_accuracy_mean": 0.475,
+      "test_accuracy_std": 0.1225,
+      "test_balanced_acc_mean": 0.475,
+      "test_balanced_acc_std": 0.1225,
+      "test_f1_mean": 0.2,
+      "test_f1_std": 0.2667,
+      "test_recall_mean": 0.2,
+      "test_specificity_mean": 0.75,
+      "test_brier_mean": 0.3144,
+      "ensemble_roc_auc": 0.375,
+      "ensemble_accuracy": 0.5,
+      "ensemble_f1": 0.0,
+      "ensemble_brier": 0.277,
+      "ensemble_roc_auc_ci_95": "[0.0, 0.8597]"
+    },
+    {
+      "model_family": "MONAI Swin UNETR SSL (Linear Probe)",
+      "model_slug": "swin_unetr",
+      "model_type": "foundation_linear_probe",
+      "total_params": 774913,
+      "trainable_params": 769,
+      "test_roc_auc_mean": 0.6,
+      "test_roc_auc_std": 0.192,
+      "test_accuracy_mean": 0.525,
+      "test_accuracy_std": 0.05,
+      "test_balanced_acc_mean": 0.525,
+      "test_balanced_acc_std": 0.05,
+      "test_f1_mean": 0.1455,
+      "test_f1_std": 0.2909,
+      "test_recall_mean": 0.2,
+      "test_specificity_mean": 0.85,
+      "test_brier_mean": 0.3951,
+      "ensemble_roc_auc": 0.8125,
+      "ensemble_accuracy": 0.5,
+      "ensemble_f1": 0.0,
+      "ensemble_brier": 0.3364,
+      "ensemble_roc_auc_ci_95": "[0.4286, 1.0]"
+    }
+  ],
+  "models": {
+    "Supervised 3D ResNet-18": {
+      "slug": "resnet18",
+      "total_params": 33160513,
+      "trainable_params": 33160513,
+      "cross_seed_summary": {
+        "model_family": "Supervised 3D ResNet-18",
+        "model_slug": "resnet18",
+        "model_type": "supervised_baseline",
+        "total_params": 33160513,
+        "trainable_params": 33160513,
+        "test_roc_auc_mean": 0.525,
+        "test_roc_auc_std": 0.261,
+        "test_accuracy_mean": 0.45,
+        "test_accuracy_std": 0.1871,
+        "test_balanced_acc_mean": 0.45,
+        "test_balanced_acc_std": 0.1871,
+        "test_f1_mean": 0.379,
+        "test_f1_std": 0.2521,
+        "test_recall_mean": 0.45,
+        "test_specificity_mean": 0.45,
+        "test_brier_mean": 0.2916,
+        "ensemble_roc_auc": 0.625,
+        "ensemble_accuracy": 0.625,
+        "ensemble_f1": 0.6667,
+        "ensemble_brier": 0.2566,
+        "ensemble_roc_auc_ci_95": "[0.1333, 1.0]"
+      },
+      "ensemble_evaluation": {
+        "metrics": {
+          "roc_auc": 0.625,
+          "accuracy": 0.625,
+          "balanced_accuracy": 0.625,
+          "f1": 0.6667,
+          "precision": 0.6,
+          "recall": 0.75,
+          "sensitivity": 0.75,
+          "specificity": 0.5,
+          "brier_score": 0.2566,
+          "tp": 3,
+          "tn": 2,
+          "fp": 2,
+          "fn": 1
+        },
+        "ci_95": {
+          "roc_auc_ci_95": [
+            0.1333,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.25,
+            0.875
+          ],
+          "balanced_accuracy_ci_95": [
+            0.25,
+            0.9286
+          ],
+          "f1_ci_95": [
+            0.25,
+            0.9231
+          ],
+          "brier_score_ci_95": [
+            0.2075,
+            0.3121
+          ]
+        },
+        "probabilities": [
+          0.4726,
+          0.4686,
+          0.5691,
+          0.5007,
+          0.5421,
+          0.5584,
+          0.3571,
+          0.6055
+        ]
+      },
+      "seeds": [
+        {
+          "model_family": "Supervised 3D ResNet-18",
+          "model_slug": "resnet18",
+          "model_type": "supervised_baseline",
+          "seed": 42,
+          "checkpoint_path": "results/checkpoints\\adni_resnet18_seed42_best.pt",
+          "total_params": 33160513,
+          "trainable_params": 33160513,
+          "test_accuracy": 0.125,
+          "test_balanced_accuracy": 0.125,
+          "test_roc_auc": 0.125,
+          "test_f1": 0.2222,
+          "test_precision": 0.2,
+          "test_recall": 0.25,
+          "test_specificity": 0.0,
+          "test_brier_score": 0.3179,
+          "tp": 1,
+          "tn": 0,
+          "fp": 4,
+          "fn": 3,
+          "roc_auc_ci_95": [
+            0.0,
+            0.5333
+          ],
+          "accuracy_ci_95": [
+            0.0,
+            0.375
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.5455
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.6007,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5536,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5645,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.413,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5644,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.6203,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.3946,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4787,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "Supervised 3D ResNet-18",
+          "model_slug": "resnet18",
+          "model_type": "supervised_baseline",
+          "seed": 43,
+          "checkpoint_path": "results/checkpoints\\adni_resnet18_seed43_best.pt",
+          "total_params": 33160513,
+          "trainable_params": 33160513,
+          "test_accuracy": 0.625,
+          "test_balanced_accuracy": 0.625,
+          "test_roc_auc": 0.3125,
+          "test_f1": 0.4,
+          "test_precision": 1.0,
+          "test_recall": 0.25,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.2827,
+          "tp": 1,
+          "tn": 4,
+          "fp": 0,
+          "fn": 3,
+          "roc_auc_ci_95": [
+            0.0,
+            0.8031
+          ],
+          "accuracy_ci_95": [
+            0.25,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.8571
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4068,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.3595,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.3859,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.3056,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4335,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.3928,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.2743,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5118,
+              "predicted_class": 1,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "model_family": "Supervised 3D ResNet-18",
+          "model_slug": "resnet18",
+          "model_type": "supervised_baseline",
+          "seed": 44,
+          "checkpoint_path": "results/checkpoints\\adni_resnet18_seed44_best.pt",
+          "total_params": 33160513,
+          "trainable_params": 33160513,
+          "test_accuracy": 0.625,
+          "test_balanced_accuracy": 0.625,
+          "test_roc_auc": 0.6875,
+          "test_f1": 0.7273,
+          "test_precision": 0.5714,
+          "test_recall": 1.0,
+          "test_specificity": 0.25,
+          "test_brier_score": 0.234,
+          "tp": 4,
+          "tn": 1,
+          "fp": 3,
+          "fn": 0,
+          "roc_auc_ci_95": [
+            0.1849,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.25,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.3333,
+            0.9333
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5249,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.491,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.6529,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.664,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5724,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.7101,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5225,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.7514,
+              "predicted_class": 1,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "model_family": "Supervised 3D ResNet-18",
+          "model_slug": "resnet18",
+          "model_type": "supervised_baseline",
+          "seed": 45,
+          "checkpoint_path": "results/checkpoints\\adni_resnet18_seed45_best.pt",
+          "total_params": 33160513,
+          "trainable_params": 33160513,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.8125,
+          "test_f1": 0.0,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.2916,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "roc_auc_ci_95": [
+            0.3333,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.2838,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.284,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.2775,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.2914,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.2505,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.2819,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.29,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.2918,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "Supervised 3D ResNet-18",
+          "model_slug": "resnet18",
+          "model_type": "supervised_baseline",
+          "seed": 46,
+          "checkpoint_path": "results/checkpoints\\adni_resnet18_seed46_best.pt",
+          "total_params": 33160513,
+          "trainable_params": 33160513,
+          "test_accuracy": 0.375,
+          "test_balanced_accuracy": 0.375,
+          "test_roc_auc": 0.6875,
+          "test_f1": 0.5455,
+          "test_precision": 0.4286,
+          "test_recall": 0.75,
+          "test_specificity": 0.0,
+          "test_brier_score": 0.3318,
+          "tp": 3,
+          "tn": 0,
+          "fp": 4,
+          "fn": 1,
+          "roc_auc_ci_95": [
+            0.2,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.75
+          ],
+          "f1_ci_95": [
+            0.2222,
+            0.8571
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.547,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.6552,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.9648,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.8297,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.8899,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.7872,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.304,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.9939,
+              "predicted_class": 1,
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    "BrainIAC (Linear Probe)": {
+      "slug": "brainiac",
+      "total_params": 6538049,
+      "trainable_params": 769,
+      "cross_seed_summary": {
+        "model_family": "BrainIAC (Linear Probe)",
+        "model_slug": "brainiac",
+        "model_type": "foundation_linear_probe",
+        "total_params": 6538049,
+        "trainable_params": 769,
+        "test_roc_auc_mean": 0.6625,
+        "test_roc_auc_std": 0.1016,
+        "test_accuracy_mean": 0.55,
+        "test_accuracy_std": 0.1275,
+        "test_balanced_acc_mean": 0.55,
+        "test_balanced_acc_std": 0.1275,
+        "test_f1_mean": 0.4305,
+        "test_f1_std": 0.1883,
+        "test_recall_mean": 0.4,
+        "test_specificity_mean": 0.7,
+        "test_brier_mean": 0.4084,
+        "ensemble_roc_auc": 0.6875,
+        "ensemble_accuracy": 0.5,
+        "ensemble_f1": 0.3333,
+        "ensemble_brier": 0.2531,
+        "ensemble_roc_auc_ci_95": "[0.1908, 1.0]"
+      },
+      "ensemble_evaluation": {
+        "metrics": {
+          "roc_auc": 0.6875,
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "f1": 0.3333,
+          "precision": 0.5,
+          "recall": 0.25,
+          "sensitivity": 0.25,
+          "specificity": 0.75,
+          "brier_score": 0.2531,
+          "tp": 1,
+          "tn": 3,
+          "fp": 1,
+          "fn": 3
+        },
+        "ci_95": {
+          "roc_auc_ci_95": [
+            0.1908,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "balanced_accuracy_ci_95": [
+            0.1667,
+            0.8
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.75
+          ],
+          "brier_score_ci_95": [
+            0.1232,
+            0.3923
+          ]
+        },
+        "probabilities": [
+          0.5901,
+          0.0131,
+          0.2134,
+          0.3861,
+          0.1028,
+          0.3198,
+          0.5758,
+          0.3773
+        ]
+      },
+      "seeds": [
+        {
+          "model_family": "BrainIAC (Linear Probe)",
+          "model_slug": "brainiac",
+          "model_type": "foundation_linear_probe",
+          "seed": 42,
+          "checkpoint_path": "results/checkpoints\\adni_brainiac_linear_seed42_best.pt",
+          "total_params": 6538049,
+          "trainable_params": 769,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.75,
+          "test_f1": 0.3333,
+          "test_precision": 0.5,
+          "test_recall": 0.25,
+          "test_specificity": 0.75,
+          "test_brier_score": 0.4063,
+          "tp": 1,
+          "tn": 3,
+          "fp": 1,
+          "fn": 3,
+          "roc_auc_ci_95": [
+            0.25,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.8
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0006,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.9987,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5097,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0022,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0024,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "BrainIAC (Linear Probe)",
+          "model_slug": "brainiac",
+          "model_type": "foundation_linear_probe",
+          "seed": 43,
+          "checkpoint_path": "results/checkpoints\\adni_brainiac_linear_seed43_best.pt",
+          "total_params": 6538049,
+          "trainable_params": 769,
+          "test_accuracy": 0.625,
+          "test_balanced_accuracy": 0.625,
+          "test_roc_auc": 0.8125,
+          "test_f1": 0.4,
+          "test_precision": 1.0,
+          "test_recall": 0.25,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.3761,
+          "tp": 1,
+          "tn": 4,
+          "fp": 0,
+          "fn": 3,
+          "roc_auc_ci_95": [
+            0.3833,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.25,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.9091
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0008,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.004,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.8966,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "BrainIAC (Linear Probe)",
+          "model_slug": "brainiac",
+          "model_type": "foundation_linear_probe",
+          "seed": 44,
+          "checkpoint_path": "results/checkpoints\\adni_brainiac_linear_seed44_best.pt",
+          "total_params": 6538049,
+          "trainable_params": 769,
+          "test_accuracy": 0.75,
+          "test_balanced_accuracy": 0.75,
+          "test_roc_auc": 0.5625,
+          "test_f1": 0.8,
+          "test_precision": 0.6667,
+          "test_recall": 1.0,
+          "test_specificity": 0.5,
+          "test_brier_score": 0.253,
+          "tp": 4,
+          "tn": 2,
+          "fp": 2,
+          "fn": 0,
+          "roc_auc_ci_95": [
+            0.0,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.5,
+            1.0
+          ],
+          "f1_ci_95": [
+            0.4444,
+            1.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.9996,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0237,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.9914,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.9274,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 1.0,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.9998,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.8622,
+              "predicted_class": 1,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "model_family": "BrainIAC (Linear Probe)",
+          "model_slug": "brainiac",
+          "model_type": "foundation_linear_probe",
+          "seed": 45,
+          "checkpoint_path": "results/checkpoints\\adni_brainiac_linear_seed45_best.pt",
+          "total_params": 6538049,
+          "trainable_params": 769,
+          "test_accuracy": 0.375,
+          "test_balanced_accuracy": 0.375,
+          "test_roc_auc": 0.625,
+          "test_f1": 0.2857,
+          "test_precision": 0.3333,
+          "test_recall": 0.25,
+          "test_specificity": 0.5,
+          "test_brier_score": 0.5179,
+          "tp": 1,
+          "tn": 2,
+          "fp": 2,
+          "fn": 3,
+          "roc_auc_ci_95": [
+            0.0,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.0,
+            0.75
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.6667
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.9505,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0379,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0008,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5989,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.9731,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0221,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "BrainIAC (Linear Probe)",
+          "model_slug": "brainiac",
+          "model_type": "foundation_linear_probe",
+          "seed": 46,
+          "checkpoint_path": "results/checkpoints\\adni_brainiac_linear_seed46_best.pt",
+          "total_params": 6538049,
+          "trainable_params": 769,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.5625,
+          "test_f1": 0.3333,
+          "test_precision": 0.5,
+          "test_recall": 0.25,
+          "test_specificity": 0.75,
+          "test_brier_score": 0.4885,
+          "tp": 1,
+          "tn": 3,
+          "fp": 1,
+          "fn": 3,
+          "roc_auc_ci_95": [
+            0.0,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.75
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 1.0,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0415,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0378,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0027,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0001,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0069,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 1.0,
+              "predicted_class": 1,
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    "FOMO25 Winner (Linear Probe)": {
+      "slug": "fomo25",
+      "total_params": 1296641,
+      "trainable_params": 513,
+      "cross_seed_summary": {
+        "model_family": "FOMO25 Winner (Linear Probe)",
+        "model_slug": "fomo25",
+        "model_type": "foundation_linear_probe",
+        "total_params": 1296641,
+        "trainable_params": 513,
+        "test_roc_auc_mean": 0.4375,
+        "test_roc_auc_std": 0.1723,
+        "test_accuracy_mean": 0.475,
+        "test_accuracy_std": 0.1225,
+        "test_balanced_acc_mean": 0.475,
+        "test_balanced_acc_std": 0.1225,
+        "test_f1_mean": 0.2,
+        "test_f1_std": 0.2667,
+        "test_recall_mean": 0.2,
+        "test_specificity_mean": 0.75,
+        "test_brier_mean": 0.3144,
+        "ensemble_roc_auc": 0.375,
+        "ensemble_accuracy": 0.5,
+        "ensemble_f1": 0.0,
+        "ensemble_brier": 0.277,
+        "ensemble_roc_auc_ci_95": "[0.0, 0.8597]"
+      },
+      "ensemble_evaluation": {
+        "metrics": {
+          "roc_auc": 0.375,
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "brier_score": 0.277,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4
+        },
+        "ci_95": {
+          "roc_auc_ci_95": [
+            0.0,
+            0.8597
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "balanced_accuracy_ci_95": [
+            0.5,
+            0.5
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "brier_score_ci_95": [
+            0.1633,
+            0.3876
+          ]
+        },
+        "probabilities": [
+          0.3714,
+          0.3214,
+          0.3353,
+          0.3425,
+          0.3503,
+          0.3478,
+          0.3247,
+          0.367
+        ]
+      },
+      "seeds": [
+        {
+          "model_family": "FOMO25 Winner (Linear Probe)",
+          "model_slug": "fomo25",
+          "model_type": "foundation_linear_probe",
+          "seed": 42,
+          "checkpoint_path": "results/checkpoints\\adni_fomo25_linear_seed42_best.pt",
+          "total_params": 1296641,
+          "trainable_params": 513,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.5625,
+          "test_f1": 0.3333,
+          "test_precision": 0.5,
+          "test_recall": 0.25,
+          "test_specificity": 0.75,
+          "test_brier_score": 0.2498,
+          "tp": 1,
+          "tn": 3,
+          "fp": 1,
+          "fn": 3,
+          "roc_auc_ci_95": [
+            0.0,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.75
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5419,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.3962,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4941,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4813,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4903,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4372,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4117,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5053,
+              "predicted_class": 1,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "model_family": "FOMO25 Winner (Linear Probe)",
+          "model_slug": "fomo25",
+          "model_type": "foundation_linear_probe",
+          "seed": 43,
+          "checkpoint_path": "results/checkpoints\\adni_fomo25_linear_seed43_best.pt",
+          "total_params": 1296641,
+          "trainable_params": 513,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.4375,
+          "test_f1": 0.0,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.4999,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "roc_auc_ci_95": [
+            0.0,
+            0.8896
+          ],
+          "accuracy_ci_95": [
+            0.25,
+            0.75
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0001,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0001,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0001,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0001,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0001,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0002,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0001,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0001,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "FOMO25 Winner (Linear Probe)",
+          "model_slug": "fomo25",
+          "model_type": "foundation_linear_probe",
+          "seed": 44,
+          "checkpoint_path": "results/checkpoints\\adni_fomo25_linear_seed44_best.pt",
+          "total_params": 1296641,
+          "trainable_params": 513,
+          "test_accuracy": 0.625,
+          "test_balanced_accuracy": 0.625,
+          "test_roc_auc": 0.625,
+          "test_f1": 0.6667,
+          "test_precision": 0.6,
+          "test_recall": 0.75,
+          "test_specificity": 0.5,
+          "test_brier_score": 0.2405,
+          "tp": 3,
+          "tn": 2,
+          "fp": 2,
+          "fn": 1,
+          "roc_auc_ci_95": [
+            0.125,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.25,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.25,
+            0.9231
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4999,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4617,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4573,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5549,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5169,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5248,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5087,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5704,
+              "predicted_class": 1,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "model_family": "FOMO25 Winner (Linear Probe)",
+          "model_slug": "fomo25",
+          "model_type": "foundation_linear_probe",
+          "seed": 45,
+          "checkpoint_path": "results/checkpoints\\adni_fomo25_linear_seed45_best.pt",
+          "total_params": 1296641,
+          "trainable_params": 513,
+          "test_accuracy": 0.25,
+          "test_balanced_accuracy": 0.25,
+          "test_roc_auc": 0.125,
+          "test_f1": 0.0,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_specificity": 0.5,
+          "test_brier_score": 0.2778,
+          "tp": 0,
+          "tn": 2,
+          "fp": 2,
+          "fn": 4,
+          "roc_auc_ci_95": [
+            0.0,
+            0.5
+          ],
+          "accuracy_ci_95": [
+            0.0,
+            0.625
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5066,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4776,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4315,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4204,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5075,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4941,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4307,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4973,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "FOMO25 Winner (Linear Probe)",
+          "model_slug": "fomo25",
+          "model_type": "foundation_linear_probe",
+          "seed": 46,
+          "checkpoint_path": "results/checkpoints\\adni_fomo25_linear_seed46_best.pt",
+          "total_params": 1296641,
+          "trainable_params": 513,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.4375,
+          "test_f1": 0.0,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.304,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "roc_auc_ci_95": [
+            0.0,
+            0.9375
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.75
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.3085,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.2714,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.2937,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.256,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.2366,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.2829,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.272,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.2616,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    "MONAI Swin UNETR SSL (Linear Probe)": {
+      "slug": "swin_unetr",
+      "total_params": 774913,
+      "trainable_params": 769,
+      "cross_seed_summary": {
+        "model_family": "MONAI Swin UNETR SSL (Linear Probe)",
+        "model_slug": "swin_unetr",
+        "model_type": "foundation_linear_probe",
+        "total_params": 774913,
+        "trainable_params": 769,
+        "test_roc_auc_mean": 0.6,
+        "test_roc_auc_std": 0.192,
+        "test_accuracy_mean": 0.525,
+        "test_accuracy_std": 0.05,
+        "test_balanced_acc_mean": 0.525,
+        "test_balanced_acc_std": 0.05,
+        "test_f1_mean": 0.1455,
+        "test_f1_std": 0.2909,
+        "test_recall_mean": 0.2,
+        "test_specificity_mean": 0.85,
+        "test_brier_mean": 0.3951,
+        "ensemble_roc_auc": 0.8125,
+        "ensemble_accuracy": 0.5,
+        "ensemble_f1": 0.0,
+        "ensemble_brier": 0.3364,
+        "ensemble_roc_auc_ci_95": "[0.4286, 1.0]"
+      },
+      "ensemble_evaluation": {
+        "metrics": {
+          "roc_auc": 0.8125,
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "brier_score": 0.3364,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4
+        },
+        "ci_95": {
+          "roc_auc_ci_95": [
+            0.4286,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "balanced_accuracy_ci_95": [
+            0.5,
+            0.5
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "brier_score_ci_95": [
+            0.1129,
+            0.5562
+          ]
+        },
+        "probabilities": [
+          0.1925,
+          0.182,
+          0.2158,
+          0.2014,
+          0.1697,
+          0.2028,
+          0.2063,
+          0.1824
+        ]
+      },
+      "seeds": [
+        {
+          "model_family": "MONAI Swin UNETR SSL (Linear Probe)",
+          "model_slug": "swin_unetr",
+          "model_type": "foundation_linear_probe",
+          "seed": 42,
+          "checkpoint_path": "results/checkpoints\\adni_swin_unetr_linear_seed42_best.pt",
+          "total_params": 774913,
+          "trainable_params": 769,
+          "test_accuracy": 0.625,
+          "test_balanced_accuracy": 0.625,
+          "test_roc_auc": 0.8125,
+          "test_f1": 0.7273,
+          "test_precision": 0.5714,
+          "test_recall": 1.0,
+          "test_specificity": 0.25,
+          "test_brier_score": 0.2231,
+          "tp": 4,
+          "tn": 1,
+          "fp": 3,
+          "fn": 0,
+          "roc_auc_ci_95": [
+            0.3333,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.25,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.3202,
+            0.9333
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5398,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.5043,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.657,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5895,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4113,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.6214,
+              "predicted_class": 1,
+              "correct": false
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5632,
+              "predicted_class": 1,
+              "correct": true
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.5449,
+              "predicted_class": 1,
+              "correct": true
+            }
+          ]
+        },
+        {
+          "model_family": "MONAI Swin UNETR SSL (Linear Probe)",
+          "model_slug": "swin_unetr",
+          "model_type": "foundation_linear_probe",
+          "seed": 43,
+          "checkpoint_path": "results/checkpoints\\adni_swin_unetr_linear_seed43_best.pt",
+          "total_params": 774913,
+          "trainable_params": 769,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.5625,
+          "test_f1": 0.0,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.4983,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "roc_auc_ci_95": [
+            0.125,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.25,
+            0.75
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0011,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0015,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0025,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0013,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0018,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0021,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0012,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0018,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "MONAI Swin UNETR SSL (Linear Probe)",
+          "model_slug": "swin_unetr",
+          "model_type": "foundation_linear_probe",
+          "seed": 44,
+          "checkpoint_path": "results/checkpoints\\adni_swin_unetr_linear_seed44_best.pt",
+          "total_params": 774913,
+          "trainable_params": 769,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.3125,
+          "test_f1": 0.0,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.4998,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "roc_auc_ci_95": [
+            0.0,
+            0.8333
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0003,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0002,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0002,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0002,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0003,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0002,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0002,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0002,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "MONAI Swin UNETR SSL (Linear Probe)",
+          "model_slug": "swin_unetr",
+          "model_type": "foundation_linear_probe",
+          "seed": 45,
+          "checkpoint_path": "results/checkpoints\\adni_swin_unetr_linear_seed45_best.pt",
+          "total_params": 774913,
+          "trainable_params": 769,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.8125,
+          "test_f1": 0.0,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.4975,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "roc_auc_ci_95": [
+            0.4,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.875
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0028,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0023,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0013,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0032,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0013,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.0012,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0029,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.0025,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        },
+        {
+          "model_family": "MONAI Swin UNETR SSL (Linear Probe)",
+          "model_slug": "swin_unetr",
+          "model_type": "foundation_linear_probe",
+          "seed": 46,
+          "checkpoint_path": "results/checkpoints\\adni_swin_unetr_linear_seed46_best.pt",
+          "total_params": 774913,
+          "trainable_params": 769,
+          "test_accuracy": 0.5,
+          "test_balanced_accuracy": 0.5,
+          "test_roc_auc": 0.5,
+          "test_f1": 0.0,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_specificity": 1.0,
+          "test_brier_score": 0.2567,
+          "tp": 0,
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "roc_auc_ci_95": [
+            0.0,
+            1.0
+          ],
+          "accuracy_ci_95": [
+            0.125,
+            0.75
+          ],
+          "f1_ci_95": [
+            0.0,
+            0.0
+          ],
+          "subject_predictions": [
+            {
+              "subject_id": "023_S_0058",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4186,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "023_S_1190",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4018,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "027_S_0404",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4181,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "031_S_1209",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4126,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "033_S_0920",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.4337,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "051_S_1123",
+              "baseline_diagnosis": "CN",
+              "true_label": 0,
+              "predicted_prob": 0.3892,
+              "predicted_class": 0,
+              "correct": true
+            },
+            {
+              "subject_id": "067_S_0812",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.4639,
+              "predicted_class": 0,
+              "correct": false
+            },
+            {
+              "subject_id": "116_S_0487",
+              "baseline_diagnosis": "AD",
+              "true_label": 1,
+              "predicted_prob": 0.3628,
+              "predicted_class": 0,
+              "correct": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

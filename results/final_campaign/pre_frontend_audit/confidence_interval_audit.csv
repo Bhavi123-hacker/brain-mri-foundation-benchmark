@@ -1,0 +1,7 @@
+model,metric,point_estimate,ci_95,method,sample_size,caveat
+Supervised 3D ResNet-18,Holdout Test ROC-AUC,1.0,"[1.0, 1.0]",1000-resample non-parametric bootstrap,8,Pilot observation; N=8 bounds are narrow due to perfect separation on holdout sample
+Supervised 3D ResNet-34,Holdout Test ROC-AUC,1.0,"[1.0, 1.0]",1000-resample non-parametric bootstrap,8,Pilot observation
+BrainIAC,Holdout Test ROC-AUC,0.9375,"[0.6667, 1.0]",1000-resample non-parametric bootstrap,8,Wide confidence interval reflecting small-sample variance
+FOMO25 Winner,Holdout Test ROC-AUC,0.8125,"[0.4, 1.0]",1000-resample non-parametric bootstrap,8,Wide confidence interval reflecting small-sample variance
+MONAI Swin UNETR SSL,Holdout Test ROC-AUC,0.8125,"[0.4, 1.0]",1000-resample non-parametric bootstrap,8,Wide confidence interval reflecting small-sample variance
+Ensemble (ResNet-34 + Swin),Holdout Test ROC-AUC,1.0,"[1.0, 1.0]",1000-resample non-parametric bootstrap,8,Pilot observation

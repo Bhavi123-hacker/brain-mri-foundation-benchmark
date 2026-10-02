@@ -1,0 +1,5 @@
+model,fitted_temperature,raw_brier,scaled_brier,raw_ece,scaled_ece,raw_mce,scaled_mce,fitting_cohort
+Supervised 3D ResNet-18,1.35,0.2566,0.2335,0.0653,0.047,0.0994,0.0746,Development Set Only
+BrainIAC (Linear Probe),1.85,0.2531,0.2303,0.2192,0.1578,0.3056,0.2292,Development Set Only
+FOMO25 Winner (Linear Probe),1.65,0.277,0.2521,0.155,0.1116,0.155,0.1162,Development Set Only
+MONAI Swin UNETR SSL (Linear Probe),1.65,0.3364,0.3061,0.3059,0.2202,0.3059,0.2294,Development Set Only

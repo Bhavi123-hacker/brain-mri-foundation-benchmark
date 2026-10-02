@@ -1,0 +1,833 @@
+{
+  "task": "ADNI DICOM to NIfTI Conversion",
+  "timestamp": "2026-09-13 15:14:32",
+  "total_selected_subjects": 50,
+  "total_converted_successfully": 50,
+  "total_failed": 0,
+  "total_ambiguous_excluded": 9,
+  "output_directory": "D:\\AIML\\ADNI_MPRAGE_NIFTI",
+  "total_nifti_files_on_disk": 50,
+  "total_conversion_time_seconds": 136.72,
+  "distributions": {
+    "volume_shapes": {
+      "256x256x170": 3,
+      "240x256x160": 47
+    },
+    "voxel_spacings": {
+      "1.0000x1.0000x1.2000": 50
+    }
+  },
+  "validation_checks": {
+    "exactly_50_selected_converted": true,
+    "exactly_50_nifti_files_produced": true,
+    "zero_ambiguous_subjects_converted": true,
+    "all_volumes_valid_3d": true,
+    "all_volumes_zero_nan": true,
+    "all_volumes_zero_inf": true,
+    "all_volumes_nonzero_data": true,
+    "no_preprocessing_applied": true,
+    "physical_affine_preserved": true
+  },
+  "converted_subjects": [
+    {
+      "subject_id": "002_S_0816",
+      "series_id": "I25405",
+      "dicom_slices": 170,
+      "shape": [
+        256,
+        256,
+        170
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\002_S_0816.nii.gz"
+    },
+    {
+      "subject_id": "002_S_1261",
+      "series_id": "I41799",
+      "dicom_slices": 170,
+      "shape": [
+        256,
+        256,
+        170
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\002_S_1261.nii.gz"
+    },
+    {
+      "subject_id": "002_S_1280",
+      "series_id": "I41806",
+      "dicom_slices": 170,
+      "shape": [
+        256,
+        256,
+        170
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\002_S_1280.nii.gz"
+    },
+    {
+      "subject_id": "013_S_1035",
+      "series_id": "I30829",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\013_S_1035.nii.gz"
+    },
+    {
+      "subject_id": "013_S_1276",
+      "series_id": "I47627",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\013_S_1276.nii.gz"
+    },
+    {
+      "subject_id": "020_S_1288",
+      "series_id": "I44672",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\020_S_1288.nii.gz"
+    },
+    {
+      "subject_id": "021_S_0753",
+      "series_id": "I24075",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\021_S_0753.nii.gz"
+    },
+    {
+      "subject_id": "023_S_0031",
+      "series_id": "I8298",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_0031.nii.gz"
+    },
+    {
+      "subject_id": "023_S_0058",
+      "series_id": "I9329",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_0058.nii.gz"
+    },
+    {
+      "subject_id": "023_S_0061",
+      "series_id": "I9530",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_0061.nii.gz"
+    },
+    {
+      "subject_id": "023_S_0139",
+      "series_id": "I10861",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_0139.nii.gz"
+    },
+    {
+      "subject_id": "023_S_0916",
+      "series_id": "I25388",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_0916.nii.gz"
+    },
+    {
+      "subject_id": "023_S_0926",
+      "series_id": "I26376",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_0926.nii.gz"
+    },
+    {
+      "subject_id": "023_S_0963",
+      "series_id": "I26430",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_0963.nii.gz"
+    },
+    {
+      "subject_id": "023_S_1190",
+      "series_id": "I36378",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_1190.nii.gz"
+    },
+    {
+      "subject_id": "023_S_1262",
+      "series_id": "I41822",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_1262.nii.gz"
+    },
+    {
+      "subject_id": "023_S_1289",
+      "series_id": "I41191",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\023_S_1289.nii.gz"
+    },
+    {
+      "subject_id": "027_S_0403",
+      "series_id": "I14881",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\027_S_0403.nii.gz"
+    },
+    {
+      "subject_id": "027_S_0404",
+      "series_id": "I15330",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\027_S_0404.nii.gz"
+    },
+    {
+      "subject_id": "027_S_1081",
+      "series_id": "I38417",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\027_S_1081.nii.gz"
+    },
+    {
+      "subject_id": "027_S_1082",
+      "series_id": "I33053",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\027_S_1082.nii.gz"
+    },
+    {
+      "subject_id": "027_S_1385",
+      "series_id": "I46992",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\027_S_1385.nii.gz"
+    },
+    {
+      "subject_id": "031_S_1209",
+      "series_id": "I38219",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\031_S_1209.nii.gz"
+    },
+    {
+      "subject_id": "032_S_0677",
+      "series_id": "I26006",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\032_S_0677.nii.gz"
+    },
+    {
+      "subject_id": "032_S_1101",
+      "series_id": "I37523",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\032_S_1101.nii.gz"
+    },
+    {
+      "subject_id": "032_S_1169",
+      "series_id": "I37500",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\032_S_1169.nii.gz"
+    },
+    {
+      "subject_id": "033_S_0724",
+      "series_id": "I20406",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\033_S_0724.nii.gz"
+    },
+    {
+      "subject_id": "033_S_0733",
+      "series_id": "I21947",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\033_S_0733.nii.gz"
+    },
+    {
+      "subject_id": "033_S_0920",
+      "series_id": "I27336",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\033_S_0920.nii.gz"
+    },
+    {
+      "subject_id": "033_S_1016",
+      "series_id": "I29604",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\033_S_1016.nii.gz"
+    },
+    {
+      "subject_id": "033_S_1086",
+      "series_id": "I33521",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\033_S_1086.nii.gz"
+    },
+    {
+      "subject_id": "033_S_1098",
+      "series_id": "I32713",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\033_S_1098.nii.gz"
+    },
+    {
+      "subject_id": "037_S_0303",
+      "series_id": "I14468",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\037_S_0303.nii.gz"
+    },
+    {
+      "subject_id": "051_S_1123",
+      "series_id": "I38262",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\051_S_1123.nii.gz"
+    },
+    {
+      "subject_id": "067_S_0812",
+      "series_id": "I27613",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\067_S_0812.nii.gz"
+    },
+    {
+      "subject_id": "067_S_0828",
+      "series_id": "I29294",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\067_S_0828.nii.gz"
+    },
+    {
+      "subject_id": "067_S_1185",
+      "series_id": "I37256",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\067_S_1185.nii.gz"
+    },
+    {
+      "subject_id": "067_S_1253",
+      "series_id": "I47973",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\067_S_1253.nii.gz"
+    },
+    {
+      "subject_id": "082_S_0304",
+      "series_id": "I13190",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\082_S_0304.nii.gz"
+    },
+    {
+      "subject_id": "082_S_0640",
+      "series_id": "I19679",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\082_S_0640.nii.gz"
+    },
+    {
+      "subject_id": "082_S_1256",
+      "series_id": "I78264",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\082_S_1256.nii.gz"
+    },
+    {
+      "subject_id": "116_S_0382",
+      "series_id": "I17318",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\116_S_0382.nii.gz"
+    },
+    {
+      "subject_id": "116_S_0392",
+      "series_id": "I18444",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\116_S_0392.nii.gz"
+    },
+    {
+      "subject_id": "116_S_0487",
+      "series_id": "I20375",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\116_S_0487.nii.gz"
+    },
+    {
+      "subject_id": "116_S_1083",
+      "series_id": "I34084",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\116_S_1083.nii.gz"
+    },
+    {
+      "subject_id": "116_S_1232",
+      "series_id": "I41676",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\116_S_1232.nii.gz"
+    },
+    {
+      "subject_id": "116_S_1249",
+      "series_id": "I42154",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\116_S_1249.nii.gz"
+    },
+    {
+      "subject_id": "128_S_1242",
+      "series_id": "I40363",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\128_S_1242.nii.gz"
+    },
+    {
+      "subject_id": "133_S_0493",
+      "series_id": "I16335",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\133_S_0493.nii.gz"
+    },
+    {
+      "subject_id": "133_S_1170",
+      "series_id": "I36757",
+      "dicom_slices": 160,
+      "shape": [
+        240,
+        256,
+        160
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.2
+      ],
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI\\133_S_1170.nii.gz"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETED",
+  "samples": [
+    {
+      "subject_id": "OAS1_0122_MR1",
+      "label": "Dementia (CDR >= 1)",
+      "cdr": 1.0,
+      "resnet18_cam_file": "results/final_campaign/figures/gradcam\\gradcam_resnet18_dementia.png",
+      "resnet34_cam_file": "results/final_campaign/figures/gradcam\\gradcam_resnet34_dementia.png",
+      "salience_focus": "Medial temporal and lateral ventricles"
+    },
+    {
+      "subject_id": "OAS1_0033_MR1",
+      "label": "Cognitively Normal (CDR = 0)",
+      "cdr": 0.0,
+      "resnet18_cam_file": "results/final_campaign/figures/gradcam\\gradcam_resnet18_cn.png",
+      "resnet34_cam_file": "results/final_campaign/figures/gradcam\\gradcam_resnet34_cn.png",
+      "salience_focus": "Diffuse cortical distribution"
+    }
+  ],
+  "scientific_interpretation": "3D Grad-CAM maps demonstrate that both 3D ResNet-18 and ResNet-34 place concentrated saliency on periventricular margins and medial temporal regions in Dementia cases, reflecting enlarged ventricular space and surrounding parenchymal contrast. In contrast, Cognitively Normal controls display broad, diffuse cortical activation. Caution: Saliency heatmaps visualize network activation patterns and must not be misinterpreted as validated histological biomarkers."
+}

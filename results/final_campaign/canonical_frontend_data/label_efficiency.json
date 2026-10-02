@@ -1,0 +1,162 @@
+[
+  {
+    "model": "BrainIAC",
+    "fraction": "10%",
+    "n_labeled_subjects": 4,
+    "mean_auc": 0.525,
+    "std_auc": 0.2006,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0125,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "BrainIAC",
+    "fraction": "25%",
+    "n_labeled_subjects": 9,
+    "mean_auc": 0.5375,
+    "std_auc": 0.1854,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0125,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "BrainIAC",
+    "fraction": "50%",
+    "n_labeled_subjects": 18,
+    "mean_auc": 0.5375,
+    "std_auc": 0.1854,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0125,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "BrainIAC",
+    "fraction": "100%",
+    "n_labeled_subjects": 35,
+    "mean_auc": 0.5375,
+    "std_auc": 0.1854,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0125,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "fraction": "10%",
+    "n_labeled_subjects": 4,
+    "mean_auc": 0.4563,
+    "std_auc": 0.301,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0812,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "fraction": "25%",
+    "n_labeled_subjects": 9,
+    "mean_auc": 0.5125,
+    "std_auc": 0.323,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0812,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "fraction": "50%",
+    "n_labeled_subjects": 18,
+    "mean_auc": 0.55,
+    "std_auc": 0.3463,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0812,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "fraction": "100%",
+    "n_labeled_subjects": 35,
+    "mean_auc": 0.5375,
+    "std_auc": 0.3497,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0812,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "fraction": "10%",
+    "n_labeled_subjects": 4,
+    "mean_auc": 0.3813,
+    "std_auc": 0.3497,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0437,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "fraction": "25%",
+    "n_labeled_subjects": 9,
+    "mean_auc": 0.375,
+    "std_auc": 0.3536,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0437,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "fraction": "50%",
+    "n_labeled_subjects": 18,
+    "mean_auc": 0.425,
+    "std_auc": 0.3913,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0437,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "fraction": "100%",
+    "n_labeled_subjects": 35,
+    "mean_auc": 0.425,
+    "std_auc": 0.3913,
+    "classifier_head": "Linear Probe (Frozen Weights)",
+    "delta_10pct_to_100pct": 0.0437,
+    "label_efficiency_characteristic": "Representation Bottleneck / Flat Scaling"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "fraction": "10%",
+    "n_labeled_subjects": 4,
+    "mean_auc": 0.725,
+    "std_auc": 0.2363,
+    "classifier_head": "End-to-End Supervised CNN",
+    "delta_10pct_to_100pct": 0.1125,
+    "label_efficiency_characteristic": "Steep Learning Scaling"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "fraction": "25%",
+    "n_labeled_subjects": 9,
+    "mean_auc": 0.6125,
+    "std_auc": 0.1355,
+    "classifier_head": "End-to-End Supervised CNN",
+    "delta_10pct_to_100pct": 0.1125,
+    "label_efficiency_characteristic": "Steep Learning Scaling"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "fraction": "50%",
+    "n_labeled_subjects": 18,
+    "mean_auc": 0.8125,
+    "std_auc": 0.125,
+    "classifier_head": "End-to-End Supervised CNN",
+    "delta_10pct_to_100pct": 0.1125,
+    "label_efficiency_characteristic": "Steep Learning Scaling"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "fraction": "100%",
+    "n_labeled_subjects": 35,
+    "mean_auc": 0.8375,
+    "std_auc": 0.0342,
+    "classifier_head": "End-to-End Supervised CNN",
+    "delta_10pct_to_100pct": 0.1125,
+    "label_efficiency_characteristic": "Steep Learning Scaling"
+  }
+]

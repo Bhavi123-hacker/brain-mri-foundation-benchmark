@@ -1,0 +1,6 @@
+model,architecture,embedding_dim,pca_explained_var_pc1_2,silhouette_score_raw,silhouette_score_pca,centroid_distance_cn_vs_dementia,biological_clustering_status
+BrainIAC,Vision Transformer (ViT-Base),768,0.412,-0.045,0.038,1.42,Weak Linear Separability on 128^3
+FOMO25 Winner,Hybrid Convolutional-Attention Encoder,512,0.385,-0.072,0.015,1.28,Diffuse Latent Spread; Domain Susceptible
+MONAI Swin UNETR SSL,Shifted Window 3D Hierarchical Transformer,768,0.468,-0.021,0.082,1.85,Moderate Clustered Separation in Low Dimensions
+Supervised 3D ResNet-18,"3D ResNet (18 layers, penult pool)",512,0.615,0.185,0.294,3.42,Strong Task-Directed Separation
+Supervised 3D ResNet-34,"3D ResNet (34 layers, penult pool)",512,0.652,0.221,0.345,3.88,Strongest Task-Directed Separation

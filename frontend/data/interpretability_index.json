@@ -1,0 +1,338 @@
+[
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-18",
+    "subject_id": "OAS1_0001_MR1",
+    "ground_truth": "CN",
+    "prediction_probability": 0.0292,
+    "classification": "True Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet18_gradcam/OAS1_0001_MR1_true_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet18/OAS1_0001_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-18",
+    "subject_id": "OAS1_0002_MR1",
+    "ground_truth": "CN",
+    "prediction_probability": 0.0253,
+    "classification": "True Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet18_gradcam/OAS1_0002_MR1_true_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet18/OAS1_0002_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-18",
+    "subject_id": "OAS1_0028_MR1",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.9126,
+    "classification": "True Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet18_gradcam/OAS1_0028_MR1_true_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet18/OAS1_0028_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-18",
+    "subject_id": "OAS1_0031_MR1",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.8534,
+    "classification": "True Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet18_gradcam/OAS1_0031_MR1_true_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet18/OAS1_0031_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-18",
+    "subject_id": "OAS1_0019_MR1",
+    "ground_truth": "CN",
+    "prediction_probability": 0.7332,
+    "classification": "False Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet18_gradcam/OAS1_0019_MR1_false_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet18/OAS1_0019_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-18",
+    "subject_id": "OAS1_0035_MR1",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.4158,
+    "classification": "False Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet18_gradcam/OAS1_0035_MR1_false_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet18/OAS1_0035_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-34",
+    "subject_id": "OAS1_0002_MR1",
+    "ground_truth": "CN",
+    "prediction_probability": 0.0601,
+    "classification": "True Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet34_gradcam/OAS1_0002_MR1_true_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet34/OAS1_0002_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-34",
+    "subject_id": "OAS1_0011_MR1",
+    "ground_truth": "CN",
+    "prediction_probability": 0.0531,
+    "classification": "True Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet34_gradcam/OAS1_0011_MR1_true_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet34/OAS1_0011_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-34",
+    "subject_id": "OAS1_0035_MR1",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.4839,
+    "classification": "True Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet34_gradcam/OAS1_0035_MR1_true_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet34/OAS1_0035_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-34",
+    "subject_id": "OAS1_0056_MR1",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.9333,
+    "classification": "True Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet34_gradcam/OAS1_0056_MR1_true_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet34/OAS1_0056_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-34",
+    "subject_id": "OAS1_0001_MR1",
+    "ground_truth": "CN",
+    "prediction_probability": 0.4548,
+    "classification": "False Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet34_gradcam/OAS1_0001_MR1_false_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet34/OAS1_0001_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "OASIS-1",
+    "model": "ResNet-34",
+    "subject_id": "OAS1_0028_MR1",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.1563,
+    "classification": "False Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/oasis_resnet34_gradcam/OAS1_0028_MR1_false_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/oasis/resnet34/OAS1_0028_MR1/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-18",
+    "subject_id": "002_S_1261",
+    "ground_truth": "CN",
+    "prediction_probability": 0.0281,
+    "classification": "True Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet18_gradcam/002_S_1261_true_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet18/002_S_1261/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-18",
+    "subject_id": "002_S_1280",
+    "ground_truth": "CN",
+    "prediction_probability": 0.1364,
+    "classification": "True Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet18_gradcam/002_S_1280_true_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet18/002_S_1280/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-18",
+    "subject_id": "021_S_0753",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.8638,
+    "classification": "True Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet18_gradcam/021_S_0753_true_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet18/021_S_0753/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-18",
+    "subject_id": "023_S_0916",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.881,
+    "classification": "True Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet18_gradcam/023_S_0916_true_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet18/023_S_0916/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-18",
+    "subject_id": "013_S_1276",
+    "ground_truth": "CN",
+    "prediction_probability": 0.5154,
+    "classification": "False Positive",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet18_gradcam/013_S_1276_false_positive.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet18/013_S_1276/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-18",
+    "subject_id": "002_S_0816",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.0782,
+    "classification": "False Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet18_gradcam/002_S_0816_false_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet18/002_S_0816/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-34",
+    "subject_id": "002_S_1261",
+    "ground_truth": "CN",
+    "prediction_probability": 0.0624,
+    "classification": "True Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet34_gradcam/002_S_1261_true_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet34/002_S_1261/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-34",
+    "subject_id": "002_S_1280",
+    "ground_truth": "CN",
+    "prediction_probability": 0.1408,
+    "classification": "True Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet34_gradcam/002_S_1280_true_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet34/002_S_1280/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  },
+  {
+    "dataset": "ADNI",
+    "model": "ResNet-34",
+    "subject_id": "002_S_0816",
+    "ground_truth": "Dementia/AD",
+    "prediction_probability": 0.0485,
+    "classification": "False Negative",
+    "views": [
+      "axial",
+      "coronal",
+      "sagittal"
+    ],
+    "composite_image": "results/final_campaign/interpretability/adni_resnet34_gradcam/002_S_0816_false_negative.png",
+    "metadata_file": "results/final_campaign/frontend_data/interpretability/adni/resnet34/002_S_0816/metadata.json",
+    "interpretation_warning": "Grad-CAM indicates prediction-associated model saliency and does not establish disease causation, neuropathology, or clinical validity."
+  }
+]

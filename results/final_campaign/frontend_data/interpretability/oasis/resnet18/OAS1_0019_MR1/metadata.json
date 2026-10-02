@@ -1,0 +1,24 @@
+{
+  "dataset": "OASIS-1",
+  "subject_id": "OAS1_0019_MR1",
+  "model": "ResNet-18",
+  "true_label": "CN",
+  "predicted_label": "Dementia/AD",
+  "prediction_probability": 0.7332,
+  "category": "False Positive",
+  "gradcam_target_layer": "layer4[-1].conv2",
+  "gradcam_method": "3D Grad-CAM with Trilinear Upsampling",
+  "normalization_method": "Volumetric Z-Score Normalization",
+  "input_preprocessing_version": "Pipeline A (128x128x128 Isotropic 1mm)",
+  "files": {
+    "axial_original": "axial_original.png",
+    "axial_cam": "axial_cam.png",
+    "axial_overlay": "axial_overlay.png",
+    "coronal_original": "coronal_original.png",
+    "coronal_cam": "coronal_cam.png",
+    "coronal_overlay": "coronal_overlay.png",
+    "sagittal_original": "sagittal_original.png",
+    "sagittal_cam": "sagittal_cam.png",
+    "sagittal_overlay": "sagittal_overlay.png"
+  }
+}

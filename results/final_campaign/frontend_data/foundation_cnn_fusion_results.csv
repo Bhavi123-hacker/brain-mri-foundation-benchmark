@@ -1,0 +1,4 @@
+combination,foundation_encoder,cnn_encoder,fused_feature_dim,cv_auc_mean,cv_auc_std,cv_accuracy_mean,cv_f1_mean
+BrainIAC + ResNet-18,BrainIAC,Supervised 3D ResNet-18,1280,0.955,0.0438,0.9028,0.9025
+Swin + ResNet-18,MONAI Swin UNETR SSL,Supervised 3D ResNet-18,1280,0.98,0.0447,0.9278,0.9247
+FOMO25 + ResNet-18,FOMO25 Winner,Supervised 3D ResNet-18,1024,0.9675,0.0464,0.8778,0.8747

@@ -1,0 +1,57 @@
+{
+  "phase": "Phase 5E Step 2 \u2014 Foundation Model Linear Probing Pilot (FOMO25)",
+  "model_info": {
+    "model_name": "FOMO25 Winner",
+    "model_key": "foundation_fomo25",
+    "weights_path": "D:\\ml project\\weights\\fomo25_winner_encoder.pt",
+    "architecture": "3D Multi-scale Conv-Encoder Backbone + Linear Head",
+    "adaptation_mode": "linear_probe",
+    "frozen_backbone_confirmed": true,
+    "head_trainable_confirmed": true,
+    "trainable_parameters": 513,
+    "frozen_parameters": 1296128,
+    "total_parameters": 1296641
+  },
+  "dataset_split_info": {
+    "dataset": "OASIS-1 Pilot",
+    "data_location": "D:\\OASIS1_PILOT",
+    "train_subjects": 35,
+    "val_subjects": 7,
+    "test_subjects": 8,
+    "test_set_evaluated": false,
+    "patient_overlap_check": "0% Patient Overlap Verified"
+  },
+  "training_configuration": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 4,
+    "loss_function": "BCEWithLogitsLoss",
+    "early_stopping_patience": 7,
+    "max_epochs": 30,
+    "device": "cpu (CPU (Host))"
+  },
+  "training_results": {
+    "best_epoch": 1,
+    "best_val_loss": 0.6703,
+    "val_accuracy": 0.5714,
+    "val_balanced_accuracy": 0.5,
+    "val_precision": 0.0,
+    "val_recall": 0.0,
+    "val_f1_score": 0.0,
+    "val_roc_auc": 0.6667,
+    "val_brier_score": 0.2402,
+    "val_confusion_matrix": {
+      "tp": 0,
+      "tn": 4,
+      "fp": 0,
+      "fn": 3
+    },
+    "total_training_time_seconds": 226.05
+  },
+  "checkpoint_info": {
+    "best_checkpoint_path": "results\\checkpoints\\oasis1_pilot_fomo25_linear_probe_best.pt",
+    "checkpoint_preserved": true
+  },
+  "test_set_isolation_confirmation": "VERIFIED: The 8-subject test set was NOT evaluated during or after training."
+}

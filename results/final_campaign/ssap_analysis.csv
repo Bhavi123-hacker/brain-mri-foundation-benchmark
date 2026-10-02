@@ -1,0 +1,17 @@
+model,fraction,n_train_subjects,mean_auc,std_auc,median_auc,iqr_auc,cov_auc,ssap_lambda_0.50,ssap_lambda_0.25,ssap_lambda_1.00,worst_seed_auc,best_seed_auc,mean_accuracy,mean_f1,rank_lambda_0.50,rank_lambda_0.25,rank_lambda_1.00,stability_category
+Supervised 3D ResNet-18,10%,4,0.725,0.2363,0.6875,0.4375,0.326,0.6068,0.6659,0.4887,0.5,1.0,0.5,0.1333,1,1,1,Moderate Stability
+Supervised 3D ResNet-18,25%,9,0.6125,0.1355,0.5625,0.1875,0.2212,0.5448,0.5786,0.477,0.4375,0.75,0.5,0.2667,1,1,1,Moderate Stability
+Supervised 3D ResNet-18,50%,18,0.8125,0.125,0.875,0.125,0.1538,0.75,0.7812,0.6875,0.625,0.9375,0.5,0.5334,1,1,1,Moderate Stability
+Supervised 3D ResNet-18,100%,35,0.8375,0.0342,0.8125,0.0625,0.0409,0.8204,0.829,0.8033,0.8125,0.875,0.55,0.3588,1,1,1,High Stability
+BrainIAC,10%,4,0.525,0.2006,0.5,0.25,0.3821,0.4247,0.4748,0.3244,0.3125,0.8125,0.6,0.4267,2,2,2,Moderate Stability
+BrainIAC,25%,9,0.5375,0.1854,0.5,0.25,0.3449,0.4448,0.4912,0.3521,0.375,0.8125,0.6,0.5224,2,2,2,Moderate Stability
+BrainIAC,50%,18,0.5375,0.1854,0.5,0.25,0.3449,0.4448,0.4912,0.3521,0.375,0.8125,0.575,0.4933,2,2,2,Moderate Stability
+BrainIAC,100%,35,0.5375,0.1854,0.5,0.25,0.3449,0.4448,0.4912,0.3521,0.375,0.8125,0.475,0.4314,2,2,2,Moderate Stability
+FOMO25 Winner,10%,4,0.4563,0.301,0.4375,0.2812,0.6598,0.3058,0.381,0.1553,0.1875,0.9375,0.475,0.3758,3,3,3,Low Stability (High Seed Variance)
+FOMO25 Winner,25%,9,0.5125,0.323,0.4375,0.5,0.6301,0.351,0.4318,0.1895,0.1875,0.9375,0.5,0.4,3,3,3,Low Stability (High Seed Variance)
+FOMO25 Winner,50%,18,0.55,0.3463,0.5,0.625,0.6296,0.3768,0.4634,0.2037,0.1875,0.9375,0.45,0.4,3,3,3,Low Stability (High Seed Variance)
+FOMO25 Winner,100%,35,0.5375,0.3497,0.4375,0.625,0.6505,0.3626,0.4501,0.1878,0.1875,0.9375,0.45,0.1905,3,3,3,Low Stability (High Seed Variance)
+MONAI Swin UNETR SSL,10%,4,0.3813,0.3497,0.2188,0.3125,0.9171,0.2064,0.2939,0.0316,0.0625,0.9375,0.5,0.2667,4,4,4,Low Stability (High Seed Variance)
+MONAI Swin UNETR SSL,25%,9,0.375,0.3536,0.1875,0.3125,0.9428,0.1982,0.2866,0.0214,0.0625,0.9375,0.5,0.2667,4,4,4,Low Stability (High Seed Variance)
+MONAI Swin UNETR SSL,50%,18,0.425,0.3913,0.1875,0.5625,0.9207,0.2294,0.3272,0.0337,0.0625,0.9375,0.5,0.2667,4,4,4,Low Stability (High Seed Variance)
+MONAI Swin UNETR SSL,100%,35,0.425,0.3913,0.1875,0.5625,0.9207,0.2294,0.3272,0.0337,0.0625,0.9375,0.5,0.1333,4,4,4,Low Stability (High Seed Variance)

@@ -1,0 +1,5 @@
+PTID,IMAGEUID,VISCODE,FILE_PATH,DX,AGE,PTGENDER,MMSE,CDRSB,IS_SYNTHETIC,subject_id,file_path,diagnosis,age,is_valid_scan
+MOCK_PT_003,MOCK_IMG_0006,m00,D:\ml project\data\mock_data\scans\MOCK_PT_003_m00_MOCK_IMG_0006.nii.gz,AD,68.5,M,21,2.0,True,MOCK_PT_003,D:\ml project\data\mock_data\scans\MOCK_PT_003_m00_MOCK_IMG_0006.nii.gz,AD,68.5,True
+MOCK_PT_003,MOCK_IMG_0007,m12,D:\ml project\data\mock_data\scans\MOCK_PT_003_m12_MOCK_IMG_0007.nii.gz,AD,69.5,M,30,4.5,True,MOCK_PT_003,D:\ml project\data\mock_data\scans\MOCK_PT_003_m12_MOCK_IMG_0007.nii.gz,AD,69.5,True
+MOCK_PT_008,MOCK_IMG_0016,m00,D:\ml project\data\mock_data\scans\MOCK_PT_008_m00_MOCK_IMG_0016.nii.gz,AD,68.7,F,18,1.0,True,MOCK_PT_008,D:\ml project\data\mock_data\scans\MOCK_PT_008_m00_MOCK_IMG_0016.nii.gz,AD,68.7,True
+MOCK_PT_008,MOCK_IMG_0017,m12,D:\ml project\data\mock_data\scans\MOCK_PT_008_m12_MOCK_IMG_0017.nii.gz,AD,69.7,F,18,2.0,True,MOCK_PT_008,D:\ml project\data\mock_data\scans\MOCK_PT_008_m12_MOCK_IMG_0017.nii.gz,AD,69.7,True

@@ -1,0 +1,11 @@
+model_name,model_type,total_parameters,trainable_parameters,trainable_percentage,frozen_parameters,capacity_note
+Supervised 3D ResNet-18,Scratch Supervised CNN,33160513,33160513,100.0,0,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+Supervised 3D ResNet-34,Scratch Supervised CNN,63556225,63556225,100.0,0,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+BrainIAC (Linear Probe),Frozen Foundation Linear Probe,6538049,769,0.0118,6537280,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+BrainIAC (Deeper FT),Adapted Foundation Model,6538049,6515969,99.6623,22080,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+FOMO25 Winner (Linear Probe),Frozen Foundation Linear Probe,1296641,513,0.0396,1296128,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+FOMO25 Winner (Full FT),Adapted Foundation Model,1296641,1296641,100.0,0,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+MONAI Swin UNETR SSL (Linear Probe),Frozen Foundation Linear Probe,774913,769,0.0992,774144,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+MONAI Swin UNETR SSL (Deeper FT),Adapted Foundation Model,774913,648769,83.7215,126144,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+Ensemble (ResNet-34 + Swin),Dual-Paradigm Ensemble,64331138,63556994,98.7966,774144,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."
+Swin + ResNet18 Feature Fusion,Multimodal Feature Fusion,34263426,328000,0.9573,33935426,"Fewer trainable parameters during linear probing indicates representation freezing, not smaller underlying computational footprint."

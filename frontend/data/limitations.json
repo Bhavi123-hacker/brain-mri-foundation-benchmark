@@ -1,0 +1,16 @@
+{
+  "mandatory_limitations": [
+    "OASIS-1 pilot is small (N=50 total subjects).",
+    "Locked OASIS holdout test set is N=8 subjects (4 CN / 4 Impaired).",
+    "ADNI external transfer test set is N=8 subjects (4 CN / 4 AD).",
+    "Statistical uncertainty is wide on holdout test metrics.",
+    "Study evidence constitutes single-study, small-cohort benchmark observations.",
+    "No claim of clinical diagnostic validity or regulatory clearance is made.",
+    "Cross-dataset domain shift encompasses multiple scanner differences (1.5T vs 3.0T, manufacturer, multi-site protocols).",
+    "Grad-CAM feature saliency reflects statistical network attribution, not causal neuropathology.",
+    "Foundation models may experience representation bottlenecks from frozen pooled embeddings.",
+    "Findings require prospective validation on large-scale cohorts (N >= 1,000).",
+    "No prodromal staging (MCI / CDR 0.5) was evaluated in this binary contrast.",
+    "Cross-sectional evaluation does not assess longitudinal disease trajectory or progression."
+  ]
+}

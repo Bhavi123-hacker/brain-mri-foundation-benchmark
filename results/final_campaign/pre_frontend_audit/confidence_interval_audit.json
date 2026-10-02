@@ -1,0 +1,74 @@
+[
+  {
+    "model": "Supervised 3D ResNet-18",
+    "metric": "Holdout Test ROC-AUC",
+    "point_estimate": 1.0,
+    "ci_95": [
+      1.0,
+      1.0
+    ],
+    "method": "1000-resample non-parametric bootstrap",
+    "sample_size": 8,
+    "caveat": "Pilot observation; N=8 bounds are narrow due to perfect separation on holdout sample"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "metric": "Holdout Test ROC-AUC",
+    "point_estimate": 1.0,
+    "ci_95": [
+      1.0,
+      1.0
+    ],
+    "method": "1000-resample non-parametric bootstrap",
+    "sample_size": 8,
+    "caveat": "Pilot observation"
+  },
+  {
+    "model": "BrainIAC",
+    "metric": "Holdout Test ROC-AUC",
+    "point_estimate": 0.9375,
+    "ci_95": [
+      0.6667,
+      1.0
+    ],
+    "method": "1000-resample non-parametric bootstrap",
+    "sample_size": 8,
+    "caveat": "Wide confidence interval reflecting small-sample variance"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "metric": "Holdout Test ROC-AUC",
+    "point_estimate": 0.8125,
+    "ci_95": [
+      0.4,
+      1.0
+    ],
+    "method": "1000-resample non-parametric bootstrap",
+    "sample_size": 8,
+    "caveat": "Wide confidence interval reflecting small-sample variance"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "metric": "Holdout Test ROC-AUC",
+    "point_estimate": 0.8125,
+    "ci_95": [
+      0.4,
+      1.0
+    ],
+    "method": "1000-resample non-parametric bootstrap",
+    "sample_size": 8,
+    "caveat": "Wide confidence interval reflecting small-sample variance"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "metric": "Holdout Test ROC-AUC",
+    "point_estimate": 1.0,
+    "ci_95": [
+      1.0,
+      1.0
+    ],
+    "method": "1000-resample non-parametric bootstrap",
+    "sample_size": 8,
+    "caveat": "Pilot observation"
+  }
+]

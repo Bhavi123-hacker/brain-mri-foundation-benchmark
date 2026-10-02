@@ -1,0 +1,50 @@
+{
+  "manifest_subjects_count": 50,
+  "successfully_loaded_count": 50,
+  "split_counts": {
+    "train": 35,
+    "validation": 7,
+    "test": 8
+  },
+  "class_distribution": {
+    "CN_label_0": 25,
+    "DEMENTIA_label_1": 25
+  },
+  "missing_files_count": 0,
+  "missing_files": [],
+  "invalid_files_count": 0,
+  "invalid_files": [],
+  "excluded_forbidden_files": [],
+  "raw_spatial_shapes_before": {
+    "(176, 208, 176)": 48,
+    "(176, 208, 174)": 1,
+    "(176, 208, 175)": 1
+  },
+  "raw_dtypes_before": [
+    "float32"
+  ],
+  "intensity_stats_before_norm": {
+    "mean_of_mins": -1.5252,
+    "mean_of_maxs": 5.3258,
+    "global_mean": -0.6361,
+    "global_std": 1.0731
+  },
+  "final_tensor_shape": [
+    1,
+    128,
+    128,
+    128
+  ],
+  "final_dtype": "torch.float32",
+  "intensity_stats_after_norm": {
+    "mean_of_mins": -0.8276,
+    "mean_of_maxs": 5.2224,
+    "global_mean": -0.0,
+    "global_std": 0.9858
+  },
+  "cache_location": "data\\cache\\oasis1_pilot",
+  "cache_size_mb": 200.12,
+  "preprocessing_failures_count": 0,
+  "patient_leakage_detected": false,
+  "patient_leakage_verification": "0% Patient Overlap (PASSED)"
+}

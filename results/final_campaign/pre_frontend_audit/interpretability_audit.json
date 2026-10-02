@@ -1,0 +1,9 @@
+{
+  "selection_protocol": "Deterministic alphabetical quadrant selection (2 TN, 2 TP, 1 FP, 1 FN)",
+  "test_labels_used": false,
+  "language_compliance": "PASS ('prediction-associated regions' and 'model saliency' strictly enforced; no causal disease claims)",
+  "spatial_consistency_pearson_r": 0.6219,
+  "spatial_consistency_dice_top20": 0.4967,
+  "center_of_mass_distance_voxels": 30.78,
+  "interpretability_status": "AUDIT PASSED"
+}

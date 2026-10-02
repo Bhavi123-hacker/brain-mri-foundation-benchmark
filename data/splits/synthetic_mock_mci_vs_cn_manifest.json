@@ -1,0 +1,32 @@
+{
+  "dataset": "SYNTHETIC_MOCK",
+  "task": "MCI_vs_CN",
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "counts": {
+    "train_subjects": 5,
+    "train_scans": 10,
+    "val_subjects": 1,
+    "val_scans": 2,
+    "test_subjects": 2,
+    "test_scans": 4
+  },
+  "leakage_verification": {
+    "has_leakage": false,
+    "train_val_overlap_count": 0,
+    "train_test_overlap_count": 0,
+    "val_test_overlap_count": 0,
+    "train_val_overlap_subjects": [],
+    "train_test_overlap_subjects": [],
+    "val_test_overlap_subjects": []
+  },
+  "files": {
+    "train": "data/splits\\synthetic_mock_mci_vs_cn_train.csv",
+    "val": "data/splits\\synthetic_mock_mci_vs_cn_val.csv",
+    "test": "data/splits\\synthetic_mock_mci_vs_cn_test.csv"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "datasets_audited": [
+    "SYNTHETIC_MOCK"
+  ],
+  "reports": {
+    "SYNTHETIC_MOCK": {
+      "dataset_name": "SYNTHETIC_MOCK",
+      "total_records": 24,
+      "total_subjects": 12,
+      "usable_scans": 24,
+      "usable_subjects": 12,
+      "excluded_scans": 0,
+      "duplicate_scans_detected": 0,
+      "duplicate_file_paths": 0,
+      "subject_level_diagnoses": {
+        "CN": 5,
+        "MCI": 3,
+        "AD": 4
+      },
+      "scan_level_diagnoses": {
+        "CN": 10,
+        "MCI": 6,
+        "AD": 8
+      },
+      "age_statistics": {
+        "mean": 70.9,
+        "std": 7.22,
+        "min": 60.4,
+        "max": 82.3,
+        "missing_count": 0
+      },
+      "sex_distribution": {
+        "F": 14,
+        "M": 10
+      },
+      "exclusions_breakdown": {},
+      "task_feasibility": {
+        "Task_1_AD_vs_CN": {
+          "usable_scans": 18,
+          "usable_subjects": 9,
+          "is_feasible": true
+        },
+        "Task_2_Brain_Age": {
+          "usable_scans": 24,
+          "usable_subjects": 12,
+          "is_feasible": true
+        },
+        "Task_3_MCI_vs_CN": {
+          "usable_scans": 16,
+          "usable_subjects": 8,
+          "is_feasible": true
+        }
+      },
+      "image_diagnostics": {
+        "inspected_files_count": 24,
+        "corrupt_files_count": 0,
+        "corrupt_files": [],
+        "detected_shapes": [
+          [
+            32,
+            32,
+            32
+          ]
+        ],
+        "detected_spacings_mm": [
+          [
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "detected_orientations": [
+          "RAS"
+        ]
+      }
+    }
+  },
+  "split_manifests": {
+    "AD_vs_CN": {
+      "train_scans": 12,
+      "val_scans": 2,
+      "test_scans": 4,
+      "leakage_detected": false
+    },
+    "Brain_Age": {
+      "train_scans": 16,
+      "val_scans": 2,
+      "test_scans": 6,
+      "leakage_detected": false
+    },
+    "MCI_vs_CN": {
+      "train_scans": 10,
+      "val_scans": 2,
+      "test_scans": 4,
+      "leakage_detected": false
+    }
+  }
+}

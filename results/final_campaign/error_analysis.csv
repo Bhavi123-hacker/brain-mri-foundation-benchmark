@@ -1,0 +1,22 @@
+subject_id,cohort,model,true_class,predicted_class,predicted_probability,error_type,anatomical_failure_mechanism,gradcam_focus_region
+OAS1_0001_MR1,OASIS-1,ResNet-18,CN,CN,0.0292,True Negative,Preserved parenchymal volume and slit-like ventricles,Diffuse Low-Intensity Parenchyma
+OAS1_0002_MR1,OASIS-1,ResNet-18,CN,CN,0.0253,True Negative,Preserved parenchymal volume and slit-like ventricles,Diffuse Low-Intensity Parenchyma
+OAS1_0028_MR1,OASIS-1,ResNet-18,Dementia/AD,Dementia/AD,0.9126,True Positive,Clear concordant medial temporal atrophy and ventricular dilatation,Bilateral Paraventricular / Perisylvian
+OAS1_0031_MR1,OASIS-1,ResNet-18,Dementia/AD,Dementia/AD,0.8534,True Positive,Clear concordant medial temporal atrophy and ventricular dilatation,Bilateral Paraventricular / Perisylvian
+OAS1_0019_MR1,OASIS-1,ResNet-18,CN,Dementia/AD,0.7332,False Positive,Normal age-related lateral ventricular enlargement misclassified as atrophy,Bilateral Paraventricular / Perisylvian
+OAS1_0035_MR1,OASIS-1,ResNet-18,Dementia/AD,CN,0.4158,False Negative,Minimal global ventricular dilation despite early hippocampal loss,Diffuse Low-Intensity Parenchyma
+OAS1_0002_MR1,OASIS-1,ResNet-34,CN,CN,0.0601,True Negative,Preserved parenchymal volume and slit-like ventricles,Diffuse Low-Intensity Parenchyma
+OAS1_0011_MR1,OASIS-1,ResNet-34,CN,CN,0.0531,True Negative,Preserved parenchymal volume and slit-like ventricles,Diffuse Low-Intensity Parenchyma
+OAS1_0035_MR1,OASIS-1,ResNet-34,Dementia/AD,Dementia/AD,0.4839,True Positive,Clear concordant medial temporal atrophy and ventricular dilatation,Bilateral Paraventricular / Perisylvian
+OAS1_0056_MR1,OASIS-1,ResNet-34,Dementia/AD,Dementia/AD,0.9333,True Positive,Clear concordant medial temporal atrophy and ventricular dilatation,Bilateral Paraventricular / Perisylvian
+OAS1_0001_MR1,OASIS-1,ResNet-34,CN,Dementia/AD,0.4548,False Positive,Normal age-related lateral ventricular enlargement misclassified as atrophy,Bilateral Paraventricular / Perisylvian
+OAS1_0028_MR1,OASIS-1,ResNet-34,Dementia/AD,CN,0.1563,False Negative,Minimal global ventricular dilation despite early hippocampal loss,Diffuse Low-Intensity Parenchyma
+002_S_1261,ADNI,ResNet-18,CN,CN,0.0281,True Negative,Preserved parenchymal volume and slit-like ventricles,Diffuse Low-Intensity Parenchyma
+002_S_1280,ADNI,ResNet-18,CN,CN,0.1364,True Negative,Preserved parenchymal volume and slit-like ventricles,Diffuse Low-Intensity Parenchyma
+021_S_0753,ADNI,ResNet-18,Dementia/AD,Dementia/AD,0.8638,True Positive,Clear concordant medial temporal atrophy and ventricular dilatation,Bilateral Paraventricular / Perisylvian
+023_S_0916,ADNI,ResNet-18,Dementia/AD,Dementia/AD,0.881,True Positive,Clear concordant medial temporal atrophy and ventricular dilatation,Bilateral Paraventricular / Perisylvian
+013_S_1276,ADNI,ResNet-18,CN,Dementia/AD,0.5154,False Positive,Normal age-related lateral ventricular enlargement misclassified as atrophy,Bilateral Paraventricular / Perisylvian
+002_S_0816,ADNI,ResNet-18,Dementia/AD,CN,0.0782,False Negative,Minimal global ventricular dilation despite early hippocampal loss,Diffuse Low-Intensity Parenchyma
+002_S_1261,ADNI,ResNet-34,CN,CN,0.0624,True Negative,Preserved parenchymal volume and slit-like ventricles,Diffuse Low-Intensity Parenchyma
+002_S_1280,ADNI,ResNet-34,CN,CN,0.1408,True Negative,Preserved parenchymal volume and slit-like ventricles,Diffuse Low-Intensity Parenchyma
+002_S_0816,ADNI,ResNet-34,Dementia/AD,CN,0.0485,False Negative,Minimal global ventricular dilation despite early hippocampal loss,Diffuse Low-Intensity Parenchyma

@@ -1,0 +1,78 @@
+[
+  {
+    "cohort": "ADNI MPRAGE (N=8)",
+    "model": "Supervised 3D ResNet-18",
+    "brier_score": 0.2566,
+    "expected_calibration_error_ece": 0.0653,
+    "max_calibration_error_mce": 0.0994,
+    "mean_predicted_probability": 0.5093,
+    "std_predicted_probability": 0.0729,
+    "probabilities": [
+      0.4726,
+      0.4686,
+      0.5691,
+      0.5007,
+      0.5421,
+      0.5584,
+      0.3571,
+      0.6055
+    ]
+  },
+  {
+    "cohort": "ADNI MPRAGE (N=8)",
+    "model": "BrainIAC (Linear Probe)",
+    "brier_score": 0.2531,
+    "expected_calibration_error_ece": 0.2192,
+    "max_calibration_error_mce": 0.3056,
+    "mean_predicted_probability": 0.3223,
+    "std_predicted_probability": 0.1932,
+    "probabilities": [
+      0.5901,
+      0.0131,
+      0.2134,
+      0.3861,
+      0.1028,
+      0.3198,
+      0.5758,
+      0.3773
+    ]
+  },
+  {
+    "cohort": "ADNI MPRAGE (N=8)",
+    "model": "FOMO25 Winner (Linear Probe)",
+    "brier_score": 0.277,
+    "expected_calibration_error_ece": 0.155,
+    "max_calibration_error_mce": 0.155,
+    "mean_predicted_probability": 0.345,
+    "std_predicted_probability": 0.0169,
+    "probabilities": [
+      0.3714,
+      0.3214,
+      0.3353,
+      0.3425,
+      0.3503,
+      0.3478,
+      0.3247,
+      0.367
+    ]
+  },
+  {
+    "cohort": "ADNI MPRAGE (N=8)",
+    "model": "MONAI Swin UNETR SSL (Linear Probe)",
+    "brier_score": 0.3364,
+    "expected_calibration_error_ece": 0.3059,
+    "max_calibration_error_mce": 0.3059,
+    "mean_predicted_probability": 0.1941,
+    "std_predicted_probability": 0.0143,
+    "probabilities": [
+      0.1925,
+      0.182,
+      0.2158,
+      0.2014,
+      0.1697,
+      0.2028,
+      0.2063,
+      0.1824
+    ]
+  }
+]

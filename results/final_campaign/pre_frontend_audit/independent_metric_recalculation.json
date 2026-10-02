@@ -1,0 +1,380 @@
+[
+  {
+    "model": "Supervised 3D ResNet-18",
+    "metric": "OASIS_AUC",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "metric": "OASIS_Acc_Std",
+    "reported_value": 0.875,
+    "recomputed_value": 0.875,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "metric": "OASIS_Acc_Dev",
+    "reported_value": 0.875,
+    "recomputed_value": 0.875,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "metric": "OASIS_BalAcc_Dev",
+    "reported_value": 0.875,
+    "recomputed_value": 0.875,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "metric": "OASIS_F1_Dev",
+    "reported_value": 0.8889,
+    "recomputed_value": 0.8889,
+    "absolute_difference": 1.1e-05,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "metric": "ADNI_AUC",
+    "reported_value": 0.9375,
+    "recomputed_value": 0.9375,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "metric": "ADNI_Acc",
+    "reported_value": 0.875,
+    "recomputed_value": 0.875,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "metric": "OASIS_AUC",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "metric": "OASIS_Acc_Std",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "metric": "OASIS_Acc_Dev",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "metric": "OASIS_BalAcc_Dev",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "metric": "OASIS_F1_Dev",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "metric": "ADNI_AUC",
+    "reported_value": 0.8125,
+    "recomputed_value": 0.8125,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "metric": "ADNI_Acc",
+    "reported_value": 0.625,
+    "recomputed_value": 0.625,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "BrainIAC",
+    "metric": "OASIS_AUC",
+    "reported_value": 0.9375,
+    "recomputed_value": 0.9375,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "BrainIAC",
+    "metric": "OASIS_Acc_Std",
+    "reported_value": 0.75,
+    "recomputed_value": 0.75,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "BrainIAC",
+    "metric": "OASIS_Acc_Dev",
+    "reported_value": 0.75,
+    "recomputed_value": 0.75,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "BrainIAC",
+    "metric": "OASIS_BalAcc_Dev",
+    "reported_value": 0.75,
+    "recomputed_value": 0.75,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "BrainIAC",
+    "metric": "OASIS_F1_Dev",
+    "reported_value": 0.8,
+    "recomputed_value": 0.8,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "BrainIAC",
+    "metric": "ADNI_AUC",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "BrainIAC",
+    "metric": "ADNI_Acc",
+    "reported_value": 0.875,
+    "recomputed_value": 0.875,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "metric": "OASIS_AUC",
+    "reported_value": 0.8125,
+    "recomputed_value": 0.8125,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "metric": "OASIS_Acc_Std",
+    "reported_value": 0.75,
+    "recomputed_value": 0.75,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "metric": "OASIS_Acc_Dev",
+    "reported_value": 0.75,
+    "recomputed_value": 0.75,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "metric": "OASIS_BalAcc_Dev",
+    "reported_value": 0.75,
+    "recomputed_value": 0.75,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "metric": "OASIS_F1_Dev",
+    "reported_value": 0.8,
+    "recomputed_value": 0.8,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "metric": "ADNI_AUC",
+    "reported_value": 0.625,
+    "recomputed_value": 0.625,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "metric": "ADNI_Acc",
+    "reported_value": 0.625,
+    "recomputed_value": 0.625,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "metric": "OASIS_AUC",
+    "reported_value": 0.8125,
+    "recomputed_value": 0.8125,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "metric": "OASIS_Acc_Std",
+    "reported_value": 0.625,
+    "recomputed_value": 0.625,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "metric": "OASIS_Acc_Dev",
+    "reported_value": 0.625,
+    "recomputed_value": 0.625,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "metric": "OASIS_BalAcc_Dev",
+    "reported_value": 0.625,
+    "recomputed_value": 0.625,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "metric": "OASIS_F1_Dev",
+    "reported_value": 0.6667,
+    "recomputed_value": 0.6667,
+    "absolute_difference": 3.3e-05,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "metric": "ADNI_AUC",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "metric": "ADNI_Acc",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "metric": "OASIS_AUC",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "metric": "OASIS_Acc_Std",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "metric": "OASIS_Acc_Dev",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "metric": "OASIS_BalAcc_Dev",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "metric": "OASIS_F1_Dev",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "metric": "ADNI_AUC",
+    "reported_value": 1.0,
+    "recomputed_value": 1.0,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "metric": "ADNI_Acc",
+    "reported_value": 0.875,
+    "recomputed_value": 0.875,
+    "absolute_difference": 0.0,
+    "tolerance": 0.0001,
+    "status": "PASS"
+  }
+]

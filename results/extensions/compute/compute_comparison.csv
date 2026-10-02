@@ -1,0 +1,6 @@
+Model,Paradigm,Total_Parameters,Trainable_Parameters,Trainable_Ratio_Pct,Checkpoint_Size_MB,Inference_Latency_ms_mean,Inference_Latency_ms_std,Training_Epoch_Time_sec,Test_ROC_AUC,FLOPs_GFLOPS
+3D ResNet-18,Supervised Baseline,33160513,33160513,100.0,126.57,2012.93,113.08,70.0,0.8375,N/A (3D Conv/ViT profiling uninstrumented on CPU)
+3D ResNet-34,Supervised Baseline,63470145,63470145,100.0,242.25,2291.82,663.35,83.0,0.925,N/A (3D Conv/ViT profiling uninstrumented on CPU)
+BrainIAC (Linear),Foundation Linear Probe,6538049,769,0.0118,24.95,1260.6,543.42,0.05,0.5375,N/A (3D Conv/ViT profiling uninstrumented on CPU)
+FOMO25 Winner (Linear),Foundation Linear Probe,1296641,513,0.0396,4.96,209.3,34.74,0.05,0.5375,N/A (3D Conv/ViT profiling uninstrumented on CPU)
+MONAI Swin UNETR (Linear),Foundation Linear Probe,774913,769,0.0992,2.97,321.18,27.26,0.05,0.425,N/A (3D Conv/ViT profiling uninstrumented on CPU)

@@ -1,0 +1,36 @@
+{
+  "oasis_total_subjects": 50,
+  "oasis_test_subjects_count": 8,
+  "oasis_test_subjects": [
+    "OAS1_0122_MR1",
+    "OAS1_0033_MR1",
+    "OAS1_0070_MR1",
+    "OAS1_0053_MR1",
+    "OAS1_0072_MR1",
+    "OAS1_0373_MR1",
+    "OAS1_0074_MR1",
+    "OAS1_0223_MR1"
+  ],
+  "adni_total_subjects": 50,
+  "adni_test_subjects_count": 8,
+  "adni_test_subjects": [
+    "023_S_0058",
+    "023_S_1190",
+    "027_S_0404",
+    "031_S_1209",
+    "033_S_0920",
+    "051_S_1123",
+    "067_S_0812",
+    "116_S_0487"
+  ],
+  "oasis_overlap_train_test_count": 0,
+  "oasis_overlap_val_test_count": 0,
+  "adni_overlap_train_test_count": 0,
+  "adni_overlap_val_test_count": 0,
+  "oasis_duplicate_ids": 0,
+  "adni_duplicate_ids": 0,
+  "test_subjects_in_cv_splits": [],
+  "test_subjects_in_gradcam": [],
+  "test_leakage_detected": false,
+  "audit_verdict": "AUDIT PASSED - ZERO LEAKAGE CONFIRMED"
+}

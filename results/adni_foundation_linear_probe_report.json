@@ -1,0 +1,305 @@
+{
+  "benchmark_name": "ADNI CN vs AD Foundation Model Linear Probing Pilots",
+  "models_evaluated": [
+    "BrainIAC",
+    "FOMO25",
+    "SwinUNETR"
+  ],
+  "seeds_evaluated": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "locked_hyperparameters": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "scheduler": "CosineAnnealingLR",
+    "batch_size": 4,
+    "loss": "BCEWithLogitsLoss",
+    "max_epochs": 30,
+    "early_stopping_patience": 7,
+    "selection_metric": "val_loss"
+  },
+  "dataset_split": {
+    "train_subjects": 35,
+    "val_subjects": 7,
+    "test_subjects": 8,
+    "test_set_status": "STRICTLY LOCKED & UNEVALUATED"
+  },
+  "total_wall_clock_seconds": 21.14,
+  "models": {
+    "BrainIAC": {
+      "slug": "brainiac",
+      "weights_path": "D:\\ml project\\weights\\brainiac_vit_base.pt",
+      "total_parameters": 6538049,
+      "frozen_parameters": 6537280,
+      "trainable_parameters": 769,
+      "feature_extraction_time_seconds": 5.15,
+      "cross_seed_validation_metrics": {
+        "val_accuracy_mean": 0.5428,
+        "val_accuracy_std": 0.14,
+        "val_f1_mean": 0.3171,
+        "val_f1_std": 0.1725,
+        "val_roc_auc_mean": 0.4833,
+        "val_roc_auc_std": 0.1929,
+        "val_loss_mean": 4.1819,
+        "val_loss_std": 2.6303
+      },
+      "seed_runs": [
+        {
+          "model": "BrainIAC",
+          "slug": "brainiac",
+          "seed": 42,
+          "best_epoch": 30,
+          "best_val_loss": 3.9761,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.5,
+          "val_recall": 0.3333,
+          "val_f1": 0.4,
+          "val_roc_auc": 0.5833,
+          "checkpoint_path": "results\\checkpoints\\adni_brainiac_linear_seed42_best.pt",
+          "training_time_seconds": 0.48
+        },
+        {
+          "model": "BrainIAC",
+          "slug": "brainiac",
+          "seed": 43,
+          "best_epoch": 28,
+          "best_val_loss": 2.2138,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.5,
+          "val_recall": 0.3333,
+          "val_f1": 0.4,
+          "val_roc_auc": 0.6667,
+          "checkpoint_path": "results\\checkpoints\\adni_brainiac_linear_seed43_best.pt",
+          "training_time_seconds": 0.43
+        },
+        {
+          "model": "BrainIAC",
+          "slug": "brainiac",
+          "seed": 44,
+          "best_epoch": 30,
+          "best_val_loss": 9.183,
+          "val_accuracy": 0.2857,
+          "val_precision": 0.25,
+          "val_recall": 0.3333,
+          "val_f1": 0.2857,
+          "val_roc_auc": 0.25,
+          "checkpoint_path": "results\\checkpoints\\adni_brainiac_linear_seed44_best.pt",
+          "training_time_seconds": 0.45
+        },
+        {
+          "model": "BrainIAC",
+          "slug": "brainiac",
+          "seed": 45,
+          "best_epoch": 30,
+          "best_val_loss": 3.6817,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.25,
+          "checkpoint_path": "results\\checkpoints\\adni_brainiac_linear_seed45_best.pt",
+          "training_time_seconds": 0.48
+        },
+        {
+          "model": "BrainIAC",
+          "slug": "brainiac",
+          "seed": 46,
+          "best_epoch": 8,
+          "best_val_loss": 1.855,
+          "val_accuracy": 0.7143,
+          "val_precision": 1.0,
+          "val_recall": 0.3333,
+          "val_f1": 0.5,
+          "val_roc_auc": 0.6667,
+          "checkpoint_path": "results\\checkpoints\\adni_brainiac_linear_seed46_best.pt",
+          "training_time_seconds": 0.27
+        }
+      ]
+    },
+    "FOMO25": {
+      "slug": "fomo25",
+      "weights_path": "D:\\ml project\\weights\\fomo25_winner_encoder.pt",
+      "total_parameters": 1296641,
+      "frozen_parameters": 1296128,
+      "trainable_parameters": 513,
+      "feature_extraction_time_seconds": 2.17,
+      "cross_seed_validation_metrics": {
+        "val_accuracy_mean": 0.5714,
+        "val_accuracy_std": 0.0,
+        "val_f1_mean": 0.0,
+        "val_f1_std": 0.0,
+        "val_roc_auc_mean": 0.4833,
+        "val_roc_auc_std": 0.1434,
+        "val_loss_mean": 1.3251,
+        "val_loss_std": 1.2317
+      },
+      "seed_runs": [
+        {
+          "model": "FOMO25-Winner",
+          "slug": "fomo25",
+          "seed": 42,
+          "best_epoch": 1,
+          "best_val_loss": 0.7163,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.3333,
+          "checkpoint_path": "results\\checkpoints\\adni_fomo25_linear_seed42_best.pt",
+          "training_time_seconds": 0.25
+        },
+        {
+          "model": "FOMO25-Winner",
+          "slug": "fomo25",
+          "seed": 43,
+          "best_epoch": 30,
+          "best_val_loss": 3.7882,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.5,
+          "checkpoint_path": "results\\checkpoints\\adni_fomo25_linear_seed43_best.pt",
+          "training_time_seconds": 0.71
+        },
+        {
+          "model": "FOMO25-Winner",
+          "slug": "fomo25",
+          "seed": 44,
+          "best_epoch": 17,
+          "best_val_loss": 0.6725,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.75,
+          "checkpoint_path": "results\\checkpoints\\adni_fomo25_linear_seed44_best.pt",
+          "training_time_seconds": 0.53
+        },
+        {
+          "model": "FOMO25-Winner",
+          "slug": "fomo25",
+          "seed": 45,
+          "best_epoch": 9,
+          "best_val_loss": 0.7183,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.4167,
+          "checkpoint_path": "results\\checkpoints\\adni_fomo25_linear_seed45_best.pt",
+          "training_time_seconds": 0.38
+        },
+        {
+          "model": "FOMO25-Winner",
+          "slug": "fomo25",
+          "seed": 46,
+          "best_epoch": 10,
+          "best_val_loss": 0.73,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.4167,
+          "checkpoint_path": "results\\checkpoints\\adni_fomo25_linear_seed46_best.pt",
+          "training_time_seconds": 0.46
+        }
+      ]
+    },
+    "SwinUNETR": {
+      "slug": "swin_unetr",
+      "weights_path": "D:\\ml project\\weights\\model_swinvit.pt",
+      "total_parameters": 774913,
+      "frozen_parameters": 774144,
+      "trainable_parameters": 769,
+      "feature_extraction_time_seconds": 4.12,
+      "cross_seed_validation_metrics": {
+        "val_accuracy_mean": 0.5714,
+        "val_accuracy_std": 0.0,
+        "val_f1_mean": 0.0,
+        "val_f1_std": 0.0,
+        "val_roc_auc_mean": 0.5333,
+        "val_roc_auc_std": 0.1633,
+        "val_loss_mean": 2.0552,
+        "val_loss_std": 1.1631
+      },
+      "seed_runs": [
+        {
+          "model": "MONAI-SwinUNETR-SSL",
+          "slug": "swin_unetr",
+          "seed": 42,
+          "best_epoch": 14,
+          "best_val_loss": 0.7173,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.3333,
+          "checkpoint_path": "results\\checkpoints\\adni_swin_unetr_linear_seed42_best.pt",
+          "training_time_seconds": 0.55
+        },
+        {
+          "model": "MONAI-SwinUNETR-SSL",
+          "slug": "swin_unetr",
+          "seed": 43,
+          "best_epoch": 30,
+          "best_val_loss": 2.7662,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.5,
+          "checkpoint_path": "results\\checkpoints\\adni_swin_unetr_linear_seed43_best.pt",
+          "training_time_seconds": 0.67
+        },
+        {
+          "model": "MONAI-SwinUNETR-SSL",
+          "slug": "swin_unetr",
+          "seed": 44,
+          "best_epoch": 30,
+          "best_val_loss": 3.6061,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.5,
+          "checkpoint_path": "results\\checkpoints\\adni_swin_unetr_linear_seed44_best.pt",
+          "training_time_seconds": 0.69
+        },
+        {
+          "model": "MONAI-SwinUNETR-SSL",
+          "slug": "swin_unetr",
+          "seed": 45,
+          "best_epoch": 30,
+          "best_val_loss": 2.4979,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.8333,
+          "checkpoint_path": "results\\checkpoints\\adni_swin_unetr_linear_seed45_best.pt",
+          "training_time_seconds": 0.77
+        },
+        {
+          "model": "MONAI-SwinUNETR-SSL",
+          "slug": "swin_unetr",
+          "seed": 46,
+          "best_epoch": 7,
+          "best_val_loss": 0.6886,
+          "val_accuracy": 0.5714,
+          "val_precision": 0.0,
+          "val_recall": 0.0,
+          "val_f1": 0.0,
+          "val_roc_auc": 0.5,
+          "checkpoint_path": "results\\checkpoints\\adni_swin_unetr_linear_seed46_best.pt",
+          "training_time_seconds": 0.37
+        }
+      ]
+    }
+  }
+}

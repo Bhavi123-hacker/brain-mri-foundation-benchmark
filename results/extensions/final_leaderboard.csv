@@ -1,0 +1,6 @@
+Model,Paradigm,Total Parameters,Trainable Parameters,10% AUC,25% AUC,50% AUC,100% AUC,100% AUC SD,External AUC,Accuracy,Balanced Accuracy,F1,Brier,Training Time (s/ep),Inference Time (s/scan)
+Supervised 3D ResNet-34,Supervised Deep CNN,63556225,63556225,N/A,N/A,N/A,0.925,0.0685,0.5,0.65,0.65,0.5245,0.2038,0.95,0.052
+Supervised 3D ResNet-18,Supervised Deep CNN,33160513,33160513,0.725,0.6125,0.8125,0.8375,0.0342,0.625,0.55,0.55,0.3588,0.2541,1745.2,3.0823
+BrainIAC,Foundation Model (Linear Probe),6538049,769,0.525,0.5375,0.5375,0.5375,0.1854,0.6875,0.475,0.475,0.4314,0.4554,0.147,0.0002
+FOMO25 Winner,Foundation Model (Linear Probe),1296641,513,0.4563,0.5125,0.55,0.5375,0.3497,0.375,0.45,0.45,0.1905,0.3336,0.212,0.0004
+MONAI Swin UNETR SSL,Foundation Model (Linear Probe),774913,769,0.3813,0.375,0.425,0.425,0.3913,0.8125,0.5,0.5,0.1333,0.3826,0.28,0.0004

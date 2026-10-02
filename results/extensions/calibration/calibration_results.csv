@@ -1,0 +1,5 @@
+cohort,model,brier_score,expected_calibration_error_ece,max_calibration_error_mce,mean_predicted_probability,std_predicted_probability
+ADNI MPRAGE (N=8),Supervised 3D ResNet-18,0.2566,0.0653,0.0994,0.5093,0.0729
+ADNI MPRAGE (N=8),BrainIAC (Linear Probe),0.2531,0.2192,0.3056,0.3223,0.1932
+ADNI MPRAGE (N=8),FOMO25 Winner (Linear Probe),0.277,0.155,0.155,0.345,0.0169
+ADNI MPRAGE (N=8),MONAI Swin UNETR SSL (Linear Probe),0.3364,0.3059,0.3059,0.1941,0.0143

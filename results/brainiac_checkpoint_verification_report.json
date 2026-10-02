@@ -1,0 +1,53 @@
+{
+  "step": "Phase 5D Step 1 \u2014 BrainIAC Checkpoint Verification",
+  "checkpoint_info": {
+    "checkpoint_name": "brainiac_vit_base.pt",
+    "file_path": "D:\\ml project\\weights\\brainiac_vit_base.pt",
+    "file_exists": true,
+    "file_size_bytes": 26160669,
+    "file_size_mb": 24.95,
+    "sha256_hash": "3934f58f9705ca1d84414716c83ef7f927a0362bd3f4b73408a24d044f067866",
+    "official_source": "AIM-Harvard/BrainIAC (GitHub/HuggingFace)"
+  },
+  "model_adapter_verification": {
+    "model_name": "BrainIAC",
+    "adapter_class": "BrainIACAdapter",
+    "device": "cpu",
+    "total_parameters": 6538049,
+    "checkpoint_keys_loaded_successfully": true,
+    "missing_keys_count": 0,
+    "unexpected_keys_count": 0,
+    "critical_missing_keys": [],
+    "unexpected_keys": []
+  },
+  "single_tensor_forward_pass_verification": {
+    "source_tensor": "Real OASIS-1 Preprocessed Tensor (Cache File: 0eee0e5c57f93a5b.pt)",
+    "input_tensor_shape": [
+      1,
+      1,
+      128,
+      128,
+      128
+    ],
+    "output_logits_shape": [
+      1,
+      1
+    ],
+    "expected_logits_shape": [
+      1,
+      1
+    ],
+    "extracted_embedding_shape": [
+      1,
+      768
+    ],
+    "expected_embedding_shape": [
+      1,
+      768
+    ],
+    "output_is_finite": true,
+    "features_are_finite": true,
+    "weights_loaded_verification": true
+  },
+  "status": "PASS"
+}

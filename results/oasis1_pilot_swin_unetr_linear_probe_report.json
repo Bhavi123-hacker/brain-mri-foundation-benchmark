@@ -1,0 +1,57 @@
+{
+  "phase": "Phase 5E Step 3 \u2014 Foundation Model Linear Probing Pilot (Swin UNETR SSL)",
+  "model_info": {
+    "model_name": "MONAI Swin UNETR SSL",
+    "model_key": "foundation_swin_unetr",
+    "weights_path": "D:\\ml project\\weights\\model_swinvit.pt",
+    "architecture": "3D Swin-ViT Feature Extractor Backbone + Linear Head",
+    "adaptation_mode": "linear_probe",
+    "frozen_backbone_confirmed": true,
+    "head_trainable_confirmed": true,
+    "trainable_parameters": 769,
+    "frozen_parameters": 774144,
+    "total_parameters": 774913
+  },
+  "dataset_split_info": {
+    "dataset": "OASIS-1 Pilot",
+    "data_location": "D:\\OASIS1_PILOT",
+    "train_subjects": 35,
+    "val_subjects": 7,
+    "test_subjects": 8,
+    "test_set_evaluated": false,
+    "patient_overlap_check": "0% Patient Overlap Verified"
+  },
+  "training_configuration": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 4,
+    "loss_function": "BCEWithLogitsLoss",
+    "early_stopping_patience": 7,
+    "max_epochs": 30,
+    "device": "cpu (CPU (Host))"
+  },
+  "training_results": {
+    "best_epoch": 1,
+    "best_val_loss": 0.6698,
+    "val_accuracy": 0.5714,
+    "val_balanced_accuracy": 0.5417,
+    "val_precision": 0.5,
+    "val_recall": 0.3333,
+    "val_f1_score": 0.4,
+    "val_roc_auc": 0.8333,
+    "val_brier_score": 0.2388,
+    "val_confusion_matrix": {
+      "tp": 1,
+      "tn": 3,
+      "fp": 1,
+      "fn": 2
+    },
+    "total_training_time_seconds": 419.73
+  },
+  "checkpoint_info": {
+    "best_checkpoint_path": "results\\checkpoints\\oasis1_pilot_swin_unetr_linear_probe_best.pt",
+    "checkpoint_preserved": true
+  },
+  "test_set_isolation_confirmation": "VERIFIED: The 8-subject test set was NOT evaluated during or after training."
+}

@@ -1,0 +1,111 @@
+{
+  "dataset_name": "OASIS-1 Pilot",
+  "data_location": "D:\\OASIS1_PILOT",
+  "tuning_stage": "Phase 5C Controlled 3D ResNet-18 Baseline Tuning",
+  "subject_counts": {
+    "train_subjects": 35,
+    "val_subjects": 7,
+    "test_subjects": 8,
+    "test_set_status": "UNTOUCHED & ISOLATED (Not evaluated during tuning)"
+  },
+  "model_architecture": {
+    "name": "3D ResNet-18 Baseline",
+    "total_parameters": 33160513
+  },
+  "compute_hardware": {
+    "device": "cpu",
+    "device_name": "CPU (Host)",
+    "cuda_available": false,
+    "total_tuning_time_seconds": 8212.41
+  },
+  "search_grid": {
+    "learning_rates": [
+      0.001,
+      0.0003
+    ],
+    "weight_decays": [
+      0.0001,
+      1e-05
+    ],
+    "max_epochs_per_trial": 25,
+    "early_stopping_patience": 7,
+    "optimizer": "AdamW",
+    "scheduler": "CosineAnnealingLR",
+    "seed": 42
+  },
+  "tuning_trials": [
+    {
+      "trial_id": 1,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "epochs_run": 17,
+      "best_epoch": 10,
+      "best_val_loss": 0.4889,
+      "val_accuracy": 0.7143,
+      "val_precision": 0.6,
+      "val_recall": 1.0,
+      "val_f1": 0.75,
+      "val_roc_auc": 0.8333,
+      "trial_time_seconds": 2208.2,
+      "checkpoint_path": "results\\checkpoints\\oasis1_pilot_resnet18_trial_01_best.pt"
+    },
+    {
+      "trial_id": 2,
+      "learning_rate": 0.001,
+      "weight_decay": 1e-05,
+      "epochs_run": 22,
+      "best_epoch": 15,
+      "best_val_loss": 0.6315,
+      "val_accuracy": 0.7143,
+      "val_precision": 0.6,
+      "val_recall": 1.0,
+      "val_f1": 0.75,
+      "val_roc_auc": 0.9167,
+      "trial_time_seconds": 2461.07,
+      "checkpoint_path": "results\\checkpoints\\oasis1_pilot_resnet18_trial_02_best.pt"
+    },
+    {
+      "trial_id": 3,
+      "learning_rate": 0.0003,
+      "weight_decay": 0.0001,
+      "epochs_run": 8,
+      "best_epoch": 1,
+      "best_val_loss": 0.6066,
+      "val_accuracy": 0.7143,
+      "val_precision": 1.0,
+      "val_recall": 0.3333,
+      "val_f1": 0.5,
+      "val_roc_auc": 0.8333,
+      "trial_time_seconds": 1028.77,
+      "checkpoint_path": "results\\checkpoints\\oasis1_pilot_resnet18_trial_03_best.pt"
+    },
+    {
+      "trial_id": 4,
+      "learning_rate": 0.0003,
+      "weight_decay": 1e-05,
+      "epochs_run": 24,
+      "best_epoch": 17,
+      "best_val_loss": 0.4122,
+      "val_accuracy": 0.7143,
+      "val_precision": 0.6667,
+      "val_recall": 0.6667,
+      "val_f1": 0.6667,
+      "val_roc_auc": 0.9167,
+      "trial_time_seconds": 2511.55,
+      "checkpoint_path": "results\\checkpoints\\oasis1_pilot_resnet18_trial_04_best.pt"
+    }
+  ],
+  "selected_optimal_configuration": {
+    "trial_id": 4,
+    "learning_rate": 0.0003,
+    "weight_decay": 1e-05,
+    "best_epoch": 17,
+    "best_val_loss": 0.4122,
+    "val_accuracy": 0.7143,
+    "val_f1": 0.6667,
+    "val_roc_auc": 0.9167,
+    "selected_checkpoint_path": "results\\checkpoints\\oasis1_pilot_resnet18_tuned_best.pt"
+  },
+  "methodological_disclaimer": "This is a controlled pilot tuning exercise on 7 validation subjects for hyperparameter pipeline verification. It does not claim statistical superiority or clinical generalization prior to full benchmark scaling. The 8-subject test set remained strictly isolated and was NOT evaluated during tuning.",
+  "warnings_or_errors": []
+}

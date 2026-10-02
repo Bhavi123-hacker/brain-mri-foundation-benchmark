@@ -1,0 +1,74 @@
+# Global Benchmark Orchestration Configuration
+
+project_name: "brain_mri_foundation_benchmark"
+version: "1.0.0"
+
+# Reproducibility Seeds
+seeds: [42, 123, 999]
+
+# Label Budget Fractions
+label_budgets:
+  - 0.10 # 10% of training data
+  - 0.25 # 25% of training data
+  - 0.50 # 50% of training data
+  - 1.00 # 100% of training data
+
+# Split Proportions (Patient-Level)
+split_ratios:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+
+# Staged Execution Modes
+stages:
+  stage_a_smoke:
+    description: "Tiny CPU unit verification on synthetic phantoms"
+    num_samples: 8
+    epochs: 1
+    batch_size: 2
+    device: "cpu"
+  stage_b_pilot:
+    description: "Pilot single-seed run on 1 GPU for memory profiling"
+    num_samples: 100
+    epochs: 15
+    batch_size: 4
+    device: "cuda"
+  stage_c_tuning:
+    description: "Fair hyperparameter tuning budget (8 trials per model)"
+    trials_per_model: 8
+    epochs_per_trial: 25
+    early_stopping_patience: 7
+    batch_size: 4
+    device: "cuda"
+  stage_d_reduced:
+    description: "Reduced benchmark (10% and 100% budgets, 1 seed)"
+    budgets: [0.10, 1.00]
+    seeds: [42]
+    epochs: 40
+    batch_size: 4
+    device: "cuda"
+  stage_e_final:
+    description: "Full benchmark (All models, tasks, 4 budgets, 3 seeds)"
+    budgets: [0.10, 0.25, 0.50, 1.00]
+    seeds: [42, 123, 999]
+    epochs: 50
+    early_stopping_patience: 10
+    batch_size: 4
+    device: "cuda"
+
+# Compute and Fairness Constraints
+fairness:
+  matched_trials: 8
+  matched_max_epochs: 50
+  matched_patience: 10
+  effective_batch_size: 8
+  gradient_accumulation_steps: 2
+  mixed_precision: true
+
+# Logging & Output Paths
+output:
+  results_dir: "results"
+  checkpoints_dir: "results/checkpoints"
+  logs_dir: "results/logs"
+  plots_dir: "results/plots"
+  leaderboard_path: "results/leaderboard.csv"

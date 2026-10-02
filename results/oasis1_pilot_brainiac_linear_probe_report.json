@@ -1,0 +1,57 @@
+{
+  "phase": "Phase 5E \u2014 Foundation Model Linear Probing Pilot",
+  "model_info": {
+    "model_name": "BrainIAC",
+    "model_key": "foundation_brainiac",
+    "weights_path": "D:\\ml project\\weights\\brainiac_vit_base.pt",
+    "architecture": "3D ViT-Base Backbone + Linear Head",
+    "adaptation_mode": "linear_probe",
+    "frozen_backbone_confirmed": true,
+    "head_trainable_confirmed": true,
+    "trainable_parameters": 769,
+    "frozen_parameters": 6537280,
+    "total_parameters": 6538049
+  },
+  "dataset_split_info": {
+    "dataset": "OASIS-1 Pilot",
+    "data_location": "D:\\OASIS1_PILOT",
+    "train_subjects": 35,
+    "val_subjects": 7,
+    "test_subjects": 8,
+    "test_set_evaluated": false,
+    "patient_overlap_check": "0% Patient Overlap Verified"
+  },
+  "training_configuration": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 4,
+    "loss_function": "BCEWithLogitsLoss",
+    "early_stopping_patience": 7,
+    "max_epochs": 30,
+    "device": "cpu (CPU (Host))"
+  },
+  "training_results": {
+    "best_epoch": 1,
+    "best_val_loss": 0.6729,
+    "val_accuracy": 0.5714,
+    "val_balanced_accuracy": 0.5,
+    "val_precision": 0.0,
+    "val_recall": 0.0,
+    "val_f1_score": 0.0,
+    "val_roc_auc": 0.5,
+    "val_brier_score": 0.2433,
+    "val_confusion_matrix": {
+      "tp": 0,
+      "tn": 4,
+      "fp": 0,
+      "fn": 3
+    },
+    "total_training_time_seconds": 223.22
+  },
+  "checkpoint_info": {
+    "best_checkpoint_path": "results\\checkpoints\\oasis1_pilot_brainiac_linear_probe_best.pt",
+    "checkpoint_preserved": true
+  },
+  "test_set_isolation_confirmation": "VERIFIED: The 8-subject test set was NOT evaluated during or after training."
+}

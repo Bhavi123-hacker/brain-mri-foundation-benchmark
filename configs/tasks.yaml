@@ -1,0 +1,60 @@
+# Downstream Task Definitions
+
+ad_vs_cn:
+  name: "AD_vs_CN"
+  task_type: "classification"
+  description: "Alzheimer's Disease (AD) vs. Cognitively Normal (CN) binary classification"
+  target_column: "DX"
+  positive_class: "AD"
+  negative_class: "CN"
+  num_classes: 2
+  output_dim: 1
+  loss_function: "BCEWithLogitsLoss"
+  primary_metric: "roc_auc"
+  tracked_metrics:
+    - "roc_auc"
+    - "accuracy"
+    - "balanced_accuracy"
+    - "f1"
+    - "precision"
+    - "recall"
+    - "specificity"
+    - "brier_score"
+
+brain_age:
+  name: "Brain_Age"
+  task_type: "regression"
+  description: "Continuous Brain-Age regression from structural T1w MRI"
+  target_column: "AGE"
+  min_age: 40.0
+  max_age: 100.0
+  output_dim: 1
+  loss_function: "MSELoss"
+  primary_metric: "mae"
+  tracked_metrics:
+    - "mae"
+    - "rmse"
+    - "r2"
+    - "pearson_r"
+    - "spearman_rho"
+
+mci_vs_cn:
+  name: "MCI_vs_CN"
+  task_type: "classification"
+  description: "Mild Cognitive Impairment (MCI) vs. Cognitively Normal (CN) binary classification"
+  target_column: "DX"
+  positive_class: "MCI"
+  negative_class: "CN"
+  num_classes: 2
+  output_dim: 1
+  loss_function: "BCEWithLogitsLoss"
+  primary_metric: "roc_auc"
+  tracked_metrics:
+    - "roc_auc"
+    - "accuracy"
+    - "balanced_accuracy"
+    - "f1"
+    - "precision"
+    - "recall"
+    - "specificity"
+    - "brier_score"

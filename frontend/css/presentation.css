@@ -1,0 +1,112 @@
+/* ==========================================================================
+   PRESENTATION MODE STYLESHEET
+   Optimized for Viva / Thesis Defense / Research Project Demos
+   Large charts, high contrast, maximized content viewport
+   ========================================================================== */
+
+body.presentation-mode {
+  --sidebar-width: 0px;
+  background-color: #050811;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+body.presentation-mode #sidebar {
+  transform: translateX(-100%);
+}
+
+body.presentation-mode #app-main {
+  margin-left: 0;
+  width: 100%;
+}
+
+body.presentation-mode #header {
+  padding: 0 48px;
+  height: 72px;
+  background-color: #0a0f1d;
+}
+
+body.presentation-mode .header-project-title {
+  font-size: 18px;
+  font-weight: 700;
+  max-width: 900px;
+}
+
+body.presentation-mode #content-container {
+  max-width: 1600px;
+  padding: 40px 48px 80px;
+}
+
+body.presentation-mode .section-title {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+body.presentation-mode .section-subtitle {
+  font-size: 18px;
+  max-width: 1100px;
+}
+
+body.presentation-mode .chart-container {
+  height: 520px;
+}
+
+body.presentation-mode .kpi-value {
+  font-size: 40px;
+}
+
+body.presentation-mode .kpi-label {
+  font-size: 14px;
+}
+
+body.presentation-mode .scientific-table {
+  font-size: 15px;
+}
+
+body.presentation-mode .scientific-table th {
+  font-size: 13px;
+  padding: 14px 18px;
+}
+
+body.presentation-mode .scientific-table td {
+  padding: 14px 18px;
+}
+
+body.presentation-mode .callout-box {
+  padding: 30px 36px;
+}
+
+body.presentation-mode .callout-title {
+  font-size: 18px;
+}
+
+body.presentation-mode .callout-body {
+  font-size: 16px;
+}
+
+/* Presentation Navigation Bar at Top Right */
+.presentation-bar {
+  display: none;
+}
+
+body.presentation-mode .presentation-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.presentation-nav-btn {
+  background-color: rgba(59, 130, 246, 0.2);
+  border: 1px solid var(--accent-blue);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.presentation-nav-btn:hover {
+  background-color: var(--accent-blue);
+}

@@ -1,0 +1,17 @@
+model,fraction,n_labeled_subjects,mean_auc,std_auc,classifier_head,delta_10pct_to_100pct,label_efficiency_characteristic
+BrainIAC,10%,4,0.525,0.2006,Linear Probe (Frozen Weights),0.0125,Representation Bottleneck / Flat Scaling
+BrainIAC,25%,9,0.5375,0.1854,Linear Probe (Frozen Weights),0.0125,Representation Bottleneck / Flat Scaling
+BrainIAC,50%,18,0.5375,0.1854,Linear Probe (Frozen Weights),0.0125,Representation Bottleneck / Flat Scaling
+BrainIAC,100%,35,0.5375,0.1854,Linear Probe (Frozen Weights),0.0125,Representation Bottleneck / Flat Scaling
+FOMO25 Winner,10%,4,0.4563,0.301,Linear Probe (Frozen Weights),0.0812,Representation Bottleneck / Flat Scaling
+FOMO25 Winner,25%,9,0.5125,0.323,Linear Probe (Frozen Weights),0.0812,Representation Bottleneck / Flat Scaling
+FOMO25 Winner,50%,18,0.55,0.3463,Linear Probe (Frozen Weights),0.0812,Representation Bottleneck / Flat Scaling
+FOMO25 Winner,100%,35,0.5375,0.3497,Linear Probe (Frozen Weights),0.0812,Representation Bottleneck / Flat Scaling
+MONAI Swin UNETR SSL,10%,4,0.3813,0.3497,Linear Probe (Frozen Weights),0.0437,Representation Bottleneck / Flat Scaling
+MONAI Swin UNETR SSL,25%,9,0.375,0.3536,Linear Probe (Frozen Weights),0.0437,Representation Bottleneck / Flat Scaling
+MONAI Swin UNETR SSL,50%,18,0.425,0.3913,Linear Probe (Frozen Weights),0.0437,Representation Bottleneck / Flat Scaling
+MONAI Swin UNETR SSL,100%,35,0.425,0.3913,Linear Probe (Frozen Weights),0.0437,Representation Bottleneck / Flat Scaling
+Supervised 3D ResNet-18,10%,4,0.725,0.2363,End-to-End Supervised CNN,0.1125,Steep Learning Scaling
+Supervised 3D ResNet-18,25%,9,0.6125,0.1355,End-to-End Supervised CNN,0.1125,Steep Learning Scaling
+Supervised 3D ResNet-18,50%,18,0.8125,0.125,End-to-End Supervised CNN,0.1125,Steep Learning Scaling
+Supervised 3D ResNet-18,100%,35,0.8375,0.0342,End-to-End Supervised CNN,0.1125,Steep Learning Scaling

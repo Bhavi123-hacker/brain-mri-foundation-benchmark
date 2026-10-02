@@ -1,0 +1,72 @@
+{
+  "hardware": {
+    "cuda_available": false,
+    "gpu_count": 0,
+    "gpu_name": "None (CPU Execution Only)",
+    "gpu_vram_gb": 0.0,
+    "total_host_ram_gb": 15.69,
+    "available_host_ram_gb": 1.95,
+    "drive_d_free_gb": 177.45,
+    "drive_d_total_gb": 250.98,
+    "drive_c_free_gb": 8.57,
+    "drive_c_total_gb": 204.5
+  },
+  "adni": {
+    "data_dir": "data/ADNI/scans",
+    "metadata_path": "data/adni/adni_metadata.csv",
+    "data_dir_exists": false,
+    "metadata_path_exists": false,
+    "audit": {
+      "scans": 0,
+      "subjects": 0,
+      "status": "NOT_MOUNTED"
+    }
+  },
+  "oasis3": {
+    "data_dir": "data/OASIS3/scans",
+    "metadata_path": "data/oasis3/oasis3_metadata.csv",
+    "data_dir_exists": false,
+    "metadata_path_exists": false,
+    "audit": {
+      "scans": 0,
+      "subjects": 0,
+      "status": "NOT_MOUNTED"
+    }
+  },
+  "foundation_checkpoints": {
+    "BrainIAC": {
+      "configured_path": "weights/brainiac_vit_base.pt",
+      "exists_locally": false,
+      "file_size_mb": 0.0,
+      "status": "NOT_FOUND_LOCALLY"
+    },
+    "FOMO25_Winner": {
+      "configured_path": "weights/fomo25_winner_encoder.pt",
+      "exists_locally": false,
+      "file_size_mb": 0.0,
+      "status": "NOT_FOUND_LOCALLY"
+    },
+    "MONAI_SwinUNETR_SSL": {
+      "configured_path": "weights/model_swinvit.pt",
+      "exists_locally": false,
+      "file_size_mb": 0.0,
+      "status": "NOT_FOUND_LOCALLY"
+    }
+  },
+  "task_definitions": {
+    "ad_vs_cn": {
+      "type": null,
+      "target": "DX",
+      "classes": null
+    },
+    "brain_age": {
+      "type": null,
+      "target": "AGE"
+    },
+    "mci_vs_cn": {
+      "type": null,
+      "target": "DX",
+      "classes": null
+    }
+  }
+}

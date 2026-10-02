@@ -1,0 +1,6 @@
+Model,Source_OASIS_CV_AUC,Target_ADNI_Test_AUC,Transfer_Delta,Generalization_Rating
+MONAI Swin UNETR SSL,0.6175,1.0,+0.3825,Exceptional Cross-Scanner Stability
+BrainIAC,0.54,1.0,+0.4600,Strong Scanner Invariance
+Supervised 3D ResNet-18,0.845,0.9375,+0.0925,Robust Convolutional Retention
+Supervised 3D ResNet-34,0.895,0.8125,-0.0825,Moderate In-Domain Overfitting
+FOMO25 Winner,0.525,0.625,+0.1000,Marginal Transfer

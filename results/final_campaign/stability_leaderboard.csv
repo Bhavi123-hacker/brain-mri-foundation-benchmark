@@ -1,0 +1,6 @@
+Model,Mean_CV_AUC,Std_CV_AUC,SSAP_lambda_0_5,Stability_Tier
+Supervised 3D ResNet-18,0.845,0.0492,0.8204,High
+Supervised 3D ResNet-34,0.895,0.054,0.868,High
+MONAI Swin UNETR SSL,0.6175,0.151,0.542,Moderate
+BrainIAC,0.54,0.1904,0.4448,Variable
+FOMO25 Winner,0.525,0.18,0.435,Variable

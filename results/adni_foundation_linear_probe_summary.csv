@@ -1,0 +1,16 @@
+model,slug,seed,best_epoch,best_val_loss,val_accuracy,val_precision,val_recall,val_f1,val_roc_auc,checkpoint_path,training_time_seconds
+BrainIAC,brainiac,42,30,3.9761,0.5714,0.5,0.3333,0.4,0.5833,results\checkpoints\adni_brainiac_linear_seed42_best.pt,0.48
+BrainIAC,brainiac,43,28,2.2138,0.5714,0.5,0.3333,0.4,0.6667,results\checkpoints\adni_brainiac_linear_seed43_best.pt,0.43
+BrainIAC,brainiac,44,30,9.183,0.2857,0.25,0.3333,0.2857,0.25,results\checkpoints\adni_brainiac_linear_seed44_best.pt,0.45
+BrainIAC,brainiac,45,30,3.6817,0.5714,0.0,0.0,0.0,0.25,results\checkpoints\adni_brainiac_linear_seed45_best.pt,0.48
+BrainIAC,brainiac,46,8,1.855,0.7143,1.0,0.3333,0.5,0.6667,results\checkpoints\adni_brainiac_linear_seed46_best.pt,0.27
+FOMO25-Winner,fomo25,42,1,0.7163,0.5714,0.0,0.0,0.0,0.3333,results\checkpoints\adni_fomo25_linear_seed42_best.pt,0.25
+FOMO25-Winner,fomo25,43,30,3.7882,0.5714,0.0,0.0,0.0,0.5,results\checkpoints\adni_fomo25_linear_seed43_best.pt,0.71
+FOMO25-Winner,fomo25,44,17,0.6725,0.5714,0.0,0.0,0.0,0.75,results\checkpoints\adni_fomo25_linear_seed44_best.pt,0.53
+FOMO25-Winner,fomo25,45,9,0.7183,0.5714,0.0,0.0,0.0,0.4167,results\checkpoints\adni_fomo25_linear_seed45_best.pt,0.38
+FOMO25-Winner,fomo25,46,10,0.73,0.5714,0.0,0.0,0.0,0.4167,results\checkpoints\adni_fomo25_linear_seed46_best.pt,0.46
+MONAI-SwinUNETR-SSL,swin_unetr,42,14,0.7173,0.5714,0.0,0.0,0.0,0.3333,results\checkpoints\adni_swin_unetr_linear_seed42_best.pt,0.55
+MONAI-SwinUNETR-SSL,swin_unetr,43,30,2.7662,0.5714,0.0,0.0,0.0,0.5,results\checkpoints\adni_swin_unetr_linear_seed43_best.pt,0.67
+MONAI-SwinUNETR-SSL,swin_unetr,44,30,3.6061,0.5714,0.0,0.0,0.0,0.5,results\checkpoints\adni_swin_unetr_linear_seed44_best.pt,0.69
+MONAI-SwinUNETR-SSL,swin_unetr,45,30,2.4979,0.5714,0.0,0.0,0.0,0.8333,results\checkpoints\adni_swin_unetr_linear_seed45_best.pt,0.77
+MONAI-SwinUNETR-SSL,swin_unetr,46,7,0.6886,0.5714,0.0,0.0,0.0,0.5,results\checkpoints\adni_swin_unetr_linear_seed46_best.pt,0.37

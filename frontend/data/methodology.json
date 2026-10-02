@@ -1,0 +1,9 @@
+{
+  "dataset_construction": "OASIS-1 50-subject curated pilot (25 CN / 25 Dementia) and ADNI 50-subject matched benchmark (25 CN / 25 AD).",
+  "preprocessing": "Standardized RAS reorientation, isotropic 128x128x128 affine resampling, robust median/IQR intensity normalization.",
+  "splitting": "Subject-level isolation with 42 development and 8 locked holdout test scans.",
+  "training_protocol": "AdamW optimizer, cosine annealing, light 3D affine augmentations, early stopping on validation loss.",
+  "foundation_probing": "Backbones frozen; single linear classification layer trained on pooled embeddings.",
+  "calibration": "Post-hoc Platt temperature scaling fit strictly on development validation folds.",
+  "leakage_controls": "Holdout test sets untouched until final freeze; thresholds and ensembles selected prior to test."
+}

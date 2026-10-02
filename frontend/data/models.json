@@ -1,0 +1,122 @@
+[
+  {
+    "id": "resnet34",
+    "display_name": "Supervised 3D ResNet-34",
+    "architecture": "3D Residual Network (34 layers)",
+    "paradigm": "End-to-End Supervised Deep Learning",
+    "total_parameters": 63556225,
+    "trainable_parameters": 63556225,
+    "pretrained": false,
+    "training_mode": "Scratch Supervised Training",
+    "development_cv_auc": 0.895,
+    "locked_test_auc": 1.0,
+    "locked_test_ci": [
+      1.0,
+      1.0
+    ],
+    "locked_test_balanced_accuracy": 1.0,
+    "ADNI_transfer_auc": 0.8125,
+    "SSAP": 0.868,
+    "ECE": 0.065
+  },
+  {
+    "id": "resnet18",
+    "display_name": "Supervised 3D ResNet-18",
+    "architecture": "3D Residual Network (18 layers)",
+    "paradigm": "End-to-End Supervised Deep Learning",
+    "total_parameters": 33160513,
+    "trainable_parameters": 33160513,
+    "pretrained": false,
+    "training_mode": "Scratch Supervised Training",
+    "development_cv_auc": 0.845,
+    "locked_test_auc": 1.0,
+    "locked_test_ci": [
+      1.0,
+      1.0
+    ],
+    "locked_test_balanced_accuracy": 0.875,
+    "ADNI_transfer_auc": 0.9375,
+    "SSAP": 0.8204,
+    "ECE": 0.052
+  },
+  {
+    "id": "ensemble_r34_swin",
+    "display_name": "Ensemble (ResNet-34 + Swin UNETR)",
+    "architecture": "Hybrid CNN + Shifted-Window Transformer",
+    "paradigm": "Dual-Paradigm Ensemble",
+    "total_parameters": 64331138,
+    "trainable_parameters": 63556994,
+    "pretrained": true,
+    "training_mode": "Soft Weighted Probability Averaging (0.60 / 0.40)",
+    "development_cv_auc": 0.9325,
+    "locked_test_auc": 1.0,
+    "locked_test_ci": [
+      1.0,
+      1.0
+    ],
+    "locked_test_balanced_accuracy": 1.0,
+    "ADNI_transfer_auc": 1.0,
+    "SSAP": 0.895,
+    "ECE": 0.048
+  },
+  {
+    "id": "swin_unetr_ssl",
+    "display_name": "MONAI Swin UNETR SSL",
+    "architecture": "3D Shifted-Window Hierarchical Transformer",
+    "paradigm": "Pretrained Foundation Model (Self-Supervised)",
+    "total_parameters": 774913,
+    "trainable_parameters": 769,
+    "pretrained": true,
+    "training_mode": "Frozen Backbone + Linear Probe Head",
+    "development_cv_auc": 0.6175,
+    "locked_test_auc": 0.8125,
+    "locked_test_ci": [
+      0.4,
+      1.0
+    ],
+    "locked_test_balanced_accuracy": 0.625,
+    "ADNI_transfer_auc": 1.0,
+    "SSAP": 0.542,
+    "ECE": 0.124
+  },
+  {
+    "id": "brainiac",
+    "display_name": "BrainIAC",
+    "architecture": "3D Vision Transformer (ViT-Base)",
+    "paradigm": "Pretrained Foundation Model (Masked Autoencoding)",
+    "total_parameters": 6538049,
+    "trainable_parameters": 769,
+    "pretrained": true,
+    "training_mode": "Frozen Backbone + Linear Probe Head",
+    "development_cv_auc": 0.54,
+    "locked_test_auc": 0.9375,
+    "locked_test_ci": [
+      0.6667,
+      1.0
+    ],
+    "locked_test_balanced_accuracy": 0.75,
+    "ADNI_transfer_auc": 1.0,
+    "SSAP": 0.4448,
+    "ECE": 0.158
+  },
+  {
+    "id": "fomo25_winner",
+    "display_name": "FOMO25 Winner",
+    "architecture": "Hybrid Convolutional-Attention Encoder",
+    "paradigm": "Pretrained Foundation Model (Challenge Pretrained)",
+    "total_parameters": 1296641,
+    "trainable_parameters": 513,
+    "pretrained": true,
+    "training_mode": "Frozen Backbone + Linear Probe Head",
+    "development_cv_auc": 0.525,
+    "locked_test_auc": 0.8125,
+    "locked_test_ci": [
+      0.4,
+      1.0
+    ],
+    "locked_test_balanced_accuracy": 0.75,
+    "ADNI_transfer_auc": 0.625,
+    "SSAP": 0.435,
+    "ECE": 0.171
+  }
+]

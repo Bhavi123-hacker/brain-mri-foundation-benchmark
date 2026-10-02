@@ -1,0 +1,110 @@
+[
+  {
+    "model": "Supervised 3D ResNet-18",
+    "oasis_test_auc": 1.0,
+    "oasis_test_auc_95_ci": [
+      1.0,
+      1.0
+    ],
+    "oasis_test_acc_std_thresh_0.5": 0.875,
+    "oasis_test_acc_dev_thresh": 0.875,
+    "dev_selected_threshold": 0.45,
+    "oasis_test_bal_acc_std_thresh": 0.875,
+    "oasis_test_bal_acc_dev_thresh": 0.875,
+    "oasis_test_f1_std_thresh": 0.8889,
+    "oasis_test_f1_dev_thresh": 0.8889,
+    "oasis_test_brier": 0.0912,
+    "adni_external_test_auc": 0.9375,
+    "adni_external_test_acc": 0.875
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "oasis_test_auc": 1.0,
+    "oasis_test_auc_95_ci": [
+      1.0,
+      1.0
+    ],
+    "oasis_test_acc_std_thresh_0.5": 1.0,
+    "oasis_test_acc_dev_thresh": 1.0,
+    "dev_selected_threshold": 0.45,
+    "oasis_test_bal_acc_std_thresh": 1.0,
+    "oasis_test_bal_acc_dev_thresh": 1.0,
+    "oasis_test_f1_std_thresh": 1.0,
+    "oasis_test_f1_dev_thresh": 1.0,
+    "oasis_test_brier": 0.0371,
+    "adni_external_test_auc": 0.8125,
+    "adni_external_test_acc": 0.625
+  },
+  {
+    "model": "BrainIAC",
+    "oasis_test_auc": 0.9375,
+    "oasis_test_auc_95_ci": [
+      0.6667,
+      1.0
+    ],
+    "oasis_test_acc_std_thresh_0.5": 0.75,
+    "oasis_test_acc_dev_thresh": 0.75,
+    "dev_selected_threshold": 0.4,
+    "oasis_test_bal_acc_std_thresh": 0.75,
+    "oasis_test_bal_acc_dev_thresh": 0.75,
+    "oasis_test_f1_std_thresh": 0.75,
+    "oasis_test_f1_dev_thresh": 0.8,
+    "oasis_test_brier": 0.1583,
+    "adni_external_test_auc": 1.0,
+    "adni_external_test_acc": 0.875
+  },
+  {
+    "model": "FOMO25 Winner",
+    "oasis_test_auc": 0.8125,
+    "oasis_test_auc_95_ci": [
+      0.4,
+      1.0
+    ],
+    "oasis_test_acc_std_thresh_0.5": 0.75,
+    "oasis_test_acc_dev_thresh": 0.75,
+    "dev_selected_threshold": 0.4,
+    "oasis_test_bal_acc_std_thresh": 0.75,
+    "oasis_test_bal_acc_dev_thresh": 0.75,
+    "oasis_test_f1_std_thresh": 0.75,
+    "oasis_test_f1_dev_thresh": 0.8,
+    "oasis_test_brier": 0.1785,
+    "adni_external_test_auc": 0.625,
+    "adni_external_test_acc": 0.625
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "oasis_test_auc": 0.8125,
+    "oasis_test_auc_95_ci": [
+      0.4,
+      1.0
+    ],
+    "oasis_test_acc_std_thresh_0.5": 0.625,
+    "oasis_test_acc_dev_thresh": 0.625,
+    "dev_selected_threshold": 0.4,
+    "oasis_test_bal_acc_std_thresh": 0.625,
+    "oasis_test_bal_acc_dev_thresh": 0.625,
+    "oasis_test_f1_std_thresh": 0.4,
+    "oasis_test_f1_dev_thresh": 0.6667,
+    "oasis_test_brier": 0.2259,
+    "adni_external_test_auc": 1.0,
+    "adni_external_test_acc": 1.0
+  },
+  {
+    "model": "Ensemble (ResNet-34 + Swin)",
+    "oasis_test_auc": 1.0,
+    "oasis_test_auc_95_ci": [
+      1.0,
+      1.0
+    ],
+    "oasis_test_acc_std_thresh_0.5": 1.0,
+    "oasis_test_acc_dev_thresh": 1.0,
+    "dev_selected_threshold": 0.45,
+    "oasis_test_bal_acc_std_thresh": 1.0,
+    "oasis_test_bal_acc_dev_thresh": 1.0,
+    "oasis_test_f1_std_thresh": 1.0,
+    "oasis_test_f1_dev_thresh": 1.0,
+    "oasis_test_brier": 0.0864,
+    "adni_external_test_auc": 1.0,
+    "adni_external_test_acc": 0.875
+  }
+]

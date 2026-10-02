@@ -1,0 +1,26 @@
+{
+  "method": "3D Grad-CAM (Gradient-weighted Class Activation Mapping)",
+  "model": "Supervised 3D ResNet-18",
+  "target_layer": "layer4[-1].conv2",
+  "samples_analyzed": [
+    {
+      "subject_id": "OAS1_0122_MR1",
+      "diagnosis": "DEMENTIA",
+      "cdr": 1.0,
+      "image_output": "results/extensions/interpretability\\gradcam_sample_ad.png",
+      "core_mean_salience": 0.4994,
+      "global_mean_salience": 0.352,
+      "medial_ratio": 1.42
+    },
+    {
+      "subject_id": "OAS1_0033_MR1",
+      "diagnosis": "CN",
+      "cdr": 0.0,
+      "image_output": "results/extensions/interpretability\\gradcam_sample_cn.png",
+      "core_mean_salience": 0.0,
+      "global_mean_salience": 0.1127,
+      "medial_ratio": 0.0
+    }
+  ],
+  "scientific_interpretation": "Attribution maps indicate that the supervised 3D ResNet-18 allocates salient gradient weight to medial temporal and periventricular regions in AD subjects, while exhibiting more diffuse salience in CN subjects. IMPORTANT CAVEAT: Saliency heatmaps reflect model activation patterns and feature associations, and do NOT constitute biological or pathological proof of neurodegeneration."
+}

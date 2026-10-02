@@ -1,0 +1,161 @@
+{
+  "execution_date": "2026-09-13 16:59:13",
+  "platform": {
+    "os": "win32",
+    "python_version": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+    "torch_version": "2.11.0+cpu"
+  },
+  "random_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "split_seed": 42,
+  "splits_sha256": "5a1c8bebd244e23ae8f0d437202602ec9367ccc743a1665278a75fee20f829eb",
+  "manifest_sha256": "5d102aed920551af756bbf6adf0c0e9e954182a3a00e49ad6552f31b3e0f295f",
+  "checkpoints": {
+    "adni_resnet18_seed42_best.pt": {
+      "path": "results\\checkpoints\\adni_resnet18_seed42_best.pt",
+      "exists": true,
+      "size_bytes": 132722635,
+      "sha256": "8ee7e3b31a20700097fd9a73c2c5ba805d2c93e788fdb5f35e733e9500fe3e57"
+    },
+    "adni_resnet18_seed43_best.pt": {
+      "path": "results\\checkpoints\\adni_resnet18_seed43_best.pt",
+      "exists": true,
+      "size_bytes": 132722635,
+      "sha256": "c8f553330774dbb2762b700f20cc1bb25ea419a10be3f8f3678b35f214c9d56b"
+    },
+    "adni_resnet18_seed44_best.pt": {
+      "path": "results\\checkpoints\\adni_resnet18_seed44_best.pt",
+      "exists": true,
+      "size_bytes": 132722635,
+      "sha256": "f70ef96cff5370354e823f4b5a4730746296c13a2c072fcbfaaab2a1d3c6a041"
+    },
+    "adni_resnet18_seed45_best.pt": {
+      "path": "results\\checkpoints\\adni_resnet18_seed45_best.pt",
+      "exists": true,
+      "size_bytes": 132722635,
+      "sha256": "c22ea4d03f8349bc260221b95a642a32105f97ef4879e826ab393c7a6a82f2db"
+    },
+    "adni_resnet18_seed46_best.pt": {
+      "path": "results\\checkpoints\\adni_resnet18_seed46_best.pt",
+      "exists": true,
+      "size_bytes": 132722635,
+      "sha256": "6accbec3008ffe5c2ec315264e0cd389d8006c2e657645377128a31472f3ce4d"
+    },
+    "adni_brainiac_linear_seed42_best.pt": {
+      "path": "results\\checkpoints\\adni_brainiac_linear_seed42_best.pt",
+      "exists": true,
+      "size_bytes": 26161733,
+      "sha256": "aa2b2fede19c14f3279a80fb7de3548b0ee6b80bb52364d7b4267c04dd8646c0"
+    },
+    "adni_brainiac_linear_seed43_best.pt": {
+      "path": "results\\checkpoints\\adni_brainiac_linear_seed43_best.pt",
+      "exists": true,
+      "size_bytes": 26161733,
+      "sha256": "36d7d70b5be1bedd90c12f955b1f1e87999ebddd31e1080e7cf4416a20bfc10a"
+    },
+    "adni_brainiac_linear_seed44_best.pt": {
+      "path": "results\\checkpoints\\adni_brainiac_linear_seed44_best.pt",
+      "exists": true,
+      "size_bytes": 26161733,
+      "sha256": "0be8b3a0b030709b8421ec9e3a14d9c3ecaec228c9ea4bb45a88e256821e09d0"
+    },
+    "adni_brainiac_linear_seed45_best.pt": {
+      "path": "results\\checkpoints\\adni_brainiac_linear_seed45_best.pt",
+      "exists": true,
+      "size_bytes": 26161733,
+      "sha256": "0aecaae2eff2da476228aef8bff528e88b969691f2974f6dda3e53c802d7797b"
+    },
+    "adni_brainiac_linear_seed46_best.pt": {
+      "path": "results\\checkpoints\\adni_brainiac_linear_seed46_best.pt",
+      "exists": true,
+      "size_bytes": 26161733,
+      "sha256": "6a52505893aa0a0a488f0025936d4c02b1228d7d1c4f77a855d34178cfb30c83"
+    },
+    "adni_fomo25_linear_seed42_best.pt": {
+      "path": "results\\checkpoints\\adni_fomo25_linear_seed42_best.pt",
+      "exists": true,
+      "size_bytes": 5203349,
+      "sha256": "92f2a3031ae62e174ee2fbc8e2239638357dbaa2afa22efc6e487d2453d087c7"
+    },
+    "adni_fomo25_linear_seed43_best.pt": {
+      "path": "results\\checkpoints\\adni_fomo25_linear_seed43_best.pt",
+      "exists": true,
+      "size_bytes": 5203349,
+      "sha256": "f5133814464ed55678ff1fb5ecaca0fda4f05c862286cf864fe9f4622ae4d33d"
+    },
+    "adni_fomo25_linear_seed44_best.pt": {
+      "path": "results\\checkpoints\\adni_fomo25_linear_seed44_best.pt",
+      "exists": true,
+      "size_bytes": 5203349,
+      "sha256": "7e7d0f7e3bda96774c438db2b7194f7b344971bccda9337d7c2f3421bd0cfc30"
+    },
+    "adni_fomo25_linear_seed45_best.pt": {
+      "path": "results\\checkpoints\\adni_fomo25_linear_seed45_best.pt",
+      "exists": true,
+      "size_bytes": 5203349,
+      "sha256": "1e719d08d91d63e78c94b224f98e01ccb2ff406598785cc39225dc43b38c5b52"
+    },
+    "adni_fomo25_linear_seed46_best.pt": {
+      "path": "results\\checkpoints\\adni_fomo25_linear_seed46_best.pt",
+      "exists": true,
+      "size_bytes": 5203349,
+      "sha256": "a4d8d532f5db0991394ccd7ccde7d2403b719603b8abb02da56c9533f38e46a5"
+    },
+    "adni_swin_unetr_linear_seed42_best.pt": {
+      "path": "results\\checkpoints\\adni_swin_unetr_linear_seed42_best.pt",
+      "exists": true,
+      "size_bytes": 3113229,
+      "sha256": "c4849cc2126ef7f8c5921d03ec4f64df8ba69c8004516166b943a56d69a08731"
+    },
+    "adni_swin_unetr_linear_seed43_best.pt": {
+      "path": "results\\checkpoints\\adni_swin_unetr_linear_seed43_best.pt",
+      "exists": true,
+      "size_bytes": 3113229,
+      "sha256": "a75c60454d4527d7e523816891340aca3065667ba20b92625fa58fee3c261515"
+    },
+    "adni_swin_unetr_linear_seed44_best.pt": {
+      "path": "results\\checkpoints\\adni_swin_unetr_linear_seed44_best.pt",
+      "exists": true,
+      "size_bytes": 3113229,
+      "sha256": "b3ab6f155a216a33c25b69c30bc3b240f8a7b6ef878db66f18cc6b4020103ecb"
+    },
+    "adni_swin_unetr_linear_seed45_best.pt": {
+      "path": "results\\checkpoints\\adni_swin_unetr_linear_seed45_best.pt",
+      "exists": true,
+      "size_bytes": 3113229,
+      "sha256": "f66fd3f4b07610877eea227fe091f10b428d177af66c0b3829177d2f98ed2785"
+    },
+    "adni_swin_unetr_linear_seed46_best.pt": {
+      "path": "results\\checkpoints\\adni_swin_unetr_linear_seed46_best.pt",
+      "exists": true,
+      "size_bytes": 3113229,
+      "sha256": "013d2860c553a974d588b84d106fc73f4d63dd5412e37209926b4ef60affc302"
+    }
+  },
+  "official_pretrained_weights": {
+    "brainiac_vit_base.pt": {
+      "path": "weights\\brainiac_vit_base.pt",
+      "exists": true,
+      "size_bytes": 26160669,
+      "sha256": "3934f58f9705ca1d84414716c83ef7f927a0362bd3f4b73408a24d044f067866"
+    },
+    "fomo25_winner_encoder.pt": {
+      "path": "weights\\fomo25_winner_encoder.pt",
+      "exists": true,
+      "size_bytes": 5202157,
+      "sha256": "bea8a7d00010607b025198579c86ef1b5755aafa1f36162b1b195d602e3e5d16"
+    },
+    "model_swinvit.pt": {
+      "path": "weights\\model_swinvit.pt",
+      "exists": true,
+      "size_bytes": 3111704,
+      "sha256": "c696a71deb86e60adee620133122f8ae5d22dfa826ef2522508bc8038b8c4793"
+    }
+  },
+  "hash_verification_passed": true
+}

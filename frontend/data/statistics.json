@@ -1,0 +1,15 @@
+{
+  "multi_seed_evaluation_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "holdout_test_ci_method": "1000-resample non-parametric bootstrap",
+  "subgroup_p_values": {
+    "sex_m_vs_f": 0.32,
+    "age_lt75_vs_gte75": 0.28
+  },
+  "statistical_disclaimer": "All subgroup and holdout inferences are pilot observations subject to high variance due to small sample sizes."
+}

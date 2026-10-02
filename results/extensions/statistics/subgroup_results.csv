@@ -1,0 +1,29 @@
+cohort,subgroup_variable,subgroup_value,subgroup_n,cn_count,ad_count,model,accuracy,balanced_accuracy,roc_auc,mean_predicted_prob,caveat
+ADNI MPRAGE (Test N=8),sex,F,6,3,3,Supervised 3D ResNet-18,0.5,0.5,0.4444,0.4993,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),sex,F,6,3,3,BrainIAC (Linear Probe),0.6667,0.6667,0.8889,0.2685,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),sex,F,6,3,3,FOMO25 Winner (Linear Probe),0.5,0.5,0.3333,0.337,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),sex,F,6,3,3,MONAI Swin UNETR SSL (Linear Probe),0.5,0.5,0.8889,0.1963,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),sex,M,2,1,1,Supervised 3D ResNet-18,1.0,1.0,1.0,0.5391,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),sex,M,2,1,1,BrainIAC (Linear Probe),0.0,0.0,0.0,0.4837,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),sex,M,2,1,1,FOMO25 Winner (Linear Probe),0.5,0.5,0.0,0.3692,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),sex,M,2,1,1,MONAI Swin UNETR SSL (Linear Probe),0.5,0.5,0.0,0.1875,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),age_group,<75,3,1,2,Supervised 3D ResNet-18,0.6667,0.75,0.5,0.4435,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),age_group,<75,3,1,2,BrainIAC (Linear Probe),0.3333,0.25,0.0,0.5173,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),age_group,<75,3,1,2,FOMO25 Winner (Linear Probe),0.3333,0.5,0.0,0.3462,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),age_group,<75,3,1,2,MONAI Swin UNETR SSL (Linear Probe),0.3333,0.5,1.0,0.2001,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),age_group,>=75,5,3,2,Supervised 3D ResNet-18,0.6,0.6667,1.0,0.5487,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),age_group,>=75,5,3,2,BrainIAC (Linear Probe),0.6,0.5,0.8333,0.2053,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),age_group,>=75,5,3,2,FOMO25 Winner (Linear Probe),0.6,0.5,0.6667,0.3444,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),age_group,>=75,5,3,2,MONAI Swin UNETR SSL (Linear Probe),0.6,0.5,0.8333,0.1905,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),manufacturer,SIEMENS,8,4,4,Supervised 3D ResNet-18,0.625,0.625,0.625,0.5093,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),manufacturer,SIEMENS,8,4,4,BrainIAC (Linear Probe),0.5,0.5,0.6875,0.3223,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),manufacturer,SIEMENS,8,4,4,FOMO25 Winner (Linear Probe),0.5,0.5,0.375,0.345,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),manufacturer,SIEMENS,8,4,4,MONAI Swin UNETR SSL (Linear Probe),0.5,0.5,0.8125,0.1941,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),field_strength,2.8936200141907T,4,2,2,Supervised 3D ResNet-18,0.75,0.75,1.0,0.5473,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),field_strength,2.8936200141907T,4,2,2,BrainIAC (Linear Probe),0.25,0.25,0.5,0.3209,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),field_strength,2.8936200141907T,4,2,2,FOMO25 Winner (Linear Probe),0.5,0.5,0.25,0.356,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),field_strength,2.8936200141907T,4,2,2,MONAI Swin UNETR SSL (Linear Probe),0.5,0.5,0.75,0.1901,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),field_strength,3.0T,4,2,2,Supervised 3D ResNet-18,0.5,0.5,0.25,0.4712,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),field_strength,3.0T,4,2,2,BrainIAC (Linear Probe),0.75,0.75,1.0,0.3237,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),field_strength,3.0T,4,2,2,FOMO25 Winner (Linear Probe),0.5,0.5,0.5,0.3341,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.
+ADNI MPRAGE (Test N=8),field_strength,3.0T,4,2,2,MONAI Swin UNETR SSL (Linear Probe),0.5,0.5,0.75,0.1981,Exploratory pilot subgroup analysis with very small sample size (N <= 8). High statistical variance expected.

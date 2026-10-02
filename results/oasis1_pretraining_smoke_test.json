@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "device": "cpu",
+  "device_name": "CPU (Host)",
+  "cuda_available": false,
+  "input_shape": [
+    4,
+    1,
+    128,
+    128,
+    128
+  ],
+  "input_dtype": "torch.float32",
+  "target_shape": [
+    4,
+    1
+  ],
+  "target_dtype": "torch.float32",
+  "output_shape": [
+    4,
+    1
+  ],
+  "expected_output_shape": [
+    4,
+    1
+  ],
+  "shape_check_passed": true,
+  "loss_value": 0.604757,
+  "loss_is_finite": true,
+  "all_gradients_finite": true,
+  "has_nonzero_gradients": true,
+  "gradient_check_passed": true,
+  "weight_difference_after_step": 21.951878,
+  "optimizer_step_passed": true,
+  "batch_patient_ids": [
+    "OAS1_0001_MR1",
+    "OAS1_0068_MR1",
+    "OAS1_0071_MR1",
+    "OAS1_0185_MR1"
+  ],
+  "split_check_passed": true,
+  "val_contamination_detected": false,
+  "test_contamination_detected": false
+}

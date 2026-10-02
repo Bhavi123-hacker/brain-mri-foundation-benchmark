@@ -1,0 +1,212 @@
+{
+  "dataset_name": "OASIS-1 Pilot",
+  "data_location": "D:\\OASIS1_PILOT",
+  "configuration": {
+    "task_type": "binary_classification",
+    "target": "CDR (0=CN, >=1=DEMENTIA)",
+    "batch_size": 4,
+    "max_epochs": 25,
+    "early_stopping_patience": 7,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "scheduler": "CosineAnnealingLR",
+    "seed": 42
+  },
+  "subject_counts": {
+    "total_pilot_subjects": 50,
+    "train_subjects": 35,
+    "val_subjects": 7,
+    "test_subjects": 8
+  },
+  "model_architecture": {
+    "name": "3D ResNet-18 Baseline",
+    "stem": "Conv3d(1->64, k=7, s=2, p=3)",
+    "stages": [
+      64,
+      128,
+      256,
+      512
+    ],
+    "total_parameters": 33160513,
+    "trainable_parameters": 33160513
+  },
+  "compute_hardware": {
+    "device": "cpu",
+    "device_name": "CPU (Host)",
+    "cuda_available": false,
+    "total_training_time_seconds": 1112.71
+  },
+  "training_execution": {
+    "epochs_completed": 12,
+    "best_epoch": 5,
+    "best_val_loss": 0.5465,
+    "checkpoint_path": "results\\checkpoints\\oasis1_pilot_resnet18_best.pt",
+    "epoch_history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.769,
+        "val_loss": 309.12,
+        "val_accuracy": 0.5714,
+        "val_precision": 0.0,
+        "val_recall": 0.0,
+        "val_f1": 0.0,
+        "val_roc_auc": 0.5,
+        "epoch_time_seconds": 97.55,
+        "is_best": true
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.7369,
+        "val_loss": 57.4833,
+        "val_accuracy": 0.5714,
+        "val_precision": 0.0,
+        "val_recall": 0.0,
+        "val_f1": 0.0,
+        "val_roc_auc": 0.5,
+        "epoch_time_seconds": 74.0,
+        "is_best": true
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.5958,
+        "val_loss": 2.0267,
+        "val_accuracy": 0.5714,
+        "val_precision": 0.5,
+        "val_recall": 1.0,
+        "val_f1": 0.6667,
+        "val_roc_auc": 1.0,
+        "epoch_time_seconds": 87.85,
+        "is_best": true
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.6193,
+        "val_loss": 0.9814,
+        "val_accuracy": 0.4286,
+        "val_precision": 0.4286,
+        "val_recall": 1.0,
+        "val_f1": 0.6,
+        "val_roc_auc": 0.75,
+        "epoch_time_seconds": 83.25,
+        "is_best": true
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.5979,
+        "val_loss": 0.5465,
+        "val_accuracy": 0.7143,
+        "val_precision": 1.0,
+        "val_recall": 0.3333,
+        "val_f1": 0.5,
+        "val_roc_auc": 0.8333,
+        "epoch_time_seconds": 86.36,
+        "is_best": true
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.6519,
+        "val_loss": 3.0482,
+        "val_accuracy": 0.4286,
+        "val_precision": 0.4286,
+        "val_recall": 1.0,
+        "val_f1": 0.6,
+        "val_roc_auc": 0.75,
+        "epoch_time_seconds": 102.12,
+        "is_best": false
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.5164,
+        "val_loss": 1.4161,
+        "val_accuracy": 0.5714,
+        "val_precision": 0.5,
+        "val_recall": 1.0,
+        "val_f1": 0.6667,
+        "val_roc_auc": 0.8333,
+        "epoch_time_seconds": 100.42,
+        "is_best": false
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.5931,
+        "val_loss": 0.5923,
+        "val_accuracy": 0.5714,
+        "val_precision": 0.5,
+        "val_recall": 1.0,
+        "val_f1": 0.6667,
+        "val_roc_auc": 1.0,
+        "epoch_time_seconds": 103.47,
+        "is_best": false
+      },
+      {
+        "epoch": 9,
+        "train_loss": 0.5424,
+        "val_loss": 0.8696,
+        "val_accuracy": 0.4286,
+        "val_precision": 0.4286,
+        "val_recall": 1.0,
+        "val_f1": 0.6,
+        "val_roc_auc": 0.8333,
+        "epoch_time_seconds": 105.01,
+        "is_best": false
+      },
+      {
+        "epoch": 10,
+        "train_loss": 0.6338,
+        "val_loss": 0.7577,
+        "val_accuracy": 0.5714,
+        "val_precision": 0.5,
+        "val_recall": 1.0,
+        "val_f1": 0.6667,
+        "val_roc_auc": 0.75,
+        "epoch_time_seconds": 100.15,
+        "is_best": false
+      },
+      {
+        "epoch": 11,
+        "train_loss": 0.5029,
+        "val_loss": 0.7229,
+        "val_accuracy": 0.5714,
+        "val_precision": 0.5,
+        "val_recall": 1.0,
+        "val_f1": 0.6667,
+        "val_roc_auc": 0.6667,
+        "epoch_time_seconds": 85.12,
+        "is_best": false
+      },
+      {
+        "epoch": 12,
+        "train_loss": 0.5302,
+        "val_loss": 0.7106,
+        "val_accuracy": 0.5714,
+        "val_precision": 0.5,
+        "val_recall": 1.0,
+        "val_f1": 0.6667,
+        "val_roc_auc": 0.5833,
+        "epoch_time_seconds": 84.49,
+        "is_best": false
+      }
+    ]
+  },
+  "final_untouched_test_metrics": {
+    "roc_auc": 0.8125,
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.5,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "sensitivity": 0.0,
+    "specificity": 1.0,
+    "brier_score": 0.4226,
+    "tp": 0,
+    "tn": 4,
+    "fp": 0,
+    "fn": 4,
+    "test_loss": 2.2538,
+    "latency_ms_per_sample": 663.47,
+    "throughput_samples_per_sec": 1.51
+  },
+  "methodological_disclaimer": "This is a pilot baseline result on 50 OASIS-1 subjects for software & data pipeline verification. It does not claim statistical superiority or clinical generalization prior to full benchmark scaling.",
+  "warnings_or_errors": []
+}

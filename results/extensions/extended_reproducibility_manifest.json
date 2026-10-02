@@ -1,0 +1,121 @@
+{
+  "project": "Fair Benchmarking of Brain-MRI Foundation Models Against Well-Tuned Supervised Deep Learning Baselines (Extended)",
+  "timestamp": "2026-09-14T12:45:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+    "torch_version": "2.11.0+cpu",
+    "numpy_version": "2.4.1",
+    "pandas_version": "2.3.3",
+    "cuda_available": false,
+    "cpu_threads": 10
+  },
+  "random_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "datasets": {
+    "oasis1_pilot": {
+      "path": "D:\\OASIS1_PILOT",
+      "total_subjects": 50,
+      "classes": {
+        "CN": 25,
+        "Dementia": 25
+      },
+      "split_counts": {
+        "train": 35,
+        "val": 7,
+        "test": 8
+      },
+      "data_fractions": {
+        "10%": 4,
+        "25%": 9,
+        "50%": 18,
+        "100%": 35
+      },
+      "preprocessed_tensor_shape": [
+        1,
+        128,
+        128,
+        128
+      ],
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "intensity_norm": "z_score"
+    },
+    "adni_mprage": {
+      "dicom_path": "D:\\AIML\\ADNI_MPRAGE_Benchmark_Extracted\\ADNI",
+      "nifti_path": "D:\\AIML\\ADNI_MPRAGE_NIFTI",
+      "total_subjects_audited": 59,
+      "selected_subjects": 50,
+      "ambiguous_subjects_excluded": 9,
+      "classes": {
+        "CN": 25,
+        "AD": 25
+      },
+      "split_counts": {
+        "train": 35,
+        "val": 7,
+        "test": 8
+      },
+      "preprocessed_cache": "data/cache/adni_cn_ad"
+    }
+  },
+  "models_benchmarked": [
+    "Supervised 3D ResNet-18",
+    "Supervised 3D ResNet-34",
+    "BrainIAC (Linear Probe, Partial FT, Full FT)",
+    "FOMO25 Winner (Linear Probe, Partial FT, Full FT)",
+    "MONAI Swin UNETR SSL (Linear Probe, Partial FT, Full FT)"
+  ],
+  "checkpoints_verified": {
+    "resnet18_oasis_baseline": {
+      "path": "results/checkpoints/oasis1_pilot_resnet18_tuned_best.pt",
+      "size_bytes": 132723403,
+      "sha256": "8324d6deea87cb79f014e05a2c5c279d4c1befa8f9e5a1ee801dbfe7cd68dc10"
+    },
+    "resnet34_oasis_best": {
+      "path": "results/extensions/supervised_baseline/checkpoints/resnet34_seed42_best.pt",
+      "size_bytes": 254016939,
+      "sha256": "4a5489923c6bdf8e12bde31f850727abaac51eead7c2535a4ae2a7f477a57b6e"
+    },
+    "brainiac_weights": {
+      "path": "weights/brainiac_vit_base.pt",
+      "size_bytes": 26160669,
+      "sha256": "3934f58f9705ca1d84414716c83ef7f927a0362bd3f4b73408a24d044f067866"
+    },
+    "fomo25_weights": {
+      "path": "weights/fomo25_winner_encoder.pt",
+      "size_bytes": 5202157,
+      "sha256": "bea8a7d00010607b025198579c86ef1b5755aafa1f36162b1b195d602e3e5d16"
+    },
+    "swin_unetr_weights": {
+      "path": "weights/model_swinvit.pt",
+      "size_bytes": 3111704,
+      "sha256": "c696a71deb86e60adee620133122f8ae5d22dfa826ef2522508bc8038b8c4793"
+    }
+  },
+  "extension_experiments_completed": [
+    "Data-Efficiency Benchmark (10%, 25%, 50%, 100% across 5 seeds = 80 evaluations)",
+    "Stronger Supervised Baseline (3D ResNet-34, 63.5M params across 5 seeds)",
+    "Compute & Resource Efficiency Profiling (latency, parameters, FLOPs, memory)",
+    "Bidirectional Cross-Dataset Generalization (OASIS -> ADNI and ADNI -> OASIS)",
+    "Model Calibration & Reliability Curves (Brier, ECE, MCE, Reliability plots)",
+    "Foundation Model Fine-Tuning Pilot (Head vs Partial vs Full adaptation)",
+    "Exploratory Subgroup Analysis (Sex, Age, Manufacturer, Field Strength)",
+    "Statistical Uncertainty & Bootstrap Hypothesis Testing (95% Bootstrap CIs)",
+    "Model Interpretability & Attribution (3D Grad-CAM orthogonal slicing)"
+  ],
+  "non_negotiable_rules_compliance": {
+    "patient_leakage": "0% Patient Overlap Verified across all splits",
+    "test_set_isolation": "Locked holdout test sets strictly preserved and evaluated once at post-training inference",
+    "data_fabrication": "Zero synthetic or fabricated diagnoses/records",
+    "original_benchmark_preserved": true
+  }
+}

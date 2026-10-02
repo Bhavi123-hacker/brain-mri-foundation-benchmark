@@ -1,0 +1,52 @@
+[
+  {
+    "model": "BrainIAC",
+    "architecture": "Vision Transformer (ViT-Base)",
+    "embedding_dim": 768,
+    "pca_explained_var_pc1_2": 0.412,
+    "silhouette_score_raw": -0.045,
+    "silhouette_score_pca": 0.038,
+    "centroid_distance_cn_vs_dementia": 1.42,
+    "biological_clustering_status": "Weak Linear Separability on 128^3"
+  },
+  {
+    "model": "FOMO25 Winner",
+    "architecture": "Hybrid Convolutional-Attention Encoder",
+    "embedding_dim": 512,
+    "pca_explained_var_pc1_2": 0.385,
+    "silhouette_score_raw": -0.072,
+    "silhouette_score_pca": 0.015,
+    "centroid_distance_cn_vs_dementia": 1.28,
+    "biological_clustering_status": "Diffuse Latent Spread; Domain Susceptible"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL",
+    "architecture": "Shifted Window 3D Hierarchical Transformer",
+    "embedding_dim": 768,
+    "pca_explained_var_pc1_2": 0.468,
+    "silhouette_score_raw": -0.021,
+    "silhouette_score_pca": 0.082,
+    "centroid_distance_cn_vs_dementia": 1.85,
+    "biological_clustering_status": "Moderate Clustered Separation in Low Dimensions"
+  },
+  {
+    "model": "Supervised 3D ResNet-18",
+    "architecture": "3D ResNet (18 layers, penult pool)",
+    "embedding_dim": 512,
+    "pca_explained_var_pc1_2": 0.615,
+    "silhouette_score_raw": 0.185,
+    "silhouette_score_pca": 0.294,
+    "centroid_distance_cn_vs_dementia": 3.42,
+    "biological_clustering_status": "Strong Task-Directed Separation"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "architecture": "3D ResNet (34 layers, penult pool)",
+    "embedding_dim": 512,
+    "pca_explained_var_pc1_2": 0.652,
+    "silhouette_score_raw": 0.221,
+    "silhouette_score_pca": 0.345,
+    "centroid_distance_cn_vs_dementia": 3.88,
+    "biological_clustering_status": "Strongest Task-Directed Separation"
+  }
+]

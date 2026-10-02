@@ -1,0 +1,6 @@
+model,seed,best_epoch,best_val_loss,test_roc_auc,test_accuracy,test_balanced_accuracy,test_precision,test_recall,test_specificity,test_f1,test_brier_score,training_time_seconds,inference_time_seconds,total_parameters,trainable_parameters,checkpoint_path
+Supervised 3D ResNet-34,42,2,0.5285,0.875,0.5,0.5,0.0,0.0,1.0,0.0,0.2948,591.27,4.0154,63556225,63556225,results/extensions/supervised_baseline\checkpoints\resnet34_seed42_best.pt
+Supervised 3D ResNet-34,43,6,0.6317,0.875,0.875,0.875,0.8,1.0,0.75,0.8889,0.1496,1512.37,12.0301,63556225,63556225,results/extensions/supervised_baseline\checkpoints\resnet34_seed43_best.pt
+Supervised 3D ResNet-34,44,2,0.7922,1.0,0.5,0.5,0.5,1.0,0.0,0.6667,0.2543,1005.69,4.6621,63556225,63556225,results/extensions/supervised_baseline\checkpoints\resnet34_seed44_best.pt
+Supervised 3D ResNet-34,45,4,0.5692,1.0,0.625,0.625,1.0,0.25,1.0,0.4,0.1878,1441.17,5.2695,63556225,63556225,results/extensions/supervised_baseline\checkpoints\resnet34_seed45_best.pt
+Supervised 3D ResNet-34,46,6,0.7115,0.875,0.75,0.75,1.0,0.5,1.0,0.6667,0.1323,8296.91,10.5889,63556225,63556225,results/extensions/supervised_baseline\checkpoints\resnet34_seed46_best.pt

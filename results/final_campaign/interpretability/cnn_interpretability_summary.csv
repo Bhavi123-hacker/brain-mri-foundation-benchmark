@@ -1,0 +1,22 @@
+dataset,model,class,subject_id,prediction,probability,correct,category,gradcam_layer,gradcam_method,file_path
+OASIS-1,ResNet-18,CN,OAS1_0001_MR1,CN,0.0292,True,True Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet18_gradcam\OAS1_0001_MR1_true_negative.png
+OASIS-1,ResNet-18,CN,OAS1_0002_MR1,CN,0.0253,True,True Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet18_gradcam\OAS1_0002_MR1_true_negative.png
+OASIS-1,ResNet-18,Dementia/AD,OAS1_0028_MR1,Dementia/AD,0.9126,True,True Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet18_gradcam\OAS1_0028_MR1_true_positive.png
+OASIS-1,ResNet-18,Dementia/AD,OAS1_0031_MR1,Dementia/AD,0.8534,True,True Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet18_gradcam\OAS1_0031_MR1_true_positive.png
+OASIS-1,ResNet-18,CN,OAS1_0019_MR1,Dementia/AD,0.7332,False,False Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet18_gradcam\OAS1_0019_MR1_false_positive.png
+OASIS-1,ResNet-18,Dementia/AD,OAS1_0035_MR1,CN,0.4158,False,False Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet18_gradcam\OAS1_0035_MR1_false_negative.png
+OASIS-1,ResNet-34,CN,OAS1_0002_MR1,CN,0.0601,True,True Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet34_gradcam\OAS1_0002_MR1_true_negative.png
+OASIS-1,ResNet-34,CN,OAS1_0011_MR1,CN,0.0531,True,True Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet34_gradcam\OAS1_0011_MR1_true_negative.png
+OASIS-1,ResNet-34,Dementia/AD,OAS1_0035_MR1,Dementia/AD,0.4839,True,True Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet34_gradcam\OAS1_0035_MR1_true_positive.png
+OASIS-1,ResNet-34,Dementia/AD,OAS1_0056_MR1,Dementia/AD,0.9333,True,True Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet34_gradcam\OAS1_0056_MR1_true_positive.png
+OASIS-1,ResNet-34,CN,OAS1_0001_MR1,Dementia/AD,0.4548,False,False Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet34_gradcam\OAS1_0001_MR1_false_positive.png
+OASIS-1,ResNet-34,Dementia/AD,OAS1_0028_MR1,CN,0.1563,False,False Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\oasis_resnet34_gradcam\OAS1_0028_MR1_false_negative.png
+ADNI,ResNet-18,CN,002_S_1261,CN,0.0281,True,True Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet18_gradcam\002_S_1261_true_negative.png
+ADNI,ResNet-18,CN,002_S_1280,CN,0.1364,True,True Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet18_gradcam\002_S_1280_true_negative.png
+ADNI,ResNet-18,Dementia/AD,021_S_0753,Dementia/AD,0.8638,True,True Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet18_gradcam\021_S_0753_true_positive.png
+ADNI,ResNet-18,Dementia/AD,023_S_0916,Dementia/AD,0.881,True,True Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet18_gradcam\023_S_0916_true_positive.png
+ADNI,ResNet-18,CN,013_S_1276,Dementia/AD,0.5154,False,False Positive,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet18_gradcam\013_S_1276_false_positive.png
+ADNI,ResNet-18,Dementia/AD,002_S_0816,CN,0.0782,False,False Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet18_gradcam\002_S_0816_false_negative.png
+ADNI,ResNet-34,CN,002_S_1261,CN,0.0624,True,True Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet34_gradcam\002_S_1261_true_negative.png
+ADNI,ResNet-34,CN,002_S_1280,CN,0.1408,True,True Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet34_gradcam\002_S_1280_true_negative.png
+ADNI,ResNet-34,Dementia/AD,002_S_0816,CN,0.0485,False,False Negative,layer4[-1].conv2,3D Grad-CAM,results/final_campaign/interpretability\adni_resnet34_gradcam\002_S_0816_false_negative.png

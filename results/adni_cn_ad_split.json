@@ -1,0 +1,120 @@
+{
+  "split_name": "adni_cn_ad_stratified_seed42",
+  "random_seed": 42,
+  "total_subjects": 50,
+  "cohort_breakdown": {
+    "train": {
+      "total_subjects": 35,
+      "class_distribution": {
+        "CN": 20,
+        "AD": 15
+      },
+      "sex_distribution": {
+        "F": 24,
+        "M": 11
+      },
+      "mean_age": 72.57,
+      "subjects": [
+        "002_S_0816",
+        "002_S_1261",
+        "002_S_1280",
+        "013_S_1035",
+        "013_S_1276",
+        "020_S_1288",
+        "021_S_0753",
+        "023_S_0031",
+        "023_S_0139",
+        "023_S_0916",
+        "023_S_0926",
+        "023_S_0963",
+        "023_S_1262",
+        "023_S_1289",
+        "027_S_0403",
+        "027_S_1082",
+        "032_S_0677",
+        "032_S_1101",
+        "032_S_1169",
+        "033_S_0724",
+        "033_S_0733",
+        "033_S_1016",
+        "033_S_1086",
+        "033_S_1098",
+        "067_S_0828",
+        "067_S_1185",
+        "067_S_1253",
+        "082_S_0640",
+        "082_S_1256",
+        "116_S_0382",
+        "116_S_0392",
+        "116_S_1083",
+        "116_S_1232",
+        "116_S_1249",
+        "128_S_1242"
+      ]
+    },
+    "validation": {
+      "total_subjects": 7,
+      "class_distribution": {
+        "CN": 4,
+        "AD": 3
+      },
+      "sex_distribution": {
+        "M": 4,
+        "F": 3
+      },
+      "mean_age": 76.81,
+      "subjects": [
+        "023_S_0061",
+        "027_S_1081",
+        "027_S_1385",
+        "037_S_0303",
+        "082_S_0304",
+        "133_S_0493",
+        "133_S_1170"
+      ]
+    },
+    "test": {
+      "total_subjects": 8,
+      "class_distribution": {
+        "CN": 4,
+        "AD": 4
+      },
+      "sex_distribution": {
+        "F": 6,
+        "M": 2
+      },
+      "mean_age": 76.47,
+      "subjects": [
+        "023_S_0058",
+        "023_S_1190",
+        "027_S_0404",
+        "031_S_1209",
+        "033_S_0920",
+        "051_S_1123",
+        "067_S_0812",
+        "116_S_0487"
+      ]
+    }
+  },
+  "patient_leakage_audit": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0,
+    "passed": true
+  },
+  "locked_test_set": {
+    "is_locked": true,
+    "subject_count": 8,
+    "subjects": [
+      "023_S_0058",
+      "023_S_1190",
+      "027_S_0404",
+      "031_S_1209",
+      "033_S_0920",
+      "051_S_1123",
+      "067_S_0812",
+      "116_S_0487"
+    ],
+    "instructions": "DO NOT evaluate this test set until Day 4 final benchmark evaluation."
+  }
+}

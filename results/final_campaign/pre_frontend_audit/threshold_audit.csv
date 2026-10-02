@@ -1,0 +1,7 @@
+model,standard_threshold,development_selected_threshold,acc_standard,acc_development_thresh,bal_acc_standard,bal_acc_development_thresh,f1_standard,f1_development_thresh,threshold_selection_data,test_labels_used,leakage_status
+Supervised 3D ResNet-18,0.5,0.45,0.875,0.875,0.875,0.875,0.8889,0.8889,OASIS-1 Development CV Folds (Youden Index),False,PASS (Zero Test Leakage)
+Supervised 3D ResNet-34,0.5,0.45,1.0,1.0,1.0,1.0,1.0,1.0,OASIS-1 Development CV Folds (Youden Index),False,PASS (Zero Test Leakage)
+BrainIAC,0.5,0.4,0.75,0.75,0.75,0.75,0.75,0.8,OASIS-1 Development CV Folds (Youden Index),False,PASS (Zero Test Leakage)
+FOMO25 Winner,0.5,0.4,0.75,0.75,0.75,0.75,0.75,0.8,OASIS-1 Development CV Folds (Youden Index),False,PASS (Zero Test Leakage)
+MONAI Swin UNETR SSL,0.5,0.4,0.625,0.625,0.625,0.625,0.4,0.6667,OASIS-1 Development CV Folds (Youden Index),False,PASS (Zero Test Leakage)
+Ensemble (ResNet-34 + Swin),0.5,0.45,1.0,1.0,1.0,1.0,1.0,1.0,OASIS-1 Development CV Folds (Youden Index),False,PASS (Zero Test Leakage)

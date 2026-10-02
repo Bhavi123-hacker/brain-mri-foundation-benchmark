@@ -1,0 +1,5 @@
+Model,Paradigm,Trainable_Params,10%_AUC_mean,10%_AUC_std,25%_AUC_mean,25%_AUC_std,50%_AUC_mean,50%_AUC_std,100%_AUC_mean,100%_AUC_std,Gain_10_to_100,Overall_Avg_AUC,Overall_Avg_Acc,Overall_Avg_F1
+Supervised 3D ResNet-18,supervised_baseline,33160513,0.725,0.2363,0.6125,0.1355,0.8125,0.125,0.8375,0.0342,0.1125,0.7469,0.5125,0.323
+BrainIAC,foundation_linear_probe,769,0.525,0.2006,0.5375,0.1854,0.5375,0.1854,0.5375,0.1854,0.0125,0.5344,0.5625,0.4685
+FOMO25 Winner,foundation_linear_probe,513,0.4563,0.301,0.5125,0.323,0.55,0.3463,0.5375,0.3497,0.0812,0.5141,0.4688,0.3416
+MONAI Swin UNETR SSL,foundation_linear_probe,769,0.3813,0.3497,0.375,0.3536,0.425,0.3913,0.425,0.3913,0.0437,0.4016,0.5,0.2333

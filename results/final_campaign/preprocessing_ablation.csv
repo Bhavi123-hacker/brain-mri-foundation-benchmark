@@ -1,0 +1,5 @@
+pipeline,description,resnet18_auc,resnet34_auc,brainiac_auc,swin_auc
+Pipeline A,Standard Volumetric Z-Score Normalization,0.8125,0.8875,0.5862,0.655
+Pipeline B,"Min-Max Unit Scaling [0, 1]",0.775,0.8375,0.55,0.6125
+Pipeline C,Robust 1%-99% Intensity Clipping + Z-Score,0.825,0.9,0.6,0.6625
+Pipeline D,Spatial Standardization + Affine Alignment,0.8,0.875,0.575,0.6375

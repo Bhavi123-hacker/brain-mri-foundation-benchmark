@@ -1,0 +1,62 @@
+[
+  {
+    "characteristic": "Total Subjects (N)",
+    "oasis_1_pilot": "50",
+    "adni_mprage": "50",
+    "comparison_notes": "Identically sized cohorts for fair cross-dataset comparison"
+  },
+  {
+    "characteristic": "Class Distribution (CN / Dementia or AD)",
+    "oasis_1_pilot": "25 CN / 25 Dementia (50% / 50%)",
+    "adni_mprage": "28 CN / 22 AD in manifest (25 CN / 25 AD matched benchmark)",
+    "comparison_notes": "Balanced binary classification setup"
+  },
+  {
+    "characteristic": "Diagnostic Criteria",
+    "oasis_1_pilot": "Clinical Dementia Rating (CDR=0 vs CDR>=1; CDR=0.5 excluded)",
+    "adni_mprage": "Consensus clinical NINCDS-ADRDA diagnosis (baseline DX: CN vs AD)",
+    "comparison_notes": "Different clinical diagnostic instruments between cohorts"
+  },
+  {
+    "characteristic": "Mean Age +/- Std (Years)",
+    "oasis_1_pilot": "71.0 +/- 15.0 [Range: 33 - 96]",
+    "adni_mprage": "73.8 +/- 6.4 [Range: 57 - 88]",
+    "comparison_notes": "OASIS-1 includes younger controls; ADNI age distribution is tightly elderly"
+  },
+  {
+    "characteristic": "Sex Distribution (% Female)",
+    "oasis_1_pilot": "Approximately 60.0% F / 40.0% M",
+    "adni_mprage": "33 F / 17 M (66.0% F / 34.0% M)",
+    "comparison_notes": "Both cohorts have slight female predominance typical of AD epidemiology"
+  },
+  {
+    "characteristic": "Magnetic Field Strength",
+    "oasis_1_pilot": "1.5 Tesla (100%)",
+    "adni_mprage": "3.0 Tesla (100% - Siemens 2.89T / 3.0T)",
+    "comparison_notes": "Domain shift: 1.5T vs 3.0T alters signal-to-noise ratio (SNR) and contrast"
+  },
+  {
+    "characteristic": "Scanner Manufacturer",
+    "oasis_1_pilot": "Siemens (100% Vision 1.5T)",
+    "adni_mprage": "Siemens (94% Trio/Verio/Skyra), Philips (6% Achieva)",
+    "comparison_notes": "Multi-site ADNI introduces scanner variation"
+  },
+  {
+    "characteristic": "Raw MRI Dimensions (Voxels)",
+    "oasis_1_pilot": "256 x 256 x 128 / 256 x 256 x 160",
+    "adni_mprage": "240 x 256 x 160 (94%), 256 x 256 x 170 (6%)",
+    "comparison_notes": "Different native acquisition grids and field-of-view"
+  },
+  {
+    "characteristic": "Native Voxel Spacing (mm)",
+    "oasis_1_pilot": "1.0 x 1.0 x 1.25 mm (typical)",
+    "adni_mprage": "1.0 x 1.0 x 1.20 mm",
+    "comparison_notes": "Near-isotropic sagittal 3D T1 MPRAGE"
+  },
+  {
+    "characteristic": "Processed Model Input Dimensions",
+    "oasis_1_pilot": "[1, 128, 128, 128] float32",
+    "adni_mprage": "[1, 128, 128, 128] float32",
+    "comparison_notes": "Identical standardized affine resampling and robust z-score normalization"
+  }
+]

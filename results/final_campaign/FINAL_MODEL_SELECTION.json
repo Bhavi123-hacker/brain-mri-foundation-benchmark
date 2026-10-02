@@ -1,0 +1,57 @@
+{
+  "selection_status": "FROZEN",
+  "timestamp": "2026-09-14T13:03:00",
+  "development_protocol": "Stratified 5-Fold Cross-Validation on N=42 Development Subjects",
+  "locked_test_rule": "Test labels were NEVER inspected during selection or tuning",
+  "selected_configurations": {
+    "preprocessing": {
+      "selected_pipeline": "Pipeline A (Volumetric Z-Score Normalization)",
+      "voxel_spacing": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "matrix_size": [
+        128,
+        128,
+        128
+      ],
+      "rationale": "Maximized development CV stability and compatibility across models"
+    },
+    "augmentation": {
+      "selected_augmentation": "Light Augmentation",
+      "operations": "Random rotation (\u00b15\u00b0), random intensity scaling (\u00b110%)",
+      "rationale": "Improved 3D ResNet-18 CV AUC from 0.8125 to 0.8450 without distorting anatomy"
+    },
+    "hyperparameters": {
+      "optimizer": "AdamW",
+      "learning_rate_cnn": 0.0001,
+      "learning_rate_linear_probe": 0.001,
+      "weight_decay": 1e-05,
+      "scheduler": "CosineAnnealingLR",
+      "batch_size": 4
+    },
+    "frozen_decision_thresholds": {
+      "Supervised 3D ResNet-18": 0.45,
+      "Supervised 3D ResNet-34": 0.45,
+      "BrainIAC": 0.4,
+      "FOMO25 Winner": 0.4,
+      "MONAI Swin UNETR SSL": 0.4,
+      "Ensemble (ResNet-34 + Swin)": 0.45
+    },
+    "temperature_scaling_parameters": {
+      "Supervised 3D ResNet-18": 1.35,
+      "BrainIAC": 1.85,
+      "FOMO25 Winner": 1.65,
+      "MONAI Swin UNETR SSL": 1.65
+    },
+    "selected_ensemble": {
+      "combination": "3D ResNet-34 (weight 0.60) + MONAI Swin UNETR SSL (weight 0.40)",
+      "rationale": "Achieved highest development CV AUC (0.9325) by pairing high-capacity CNN with shifted-window transformer"
+    },
+    "selected_fusion": {
+      "combination": "MONAI Swin UNETR SSL + 3D ResNet-18",
+      "rationale": "Highest feature fusion development CV AUC (0.9800) and Balanced Accuracy (0.9278)"
+    }
+  }
+}

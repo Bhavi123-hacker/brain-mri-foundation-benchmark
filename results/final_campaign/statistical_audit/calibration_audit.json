@@ -1,0 +1,68 @@
+[
+  {
+    "model_name": "Supervised 3D ResNet-18",
+    "temperature_parameter_T": 1.35,
+    "fitting_data_source": "OASIS-1 Development Validation Folds Only",
+    "test_labels_used": false,
+    "raw_brier_score": 0.0912,
+    "recomputed_ece": 0.175,
+    "recomputed_mce": 0.325,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "audit_verdict": "VERIFIED_ISOLATED (Fitted exclusively on development CV folds without holdout label exposure)"
+  },
+  {
+    "model_name": "Supervised 3D ResNet-34",
+    "temperature_parameter_T": 1.4,
+    "fitting_data_source": "OASIS-1 Development Validation Folds Only",
+    "test_labels_used": false,
+    "raw_brier_score": 0.0371,
+    "recomputed_ece": 0.165,
+    "recomputed_mce": 0.35,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "audit_verdict": "VERIFIED_ISOLATED (Fitted exclusively on development CV folds without holdout label exposure)"
+  },
+  {
+    "model_name": "BrainIAC",
+    "temperature_parameter_T": 1.85,
+    "fitting_data_source": "OASIS-1 Development Validation Folds Only",
+    "test_labels_used": false,
+    "raw_brier_score": 0.1583,
+    "recomputed_ece": 0.1162,
+    "recomputed_mce": 0.22,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "audit_verdict": "VERIFIED_ISOLATED (Fitted exclusively on development CV folds without holdout label exposure)"
+  },
+  {
+    "model_name": "FOMO25 Winner",
+    "temperature_parameter_T": 1.65,
+    "fitting_data_source": "OASIS-1 Development Validation Folds Only",
+    "test_labels_used": false,
+    "raw_brier_score": 0.1785,
+    "recomputed_ece": 0.1137,
+    "recomputed_mce": 0.25,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "audit_verdict": "VERIFIED_ISOLATED (Fitted exclusively on development CV folds without holdout label exposure)"
+  },
+  {
+    "model_name": "MONAI Swin UNETR SSL",
+    "temperature_parameter_T": 1.65,
+    "fitting_data_source": "OASIS-1 Development Validation Folds Only",
+    "test_labels_used": false,
+    "raw_brier_score": 0.2259,
+    "recomputed_ece": 0.085,
+    "recomputed_mce": 0.48,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "audit_verdict": "VERIFIED_ISOLATED (Fitted exclusively on development CV folds without holdout label exposure)"
+  },
+  {
+    "model_name": "Ensemble (ResNet-34 + Swin)",
+    "temperature_parameter_T": 1.0,
+    "fitting_data_source": "OASIS-1 Development Validation Folds Only",
+    "test_labels_used": false,
+    "raw_brier_score": 0.0864,
+    "recomputed_ece": 0.285,
+    "recomputed_mce": 0.3193,
+    "calibration_status": "CALIBRATED_POST_HOC",
+    "audit_verdict": "VERIFIED_ISOLATED (Fitted exclusively on development CV folds without holdout label exposure)"
+  }
+]

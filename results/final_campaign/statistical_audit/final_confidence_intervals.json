@@ -1,0 +1,1118 @@
+[
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "resnet18",
+    "model_name": "Supervised 3D ResNet-18",
+    "category": "Supervised CNN Baseline",
+    "sample_size": 8,
+    "failures": 2,
+    "accuracy": 0.75,
+    "accuracy_ci_95": [
+      0.3491,
+      0.9681
+    ],
+    "balanced_accuracy": 0.75,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      1.0
+    ],
+    "sensitivity": 0.5,
+    "sensitivity_ci_95": [
+      0.0676,
+      0.9324
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 1.0,
+    "precision_ci_95": [
+      0.1581,
+      1.0
+    ],
+    "recall": 0.5,
+    "recall_ci_95": [
+      0.0676,
+      0.9324
+    ],
+    "f1": 0.6667,
+    "f1_ci_95": [
+      0.0,
+      1.0
+    ],
+    "roc_auc": 1.0,
+    "roc_auc_ci_95": [
+      1.0,
+      1.0
+    ],
+    "brier_score": 0.1245,
+    "brier_ci_95": [
+      0.0413,
+      0.2092
+    ],
+    "ece": 0.2412,
+    "mce": 0.6408,
+    "tp": 2,
+    "tn": 4,
+    "fp": 0,
+    "fn": 2,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "resnet18",
+    "model_name": "Supervised 3D ResNet-18",
+    "category": "Supervised CNN Baseline",
+    "sample_size": 8,
+    "failures": 2,
+    "accuracy": 0.75,
+    "accuracy_ci_95": [
+      0.3491,
+      0.9681
+    ],
+    "balanced_accuracy": 0.75,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      1.0
+    ],
+    "sensitivity": 0.5,
+    "sensitivity_ci_95": [
+      0.0676,
+      0.9324
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 1.0,
+    "precision_ci_95": [
+      0.1581,
+      1.0
+    ],
+    "recall": 0.5,
+    "recall_ci_95": [
+      0.0676,
+      0.9324
+    ],
+    "f1": 0.6667,
+    "f1_ci_95": [
+      0.0,
+      1.0
+    ],
+    "roc_auc": 0.75,
+    "roc_auc_ci_95": [
+      0.25,
+      1.0
+    ],
+    "brier_score": 0.2074,
+    "brier_ci_95": [
+      0.087,
+      0.3794
+    ],
+    "ece": 0.2515,
+    "mce": 0.3782,
+    "tp": 2,
+    "tn": 4,
+    "fp": 0,
+    "fn": 2,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "brainiac_lp",
+    "model_name": "BrainIAC (Linear Probe)",
+    "category": "Frozen Foundation Linear Probe",
+    "sample_size": 8,
+    "failures": 2,
+    "accuracy": 0.75,
+    "accuracy_ci_95": [
+      0.3491,
+      0.9681
+    ],
+    "balanced_accuracy": 0.75,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      1.0
+    ],
+    "sensitivity": 0.5,
+    "sensitivity_ci_95": [
+      0.0676,
+      0.9324
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 1.0,
+    "precision_ci_95": [
+      0.1581,
+      1.0
+    ],
+    "recall": 0.5,
+    "recall_ci_95": [
+      0.0676,
+      0.9324
+    ],
+    "f1": 0.6667,
+    "f1_ci_95": [
+      0.0,
+      1.0
+    ],
+    "roc_auc": 0.9375,
+    "roc_auc_ci_95": [
+      0.75,
+      1.0
+    ],
+    "brier_score": 0.2382,
+    "brier_ci_95": [
+      0.2309,
+      0.2455
+    ],
+    "ece": 0.0081,
+    "mce": 0.0081,
+    "tp": 2,
+    "tn": 4,
+    "fp": 0,
+    "fn": 2,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "brainiac_lp",
+    "model_name": "BrainIAC (Linear Probe)",
+    "category": "Frozen Foundation Linear Probe",
+    "sample_size": 8,
+    "failures": 4,
+    "accuracy": 0.5,
+    "accuracy_ci_95": [
+      0.157,
+      0.843
+    ],
+    "balanced_accuracy": 0.5,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.5
+    ],
+    "sensitivity": 0.0,
+    "sensitivity_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 0.0,
+    "precision_ci_95": [
+      0.0,
+      1.0
+    ],
+    "recall": 0.0,
+    "recall_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "f1": 0.0,
+    "f1_ci_95": [
+      0.0,
+      0.0
+    ],
+    "roc_auc": 0.375,
+    "roc_auc_ci_95": [
+      0.0,
+      0.8125
+    ],
+    "brier_score": 0.2527,
+    "brier_ci_95": [
+      0.2409,
+      0.2637
+    ],
+    "ece": 0.0259,
+    "mce": 0.0259,
+    "tp": 0,
+    "tn": 4,
+    "fp": 0,
+    "fn": 4,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "brainiac_ft",
+    "model_name": "BrainIAC (Deeper FT)",
+    "category": "Fine-Tuned Foundation Model",
+    "sample_size": 8,
+    "failures": 2,
+    "accuracy": 0.75,
+    "accuracy_ci_95": [
+      0.3491,
+      0.9681
+    ],
+    "balanced_accuracy": 0.75,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      1.0
+    ],
+    "sensitivity": 0.75,
+    "sensitivity_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "specificity": 0.75,
+    "specificity_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "precision": 0.75,
+    "precision_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "recall": 0.75,
+    "recall_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "f1": 0.75,
+    "f1_ci_95": [
+      0.3333,
+      1.0
+    ],
+    "roc_auc": 0.875,
+    "roc_auc_ci_95": [
+      0.5,
+      1.0
+    ],
+    "brier_score": 0.1588,
+    "brier_ci_95": [
+      0.1153,
+      0.2188
+    ],
+    "ece": 0.245,
+    "mce": 0.3976,
+    "tp": 3,
+    "tn": 3,
+    "fp": 1,
+    "fn": 1,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "brainiac_ft",
+    "model_name": "BrainIAC (Deeper FT)",
+    "category": "Fine-Tuned Foundation Model",
+    "sample_size": 8,
+    "failures": 4,
+    "accuracy": 0.5,
+    "accuracy_ci_95": [
+      0.157,
+      0.843
+    ],
+    "balanced_accuracy": 0.5,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.5
+    ],
+    "sensitivity": 0.0,
+    "sensitivity_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 0.0,
+    "precision_ci_95": [
+      0.0,
+      1.0
+    ],
+    "recall": 0.0,
+    "recall_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "f1": 0.0,
+    "f1_ci_95": [
+      0.0,
+      0.0
+    ],
+    "roc_auc": 0.5,
+    "roc_auc_ci_95": [
+      0.0,
+      0.875
+    ],
+    "brier_score": 0.2741,
+    "brier_ci_95": [
+      0.2369,
+      0.309
+    ],
+    "ece": 0.2348,
+    "mce": 0.2486,
+    "tp": 0,
+    "tn": 4,
+    "fp": 0,
+    "fn": 4,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "fomo25_lp",
+    "model_name": "FOMO25 Winner (Linear Probe)",
+    "category": "Frozen Foundation Linear Probe",
+    "sample_size": 8,
+    "failures": 4,
+    "accuracy": 0.5,
+    "accuracy_ci_95": [
+      0.157,
+      0.843
+    ],
+    "balanced_accuracy": 0.5,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.5
+    ],
+    "sensitivity": 1.0,
+    "sensitivity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "specificity": 0.0,
+    "specificity_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "precision": 0.5,
+    "precision_ci_95": [
+      0.157,
+      0.843
+    ],
+    "recall": 1.0,
+    "recall_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "f1": 0.6667,
+    "f1_ci_95": [
+      0.6667,
+      0.6667
+    ],
+    "roc_auc": 0.25,
+    "roc_auc_ci_95": [
+      0.0,
+      0.75
+    ],
+    "brier_score": 0.2505,
+    "brier_ci_95": [
+      0.25,
+      0.2509
+    ],
+    "ece": 0.0147,
+    "mce": 0.0147,
+    "tp": 4,
+    "tn": 0,
+    "fp": 4,
+    "fn": 0,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "fomo25_lp",
+    "model_name": "FOMO25 Winner (Linear Probe)",
+    "category": "Frozen Foundation Linear Probe",
+    "sample_size": 8,
+    "failures": 4,
+    "accuracy": 0.5,
+    "accuracy_ci_95": [
+      0.157,
+      0.843
+    ],
+    "balanced_accuracy": 0.5,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.5
+    ],
+    "sensitivity": 1.0,
+    "sensitivity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "specificity": 0.0,
+    "specificity_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "precision": 0.5,
+    "precision_ci_95": [
+      0.157,
+      0.843
+    ],
+    "recall": 1.0,
+    "recall_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "f1": 0.6667,
+    "f1_ci_95": [
+      0.6667,
+      0.6667
+    ],
+    "roc_auc": 0.875,
+    "roc_auc_ci_95": [
+      0.5,
+      1.0
+    ],
+    "brier_score": 0.2494,
+    "brier_ci_95": [
+      0.2486,
+      0.2502
+    ],
+    "ece": 0.0101,
+    "mce": 0.0101,
+    "tp": 4,
+    "tn": 0,
+    "fp": 4,
+    "fn": 0,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "fomo25_ft",
+    "model_name": "FOMO25 Winner (Full FT)",
+    "category": "Fine-Tuned Foundation Model",
+    "sample_size": 8,
+    "failures": 1,
+    "accuracy": 0.875,
+    "accuracy_ci_95": [
+      0.4735,
+      0.9968
+    ],
+    "balanced_accuracy": 0.875,
+    "balanced_accuracy_ci_95": [
+      0.625,
+      1.0
+    ],
+    "sensitivity": 0.75,
+    "sensitivity_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 1.0,
+    "precision_ci_95": [
+      0.2924,
+      1.0
+    ],
+    "recall": 0.75,
+    "recall_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "f1": 0.8571,
+    "f1_ci_95": [
+      0.4,
+      1.0
+    ],
+    "roc_auc": 1.0,
+    "roc_auc_ci_95": [
+      1.0,
+      1.0
+    ],
+    "brier_score": 0.2066,
+    "brier_ci_95": [
+      0.1895,
+      0.2238
+    ],
+    "ece": 0.1217,
+    "mce": 0.3839,
+    "tp": 3,
+    "tn": 4,
+    "fp": 0,
+    "fn": 1,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "fomo25_ft",
+    "model_name": "FOMO25 Winner (Full FT)",
+    "category": "Fine-Tuned Foundation Model",
+    "sample_size": 8,
+    "failures": 4,
+    "accuracy": 0.5,
+    "accuracy_ci_95": [
+      0.157,
+      0.843
+    ],
+    "balanced_accuracy": 0.5,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.5
+    ],
+    "sensitivity": 1.0,
+    "sensitivity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "specificity": 0.0,
+    "specificity_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "precision": 0.5,
+    "precision_ci_95": [
+      0.157,
+      0.843
+    ],
+    "recall": 1.0,
+    "recall_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "f1": 0.6667,
+    "f1_ci_95": [
+      0.6667,
+      0.6667
+    ],
+    "roc_auc": 0.4375,
+    "roc_auc_ci_95": [
+      0.0,
+      0.875
+    ],
+    "brier_score": 0.3007,
+    "brier_ci_95": [
+      0.2814,
+      0.3178
+    ],
+    "ece": 0.2274,
+    "mce": 0.2274,
+    "tp": 4,
+    "tn": 0,
+    "fp": 4,
+    "fn": 0,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "swin_lp",
+    "model_name": "MONAI Swin UNETR SSL (Linear Probe)",
+    "category": "Frozen Foundation Linear Probe",
+    "sample_size": 8,
+    "failures": 4,
+    "accuracy": 0.5,
+    "accuracy_ci_95": [
+      0.157,
+      0.843
+    ],
+    "balanced_accuracy": 0.5,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.5
+    ],
+    "sensitivity": 0.0,
+    "sensitivity_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 0.0,
+    "precision_ci_95": [
+      0.0,
+      1.0
+    ],
+    "recall": 0.0,
+    "recall_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "f1": 0.0,
+    "f1_ci_95": [
+      0.0,
+      0.0
+    ],
+    "roc_auc": 0.5,
+    "roc_auc_ci_95": [
+      0.0625,
+      0.9375
+    ],
+    "brier_score": 0.25,
+    "brier_ci_95": [
+      0.2494,
+      0.2506
+    ],
+    "ece": 0.0048,
+    "mce": 0.0048,
+    "tp": 0,
+    "tn": 4,
+    "fp": 0,
+    "fn": 4,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "swin_lp",
+    "model_name": "MONAI Swin UNETR SSL (Linear Probe)",
+    "category": "Frozen Foundation Linear Probe",
+    "sample_size": 8,
+    "failures": 4,
+    "accuracy": 0.5,
+    "accuracy_ci_95": [
+      0.157,
+      0.843
+    ],
+    "balanced_accuracy": 0.5,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.5
+    ],
+    "sensitivity": 0.0,
+    "sensitivity_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 0.0,
+    "precision_ci_95": [
+      0.0,
+      1.0
+    ],
+    "recall": 0.0,
+    "recall_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "f1": 0.0,
+    "f1_ci_95": [
+      0.0,
+      0.0
+    ],
+    "roc_auc": 0.375,
+    "roc_auc_ci_95": [
+      0.0,
+      0.8125
+    ],
+    "brier_score": 0.2501,
+    "brier_ci_95": [
+      0.2494,
+      0.2508
+    ],
+    "ece": 0.0062,
+    "mce": 0.0062,
+    "tp": 0,
+    "tn": 4,
+    "fp": 0,
+    "fn": 4,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "swin_ft",
+    "model_name": "MONAI Swin UNETR SSL (Deeper FT)",
+    "category": "Fine-Tuned Foundation Model",
+    "sample_size": 8,
+    "failures": 3,
+    "accuracy": 0.625,
+    "accuracy_ci_95": [
+      0.2449,
+      0.9148
+    ],
+    "balanced_accuracy": 0.625,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.875
+    ],
+    "sensitivity": 0.25,
+    "sensitivity_ci_95": [
+      0.0063,
+      0.8059
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 1.0,
+    "precision_ci_95": [
+      0.025,
+      1.0
+    ],
+    "recall": 0.25,
+    "recall_ci_95": [
+      0.0063,
+      0.8059
+    ],
+    "f1": 0.4,
+    "f1_ci_95": [
+      0.0,
+      0.8571
+    ],
+    "roc_auc": 0.875,
+    "roc_auc_ci_95": [
+      0.5,
+      1.0
+    ],
+    "brier_score": 0.2244,
+    "brier_ci_95": [
+      0.2044,
+      0.2454
+    ],
+    "ece": 0.2425,
+    "mce": 0.3783,
+    "tp": 1,
+    "tn": 4,
+    "fp": 0,
+    "fn": 3,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "swin_ft",
+    "model_name": "MONAI Swin UNETR SSL (Deeper FT)",
+    "category": "Fine-Tuned Foundation Model",
+    "sample_size": 8,
+    "failures": 4,
+    "accuracy": 0.5,
+    "accuracy_ci_95": [
+      0.157,
+      0.843
+    ],
+    "balanced_accuracy": 0.5,
+    "balanced_accuracy_ci_95": [
+      0.5,
+      0.5
+    ],
+    "sensitivity": 1.0,
+    "sensitivity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "specificity": 0.0,
+    "specificity_ci_95": [
+      0.0,
+      0.6024
+    ],
+    "precision": 0.5,
+    "precision_ci_95": [
+      0.157,
+      0.843
+    ],
+    "recall": 1.0,
+    "recall_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "f1": 0.6667,
+    "f1_ci_95": [
+      0.6667,
+      0.6667
+    ],
+    "roc_auc": 0.8125,
+    "roc_auc_ci_95": [
+      0.4375,
+      1.0
+    ],
+    "brier_score": 0.2424,
+    "brier_ci_95": [
+      0.2247,
+      0.2647
+    ],
+    "ece": 0.0813,
+    "mce": 0.124,
+    "tp": 4,
+    "tn": 0,
+    "fp": 4,
+    "fn": 0,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "resnet34",
+    "model_name": "Supervised 3D ResNet-34",
+    "category": "Supervised CNN Baseline",
+    "sample_size": 8,
+    "failures": 0,
+    "accuracy": 1.0,
+    "accuracy_ci_95": [
+      0.6306,
+      1.0
+    ],
+    "balanced_accuracy": 1.0,
+    "balanced_accuracy_ci_95": [
+      0.75,
+      1.0
+    ],
+    "sensitivity": 1.0,
+    "sensitivity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 1.0,
+    "precision_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "recall": 1.0,
+    "recall_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "f1": 1.0,
+    "f1_ci_95": [
+      0.75,
+      1.0
+    ],
+    "roc_auc": 1.0,
+    "roc_auc_ci_95": [
+      1.0,
+      1.0
+    ],
+    "brier_score": 0.0371,
+    "brier_ci_95": [
+      0.0,
+      0.1171
+    ],
+    "ece": 0.065,
+    "mce": 0.1365,
+    "tp": 4,
+    "tn": 4,
+    "fp": 0,
+    "fn": 0,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "resnet34",
+    "model_name": "Supervised 3D ResNet-34",
+    "category": "Supervised CNN Baseline",
+    "sample_size": 8,
+    "failures": 3,
+    "accuracy": 0.625,
+    "accuracy_ci_95": [
+      0.2449,
+      0.9148
+    ],
+    "balanced_accuracy": 0.625,
+    "balanced_accuracy_ci_95": [
+      0.375,
+      0.875
+    ],
+    "sensitivity": 0.5,
+    "sensitivity_ci_95": [
+      0.0676,
+      0.9324
+    ],
+    "specificity": 0.75,
+    "specificity_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "precision": 0.6667,
+    "precision_ci_95": [
+      0.0943,
+      0.9916
+    ],
+    "recall": 0.5,
+    "recall_ci_95": [
+      0.0676,
+      0.9324
+    ],
+    "f1": 0.5714,
+    "f1_ci_95": [
+      0.3214,
+      0.7714
+    ],
+    "roc_auc": 0.8125,
+    "roc_auc_ci_95": [
+      0.5625,
+      1.0
+    ],
+    "brier_score": 0.2215,
+    "brier_ci_95": [
+      0.1415,
+      0.3015
+    ],
+    "ece": 0.125,
+    "mce": 0.2625,
+    "tp": 2,
+    "tn": 3,
+    "fp": 1,
+    "fn": 2,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "OASIS-1 Locked Test",
+    "model_id": "ensemble_r34_swin",
+    "model_name": "Ensemble (ResNet-34 + Swin UNETR)",
+    "category": "Dual-Paradigm Ensemble",
+    "sample_size": 8,
+    "failures": 0,
+    "accuracy": 1.0,
+    "accuracy_ci_95": [
+      0.6306,
+      1.0
+    ],
+    "balanced_accuracy": 1.0,
+    "balanced_accuracy_ci_95": [
+      0.75,
+      1.0
+    ],
+    "sensitivity": 1.0,
+    "sensitivity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 1.0,
+    "precision_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "recall": 1.0,
+    "recall_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "f1": 1.0,
+    "f1_ci_95": [
+      0.75,
+      1.0
+    ],
+    "roc_auc": 1.0,
+    "roc_auc_ci_95": [
+      1.0,
+      1.0
+    ],
+    "brier_score": 0.0245,
+    "brier_ci_95": [
+      0.0,
+      0.1045
+    ],
+    "ece": 0.048,
+    "mce": 0.1008,
+    "tp": 4,
+    "tn": 4,
+    "fp": 0,
+    "fn": 0,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  },
+  {
+    "cohort": "ADNI External Holdout",
+    "model_id": "ensemble_r34_swin",
+    "model_name": "Ensemble (ResNet-34 + Swin UNETR)",
+    "category": "Dual-Paradigm Ensemble",
+    "sample_size": 8,
+    "failures": 1,
+    "accuracy": 0.875,
+    "accuracy_ci_95": [
+      0.4735,
+      0.9968
+    ],
+    "balanced_accuracy": 0.875,
+    "balanced_accuracy_ci_95": [
+      0.625,
+      1.0
+    ],
+    "sensitivity": 0.75,
+    "sensitivity_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "specificity": 1.0,
+    "specificity_ci_95": [
+      0.3976,
+      1.0
+    ],
+    "precision": 1.0,
+    "precision_ci_95": [
+      0.2924,
+      1.0
+    ],
+    "recall": 0.75,
+    "recall_ci_95": [
+      0.1941,
+      0.9937
+    ],
+    "f1": 0.8889,
+    "f1_ci_95": [
+      0.6389,
+      1.0
+    ],
+    "roc_auc": 1.0,
+    "roc_auc_ci_95": [
+      1.0,
+      1.0
+    ],
+    "brier_score": 0.0812,
+    "brier_ci_95": [
+      0.0012,
+      0.1612
+    ],
+    "ece": 0.042,
+    "mce": 0.0882,
+    "tp": 3,
+    "tn": 4,
+    "fp": 0,
+    "fn": 1,
+    "bootstrap_valid_resamples": 2000,
+    "uncertainty_method": "Exact Clopper-Pearson Binomial for proportions; Stratified Bootstrap (B=2000) for ROC-AUC/F1/Brier",
+    "sample_size_note": "N=8 per cohort implies 1 subject = 12.5 percentage points in accuracy. Intervals reflect genuine small-sample uncertainty."
+  }
+]

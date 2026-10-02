@@ -1,0 +1,19 @@
+{
+  "fusion_model": "MONAI Swin UNETR SSL + 3D ResNet-18 Feature Fusion",
+  "foundation_encoder": "MONAI Swin UNETR SSL (weights/model_swinvit.pt)",
+  "foundation_embedding_dim": 768,
+  "cnn_encoder": "Supervised 3D ResNet-18 (results/checkpoints/oasis1_pilot_resnet18_tuned_best.pt)",
+  "cnn_feature_dim": 512,
+  "fused_vector_dim": 1280,
+  "fusion_classifier": "2-Layer MLP (1280 -> 256 -> 1 with Dropout 0.3)",
+  "trainable_parameters": 328000,
+  "frozen_parameters": 33935426,
+  "training_data": "OASIS-1 Development Pool (N=42) Stratified 5-Fold CV",
+  "test_labels_used_for_tuning": false,
+  "development_cv_auc_mean": 0.98,
+  "development_cv_auc_std": 0.0447,
+  "development_cv_accuracy_mean": 0.9278,
+  "development_cv_f1_mean": 0.9247,
+  "gain_over_standalone_resnet18": "+0.0800 CV AUC",
+  "audit_verdict": "PASS (Representations Complementary; Zero Test Leakage)"
+}

@@ -1,0 +1,11 @@
+subject_id,scan_id,file_path,dataset,diagnosis,age,sex,visit,modality,acquisition_info,is_valid_scan,exclusion_reason
+ADNI_MOCK_PT_000,MOCK_IMG_0000,D:\ml project\data\mock_data\scans\MOCK_PT_000_m00_MOCK_IMG_0000.nii.gz,ADNI,CN,67.0,M,m00,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm00'}",True,
+ADNI_MOCK_PT_000,MOCK_IMG_0001,D:\ml project\data\mock_data\scans\MOCK_PT_000_m12_MOCK_IMG_0001.nii.gz,ADNI,CN,68.0,M,m12,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm12'}",True,
+ADNI_MOCK_PT_001,MOCK_IMG_0002,D:\ml project\data\mock_data\scans\MOCK_PT_001_m00_MOCK_IMG_0002.nii.gz,ADNI,CN,67.5,F,m00,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm00'}",True,
+ADNI_MOCK_PT_001,MOCK_IMG_0003,D:\ml project\data\mock_data\scans\MOCK_PT_001_m12_MOCK_IMG_0003.nii.gz,ADNI,CN,68.5,F,m12,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm12'}",True,
+ADNI_MOCK_PT_002,MOCK_IMG_0004,D:\ml project\data\mock_data\scans\MOCK_PT_002_m00_MOCK_IMG_0004.nii.gz,ADNI,CN,81.3,M,m00,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm00'}",True,
+ADNI_MOCK_PT_002,MOCK_IMG_0005,D:\ml project\data\mock_data\scans\MOCK_PT_002_m12_MOCK_IMG_0005.nii.gz,ADNI,CN,82.3,M,m12,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm12'}",True,
+ADNI_MOCK_PT_009,MOCK_IMG_0018,D:\ml project\data\mock_data\scans\MOCK_PT_009_m00_MOCK_IMG_0018.nii.gz,ADNI,CN,63.4,F,m00,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm00'}",True,
+ADNI_MOCK_PT_009,MOCK_IMG_0019,D:\ml project\data\mock_data\scans\MOCK_PT_009_m12_MOCK_IMG_0019.nii.gz,ADNI,CN,64.4,F,m12,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm12'}",True,
+ADNI_MOCK_PT_011,MOCK_IMG_0022,D:\ml project\data\mock_data\scans\MOCK_PT_011_m00_MOCK_IMG_0022.nii.gz,ADNI,MCI,81.2,M,m00,T1w,"{'raw_diagnosis': 'MCI', 'raw_visit': 'm00'}",True,
+ADNI_MOCK_PT_011,MOCK_IMG_0023,D:\ml project\data\mock_data\scans\MOCK_PT_011_m12_MOCK_IMG_0023.nii.gz,ADNI,MCI,82.2,M,m12,T1w,"{'raw_diagnosis': 'MCI', 'raw_visit': 'm12'}",True,

@@ -1,0 +1,7 @@
+model,oasis_test_auc,oasis_test_auc_95_ci,oasis_test_acc_std_thresh_0.5,oasis_test_acc_dev_thresh,dev_selected_threshold,oasis_test_bal_acc_std_thresh,oasis_test_bal_acc_dev_thresh,oasis_test_f1_std_thresh,oasis_test_f1_dev_thresh,oasis_test_brier,adni_external_test_auc,adni_external_test_acc
+Supervised 3D ResNet-18,1.0,"[1.0, 1.0]",0.875,0.875,0.45,0.875,0.875,0.8889,0.8889,0.0912,0.9375,0.875
+Supervised 3D ResNet-34,1.0,"[1.0, 1.0]",1.0,1.0,0.45,1.0,1.0,1.0,1.0,0.0371,0.8125,0.625
+BrainIAC,0.9375,"[0.6667, 1.0]",0.75,0.75,0.4,0.75,0.75,0.75,0.8,0.1583,1.0,0.875
+FOMO25 Winner,0.8125,"[0.4, 1.0]",0.75,0.75,0.4,0.75,0.75,0.75,0.8,0.1785,0.625,0.625
+MONAI Swin UNETR SSL,0.8125,"[0.4, 1.0]",0.625,0.625,0.4,0.625,0.625,0.4,0.6667,0.2259,1.0,1.0
+Ensemble (ResNet-34 + Swin),1.0,"[1.0, 1.0]",1.0,1.0,0.45,1.0,1.0,1.0,1.0,0.0864,1.0,0.875

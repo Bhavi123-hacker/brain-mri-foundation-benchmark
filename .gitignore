@@ -1,0 +1,47 @@
+# Python & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Jupyter & IDEs
+.ipynb_checkpoints
+.vscode/
+.idea/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Sensitive Real Medical Datasets (ADNI / OASIS-3 Access-Controlled)
+data/adni/
+data/oasis3/
+data/raw/
+*.nii
+*.nii.gz
+*.dcm
+
+# Preprocessed Caches & Tensors
+data/cache/
+data/preprocessed/
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Large Checkpoints & Heavy Weights
+weights/
+checkpoints/
+*.ckpt
+
+# Output results & temporary run artifacts (except template structures)
+results/runs/
+results/checkpoints/
+results/logs/
+scratch/

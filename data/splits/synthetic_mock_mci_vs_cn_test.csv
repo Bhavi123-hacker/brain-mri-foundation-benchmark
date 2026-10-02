@@ -1,0 +1,5 @@
+subject_id,scan_id,file_path,dataset,diagnosis,age,sex,visit,modality,acquisition_info,is_valid_scan,exclusion_reason
+ADNI_MOCK_PT_006,MOCK_IMG_0012,D:\ml project\data\mock_data\scans\MOCK_PT_006_m00_MOCK_IMG_0012.nii.gz,ADNI,MCI,80.6,F,m00,T1w,"{'raw_diagnosis': 'MCI', 'raw_visit': 'm00'}",True,
+ADNI_MOCK_PT_006,MOCK_IMG_0013,D:\ml project\data\mock_data\scans\MOCK_PT_006_m12_MOCK_IMG_0013.nii.gz,ADNI,MCI,81.6,F,m12,T1w,"{'raw_diagnosis': 'MCI', 'raw_visit': 'm12'}",True,
+ADNI_MOCK_PT_010,MOCK_IMG_0020,D:\ml project\data\mock_data\scans\MOCK_PT_010_m00_MOCK_IMG_0020.nii.gz,ADNI,CN,60.4,F,m00,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm00'}",True,
+ADNI_MOCK_PT_010,MOCK_IMG_0021,D:\ml project\data\mock_data\scans\MOCK_PT_010_m12_MOCK_IMG_0021.nii.gz,ADNI,CN,61.4,F,m12,T1w,"{'raw_diagnosis': 'CN', 'raw_visit': 'm12'}",True,

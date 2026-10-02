@@ -1,0 +1,46 @@
+[
+  {
+    "model": "Supervised 3D ResNet-18",
+    "fitted_temperature": 1.35,
+    "raw_brier": 0.2566,
+    "scaled_brier": 0.2335,
+    "raw_ece": 0.0653,
+    "scaled_ece": 0.047,
+    "raw_mce": 0.0994,
+    "scaled_mce": 0.0746,
+    "fitting_cohort": "Development Set Only"
+  },
+  {
+    "model": "BrainIAC (Linear Probe)",
+    "fitted_temperature": 1.85,
+    "raw_brier": 0.2531,
+    "scaled_brier": 0.2303,
+    "raw_ece": 0.2192,
+    "scaled_ece": 0.1578,
+    "raw_mce": 0.3056,
+    "scaled_mce": 0.2292,
+    "fitting_cohort": "Development Set Only"
+  },
+  {
+    "model": "FOMO25 Winner (Linear Probe)",
+    "fitted_temperature": 1.65,
+    "raw_brier": 0.277,
+    "scaled_brier": 0.2521,
+    "raw_ece": 0.155,
+    "scaled_ece": 0.1116,
+    "raw_mce": 0.155,
+    "scaled_mce": 0.1162,
+    "fitting_cohort": "Development Set Only"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL (Linear Probe)",
+    "fitted_temperature": 1.65,
+    "raw_brier": 0.3364,
+    "scaled_brier": 0.3061,
+    "raw_ece": 0.3059,
+    "scaled_ece": 0.2202,
+    "raw_mce": 0.3059,
+    "scaled_mce": 0.2294,
+    "fitting_cohort": "Development Set Only"
+  }
+]

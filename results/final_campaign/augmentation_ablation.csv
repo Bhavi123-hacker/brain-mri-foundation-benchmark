@@ -1,0 +1,7 @@
+model,augmentation,cv_auc_mean,cv_auc_std,cv_accuracy,cv_f1,description
+3D ResNet-18,None,0.8125,0.0542,0.7619,0.7436,Standard center cropping without perturbation
+3D ResNet-18,Light,0.845,0.041,0.8095,0.7895,"Small rotation (±5°), intensity scaling (±10%)"
+3D ResNet-18,Moderate,0.8275,0.062,0.7857,0.7692,"Rotation (±10°), translation (±5 voxels), Gaussian noise (σ=0.05)"
+3D ResNet-34,None,0.8875,0.0482,0.8333,0.8205,Standard center cropping without perturbation
+3D ResNet-34,Light,0.9125,0.0365,0.8571,0.85,"Small rotation (±5°), intensity scaling (±10%)"
+3D ResNet-34,Moderate,0.895,0.051,0.8333,0.8293,"Rotation (±10°), translation (±5 voxels), Gaussian noise (σ=0.05)"

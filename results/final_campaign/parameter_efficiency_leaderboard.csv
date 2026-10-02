@@ -1,0 +1,7 @@
+Rank,Model,Total_Parameters,Trainable_Parameters,Trainable_Ratio_Pct,OASIS_Dev_CV_AUC,AUC_per_Million_Trainable_Params
+6,FOMO25 Winner (Linear Probe),1296641,513,0.04,0.525,1023.39
+4,MONAI Swin UNETR SSL (Linear Probe),774913,769,0.099,0.6175,802.99
+5,BrainIAC (Linear Probe),6538049,769,0.012,0.54,702.21
+3,Supervised 3D ResNet-18,33160513,33160513,100.0,0.845,0.03
+2,Supervised 3D ResNet-34,63556225,63556225,100.0,0.895,0.01
+1,Ensemble (ResNet-34 + Swin UNETR),64331138,63556994,98.8,0.9325,0.01

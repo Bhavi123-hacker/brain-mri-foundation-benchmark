@@ -1,0 +1,32 @@
+[
+  {
+    "model": "Supervised 3D ResNet-18",
+    "training_time_sec": 15.2,
+    "inference_latency_sec": 0.027,
+    "relative_compute_cost": "Moderate (1.0x)"
+  },
+  {
+    "model": "Supervised 3D ResNet-34",
+    "training_time_sec": 28.5,
+    "inference_latency_sec": 0.052,
+    "relative_compute_cost": "High (1.9x)"
+  },
+  {
+    "model": "BrainIAC (Linear Probe)",
+    "training_time_sec": 0.15,
+    "inference_latency_sec": 0.0002,
+    "relative_compute_cost": "Ultra-Low (0.01x)"
+  },
+  {
+    "model": "FOMO25 Winner (Linear Probe)",
+    "training_time_sec": 0.21,
+    "inference_latency_sec": 0.0004,
+    "relative_compute_cost": "Ultra-Low (0.01x)"
+  },
+  {
+    "model": "MONAI Swin UNETR SSL (Linear Probe)",
+    "training_time_sec": 0.28,
+    "inference_latency_sec": 0.0004,
+    "relative_compute_cost": "Ultra-Low (0.02x)"
+  }
+]
