@@ -1,0 +1,5 @@
+Scanner_Subgroup,Sample_N,Baseline_Error_Rate,Flagged_Fraction,Error_Detection_AUC,Error_Rate_Retained,Error_Rate_Flagged
+Siemens (N=370),370,0.6,1.0,0.4905,,0.6
+Philips (N=130),130,0.6231,1.0,0.3983,,0.6231
+1.5 Tesla (N=165),165,0.5697,1.0,0.4581,,0.5697
+3.0 Tesla (N=335),335,0.6239,1.0,0.4882,,0.6239
