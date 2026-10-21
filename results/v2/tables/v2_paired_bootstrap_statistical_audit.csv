@@ -1,0 +1,8 @@
+model_a,model_b,hypothesis_description,oasis_delta_auc,oasis_delta_ci_95,oasis_raw_p,adni_delta_auc,adni_delta_ci_95,adni_raw_p,oasis_holm_p,oasis_sig_survives,adni_holm_p,adni_sig_survives
+3D ResNet-10 (Pipeline B),3D ResNet-18 (Scratch),Capacity reduction vs baseline scratch,-0.002,"[-0.1875, 0.1719]",1.0,0.0317,"[-0.0293, 0.0923]",0.312,1.0,False,1.0,False
+3D DenseNet-121 (Pipeline B),3D ResNet-18 (Scratch),Dense feature reuse vs residual,-0.1969,"[-0.4934, 0.1250]",0.232,-0.0077,"[-0.0698, 0.0571]",0.805,1.0,False,1.0,False
+2.5D Multi-View ResNet-18,2D Transfer ResNet-18,Triplanar orthogonal fusion vs single axial,0.0174,"[-0.1905, 0.2222]",0.879,-0.0835,"[-0.1463, -0.0212]",0.012,1.0,False,0.072,False
+2.5D Multi-View ResNet-18,FOMO25 AMAES ResEnc-B,2.5D transfer vs 3D foundation linear probe,0.0663,"[-0.1898, 0.3200]",0.62,-0.0106,"[-0.0682, 0.0451]",0.695,1.0,False,1.0,False
+2.5D Multi-View ResNet-18,MONAI Swin UNETR SSL,2.5D transfer vs 3D SSL transformer,0.0387,"[-0.1516, 0.2421]",0.73,-0.0889,"[-0.1593, -0.0172]",0.009,1.0,False,0.063,False
+Dual-Branch Hybrid,3D ResNet-10 (Pipeline B),Morphometric fusion vs pure deep learning,0.0174,"[-0.0813, 0.1206]",0.718,0.0105,"[-0.0315, 0.0512]",0.617,1.0,False,1.0,False
+Dual-Branch Hybrid,Classical Radiomics,Hybrid fusion vs handcrafted radiomics,0.0606,"[-0.1830, 0.3032]",0.641,0.0401,"[-0.0442, 0.1209]",0.345,1.0,False,1.0,False
