@@ -1,0 +1,16 @@
+model_A,model_B,delta_auc_median,ci_lower,ci_upper,p_value,statistically_significant
+3D ResNet-18 (Scratch),3D ResNet-34 (Scratch),0.037,-0.042,0.1124,0.353,False
+3D ResNet-18 (Scratch),2D Transfer ResNet-18,-0.066,-0.1247,-0.002,0.041,True
+3D ResNet-18 (Scratch),Classical Radiomics (SVM),-0.0024,-0.0631,0.0602,0.948,False
+3D ResNet-18 (Scratch),MONAI Swin UNETR SSL,-0.0709,-0.1478,0.0081,0.079,False
+3D ResNet-18 (Scratch),FOMO25 AMAES ResEnc-B,0.0083,-0.0591,0.073,0.807,False
+3D ResNet-34 (Scratch),2D Transfer ResNet-18,-0.1011,-0.1789,-0.0231,0.011,True
+3D ResNet-34 (Scratch),Classical Radiomics (SVM),-0.0384,-0.1045,0.027,0.26,False
+3D ResNet-34 (Scratch),MONAI Swin UNETR SSL,-0.106,-0.1762,-0.0364,0.001,True
+3D ResNet-34 (Scratch),FOMO25 AMAES ResEnc-B,-0.0286,-0.0997,0.0469,0.458,False
+2D Transfer ResNet-18,Classical Radiomics (SVM),0.0623,-0.006,0.1345,0.076,False
+2D Transfer ResNet-18,MONAI Swin UNETR SSL,-0.0054,-0.0702,0.0603,0.861,False
+2D Transfer ResNet-18,FOMO25 AMAES ResEnc-B,0.0737,0.0125,0.1318,0.014,True
+Classical Radiomics (SVM),MONAI Swin UNETR SSL,-0.0684,-0.1386,0.0037,0.06,False
+Classical Radiomics (SVM),FOMO25 AMAES ResEnc-B,0.0106,-0.0605,0.0778,0.763,False
+MONAI Swin UNETR SSL,FOMO25 AMAES ResEnc-B,0.0778,0.0102,0.1494,0.028,True

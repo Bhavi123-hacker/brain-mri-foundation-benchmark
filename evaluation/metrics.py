@@ -36,7 +36,7 @@ def compute_classification_metrics(
         y_prob = y_prob.detach().cpu().numpy().flatten()
 
     y_true = np.asarray(y_true, dtype=np.int32)
-    y_prob = np.asarray(y_prob, dtype=np.float32)
+    y_prob = np.nan_to_num(np.asarray(y_prob, dtype=np.float32), nan=0.5)
     y_pred = (y_prob >= threshold).astype(np.int32)
 
     # Edge cases: single class in targets

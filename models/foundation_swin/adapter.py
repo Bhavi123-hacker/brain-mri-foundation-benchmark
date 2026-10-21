@@ -1,6 +1,7 @@
 """
 MONAI Swin UNETR SSL Foundation Model Adapter.
-Paper/Source: Project-MONAI Swin UNETR SSL (Tang et al., CVPR / Nature Methods).
+Paper/Source: Project-MONAI Swin UNETR SSL (Tang et al., CVPR 2022).
+Pretrained on large-scale volumetric 3D medical images via masked autoencoding and contrastive learning.
 Supports linear probing and fine-tuning.
 """
 
@@ -8,13 +9,14 @@ import os
 import torch
 import torch.nn as nn
 from typing import Optional, Dict, Any
+from monai.networks.nets import SwinUNETR
 from models.base import BaseBenchModel
 
 
 class SwinUNETRSSLAdapter(BaseBenchModel):
     """
     Adapter for Project-MONAI Swin UNETR Self-Supervised Pretrained 3D Vision Transformer.
-    Uses bottleneck representation for downstream classification and regression tasks.
+    Uses SwinViT backbone representations for downstream classification tasks.
     """
     def __init__(
         self,
@@ -34,22 +36,15 @@ class SwinUNETRSSLAdapter(BaseBenchModel):
         self.weights_path = weights_path
         self.is_foundation_model = True
 
-        # Volumetric Swin-ViT Feature Extractor Backbone
-        self.swin_encoder = nn.Sequential(
-            nn.Conv3d(1, feature_size, kernel_size=3, stride=2, padding=1),
-            nn.BatchNorm3d(feature_size),
-            nn.GELU(),
-            nn.Conv3d(feature_size, feature_size * 2, kernel_size=3, stride=2, padding=1),
-            nn.BatchNorm3d(feature_size * 2),
-            nn.GELU(),
-            nn.Conv3d(feature_size * 2, feature_size * 4, kernel_size=3, stride=2, padding=1),
-            nn.BatchNorm3d(feature_size * 4),
-            nn.GELU(),
-            nn.AdaptiveAvgPool3d((1, 1, 1)),
-            nn.Flatten(),
-            nn.Linear(feature_size * 4, embed_dim),
-            nn.LayerNorm(embed_dim)
+        # Official MONAI SwinViT 3D Transformer Backbone
+        swin_net = SwinUNETR(
+            in_channels=1,
+            out_channels=1,
+            feature_size=feature_size,
+            spatial_dims=3
         )
+        self.swin_encoder = swin_net.swinViT
+        self.pool = nn.AdaptiveAvgPool3d((1, 1, 1))
 
         # Task Adaptation Head
         self.head = nn.Sequential(
@@ -78,18 +73,32 @@ class SwinUNETRSSLAdapter(BaseBenchModel):
             param.requires_grad = True
 
     def load_pretrained_weights(self, weights_path: str):
-        """Load pretrained checkpoint."""
+        """Load pretrained checkpoint with robust key remapping."""
         state_dict = torch.load(weights_path, map_location="cpu")
-        if isinstance(state_dict, dict):
-            if "state_dict" in state_dict:
-                state_dict = state_dict["state_dict"]
-            elif "model" in state_dict:
-                state_dict = state_dict["model"]
-        self.load_state_dict(state_dict, strict=False)
+        if isinstance(state_dict, dict) and "state_dict" in state_dict:
+            state_dict = state_dict["state_dict"]
+        elif isinstance(state_dict, dict) and "model" in state_dict:
+            state_dict = state_dict["model"]
+
+        # Remap module prefix and fc1/fc2 naming differences across MONAI versions
+        remapped_sd = {}
+        for k, v in state_dict.items():
+            clean_k = k.replace("module.", "")
+            clean_k = clean_k.replace(".mlp.fc1.", ".mlp.linear1.")
+            clean_k = clean_k.replace(".mlp.fc2.", ".mlp.linear2.")
+            remapped_sd[clean_k] = v
+
+        load_res = self.swin_encoder.load_state_dict(remapped_sd, strict=False)
+        self.weights_path = weights_path
+        return load_res
 
     def extract_features(self, x: torch.Tensor) -> torch.Tensor:
-        """Extract multi-scale pooled embeddings: (B, embed_dim)."""
-        return self.swin_encoder(x)
+        """Extract bottleneck embeddings: (B, embed_dim)."""
+        multi_scale_features = self.swin_encoder(x)
+        # multi_scale_features is a list; the deepest bottleneck feature is the last entry (index 4)
+        bottleneck = multi_scale_features[4]  # shape (B, 768, D', H', W')
+        pooled = self.pool(bottleneck)       # shape (B, 768, 1, 1, 1)
+        return pooled.view(pooled.size(0), -1)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         feats = self.extract_features(x)

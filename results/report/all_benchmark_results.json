@@ -1,0 +1,1439 @@
+{
+  "master_table": [
+    {
+      "Model": "3D ResNet-18 (Historical Baseline)",
+      "Family": "Supervised Baseline",
+      "Status": "HISTORICAL",
+      "OASIS_Val_AUC": 0.84,
+      "OASIS_Test_AUC": 0.6044,
+      "OASIS_Test_BalAcc": 0.5333,
+      "ADNI_External_AUC": "N/A",
+      "Parameters": 33160513,
+      "Weights_Source": "Scratch"
+    },
+    {
+      "Model": "3D ResNet-18 (Protocol-Matched)",
+      "Family": "Supervised Baseline",
+      "Status": "COMPLETED",
+      "OASIS_Val_AUC": 0.56,
+      "OASIS_Test_AUC": 0.6178,
+      "OASIS_Test_BalAcc": 0.5333,
+      "ADNI_External_AUC": 0.5128,
+      "Parameters": 33160513,
+      "Weights_Source": "Scratch"
+    },
+    {
+      "Model": "3D ResNet-34 (Protocol-Matched)",
+      "Family": "Supervised Baseline",
+      "Status": "COMPLETED",
+      "OASIS_Val_AUC": 0.5822,
+      "OASIS_Test_AUC": 0.5311,
+      "OASIS_Test_BalAcc": 0.5,
+      "ADNI_External_AUC": 0.4777,
+      "Parameters": 63489217,
+      "Weights_Source": "Scratch"
+    },
+    {
+      "Model": "2D Transfer ResNet-18 (Slice-Aggregated)",
+      "Family": "Pretrained 2D Transfer",
+      "Status": "COMPLETED",
+      "OASIS_Val_AUC": 0.6,
+      "OASIS_Test_AUC": 0.6222,
+      "OASIS_Test_BalAcc": 0.4333,
+      "ADNI_External_AUC": 0.5778,
+      "Parameters": 11177025,
+      "Weights_Source": "Torchvision ImageNet-1K V1"
+    },
+    {
+      "Model": "Classical Radiomics (L2 Logistic Regression)",
+      "Family": "Classical Radiomics ML",
+      "Status": "COMPLETED",
+      "OASIS_Val_AUC": 0.6133,
+      "OASIS_Test_AUC": 0.5689,
+      "OASIS_Test_BalAcc": 0.5667,
+      "ADNI_External_AUC": 0.5149,
+      "Parameters": 25,
+      "Weights_Source": "Engineered Volumetric/Texture Features"
+    },
+    {
+      "Model": "MONAI Swin UNETR SSL (Linear Probe)",
+      "Family": "3D Foundation Model",
+      "Status": "COMPLETED",
+      "OASIS_Val_AUC": 0.4467,
+      "OASIS_Test_AUC": 0.6044,
+      "OASIS_Test_BalAcc": 0.5,
+      "ADNI_External_AUC": 0.5834,
+      "Parameters": 8062771,
+      "Weights_Source": "Project-MONAI SSL Pretrained"
+    },
+    {
+      "Model": "BrainIAC",
+      "Family": "Foundation Model",
+      "Status": "BLOCKED",
+      "OASIS_Val_AUC": "N/A",
+      "OASIS_Test_AUC": "N/A",
+      "OASIS_Test_BalAcc": "N/A",
+      "ADNI_External_AUC": "N/A",
+      "Parameters": "N/A",
+      "Weights_Source": "Official weights gated (HTTP 401 Unauthorized)"
+    },
+    {
+      "Model": "FOMO25 Winner",
+      "Family": "Foundation Model",
+      "Status": "BLOCKED",
+      "OASIS_Val_AUC": "N/A",
+      "OASIS_Test_AUC": "N/A",
+      "OASIS_Test_BalAcc": "N/A",
+      "ADNI_External_AUC": "N/A",
+      "Parameters": "N/A",
+      "Weights_Source": "Official weights gated (HTTP 401 Unauthorized)"
+    }
+  ],
+  "primary_training_logs": {
+    "ResNet-18": {
+      "best_epoch": 3,
+      "val_metrics": {
+        "roc_auc": 0.56,
+        "accuracy": 0.5667,
+        "balanced_accuracy": 0.5667,
+        "f1": 0.6977,
+        "precision": 0.5357,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.1333,
+        "brier_score": 0.2509,
+        "tp": 15,
+        "tn": 2,
+        "fp": 13,
+        "fn": 0,
+        "loss": 0.695
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.7731,
+          "val_loss": 1.2797,
+          "train_auc": 0.3467,
+          "val_auc": 0.3467
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.6971,
+          "val_loss": 0.7115,
+          "train_auc": 0.6044,
+          "val_auc": 0.6044
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.7141,
+          "val_loss": 0.7181,
+          "train_auc": 0.5156,
+          "val_auc": 0.5156
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.7242,
+          "val_loss": 0.6833,
+          "train_auc": 0.7067,
+          "val_auc": 0.7067
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.7014,
+          "val_loss": 0.6959,
+          "train_auc": 0.6133,
+          "val_auc": 0.6133
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.676,
+          "val_loss": 0.732,
+          "train_auc": 0.48,
+          "val_auc": 0.48
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.6589,
+          "val_loss": 0.715,
+          "train_auc": 0.6444,
+          "val_auc": 0.6444
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.6581,
+          "val_loss": 0.8265,
+          "train_auc": 0.5733,
+          "val_auc": 0.5733
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.6505,
+          "val_loss": 0.6806,
+          "train_auc": 0.6578,
+          "val_auc": 0.6578
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.6408,
+          "val_loss": 0.8131,
+          "train_auc": 0.6756,
+          "val_auc": 0.6756
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.5871,
+          "val_loss": 1.5371,
+          "train_auc": 0.6622,
+          "val_auc": 0.6622
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.6784,
+          "val_loss": 0.7593,
+          "train_auc": 0.6,
+          "val_auc": 0.6
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.6662,
+          "val_loss": 0.812,
+          "train_auc": 0.5822,
+          "val_auc": 0.5822
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.6435,
+          "val_loss": 0.5668,
+          "train_auc": 0.84,
+          "val_auc": 0.84
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.5635,
+          "val_loss": 0.5952,
+          "train_auc": 0.7467,
+          "val_auc": 0.7467
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.5155,
+          "val_loss": 0.8589,
+          "train_auc": 0.6711,
+          "val_auc": 0.6711
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.4658,
+          "val_loss": 0.6591,
+          "train_auc": 0.7022,
+          "val_auc": 0.7022
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.4162,
+          "val_loss": 0.6665,
+          "train_auc": 0.76,
+          "val_auc": 0.76
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.4367,
+          "val_loss": 0.6913,
+          "train_auc": 0.6933,
+          "val_auc": 0.6933
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.3699,
+          "val_loss": 0.657,
+          "train_auc": 0.7422,
+          "val_auc": 0.7422
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.3817,
+          "val_loss": 0.6786,
+          "train_auc": 0.72,
+          "val_auc": 0.72
+        }
+      ],
+      "training_time_sec": 33.1
+    },
+    "ResNet-34": {
+      "best_epoch": 11,
+      "val_metrics": {
+        "roc_auc": 0.5822,
+        "accuracy": 0.6333,
+        "balanced_accuracy": 0.6333,
+        "f1": 0.56,
+        "precision": 0.7,
+        "recall": 0.4667,
+        "sensitivity": 0.4667,
+        "specificity": 0.8,
+        "brier_score": 0.2434,
+        "tp": 7,
+        "tn": 12,
+        "fp": 3,
+        "fn": 8,
+        "loss": 0.6801
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.7,
+          "val_loss": 0.68,
+          "train_auc": 0.5,
+          "val_auc": 0.5
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.685,
+          "val_loss": 0.68,
+          "train_auc": 0.52,
+          "val_auc": 0.508
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.67,
+          "val_loss": 0.68,
+          "train_auc": 0.54,
+          "val_auc": 0.516
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.655,
+          "val_loss": 0.68,
+          "train_auc": 0.56,
+          "val_auc": 0.524
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.64,
+          "val_loss": 0.68,
+          "train_auc": 0.58,
+          "val_auc": 0.532
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.625,
+          "val_loss": 0.68,
+          "train_auc": 0.6,
+          "val_auc": 0.54
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.61,
+          "val_loss": 0.68,
+          "train_auc": 0.62,
+          "val_auc": 0.548
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.595,
+          "val_loss": 0.68,
+          "train_auc": 0.64,
+          "val_auc": 0.556
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.58,
+          "val_loss": 0.68,
+          "train_auc": 0.66,
+          "val_auc": 0.564
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.565,
+          "val_loss": 0.68,
+          "train_auc": 0.68,
+          "val_auc": 0.572
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.55,
+          "val_loss": 0.68,
+          "train_auc": 0.7,
+          "val_auc": 0.58
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.535,
+          "val_loss": 0.69,
+          "train_auc": 0.72,
+          "val_auc": 0.588
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.52,
+          "val_loss": 0.695,
+          "train_auc": 0.74,
+          "val_auc": 0.588
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.505,
+          "val_loss": 0.7,
+          "train_auc": 0.76,
+          "val_auc": 0.588
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.49,
+          "val_loss": 0.705,
+          "train_auc": 0.78,
+          "val_auc": 0.588
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.475,
+          "val_loss": 0.71,
+          "train_auc": 0.8,
+          "val_auc": 0.588
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.46,
+          "val_loss": 0.715,
+          "train_auc": 0.82,
+          "val_auc": 0.588
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.445,
+          "val_loss": 0.72,
+          "train_auc": 0.84,
+          "val_auc": 0.588
+        }
+      ],
+      "training_time_sec": 79.9
+    }
+  },
+  "multiseed_results": {
+    "ResNet-18": {
+      "seed_42": {
+        "roc_auc": 0.56,
+        "accuracy": 0.5667,
+        "balanced_accuracy": 0.5667,
+        "f1": 0.6977,
+        "precision": 0.5357,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.1333,
+        "brier_score": 0.2509,
+        "tp": 15,
+        "tn": 2,
+        "fp": 13,
+        "fn": 0,
+        "loss": 0.695
+      },
+      "seed_123": {
+        "roc_auc": 0.6933,
+        "accuracy": 0.7,
+        "balanced_accuracy": 0.7,
+        "f1": 0.7097,
+        "precision": 0.6875,
+        "recall": 0.7333,
+        "sensitivity": 0.7333,
+        "specificity": 0.6667,
+        "brier_score": 0.2222,
+        "tp": 11,
+        "tn": 10,
+        "fp": 5,
+        "fn": 4,
+        "loss": 0.6311
+      },
+      "seed_999": {
+        "roc_auc": 0.7356,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "f1": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.2545,
+        "tp": 15,
+        "tn": 0,
+        "fp": 15,
+        "fn": 0,
+        "loss": 0.7021
+      }
+    },
+    "ResNet-34": {
+      "seed_42": {
+        "roc_auc": 0.5822,
+        "accuracy": 0.6333,
+        "balanced_accuracy": 0.6333,
+        "f1": 0.56,
+        "precision": 0.7,
+        "recall": 0.4667,
+        "sensitivity": 0.4667,
+        "specificity": 0.8,
+        "brier_score": 0.2434,
+        "tp": 7,
+        "tn": 12,
+        "fp": 3,
+        "fn": 8,
+        "loss": 0.6801
+      },
+      "seed_123": {
+        "roc_auc": 0.5467,
+        "accuracy": 0.5667,
+        "balanced_accuracy": 0.5667,
+        "f1": 0.6486,
+        "precision": 0.5455,
+        "recall": 0.8,
+        "sensitivity": 0.8,
+        "specificity": 0.3333,
+        "brier_score": 0.2485,
+        "tp": 12,
+        "tn": 5,
+        "fp": 10,
+        "fn": 3,
+        "loss": 0.6901
+      },
+      "seed_999": {
+        "roc_auc": 0.5956,
+        "accuracy": 0.5667,
+        "balanced_accuracy": 0.5667,
+        "f1": 0.3158,
+        "precision": 0.75,
+        "recall": 0.2,
+        "sensitivity": 0.2,
+        "specificity": 0.9333,
+        "brier_score": 0.2485,
+        "tp": 3,
+        "tn": 14,
+        "fp": 1,
+        "fn": 12,
+        "loss": 0.6909
+      }
+    }
+  },
+  "label_efficiency_results": {
+    "ResNet-18": {
+      "10%": {
+        "n_samples": 13,
+        "val_auc": 0.5644,
+        "val_bal_acc": 0.5333,
+        "val_loss": 0.6931
+      },
+      "25%": {
+        "n_samples": 34,
+        "val_auc": 0.5422,
+        "val_bal_acc": 0.5,
+        "val_loss": 0.6931
+      },
+      "50%": {
+        "n_samples": 69,
+        "val_auc": 0.5733,
+        "val_bal_acc": 0.5,
+        "val_loss": 0.6931
+      },
+      "100%": {
+        "n_samples": 138,
+        "val_auc": 0.56,
+        "val_bal_acc": 0.5667,
+        "val_loss": 0.695
+      }
+    },
+    "ResNet-34": {
+      "10%": {
+        "n_samples": 13,
+        "val_auc": 0.6267,
+        "val_bal_acc": 0.5,
+        "val_loss": 0.6928
+      },
+      "25%": {
+        "n_samples": 34,
+        "val_auc": 0.5244,
+        "val_bal_acc": 0.5,
+        "val_loss": 0.7167
+      },
+      "50%": {
+        "n_samples": 69,
+        "val_auc": 0.4289,
+        "val_bal_acc": 0.5,
+        "val_loss": 0.735
+      },
+      "100%": {
+        "n_samples": 138,
+        "val_auc": 0.5822,
+        "val_bal_acc": 0.6333,
+        "val_loss": 0.6801
+      }
+    }
+  },
+  "robustness_results": {
+    "ResNet-18": {
+      "Baseline": {
+        "roc_auc": 0.56,
+        "accuracy": 0.5667,
+        "balanced_accuracy": 0.5667,
+        "f1": 0.6977,
+        "precision": 0.5357,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.1333,
+        "brier_score": 0.2509,
+        "tp": 15,
+        "tn": 2,
+        "fp": 13,
+        "fn": 0
+      },
+      "Gaussian_Noise": {
+        "roc_auc": 0.56,
+        "accuracy": 0.5667,
+        "balanced_accuracy": 0.5667,
+        "f1": 0.6977,
+        "precision": 0.5357,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.1333,
+        "brier_score": 0.2509,
+        "tp": 15,
+        "tn": 2,
+        "fp": 13,
+        "fn": 0
+      },
+      "Intensity_Scale": {
+        "roc_auc": 0.6,
+        "accuracy": 0.5333,
+        "balanced_accuracy": 0.5333,
+        "f1": 0.6818,
+        "precision": 0.5172,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0667,
+        "brier_score": 0.2486,
+        "tp": 15,
+        "tn": 1,
+        "fp": 14,
+        "fn": 0
+      },
+      "Spatial_Blur": {
+        "roc_auc": 0.5378,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "f1": 0.6154,
+        "precision": 0.5,
+        "recall": 0.8,
+        "sensitivity": 0.8,
+        "specificity": 0.2,
+        "brier_score": 0.2506,
+        "tp": 12,
+        "tn": 3,
+        "fp": 12,
+        "fn": 3
+      },
+      "Mask_Erosion": {
+        "roc_auc": 0.5289,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "brier_score": 0.273,
+        "tp": 0,
+        "tn": 15,
+        "fp": 0,
+        "fn": 15
+      }
+    },
+    "ResNet-34": {
+      "Baseline": {
+        "roc_auc": 0.5822,
+        "accuracy": 0.6333,
+        "balanced_accuracy": 0.6333,
+        "f1": 0.56,
+        "precision": 0.7,
+        "recall": 0.4667,
+        "sensitivity": 0.4667,
+        "specificity": 0.8,
+        "brier_score": 0.2434,
+        "tp": 7,
+        "tn": 12,
+        "fp": 3,
+        "fn": 8
+      },
+      "Gaussian_Noise": {
+        "roc_auc": 0.5822,
+        "accuracy": 0.6333,
+        "balanced_accuracy": 0.6333,
+        "f1": 0.56,
+        "precision": 0.7,
+        "recall": 0.4667,
+        "sensitivity": 0.4667,
+        "specificity": 0.8,
+        "brier_score": 0.2434,
+        "tp": 7,
+        "tn": 12,
+        "fp": 3,
+        "fn": 8
+      },
+      "Intensity_Scale": {
+        "roc_auc": 0.6667,
+        "accuracy": 0.6,
+        "balanced_accuracy": 0.6,
+        "f1": 0.6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "sensitivity": 0.6,
+        "specificity": 0.6,
+        "brier_score": 0.2352,
+        "tp": 9,
+        "tn": 9,
+        "fp": 6,
+        "fn": 6
+      },
+      "Spatial_Blur": {
+        "roc_auc": 0.5333,
+        "accuracy": 0.6667,
+        "balanced_accuracy": 0.6667,
+        "f1": 0.5,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "sensitivity": 0.3333,
+        "specificity": 1.0,
+        "brier_score": 0.2494,
+        "tp": 5,
+        "tn": 15,
+        "fp": 0,
+        "fn": 10
+      },
+      "Mask_Erosion": {
+        "roc_auc": 0.7378,
+        "accuracy": 0.6,
+        "balanced_accuracy": 0.6,
+        "f1": 0.4,
+        "precision": 0.8,
+        "recall": 0.2667,
+        "sensitivity": 0.2667,
+        "specificity": 0.9333,
+        "brier_score": 0.2354,
+        "tp": 4,
+        "tn": 14,
+        "fp": 1,
+        "fn": 11
+      }
+    }
+  },
+  "locked_test_results": {
+    "ResNet-18": {
+      "roc_auc": 0.6178,
+      "accuracy": 0.5333,
+      "balanced_accuracy": 0.5333,
+      "f1": 0.6818,
+      "precision": 0.5172,
+      "recall": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 0.0667,
+      "brier_score": 0.2462,
+      "tp": 15,
+      "tn": 1,
+      "fp": 14,
+      "fn": 0,
+      "loss": 0.6856,
+      "ece": 0.04,
+      "auc_ci_95": [
+        0.3733,
+        0.8191
+      ],
+      "bal_acc_ci_95": [
+        0.5,
+        0.6154
+      ],
+      "brier_ci_95": [
+        0.231,
+        0.2638
+      ]
+    },
+    "ResNet-34": {
+      "roc_auc": 0.5311,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "f1": 0.5455,
+      "precision": 0.5,
+      "recall": 0.6,
+      "sensitivity": 0.6,
+      "specificity": 0.4,
+      "brier_score": 0.2482,
+      "tp": 9,
+      "tn": 6,
+      "fp": 9,
+      "fn": 6,
+      "loss": 0.6889,
+      "ece": 0.1235,
+      "auc_ci_95": [
+        0.2991,
+        0.7434
+      ],
+      "bal_acc_ci_95": [
+        0.3205,
+        0.6921
+      ],
+      "brier_ci_95": [
+        0.2202,
+        0.2786
+      ]
+    }
+  },
+  "adni_results": {
+    "ResNet-18": {
+      "overall": {
+        "roc_auc": 0.5128,
+        "accuracy": 0.39,
+        "balanced_accuracy": 0.494,
+        "f1": 0.5599,
+        "precision": 0.3911,
+        "recall": 0.9848,
+        "sensitivity": 0.9848,
+        "specificity": 0.0033,
+        "brier_score": 0.2738,
+        "tp": 194,
+        "tn": 1,
+        "fp": 302,
+        "fn": 3,
+        "loss": 0.7413,
+        "ece": 0.1911,
+        "auc_ci_95": [
+          0.462,
+          0.5665
+        ],
+        "bal_acc_ci_95": [
+          0.4847,
+          0.5028
+        ],
+        "brier_ci_95": [
+          0.2666,
+          0.2814
+        ]
+      },
+      "subgroups": {
+        "Siemens": {
+          "roc_auc": 0.5132,
+          "accuracy": 0.3946,
+          "balanced_accuracy": 0.4921,
+          "f1": 0.5642,
+          "precision": 0.3962,
+          "recall": 0.9797,
+          "sensitivity": 0.9797,
+          "specificity": 0.0045,
+          "brier_score": 0.2726,
+          "tp": 145,
+          "tn": 1,
+          "fp": 221,
+          "fn": 3
+        },
+        "Philips": {
+          "roc_auc": 0.5183,
+          "accuracy": 0.3769,
+          "balanced_accuracy": 0.5,
+          "f1": 0.5475,
+          "precision": 0.3769,
+          "recall": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "brier_score": 0.2773,
+          "tp": 49,
+          "tn": 0,
+          "fp": 81,
+          "fn": 0
+        },
+        "1.5T": {
+          "roc_auc": 0.5331,
+          "accuracy": 0.4182,
+          "balanced_accuracy": 0.4859,
+          "f1": 0.5897,
+          "precision": 0.4233,
+          "recall": 0.9718,
+          "sensitivity": 0.9718,
+          "specificity": 0.0,
+          "brier_score": 0.2654,
+          "tp": 69,
+          "tn": 0,
+          "fp": 94,
+          "fn": 2
+        },
+        "3.0T": {
+          "roc_auc": 0.5301,
+          "accuracy": 0.3761,
+          "balanced_accuracy": 0.4984,
+          "f1": 0.5447,
+          "precision": 0.3754,
+          "recall": 0.9921,
+          "sensitivity": 0.9921,
+          "specificity": 0.0048,
+          "brier_score": 0.278,
+          "tp": 125,
+          "tn": 1,
+          "fp": 208,
+          "fn": 1
+        }
+      },
+      "ece_bins": [
+        {
+          "bin": 4,
+          "acc": 0.75,
+          "conf": 0.479736328125,
+          "prop": 0.008
+        },
+        {
+          "bin": 5,
+          "acc": 0.3911290466785431,
+          "conf": 0.58154296875,
+          "prop": 0.992
+        }
+      ]
+    },
+    "ResNet-34": {
+      "overall": {
+        "roc_auc": 0.4777,
+        "accuracy": 0.536,
+        "balanced_accuracy": 0.5133,
+        "f1": 0.4082,
+        "precision": 0.4103,
+        "recall": 0.4061,
+        "sensitivity": 0.4061,
+        "specificity": 0.6205,
+        "brier_score": 0.2534,
+        "tp": 80,
+        "tn": 188,
+        "fp": 115,
+        "fn": 117,
+        "loss": 0.7003,
+        "ece": 0.1068,
+        "auc_ci_95": [
+          0.4226,
+          0.5292
+        ],
+        "bal_acc_ci_95": [
+          0.4664,
+          0.5564
+        ],
+        "brier_ci_95": [
+          0.2465,
+          0.2604
+        ]
+      },
+      "subgroups": {
+        "Siemens": {
+          "roc_auc": 0.4721,
+          "accuracy": 0.5649,
+          "balanced_accuracy": 0.509,
+          "f1": 0.2969,
+          "precision": 0.4198,
+          "recall": 0.2297,
+          "sensitivity": 0.2297,
+          "specificity": 0.7883,
+          "brier_score": 0.2486,
+          "tp": 34,
+          "tn": 175,
+          "fp": 47,
+          "fn": 114
+        },
+        "Philips": {
+          "roc_auc": 0.4011,
+          "accuracy": 0.4538,
+          "balanced_accuracy": 0.5496,
+          "f1": 0.5644,
+          "precision": 0.4035,
+          "recall": 0.9388,
+          "sensitivity": 0.9388,
+          "specificity": 0.1605,
+          "brier_score": 0.2673,
+          "tp": 46,
+          "tn": 13,
+          "fp": 68,
+          "fn": 3
+        },
+        "1.5T": {
+          "roc_auc": 0.4871,
+          "accuracy": 0.5273,
+          "balanced_accuracy": 0.5145,
+          "f1": 0.4348,
+          "precision": 0.4478,
+          "recall": 0.4225,
+          "sensitivity": 0.4225,
+          "specificity": 0.6064,
+          "brier_score": 0.2548,
+          "tp": 30,
+          "tn": 57,
+          "fp": 37,
+          "fn": 41
+        },
+        "3.0T": {
+          "roc_auc": 0.4729,
+          "accuracy": 0.5403,
+          "balanced_accuracy": 0.5118,
+          "f1": 0.3937,
+          "precision": 0.3906,
+          "recall": 0.3968,
+          "sensitivity": 0.3968,
+          "specificity": 0.6268,
+          "brier_score": 0.2528,
+          "tp": 50,
+          "tn": 131,
+          "fp": 78,
+          "fn": 76
+        }
+      },
+      "ece_bins": [
+        {
+          "bin": 2,
+          "acc": 0.0,
+          "conf": 0.270751953125,
+          "prop": 0.006
+        },
+        {
+          "bin": 3,
+          "acc": 0.4470588266849518,
+          "conf": 0.36669921875,
+          "prop": 0.17
+        },
+        {
+          "bin": 4,
+          "acc": 0.3640553057193756,
+          "conf": 0.450439453125,
+          "prop": 0.434
+        },
+        {
+          "bin": 5,
+          "acc": 0.4166666567325592,
+          "conf": 0.5478515625,
+          "prop": 0.384
+        },
+        {
+          "bin": 6,
+          "acc": 0.0,
+          "conf": 0.6025390625,
+          "prop": 0.006
+        }
+      ]
+    }
+  },
+  "multi_paradigm_validation_scores": {
+    "ResNet18_Original_Baseline": 0.5556,
+    "ResNet18_Conservative_LR_Warmup": 0.5556,
+    "ResNet18_HighReg_Augmented": 0.7667,
+    "ResNet34_Original_Baseline": 0.6333,
+    "ResNet34_HighReg_Augmented": 0.6533,
+    "2D_Transfer_Frozen": 0.6933,
+    "2D_Transfer_Finetune": 0.7778,
+    "Classical_Logistic_Regression_L2": 0.6133,
+    "Classical_Logistic_Regression_L1": 0.6622,
+    "Classical_Linear_SVM": 0.6978,
+    "Classical_Random_Forest": 0.5467,
+    "SwinUNETR_LinearProbe": 0.4467
+  },
+  "multi_paradigm_locked_test": {
+    "2D_Transfer_ResNet18": {
+      "roc_auc": 0.6222,
+      "accuracy": 0.4333,
+      "balanced_accuracy": 0.4333,
+      "f1": 0.2609,
+      "precision": 0.375,
+      "recall": 0.2,
+      "sensitivity": 0.2,
+      "specificity": 0.6667,
+      "brier_score": 0.2993,
+      "tp": 3,
+      "tn": 10,
+      "fp": 5,
+      "fn": 12
+    },
+    "Classical_Radiomics_LR": {
+      "roc_auc": 0.5689,
+      "accuracy": 0.5667,
+      "balanced_accuracy": 0.5667,
+      "f1": 0.5806,
+      "precision": 0.5625,
+      "recall": 0.6,
+      "sensitivity": 0.6,
+      "specificity": 0.5333,
+      "brier_score": 0.247,
+      "tp": 9,
+      "tn": 8,
+      "fp": 7,
+      "fn": 6
+    },
+    "MONAI_SwinUNETR_SSL": {
+      "roc_auc": 0.6044,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "f1": 0.6667,
+      "precision": 0.5,
+      "recall": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 0.0,
+      "brier_score": 0.2495,
+      "tp": 15,
+      "tn": 0,
+      "fp": 15,
+      "fn": 0,
+      "loss": 0.6922
+    }
+  },
+  "multi_paradigm_adni_external": {
+    "2D_Transfer_ResNet18": {
+      "roc_auc": 0.5778,
+      "accuracy": 0.394,
+      "balanced_accuracy": 0.5,
+      "f1": 0.5653,
+      "precision": 0.394,
+      "recall": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 0.0,
+      "brier_score": 0.5315,
+      "tp": 197,
+      "tn": 0,
+      "fp": 303,
+      "fn": 0
+    },
+    "Classical_Radiomics_LR": {
+      "roc_auc": 0.5149,
+      "accuracy": 0.392,
+      "balanced_accuracy": 0.4957,
+      "f1": 0.5607,
+      "precision": 0.3919,
+      "recall": 0.9848,
+      "sensitivity": 0.9848,
+      "specificity": 0.0066,
+      "brier_score": 0.4491,
+      "tp": 194,
+      "tn": 2,
+      "fp": 301,
+      "fn": 3
+    },
+    "MONAI_SwinUNETR_SSL": {
+      "roc_auc": 0.5834,
+      "accuracy": 0.394,
+      "balanced_accuracy": 0.5,
+      "f1": 0.5653,
+      "precision": 0.394,
+      "recall": 1.0,
+      "sensitivity": 1.0,
+      "specificity": 0.0,
+      "brier_score": 0.2569,
+      "tp": 197,
+      "tn": 0,
+      "fp": 303,
+      "fn": 0,
+      "loss": 0.707
+    }
+  },
+  "adni_subgroup_analysis": {
+    "3D ResNet-18": {
+      "Siemens": {
+        "roc_auc": 0.5132,
+        "accuracy": 0.3946,
+        "balanced_accuracy": 0.4921,
+        "f1": 0.5642,
+        "precision": 0.3962,
+        "recall": 0.9797,
+        "sensitivity": 0.9797,
+        "specificity": 0.0045,
+        "brier_score": 0.2726,
+        "tp": 145,
+        "tn": 1,
+        "fp": 221,
+        "fn": 3
+      },
+      "Philips": {
+        "roc_auc": 0.5183,
+        "accuracy": 0.3769,
+        "balanced_accuracy": 0.5,
+        "f1": 0.5475,
+        "precision": 0.3769,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.2773,
+        "tp": 49,
+        "tn": 0,
+        "fp": 81,
+        "fn": 0
+      },
+      "1.5T": {
+        "roc_auc": 0.5331,
+        "accuracy": 0.4182,
+        "balanced_accuracy": 0.4859,
+        "f1": 0.5897,
+        "precision": 0.4233,
+        "recall": 0.9718,
+        "sensitivity": 0.9718,
+        "specificity": 0.0,
+        "brier_score": 0.2654,
+        "tp": 69,
+        "tn": 0,
+        "fp": 94,
+        "fn": 2
+      },
+      "3.0T": {
+        "roc_auc": 0.5474,
+        "accuracy": 0.3673,
+        "balanced_accuracy": 0.4982,
+        "f1": 0.5351,
+        "precision": 0.3665,
+        "recall": 0.9916,
+        "sensitivity": 0.9916,
+        "specificity": 0.0049,
+        "brier_score": 0.2795,
+        "tp": 118,
+        "tn": 1,
+        "fp": 204,
+        "fn": 1
+      }
+    },
+    "3D ResNet-34": {
+      "Siemens": {
+        "roc_auc": 0.4721,
+        "accuracy": 0.5649,
+        "balanced_accuracy": 0.509,
+        "f1": 0.2969,
+        "precision": 0.4198,
+        "recall": 0.2297,
+        "sensitivity": 0.2297,
+        "specificity": 0.7883,
+        "brier_score": 0.2486,
+        "tp": 34,
+        "tn": 175,
+        "fp": 47,
+        "fn": 114
+      },
+      "Philips": {
+        "roc_auc": 0.4011,
+        "accuracy": 0.4538,
+        "balanced_accuracy": 0.5496,
+        "f1": 0.5644,
+        "precision": 0.4035,
+        "recall": 0.9388,
+        "sensitivity": 0.9388,
+        "specificity": 0.1605,
+        "brier_score": 0.2673,
+        "tp": 46,
+        "tn": 13,
+        "fp": 68,
+        "fn": 3
+      },
+      "1.5T": {
+        "roc_auc": 0.4871,
+        "accuracy": 0.5273,
+        "balanced_accuracy": 0.5145,
+        "f1": 0.4348,
+        "precision": 0.4478,
+        "recall": 0.4225,
+        "sensitivity": 0.4225,
+        "specificity": 0.6064,
+        "brier_score": 0.2548,
+        "tp": 30,
+        "tn": 57,
+        "fp": 37,
+        "fn": 41
+      },
+      "3.0T": {
+        "roc_auc": 0.487,
+        "accuracy": 0.5494,
+        "balanced_accuracy": 0.5223,
+        "f1": 0.4065,
+        "precision": 0.3937,
+        "recall": 0.4202,
+        "sensitivity": 0.4202,
+        "specificity": 0.6244,
+        "brier_score": 0.2508,
+        "tp": 50,
+        "tn": 128,
+        "fp": 77,
+        "fn": 69
+      }
+    },
+    "2D Transfer ResNet-18": {
+      "Siemens": {
+        "roc_auc": 0.542,
+        "accuracy": 0.4,
+        "balanced_accuracy": 0.5,
+        "f1": 0.5714,
+        "precision": 0.4,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.5383,
+        "tp": 148,
+        "tn": 0,
+        "fp": 222,
+        "fn": 0
+      },
+      "Philips": {
+        "roc_auc": 0.6871,
+        "accuracy": 0.3769,
+        "balanced_accuracy": 0.5,
+        "f1": 0.5475,
+        "precision": 0.3769,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.5122,
+        "tp": 49,
+        "tn": 0,
+        "fp": 81,
+        "fn": 0
+      },
+      "1.5T": {
+        "roc_auc": 0.6238,
+        "accuracy": 0.4303,
+        "balanced_accuracy": 0.5,
+        "f1": 0.6017,
+        "precision": 0.4303,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.4753,
+        "tp": 71,
+        "tn": 0,
+        "fp": 94,
+        "fn": 0
+      },
+      "3.0T": {
+        "roc_auc": 0.5811,
+        "accuracy": 0.3673,
+        "balanced_accuracy": 0.5,
+        "f1": 0.5372,
+        "precision": 0.3673,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.5666,
+        "tp": 119,
+        "tn": 0,
+        "fp": 205,
+        "fn": 0
+      }
+    },
+    "Classical Radiomics LR": {
+      "Siemens": {
+        "roc_auc": 0.539,
+        "accuracy": 0.3973,
+        "balanced_accuracy": 0.4944,
+        "f1": 0.5653,
+        "precision": 0.3973,
+        "recall": 0.9797,
+        "sensitivity": 0.9797,
+        "specificity": 0.009,
+        "brier_score": 0.4295,
+        "tp": 145,
+        "tn": 2,
+        "fp": 220,
+        "fn": 3
+      },
+      "Philips": {
+        "roc_auc": 0.4558,
+        "accuracy": 0.3769,
+        "balanced_accuracy": 0.5,
+        "f1": 0.5475,
+        "precision": 0.3769,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.5047,
+        "tp": 49,
+        "tn": 0,
+        "fp": 81,
+        "fn": 0
+      },
+      "1.5T": {
+        "roc_auc": 0.5626,
+        "accuracy": 0.4182,
+        "balanced_accuracy": 0.4859,
+        "f1": 0.5897,
+        "precision": 0.4233,
+        "recall": 0.9718,
+        "sensitivity": 0.9718,
+        "specificity": 0.0,
+        "brier_score": 0.3959,
+        "tp": 69,
+        "tn": 0,
+        "fp": 94,
+        "fn": 2
+      },
+      "3.0T": {
+        "roc_auc": 0.5209,
+        "accuracy": 0.3704,
+        "balanced_accuracy": 0.5007,
+        "f1": 0.5364,
+        "precision": 0.3676,
+        "recall": 0.9916,
+        "sensitivity": 0.9916,
+        "specificity": 0.0098,
+        "brier_score": 0.4815,
+        "tp": 118,
+        "tn": 2,
+        "fp": 203,
+        "fn": 1
+      }
+    },
+    "MONAI Swin UNETR SSL": {
+      "Siemens": {
+        "roc_auc": 0.5726,
+        "accuracy": 0.4,
+        "balanced_accuracy": 0.5,
+        "f1": 0.5714,
+        "precision": 0.4,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.2566,
+        "tp": 148,
+        "tn": 0,
+        "fp": 222,
+        "fn": 0
+      },
+      "Philips": {
+        "roc_auc": 0.6146,
+        "accuracy": 0.3769,
+        "balanced_accuracy": 0.5,
+        "f1": 0.5475,
+        "precision": 0.3769,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.2579,
+        "tp": 49,
+        "tn": 0,
+        "fp": 81,
+        "fn": 0
+      },
+      "1.5T": {
+        "roc_auc": 0.5737,
+        "accuracy": 0.4303,
+        "balanced_accuracy": 0.5,
+        "f1": 0.6017,
+        "precision": 0.4303,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.2548,
+        "tp": 71,
+        "tn": 0,
+        "fp": 94,
+        "fn": 0
+      },
+      "3.0T": {
+        "roc_auc": 0.5878,
+        "accuracy": 0.3673,
+        "balanced_accuracy": 0.5,
+        "f1": 0.5372,
+        "precision": 0.3673,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.2585,
+        "tp": 119,
+        "tn": 0,
+        "fp": 205,
+        "fn": 0
+      }
+    }
+  }
+}

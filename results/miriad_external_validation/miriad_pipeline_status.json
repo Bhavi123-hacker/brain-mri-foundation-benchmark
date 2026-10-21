@@ -1,0 +1,16 @@
+{
+  "status": "STOPPED_PENDING_USER_CREDENTIALING",
+  "blocker": "MIRIAD Data Use Agreement requires manual account approval on UCL XNAT portal; no raw scans present.",
+  "guide_path": "D:\\ml project\\results\\miriad_external_validation/download_and_access_guide.md",
+  "target_cohort": "MIRIAD (N=69: 46 AD, 23 CN)",
+  "pipeline_ready": true,
+  "weights_ready": true,
+  "models_ready": [
+    "3D ResNet-18 Supervised",
+    "3D ResNet-34 Supervised",
+    "2D Transfer ResNet-18",
+    "Classical Radiomics",
+    "MONAI Swin UNETR SSL",
+    "FOMO25 AMAES ResEnc-B"
+  ]
+}

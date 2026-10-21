@@ -1,0 +1,202 @@
+{
+  "budgets": [
+    10,
+    25,
+    50,
+    100
+  ],
+  "sample_counts": {
+    "10": 14,
+    "25": 35,
+    "50": 69,
+    "100": 138
+  },
+  "paradigms": {
+    "3D_ResNet18": {
+      "10": {
+        "roc_auc": 0.5733,
+        "accuracy": 0.4333,
+        "balanced_accuracy": 0.4333,
+        "f1": 0.5641,
+        "precision": 0.4583,
+        "recall": 0.7333,
+        "sensitivity": 0.7333,
+        "specificity": 0.1333,
+        "brier_score": 0.2973,
+        "tp": 11,
+        "tn": 2,
+        "fp": 13,
+        "fn": 4
+      },
+      "25": {
+        "roc_auc": 0.4222,
+        "accuracy": 0.4667,
+        "balanced_accuracy": 0.4667,
+        "f1": 0.3846,
+        "precision": 0.4545,
+        "recall": 0.3333,
+        "sensitivity": 0.3333,
+        "specificity": 0.6,
+        "brier_score": 0.4005,
+        "tp": 5,
+        "tn": 9,
+        "fp": 6,
+        "fn": 10
+      },
+      "50": {
+        "roc_auc": 0.5422,
+        "accuracy": 0.5333,
+        "balanced_accuracy": 0.5333,
+        "f1": 0.5,
+        "precision": 0.5385,
+        "recall": 0.4667,
+        "sensitivity": 0.4667,
+        "specificity": 0.6,
+        "brier_score": 0.3374,
+        "tp": 7,
+        "tn": 9,
+        "fp": 6,
+        "fn": 8
+      },
+      "100": {
+        "roc_auc": 0.6222,
+        "accuracy": 0.6,
+        "balanced_accuracy": 0.6,
+        "f1": 0.5,
+        "precision": 0.6667,
+        "recall": 0.4,
+        "sensitivity": 0.4,
+        "specificity": 0.8,
+        "brier_score": 0.2505,
+        "tp": 6,
+        "tn": 12,
+        "fp": 3,
+        "fn": 9
+      }
+    },
+    "Classical_Radiomics_LR": {
+      "10": {
+        "roc_auc": 0.3644,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "f1": 0.2857,
+        "precision": 0.5,
+        "recall": 0.2,
+        "sensitivity": 0.2,
+        "specificity": 0.8,
+        "brier_score": 0.3698,
+        "tp": 3,
+        "tn": 12,
+        "fp": 3,
+        "fn": 12
+      },
+      "25": {
+        "roc_auc": 0.5333,
+        "accuracy": 0.4667,
+        "balanced_accuracy": 0.4667,
+        "f1": 0.3846,
+        "precision": 0.4545,
+        "recall": 0.3333,
+        "sensitivity": 0.3333,
+        "specificity": 0.6,
+        "brier_score": 0.2998,
+        "tp": 5,
+        "tn": 9,
+        "fp": 6,
+        "fn": 10
+      },
+      "50": {
+        "roc_auc": 0.52,
+        "accuracy": 0.5333,
+        "balanced_accuracy": 0.5333,
+        "f1": 0.5625,
+        "precision": 0.5294,
+        "recall": 0.6,
+        "sensitivity": 0.6,
+        "specificity": 0.4667,
+        "brier_score": 0.3157,
+        "tp": 9,
+        "tn": 7,
+        "fp": 8,
+        "fn": 6
+      },
+      "100": {
+        "roc_auc": 0.6133,
+        "accuracy": 0.6333,
+        "balanced_accuracy": 0.6333,
+        "f1": 0.6452,
+        "precision": 0.625,
+        "recall": 0.6667,
+        "sensitivity": 0.6667,
+        "specificity": 0.6,
+        "brier_score": 0.245,
+        "tp": 10,
+        "tn": 9,
+        "fp": 6,
+        "fn": 5
+      }
+    },
+    "MONAI_SwinUNETR_LinearProbe": {
+      "10": {
+        "roc_auc": 0.4356,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "brier_score": 0.2504,
+        "tp": 0,
+        "tn": 15,
+        "fp": 0,
+        "fn": 15
+      },
+      "25": {
+        "roc_auc": 0.4578,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "f1": 0.6667,
+        "precision": 0.5,
+        "recall": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier_score": 0.2508,
+        "tp": 15,
+        "tn": 0,
+        "fp": 15,
+        "fn": 0
+      },
+      "50": {
+        "roc_auc": 0.4578,
+        "accuracy": 0.4667,
+        "balanced_accuracy": 0.4667,
+        "f1": 0.1111,
+        "precision": 0.3333,
+        "recall": 0.0667,
+        "sensitivity": 0.0667,
+        "specificity": 0.8667,
+        "brier_score": 0.2506,
+        "tp": 1,
+        "tn": 13,
+        "fp": 2,
+        "fn": 14
+      },
+      "100": {
+        "roc_auc": 0.4578,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "brier_score": 0.2542,
+        "tp": 0,
+        "tn": 15,
+        "fp": 0,
+        "fn": 15
+      }
+    }
+  }
+}

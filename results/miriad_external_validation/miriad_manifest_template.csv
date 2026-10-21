@@ -1,0 +1,5 @@
+participant_id,visit_id,session_id,dx_label,cdr_equivalent,age,sex,scanner_vendor,field_strength_tesla,expected_filename,expected_filepath,preprocessing_status
+miriad_188,1,MR1,AD,1.0,68.4,F,GE,1.5,miriad_188_MR_1.nii.gz,D:\brain_mri_data\MIRIAD\raw\miriad_188_MR_1.nii.gz,PENDING_USER_DOWNLOAD
+miriad_189,1,MR1,CN,0.0,71.2,M,GE,1.5,miriad_189_MR_1.nii.gz,D:\brain_mri_data\MIRIAD\raw\miriad_189_MR_1.nii.gz,PENDING_USER_DOWNLOAD
+miriad_190,1,MR1,AD,1.0,74.1,M,GE,1.5,miriad_190_MR_1.nii.gz,D:\brain_mri_data\MIRIAD\raw\miriad_190_MR_1.nii.gz,PENDING_USER_DOWNLOAD
+miriad_191,1,MR1,CN,0.0,65.8,F,GE,1.5,miriad_191_MR_1.nii.gz,D:\brain_mri_data\MIRIAD\raw\miriad_191_MR_1.nii.gz,PENDING_USER_DOWNLOAD

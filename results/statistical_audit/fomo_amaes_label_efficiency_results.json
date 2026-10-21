@@ -1,0 +1,46 @@
+{
+  "10": {
+    "budget_pct": 10,
+    "n_samples": 14,
+    "n_cn": 7,
+    "n_ad": 7,
+    "val_roc_auc": 0.6311,
+    "val_balanced_acc": 0.7,
+    "val_sensitivity": 0.4667,
+    "val_specificity": 0.9333,
+    "val_brier_score": 0.2428
+  },
+  "25": {
+    "budget_pct": 25,
+    "n_samples": 35,
+    "n_cn": 17,
+    "n_ad": 18,
+    "val_roc_auc": 0.5956,
+    "val_balanced_acc": 0.5667,
+    "val_sensitivity": 0.6,
+    "val_specificity": 0.5333,
+    "val_brier_score": 0.2425
+  },
+  "50": {
+    "budget_pct": 50,
+    "n_samples": 69,
+    "n_cn": 34,
+    "n_ad": 35,
+    "val_roc_auc": 0.6267,
+    "val_balanced_acc": 0.7,
+    "val_sensitivity": 0.6667,
+    "val_specificity": 0.7333,
+    "val_brier_score": 0.241
+  },
+  "100": {
+    "budget_pct": 100,
+    "n_samples": 138,
+    "n_cn": 68,
+    "n_ad": 70,
+    "val_roc_auc": 0.6667,
+    "val_balanced_acc": 0.6333,
+    "val_sensitivity": 0.6,
+    "val_specificity": 0.6667,
+    "val_brier_score": 0.2319
+  }
+}

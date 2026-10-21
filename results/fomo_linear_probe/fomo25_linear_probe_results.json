@@ -1,0 +1,210 @@
+{
+  "benchmark_experiment": "FOMO25 AMAES ResEnc-B Frozen Linear Probe",
+  "date": "2026-10-21",
+  "random_seed": 42,
+  "model_spec": {
+    "name": "FOMO25 AMAES ResEnc-B",
+    "backbone_parameters": 90296576,
+    "feature_dimension": 320,
+    "trainable_parameters": 321,
+    "pretraining": "AMAES on FOMO260K (260,000 multi-sequence 3D MRIs)",
+    "license": "CC-BY-NC-SA 4.0",
+    "weights_source": "FOMO-MRI/AMAES_resenc_b_fomo260k (resenc_unet_b.ckpt)"
+  },
+  "training_protocol": {
+    "fit_cohort": "OASIS-1 Primary Train (N=138)",
+    "selection_cohort": "OASIS-1 Primary Validation (N=30)",
+    "selected_C": 0.001,
+    "hyperparameter_sweep": [
+      {
+        "C": 0.0001,
+        "val_auc": 0.6266666666666666,
+        "val_brier": 0.2441229373216629,
+        "val_balanced_acc": 0.5666666666666667
+      },
+      {
+        "C": 0.001,
+        "val_auc": 0.6666666666666666,
+        "val_brier": 0.23190253973007202,
+        "val_balanced_acc": 0.6333333333333333
+      },
+      {
+        "C": 0.01,
+        "val_auc": 0.6355555555555555,
+        "val_brier": 0.2373012900352478,
+        "val_balanced_acc": 0.6
+      },
+      {
+        "C": 0.1,
+        "val_auc": 0.5733333333333334,
+        "val_brier": 0.30797529220581055,
+        "val_balanced_acc": 0.6
+      },
+      {
+        "C": 0.5,
+        "val_auc": 0.5511111111111111,
+        "val_brier": 0.3539714813232422,
+        "val_balanced_acc": 0.6
+      },
+      {
+        "C": 1.0,
+        "val_auc": 0.5422222222222222,
+        "val_brier": 0.3668108582496643,
+        "val_balanced_acc": 0.6
+      },
+      {
+        "C": 5.0,
+        "val_auc": 0.5377777777777778,
+        "val_brier": 0.387317031621933,
+        "val_balanced_acc": 0.5666666666666667
+      },
+      {
+        "C": 10.0,
+        "val_auc": 0.5377777777777778,
+        "val_brier": 0.39291590452194214,
+        "val_balanced_acc": 0.5666666666666667
+      },
+      {
+        "C": 50.0,
+        "val_auc": 0.5422222222222222,
+        "val_brier": 0.39923861622810364,
+        "val_balanced_acc": 0.6
+      },
+      {
+        "C": 100.0,
+        "val_auc": 0.5422222222222223,
+        "val_brier": 0.40992793440818787,
+        "val_balanced_acc": 0.5666666666666667
+      }
+    ],
+    "feature_scaling": "StandardScaler fit strictly on Train"
+  },
+  "metrics": {
+    "validation": {
+      "split": "OASIS_Validation",
+      "N": 30,
+      "N_pos": 15,
+      "N_neg": 15,
+      "roc_auc": 0.6667,
+      "roc_auc_ci_lower": 0.4479,
+      "roc_auc_ci_upper": 0.8483,
+      "balanced_accuracy": 0.6333,
+      "accuracy": 0.6333,
+      "sensitivity": 0.6,
+      "specificity": 0.6667,
+      "precision": 0.6429,
+      "f1_score": 0.6207,
+      "brier_score": 0.2319,
+      "ece": 0.0645
+    },
+    "locked_test": {
+      "split": "OASIS_Locked_Test",
+      "N": 30,
+      "N_pos": 15,
+      "N_neg": 15,
+      "roc_auc": 0.5733,
+      "roc_auc_ci_lower": 0.3664,
+      "roc_auc_ci_upper": 0.7989,
+      "balanced_accuracy": 0.5333,
+      "accuracy": 0.5333,
+      "sensitivity": 0.3333,
+      "specificity": 0.7333,
+      "precision": 0.5556,
+      "f1_score": 0.4167,
+      "brier_score": 0.2512,
+      "ece": 0.1014
+    },
+    "adni_external": {
+      "split": "ADNI_External",
+      "N": 500,
+      "N_pos": 197,
+      "N_neg": 303,
+      "roc_auc": 0.5054,
+      "roc_auc_ci_lower": 0.4516,
+      "roc_auc_ci_upper": 0.5552,
+      "balanced_accuracy": 0.5,
+      "accuracy": 0.394,
+      "sensitivity": 1.0,
+      "specificity": 0.0,
+      "precision": 0.394,
+      "f1_score": 0.5653,
+      "brier_score": 0.3442,
+      "ece": 0.3217
+    },
+    "adni_subgroups": {
+      "siemens": {
+        "split": "ADNI_Siemens",
+        "N": 370,
+        "N_pos": 148,
+        "N_neg": 222,
+        "roc_auc": 0.5125,
+        "roc_auc_ci_lower": 0.4532,
+        "roc_auc_ci_upper": 0.5794,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.4,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "precision": 0.4,
+        "f1_score": 0.5714,
+        "brier_score": 0.3411,
+        "ece": 0.3168
+      },
+      "philips": {
+        "split": "ADNI_Philips",
+        "N": 130,
+        "N_pos": 49,
+        "N_neg": 81,
+        "roc_auc": 0.4875,
+        "roc_auc_ci_lower": 0.3835,
+        "roc_auc_ci_upper": 0.5972,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.3769,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "precision": 0.3769,
+        "f1_score": 0.5475,
+        "brier_score": 0.3529,
+        "ece": 0.3358
+      },
+      "field_1_5t": {
+        "split": "ADNI_1.5T",
+        "N": 165,
+        "N_pos": 71,
+        "N_neg": 94,
+        "roc_auc": 0.543,
+        "roc_auc_ci_lower": 0.4569,
+        "roc_auc_ci_upper": 0.6259,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.4303,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "precision": 0.4303,
+        "f1_score": 0.6017,
+        "brier_score": 0.3106,
+        "ece": 0.2587
+      },
+      "field_3_0t": {
+        "split": "ADNI_3.0T",
+        "N": 335,
+        "N_pos": 126,
+        "N_neg": 209,
+        "roc_auc": 0.5144,
+        "roc_auc_ci_lower": 0.4501,
+        "roc_auc_ci_upper": 0.5774,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.3761,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "precision": 0.3761,
+        "f1_score": 0.5466,
+        "brier_score": 0.3607,
+        "ece": 0.3551
+      }
+    }
+  },
+  "scientific_integrity_attestation": {
+    "test_set_used_for_tuning": false,
+    "adni_used_for_tuning": false,
+    "selection_criterion": "Validation ROC-AUC"
+  }
+}

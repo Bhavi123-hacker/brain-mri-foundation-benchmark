@@ -1,0 +1,87 @@
+{
+  "protocol_version": "1.0.0",
+  "cohort_name": "MIRIAD",
+  "full_name": "Minimal Interval Resonance Imaging in Alzheimer's Disease",
+  "institution": "Dementia Research Centre, UCL Queen Square Institute of Neurology, London, UK",
+  "cohort_size": {
+    "total_participants": 69,
+    "alzheimers_disease": 46,
+    "cognitively_normal_controls": 23,
+    "scans_per_participant": "1 baseline volumetric scan for primary benchmark (up to 9 longitudinal follow-ups held in same partition)",
+    "prevalent_labels": "NINCDS-ADRDA Probable Alzheimer's Disease vs Cognitively Normal Elderly Control"
+  },
+  "imaging_specifications": {
+    "scanner_manufacturer": "General Electric (GE Healthcare)",
+    "scanner_model": "Signa Horizon Echospeed 1.5T",
+    "modality": "3D T1-weighted IR-FSPGR",
+    "repetition_time_tr_ms": 15,
+    "echo_time_te_ms": 5.4,
+    "inversion_time_ti_ms": 650,
+    "matrix_dimensions": [256, 256, 124],
+    "native_voxel_size_mm": [0.9375, 0.9375, 1.5]
+  },
+  "standardized_preprocessing_pipeline": {
+    "target_space": "MNI152_1mm standard stereotaxic space",
+    "bias_correction": "N4ITK bias field correction",
+    "brain_extraction": "HD-BET / Otsu morphological skull stripping",
+    "spatial_resampling": "1.0 x 1.0 x 1.0 mm isotropic",
+    "target_bounding_box": [160, 192, 160],
+    "intensity_normalization": "Min-Max scaling to [0.0, 1.0]"
+  },
+  "evaluated_model_paradigms": [
+    {
+      "model_id": "resnet18_3d_supervised",
+      "architecture": "3D ResNet-18",
+      "pretraining": "None (trained from scratch on OASIS-1)",
+      "checkpoint": "checkpoints/oasis1_full_resnet18_best.pt"
+    },
+    {
+      "model_id": "resnet34_3d_supervised",
+      "architecture": "3D ResNet-34",
+      "pretraining": "None (trained from scratch on OASIS-1)",
+      "checkpoint": "checkpoints/oasis1_resnet34_best.pt"
+    },
+    {
+      "model_id": "resnet2d_transfer",
+      "architecture": "2D ResNet-18 with 16-slice mean pooling",
+      "pretraining": "ImageNet-1K pretrained encoder",
+      "checkpoint": "checkpoints/resnet2d_partial_finetune_best.pt"
+    },
+    {
+      "model_id": "classical_radiomics",
+      "architecture": "Volume/Intensity Radiomics with Linear SVM / ElasticNet LR",
+      "pretraining": "Handcrafted morphological features",
+      "checkpoint": "checkpoints/classical_radiomics_best.pkl"
+    },
+    {
+      "model_id": "swin_unetr_ssl",
+      "architecture": "MONAI Swin UNETR SSL (SwinViT backbone)",
+      "pretraining": "Self-supervised pretraining on public head CT/MRI volumes",
+      "checkpoint": "checkpoints/swin_unetr_linear_probe_best.pt"
+    },
+    {
+      "model_id": "fomo25_amaes_resenc_b",
+      "architecture": "3D Residual Encoder UNet (ResEnc-B, 90.3M encoder params)",
+      "pretraining": "AMAES masked autoencoding on FOMO260K (260,000 3D brain MRIs)",
+      "checkpoint": "weights/resenc_unet_b.ckpt",
+      "feature_dimension": 320
+    }
+  ],
+  "evaluation_metrics": [
+    "ROC-AUC",
+    "ROC-AUC 95% Confidence Interval (2000-iteration stratified bootstrap)",
+    "Balanced Accuracy",
+    "Sensitivity",
+    "Specificity",
+    "Precision",
+    "F1 Score",
+    "Brier Score",
+    "Expected Calibration Error (ECE)"
+  ],
+  "scientific_integrity_guarantees": {
+    "test_set_isolation": "MIRIAD is strictly zero-shot external evaluation; zero training or threshold tuning allowed on MIRIAD.",
+    "decision_threshold_rule": "Threshold locked at 0.5 (and fixed OASIS validation optimal prior).",
+    "locked_oasis_test_state": "OASIS-1 test set (N=30) remains completely untouched; no re-evaluation or modification.",
+    "provenance_and_licensing": "Compliant with MIRIAD Data Use Agreement (Malone et al. 2012 citation mandatory; no third-party redistribution)."
+  }
+}

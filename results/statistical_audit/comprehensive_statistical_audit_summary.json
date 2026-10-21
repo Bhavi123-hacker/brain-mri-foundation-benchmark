@@ -1,0 +1,405 @@
+{
+  "audit_timestamp": "2026-10-21 11:11:32",
+  "oasis_test_n": 30,
+  "adni_external_n": 500,
+  "individual_auc_bootstrap_ci": {
+    "oasis_locked_test": {
+      "3D ResNet-18 (Scratch)": {
+        "median_auc": 0.6199095022624435,
+        "ci_lower": 0.3950892857142857,
+        "ci_upper": 0.8111458333333331,
+        "std": 0.10841500421840888
+      },
+      "3D ResNet-34 (Scratch)": {
+        "median_auc": 0.5401785714285714,
+        "ci_lower": 0.30311138344226585,
+        "ci_upper": 0.7464178628389154,
+        "std": 0.11320188773433155
+      },
+      "2D Transfer ResNet-18": {
+        "median_auc": 0.6278767671956527,
+        "ci_lower": 0.3999537037037037,
+        "ci_upper": 0.8334276018099542,
+        "std": 0.11142905225471085
+      },
+      "Classical Radiomics (SVM)": {
+        "median_auc": 0.5723809523809523,
+        "ci_lower": 0.35881703435883006,
+        "ci_upper": 0.7799043062200957,
+        "std": 0.10887829088600352
+      },
+      "MONAI Swin UNETR SSL": {
+        "median_auc": 0.609375,
+        "ci_lower": 0.38887648809523806,
+        "ci_upper": 0.8042658730158728,
+        "std": 0.10788732158008117
+      },
+      "FOMO25 AMAES ResEnc-B": {
+        "median_auc": 0.5758928571428572,
+        "ci_lower": 0.3660714285714286,
+        "ci_upper": 0.7919248949579827,
+        "std": 0.10900930905644655
+      }
+    },
+    "adni_external": {
+      "3D ResNet-18 (Scratch)": {
+        "median_auc": 0.512805452977553,
+        "ci_lower": 0.46010415118993536,
+        "ci_upper": 0.5649307703231161,
+        "std": 0.026676628185540185
+      },
+      "3D ResNet-34 (Scratch)": {
+        "median_auc": 0.4773656521149602,
+        "ci_lower": 0.42572633474723587,
+        "ci_upper": 0.5300489835866523,
+        "std": 0.026203209226142818
+      },
+      "2D Transfer ResNet-18": {
+        "median_auc": 0.5785485160941221,
+        "ci_lower": 0.5285681799814521,
+        "ci_upper": 0.6269014833439874,
+        "std": 0.025143153322211585
+      },
+      "Classical Radiomics (SVM)": {
+        "median_auc": 0.5157191202845703,
+        "ci_lower": 0.4620104514077681,
+        "ci_upper": 0.5682793962811654,
+        "std": 0.02671997345909859
+      },
+      "MONAI Swin UNETR SSL": {
+        "median_auc": 0.584083343817978,
+        "ci_lower": 0.53444550298944,
+        "ci_upper": 0.6333320656180863,
+        "std": 0.02469635742851213
+      },
+      "FOMO25 AMAES ResEnc-B": {
+        "median_auc": 0.5050932866656455,
+        "ci_lower": 0.45305247644299673,
+        "ci_upper": 0.5559338934426228,
+        "std": 0.02597568943601205
+      }
+    }
+  },
+  "paired_auc_differences": {
+    "oasis_test_comparisons": [
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "3D ResNet-34 (Scratch)",
+        "delta_auc_median": 0.0848,
+        "ci_lower": -0.2536,
+        "ci_upper": 0.4097,
+        "p_value": 0.642,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "2D Transfer ResNet-18",
+        "delta_auc_median": -0.0089,
+        "ci_lower": -0.2823,
+        "ci_upper": 0.2711,
+        "p_value": 0.957,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "Classical Radiomics (SVM)",
+        "delta_auc_median": 0.0448,
+        "ci_lower": -0.2176,
+        "ci_upper": 0.3068,
+        "p_value": 0.743,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "MONAI Swin UNETR SSL",
+        "delta_auc_median": 0.0111,
+        "ci_lower": -0.0711,
+        "ci_upper": 0.1025,
+        "p_value": 0.809,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": 0.0407,
+        "ci_lower": -0.1897,
+        "ci_upper": 0.2625,
+        "p_value": 0.747,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-34 (Scratch)",
+        "model_B": "2D Transfer ResNet-18",
+        "delta_auc_median": -0.0889,
+        "ci_lower": -0.3416,
+        "ci_upper": 0.1701,
+        "p_value": 0.493,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-34 (Scratch)",
+        "model_B": "Classical Radiomics (SVM)",
+        "delta_auc_median": -0.0356,
+        "ci_lower": -0.3254,
+        "ci_upper": 0.2501,
+        "p_value": 0.842,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-34 (Scratch)",
+        "model_B": "MONAI Swin UNETR SSL",
+        "delta_auc_median": -0.0741,
+        "ci_lower": -0.382,
+        "ci_upper": 0.2625,
+        "p_value": 0.67,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-34 (Scratch)",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": -0.0412,
+        "ci_lower": -0.3527,
+        "ci_upper": 0.2632,
+        "p_value": 0.794,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "2D Transfer ResNet-18",
+        "model_B": "Classical Radiomics (SVM)",
+        "delta_auc_median": 0.0578,
+        "ci_lower": -0.1111,
+        "ci_upper": 0.2188,
+        "p_value": 0.506,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "2D Transfer ResNet-18",
+        "model_B": "MONAI Swin UNETR SSL",
+        "delta_auc_median": 0.0201,
+        "ci_lower": -0.2311,
+        "ci_upper": 0.28,
+        "p_value": 0.865,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "2D Transfer ResNet-18",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": 0.049,
+        "ci_lower": -0.2081,
+        "ci_upper": 0.2946,
+        "p_value": 0.686,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "Classical Radiomics (SVM)",
+        "model_B": "MONAI Swin UNETR SSL",
+        "delta_auc_median": -0.0335,
+        "ci_lower": -0.2804,
+        "ci_upper": 0.2127,
+        "p_value": 0.797,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "Classical Radiomics (SVM)",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": -0.0089,
+        "ci_lower": -0.2443,
+        "ci_upper": 0.2356,
+        "p_value": 0.952,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "MONAI Swin UNETR SSL",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": 0.0282,
+        "ci_lower": -0.1806,
+        "ci_upper": 0.2356,
+        "p_value": 0.789,
+        "statistically_significant": false
+      }
+    ],
+    "adni_external_comparisons": [
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "3D ResNet-34 (Scratch)",
+        "delta_auc_median": 0.037,
+        "ci_lower": -0.042,
+        "ci_upper": 0.1124,
+        "p_value": 0.353,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "2D Transfer ResNet-18",
+        "delta_auc_median": -0.066,
+        "ci_lower": -0.1247,
+        "ci_upper": -0.002,
+        "p_value": 0.041,
+        "statistically_significant": true
+      },
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "Classical Radiomics (SVM)",
+        "delta_auc_median": -0.0024,
+        "ci_lower": -0.0631,
+        "ci_upper": 0.0602,
+        "p_value": 0.948,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "MONAI Swin UNETR SSL",
+        "delta_auc_median": -0.0709,
+        "ci_lower": -0.1478,
+        "ci_upper": 0.0081,
+        "p_value": 0.079,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-18 (Scratch)",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": 0.0083,
+        "ci_lower": -0.0591,
+        "ci_upper": 0.073,
+        "p_value": 0.807,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-34 (Scratch)",
+        "model_B": "2D Transfer ResNet-18",
+        "delta_auc_median": -0.1011,
+        "ci_lower": -0.1789,
+        "ci_upper": -0.0231,
+        "p_value": 0.011,
+        "statistically_significant": true
+      },
+      {
+        "model_A": "3D ResNet-34 (Scratch)",
+        "model_B": "Classical Radiomics (SVM)",
+        "delta_auc_median": -0.0384,
+        "ci_lower": -0.1045,
+        "ci_upper": 0.027,
+        "p_value": 0.26,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "3D ResNet-34 (Scratch)",
+        "model_B": "MONAI Swin UNETR SSL",
+        "delta_auc_median": -0.106,
+        "ci_lower": -0.1762,
+        "ci_upper": -0.0364,
+        "p_value": 0.001,
+        "statistically_significant": true
+      },
+      {
+        "model_A": "3D ResNet-34 (Scratch)",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": -0.0286,
+        "ci_lower": -0.0997,
+        "ci_upper": 0.0469,
+        "p_value": 0.458,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "2D Transfer ResNet-18",
+        "model_B": "Classical Radiomics (SVM)",
+        "delta_auc_median": 0.0623,
+        "ci_lower": -0.006,
+        "ci_upper": 0.1345,
+        "p_value": 0.076,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "2D Transfer ResNet-18",
+        "model_B": "MONAI Swin UNETR SSL",
+        "delta_auc_median": -0.0054,
+        "ci_lower": -0.0702,
+        "ci_upper": 0.0603,
+        "p_value": 0.861,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "2D Transfer ResNet-18",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": 0.0737,
+        "ci_lower": 0.0125,
+        "ci_upper": 0.1318,
+        "p_value": 0.014,
+        "statistically_significant": true
+      },
+      {
+        "model_A": "Classical Radiomics (SVM)",
+        "model_B": "MONAI Swin UNETR SSL",
+        "delta_auc_median": -0.0684,
+        "ci_lower": -0.1386,
+        "ci_upper": 0.0037,
+        "p_value": 0.06,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "Classical Radiomics (SVM)",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": 0.0106,
+        "ci_lower": -0.0605,
+        "ci_upper": 0.0778,
+        "p_value": 0.763,
+        "statistically_significant": false
+      },
+      {
+        "model_A": "MONAI Swin UNETR SSL",
+        "model_B": "FOMO25 AMAES ResEnc-B",
+        "delta_auc_median": 0.0778,
+        "ci_lower": 0.0102,
+        "ci_upper": 0.1494,
+        "p_value": 0.028,
+        "statistically_significant": true
+      }
+    ]
+  },
+  "fomo_amaes_label_efficiency": {
+    "10": {
+      "budget_pct": 10,
+      "n_samples": 14,
+      "n_cn": 7,
+      "n_ad": 7,
+      "val_roc_auc": 0.6311,
+      "val_balanced_acc": 0.7,
+      "val_sensitivity": 0.4667,
+      "val_specificity": 0.9333,
+      "val_brier_score": 0.2428
+    },
+    "25": {
+      "budget_pct": 25,
+      "n_samples": 35,
+      "n_cn": 17,
+      "n_ad": 18,
+      "val_roc_auc": 0.5956,
+      "val_balanced_acc": 0.5667,
+      "val_sensitivity": 0.6,
+      "val_specificity": 0.5333,
+      "val_brier_score": 0.2425
+    },
+    "50": {
+      "budget_pct": 50,
+      "n_samples": 69,
+      "n_cn": 34,
+      "n_ad": 35,
+      "val_roc_auc": 0.6267,
+      "val_balanced_acc": 0.7,
+      "val_sensitivity": 0.6667,
+      "val_specificity": 0.7333,
+      "val_brier_score": 0.241
+    },
+    "100": {
+      "budget_pct": 100,
+      "n_samples": 138,
+      "n_cn": 68,
+      "n_ad": 70,
+      "val_roc_auc": 0.6667,
+      "val_balanced_acc": 0.6333,
+      "val_sensitivity": 0.6,
+      "val_specificity": 0.6667,
+      "val_brier_score": 0.2319
+    }
+  }
+}

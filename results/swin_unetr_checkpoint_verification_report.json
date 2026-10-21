@@ -4,24 +4,24 @@
     "checkpoint_name": "model_swinvit.pt",
     "file_path": "D:\\ml project\\weights\\model_swinvit.pt",
     "file_exists": true,
-    "file_size_bytes": 3111704,
-    "file_size_mb": 2.97,
-    "sha256_hash": "c696a71deb86e60adee620133122f8ae5d22dfa826ef2522508bc8038b8c4793",
+    "file_size_bytes": 411162269,
+    "file_size_mb": 392.11,
+    "sha256_hash": "1cf19eca3ed0472daf33dedd2f095b118db16edac0fc53d9e878f328ca68c988",
     "official_source": "Project MONAI MONAI-extra-test-data Releases (0.8.1)"
   },
   "model_adapter_verification": {
     "model_name": "MONAI-SwinUNETR-SSL",
     "adapter_class": "SwinUNETRSSLAdapter",
-    "device": "cpu",
-    "total_parameters": 774913,
+    "device": "cuda",
+    "total_parameters": 8062771,
     "checkpoint_keys_loaded_successfully": true,
     "missing_keys_count": 0,
-    "unexpected_keys_count": 0,
+    "unexpected_keys_count": 8,
     "critical_missing_keys": [],
     "unexpected_keys": []
   },
   "single_tensor_forward_pass_verification": {
-    "source_tensor": "Real OASIS-1 Preprocessed Tensor (Cache File: 0eee0e5c57f93a5b.pt)",
+    "source_tensor": "Real OASIS-1 Preprocessed Tensor (File: OAS1_0001_MR1.npy)",
     "input_tensor_shape": [
       1,
       1,

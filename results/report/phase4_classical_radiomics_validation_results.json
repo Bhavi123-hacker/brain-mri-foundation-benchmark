@@ -1,0 +1,67 @@
+{
+  "candidate_validation_results": {
+    "Logistic_Regression_L2": {
+      "roc_auc": 0.6133,
+      "accuracy": 0.6333,
+      "balanced_accuracy": 0.6333,
+      "f1": 0.6452,
+      "precision": 0.625,
+      "recall": 0.6667,
+      "sensitivity": 0.6667,
+      "specificity": 0.6,
+      "brier_score": 0.245,
+      "tp": 10,
+      "tn": 9,
+      "fp": 6,
+      "fn": 5
+    },
+    "Logistic_Regression_L1": {
+      "roc_auc": 0.6622,
+      "accuracy": 0.6,
+      "balanced_accuracy": 0.6,
+      "f1": 0.625,
+      "precision": 0.5882,
+      "recall": 0.6667,
+      "sensitivity": 0.6667,
+      "specificity": 0.5333,
+      "brier_score": 0.2282,
+      "tp": 10,
+      "tn": 8,
+      "fp": 7,
+      "fn": 5
+    },
+    "Linear_SVM": {
+      "roc_auc": 0.6978,
+      "accuracy": 0.6,
+      "balanced_accuracy": 0.6,
+      "f1": 0.6,
+      "precision": 0.6,
+      "recall": 0.6,
+      "sensitivity": 0.6,
+      "specificity": 0.6,
+      "brier_score": 0.2218,
+      "tp": 9,
+      "tn": 9,
+      "fp": 6,
+      "fn": 6
+    },
+    "Random_Forest": {
+      "roc_auc": 0.5467,
+      "accuracy": 0.5333,
+      "balanced_accuracy": 0.5333,
+      "f1": 0.5,
+      "precision": 0.5385,
+      "recall": 0.4667,
+      "sensitivity": 0.4667,
+      "specificity": 0.6,
+      "brier_score": 0.2602,
+      "tp": 7,
+      "tn": 9,
+      "fp": 6,
+      "fn": 8
+    }
+  },
+  "selected_model": "Linear_SVM",
+  "best_val_auc": 0.6978,
+  "checkpoint_path": "D:\\brain_mri_data\\benchmark_runs\\checkpoints\\classical_radiomics_best.pkl"
+}

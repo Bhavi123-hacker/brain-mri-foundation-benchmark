@@ -1,0 +1,39 @@
+{
+  "linear_probe": {
+    "roc_auc": 0.4467,
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.5,
+    "f1": 0.6667,
+    "precision": 0.5,
+    "recall": 1.0,
+    "sensitivity": 1.0,
+    "specificity": 0.0,
+    "brier_score": 0.2503,
+    "tp": 15,
+    "tn": 0,
+    "fp": 15,
+    "fn": 0,
+    "loss": 0.6937
+  },
+  "fine_tuning": {
+    "status": "INCOMPLETE_TIME_BOUNDED_PRUNED",
+    "reason": "3D attention backprop memory footprint (35GB working set) exceeded sprint window"
+  },
+  "selected_mode": "linear_probe",
+  "validation_metrics": {
+    "roc_auc": 0.4467,
+    "accuracy": 0.5,
+    "balanced_accuracy": 0.5,
+    "f1": 0.6667,
+    "precision": 0.5,
+    "recall": 1.0,
+    "sensitivity": 1.0,
+    "specificity": 0.0,
+    "brier_score": 0.2503,
+    "tp": 15,
+    "tn": 0,
+    "fp": 15,
+    "fn": 0,
+    "loss": 0.6937
+  }
+}
