@@ -232,7 +232,7 @@ def build_pdf_paper(registry):
         "complete matched 500-subject ADNI cohort, non-imaging Age+Sex logistic regression yields near-chance discrimination (ROC-AUC = <b>0.5123</b>), "
         "resolving the earlier 50-patient pilot artifact (0.5671) and confirming genuine structural signal in top vision models. "
         "(3) <i>TrustGate Empirical Negative Result:</i> Under real distribution shift, simpler classification margin alone achieves AUROC = <b>0.5829</b> "
-        "for error detection, outperforming composite TrustGate (<b>0.5401</b>). We formally diagnose that extreme feature-space covariate shift "
+        "for error detection, outperforming composite TrustGate (<b>0.4697</b>). We formally diagnose that extreme feature-space covariate shift "
         "saturates Mahalanobis distance to 100% rejection, while multi-model disagreement experiences an empirical consensus inversion paradox.<br/>"
         "<b>Conclusion:</b> Brain MRI foundation models do not automatically confer robust cross-scanner generalization. TrustGate is a rigorously "
         "documented negative result that establishes critical boundaries for selective prediction in neuroimaging AI."
@@ -275,7 +275,7 @@ def build_pdf_paper(registry):
     cohort_data = [
         ["Cohort", "Role", "Scanner Hardware", "Sample Count", "Class Balance (CN / AD)", "Source Reference"],
         ["OASIS-1", "Source Domain (Train/Val/Test)", "Siemens Vision 1.5T", "N=198 (138 tr, 30 val, 30 te)", "50.0% / 50.0%", "Marcus et al. (2007)"],
-        ["ADNI", "Zero-Shot External Target", "GE, Siemens, Philips (1.5T & 3.0T)", "N=500 (229 CN, 271 AD)", "45.8% / 54.2%", "Mueller et al. (2005)"],
+        ["ADNI", "Zero-Shot External Target", "GE, Siemens, Philips (1.5T & 3.0T)", "N=500 (303 CN, 197 AD)", "60.6% / 39.4%", "Mueller et al. (2005)"],
         ["OASIS-2", "Secondary Exploratory Cohort", "Siemens Vision 1.5T", "N=150 (85 CN, 65 AD)", "56.7% / 43.3%", "Marcus et al. (2010)"]
     ]
     t_cohort = Table(cohort_data, colWidths=[65, 110, 115, 85, 75, 54])
@@ -376,10 +376,10 @@ def build_pdf_paper(registry):
     # TrustGate Results Table
     tg_data = [
         ["Method / Risk Estimator", "OASIS-1 In-Domain AUC", "ADNI Target Error AUC", "pAURC [0.5, 1.0]", "Full AURC", "Status"],
-        ["Confidence Margin Alone (MSP)", "0.5829", "0.5829", "0.2612", "0.3814", "Top Performer"],
-        ["Ensemble Disagreement Alone", "0.5951", "0.5312", "0.2845", "0.4120", "Domain Degradation"],
+        ["Confidence Margin Alone (MSP)", "0.5829", "0.5829", "0.2871", "0.5488", "Top Performer"],
+        ["Ensemble Disagreement Alone", "0.5951", "0.4674", "0.2845", "0.4120", "Domain Degradation"],
         ["Raw Mahalanobis Distance", "0.5210", "0.4808", "0.3012", "0.4355", "Sub-Chance"],
-        ["Composite TrustGate (Source-Locked)", "0.5872", "0.5401", "0.2798", "0.4052", "Negative Result"]
+        ["Composite TrustGate (Source-Locked)", "0.5872", "0.4697", "0.3088", "0.6470", "Negative Result"]
     ]
     t_tg = Table(tg_data, colWidths=[140, 85, 85, 75, 55, 64])
     t_tg.setStyle(TableStyle([
@@ -403,7 +403,7 @@ def build_pdf_paper(registry):
     tg_roc_fig = FIGURES_V3_DIR / "trustgate_error_detection_roc.png"
     if tg_roc_fig.exists():
         story.append(Image(str(tg_roc_fig), width=480, height=185))
-        story.append(Paragraph("<b>Figure 2:</b> Error detection ROC curves under ADNI distribution shift. Confidence margin (0.5829) outperforms composite TrustGate (0.5401).", caption_style))
+        story.append(Paragraph("<b>Figure 2:</b> Error detection ROC curves under ADNI distribution shift. Confidence margin (0.5829) outperforms composite TrustGate (0.4697).", caption_style))
 
     story.append(Paragraph("<b>Scientific Diagnosis of the Negative Result:</b>", h2_style))
     story.append(Paragraph(
@@ -534,7 +534,7 @@ def build_docx_paper(registry):
         "closely matched by 2D Transfer ResNet-18 (0.5778). (2) Demographic shortcut analysis on the matched 500-subject ADNI cohort yields near-chance "
         "discrimination (Age+Sex AUC = 0.5123), resolving earlier 50-patient pilot artifacts (0.5671) and confirming genuine structural signal in top vision models. "
         "(3) Under real distribution shift, simpler classification margin alone achieves AUROC = 0.5829 for error detection, outperforming composite "
-        "TrustGate (0.5401). Extreme covariate shift causes feature saturation (100% > q95) while multi-model disagreement experiences an empirical consensus inversion paradox.\n"
+        "TrustGate (0.4697). Extreme covariate shift causes feature saturation (100% > q95) while multi-model disagreement experiences an empirical consensus inversion paradox.\n"
         "Conclusion: Brain MRI foundation models do not automatically confer robust cross-scanner generalization. TrustGate is a rigorously documented "
         "negative result establishing key bounds for selective prediction in neuroimaging AI."
     )
@@ -605,7 +605,7 @@ def build_docx_paper(registry):
     doc.add_paragraph(
         "TrustGate integrates Confidence Margin, Mahalanobis Feature Distance, Multi-Model Disagreement, and Quality Anomaly. "
         "Under distribution shift, Confidence Margin alone achieves AUROC = 0.5829 for failure detection, outperforming composite "
-        "TrustGate (0.5401). We formally diagnose: (1) Feature distance saturation to 100% rejection (AUROC = 0.5000), and "
+        "TrustGate (0.4697). We formally diagnose: (1) Feature distance saturation to 100% rejection (AUROC = 0.5000), and "
         "(2) The Consensus Inversion Paradox, where multi-model agreement increases on false-positive predictions under domain shift."
     )
 
@@ -699,7 +699,7 @@ def build_pptx_deck(registry):
             "subtitle": "Multi-Center Cohort Design with Full Audit Trail",
             "bullets": [
                 "OASIS-1 (N=198): Source domain (138 train, 30 val, 30 test), Siemens Vision 1.5T scanner.",
-                "ADNI (N=500): Genuine multi-center external cohort (229 CN, 271 AD), GE/Siemens/Philips 1.5T & 3.0T.",
+                "ADNI (N=500): Genuine multi-center external cohort (303 CN, 197 AD), GE/Siemens/Philips 1.5T & 3.0T.",
                 "OASIS-2 (N=150): Disclosed as unverified overlap exploratory cohort following participant ID audit.",
                 "Strict Source-Locking: Zero target-cohort training or threshold tuning permitted."
             ],
@@ -788,10 +788,10 @@ def build_pptx_deck(registry):
             "title": "Slide 11: TrustGate Empirical Evaluation & Negative Result",
             "subtitle": "Rigorous Disclosure: Simpler Baseline Outperforms Complex Composite",
             "bullets": [
-                "Confidence Margin Alone: Error detection AUROC = 0.5829, pAURC[0.5, 1.0] = 0.2612.",
-                "Multi-Model Disagreement Alone: Error detection AUROC = 0.5312, pAURC[0.5, 1.0] = 0.2845.",
+                "Confidence Margin Alone: Error detection AUROC = 0.5829, pAURC[0.5, 1.0] = 0.2871.",
+                "Multi-Model Disagreement Alone: Error detection AUROC = 0.4674, pAURC[0.5, 1.0] = 0.2845.",
                 "Raw Mahalanobis Feature Distance: Error detection AUROC = 0.4808 (worse than random guessing).",
-                "Composite TrustGate: Error detection AUROC = 0.5401, pAURC[0.5, 1.0] = 0.2798."
+                "Composite TrustGate: Error detection AUROC = 0.4697, pAURC[0.5, 1.0] = 0.3088."
             ],
             "callout": "Defensible Science: Documenting when a method fails is more valuable than publishing a fragile positive claim."
         },
@@ -835,7 +835,7 @@ def build_pptx_deck(registry):
                 "Clinical Objective: Retain only the most confident predictions, routing uncertain scans to human radiologists.",
                 "At 20% Abstention (Coverage 80%): Confidence Margin reduces residual error rate from 60.6% to 54.2%.",
                 "At 50% Abstention (Coverage 50%): Residual error rate drops to 48.0%.",
-                "pAURC[0.5, 1.0]: Margin achieves 0.2612 vs Composite TrustGate 0.2798 (lower is superior)."
+                "pAURC[0.5, 1.0]: Margin achieves 0.2871 vs Composite TrustGate 0.3088 (lower is superior)."
             ],
             "callout": "Takeaway: Selective prediction provides modest clinical gains, but margin alone provides the cleanest signal."
         },

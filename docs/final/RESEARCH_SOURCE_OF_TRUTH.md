@@ -47,7 +47,7 @@ Evaluated under source-locked validation-derived decision thresholds ($t^*$):
 | Cohort Name | Sample Count ($N$) | Cohort Role | Scanners & Field Strengths | Preprocessing Pipeline | Governance & Overlap Status |
 | :--- | :---: | :--- | :--- | :--- | :--- |
 | **OASIS-1** | 198 (138 tr, 30 val, 30 test) | Primary In-Domain Benchmark | Siemens Vision 1.5T | Trilinear $128^3$ Resampling, Nonzero Z-Score | Washington University ADRC; fully disjoint participant splits |
-| **ADNI** | 500 (229 CN, 271 AD) | Zero-Shot Multi-Site External | GE, Siemens, Philips (1.5T & 3.0T) | Matched Resampling $128^3$, Nonzero Z-Score | Multi-site DUA; fully independent external validation cohort |
+| **ADNI** | 500 (303 CN, 197 AD) | Zero-Shot Multi-Site External | GE, Siemens, Philips (1.5T & 3.0T) | Matched Resampling $128^3$, Nonzero Z-Score | Multi-site DUA; fully independent external validation cohort |
 | **OASIS-2** | 150 (85 CN, 65 AD) | Secondary Exploratory Cohort | Siemens Vision 1.5T | Matched Resampling $128^3$, Nonzero Z-Score | Washington University ADRC; **unverified participant overlap** with OASIS-1 |
 
 ---

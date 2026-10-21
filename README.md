@@ -16,7 +16,7 @@ Going beyond discrimination alone, SHIFT-MRI audits **decision threshold collaps
 
 ## 📊 Definitive Evaluated Model Rankings (External Multi-Site ADNI $N=500$)
 
-All models trained strictly on **OASIS-1** ($N=198$; 138 train, 30 validation, 30 locked test) and evaluated zero-shot across **ADNI** ($N=500$; 229 CN, 271 AD; GE, Siemens, Philips; 1.5T and 3.0T) using source-locked thresholds ($t^*$) derived strictly from validation data:
+All models trained strictly on **OASIS-1** ($N=198$; 138 train, 30 validation, 30 locked test) and evaluated zero-shot across **ADNI** ($N=500$; 303 CN, 197 AD; GE, Siemens, Philips; 1.5T and 3.0T) using source-locked thresholds ($t^*$) derived strictly from validation data:
 
 | Rank | Model Name | Architectural Family | Parameters | Weights Source | ADNI Ext AUC [95% CI] | ADNI Ext Brier | OASIS-1 Test AUC [95% CI] | OASIS-1 Test BalAcc |
 | :---: | :--- | :--- | :---: | :--- | :---: | :---: | :---: | :---: |

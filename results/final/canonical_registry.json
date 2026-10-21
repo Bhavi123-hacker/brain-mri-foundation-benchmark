@@ -26,11 +26,11 @@
       "role": "Zero-Shot Multi-Site External Cohort",
       "sample_counts": {
         "total": 500,
-        "CN": 229,
-        "AD": 271
+        "CN": 303,
+        "AD": 197
       },
       "scanners": "GE, Siemens, Philips (1.5T & 3.0T)",
-      "prevalence": 0.542
+      "prevalence": 0.394
     },
     "OASIS-2": {
       "role": "Secondary Exploratory Cohort (Unverified Overlap)",

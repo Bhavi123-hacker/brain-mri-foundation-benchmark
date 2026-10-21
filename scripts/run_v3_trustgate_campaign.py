@@ -398,6 +398,42 @@ def main():
     overall_flag_rate = float(np.mean(flagged_mask))
     print(f"Overall ADNI Flagged Fraction: {overall_flag_rate*100:.1f}% ({flagged_mask.sum()}/500 scans)", flush=True)
 
+    # Export authentic per-scan TrustGate scores for ADNI (N=500)
+    adni_scores_df = pd.DataFrame({
+        "subject_id": adni_manifest["subject_id"].values,
+        "image_data_id": adni_manifest["image_data_id"].values,
+        "scan_id": [f"{s}_{i}" for s, i in zip(adni_manifest["subject_id"].values, adni_manifest["image_data_id"].values)],
+        "margin_sa": sa_adni,
+        "mahalanobis_sb": sb_adni,
+        "raw_mahalanobis": d_adni_mahal,
+        "disagreement_sc": sc_adni,
+        "qc_sd": sd_adni,
+        "composite_risk": tg_adni,
+        "tau_star": tau_star_source,
+        "flagged": flagged_mask
+    })
+    adni_scores_path = os.path.join(TRUSTGATE_DIR, "trustgate_adni_per_scan_scores.csv")
+    adni_scores_df.to_csv(adni_scores_path, index=False)
+    print(f"Saved authentic ADNI per-scan TrustGate scores to: {adni_scores_path}", flush=True)
+
+    # Export authentic per-scan TrustGate scores for OASIS-1 Test (N=30)
+    test_flagged_mask = (tg_test > tau_star_source)
+    oasis_test_scores_df = pd.DataFrame({
+        "session_id": oasis_test_cache["session_id"].values,
+        "scan_id": oasis_test_cache["session_id"].values,
+        "margin_sa": sa_test,
+        "mahalanobis_sb": sb_test,
+        "raw_mahalanobis": d_test_mahal,
+        "disagreement_sc": sc_test,
+        "qc_sd": sd_test,
+        "composite_risk": tg_test,
+        "tau_star": tau_star_source,
+        "flagged": test_flagged_mask
+    })
+    oasis_scores_path = os.path.join(TRUSTGATE_DIR, "trustgate_oasis1_test_per_scan_scores.csv")
+    oasis_test_scores_df.to_csv(oasis_scores_path, index=False)
+    print(f"Saved authentic OASIS-1 Test per-scan TrustGate scores to: {oasis_scores_path}", flush=True)
+
     # Subgroup breakdown
     subgroups = {
         "Siemens (N=370)": (adni_manifest["manufacturer"].astype(str).str.upper() == "SIEMENS").values,

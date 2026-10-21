@@ -35,7 +35,8 @@ export const DataLoader = {
     training_diagnostics: '/data/training_diagnostics.json',
     foundation_adaptation: '/data/foundation_adaptation.json',
     statistical_uncertainty: '/data/statistical_uncertainty.json',
-    adaptation_comparison: '/data/adaptation_comparison.json'
+    adaptation_comparison: '/data/adaptation_comparison.json',
+    canonical_registry: '/api/registry'
   },
 
   /**
