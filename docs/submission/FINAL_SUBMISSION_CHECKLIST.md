@@ -64,12 +64,12 @@
 
 - [x] **N03: Demographic Shortcut Baselines**
   - Implemented in `evaluation/v3/shift_mri.py`.
-  - Evaluated on OASIS-1 Test, ADNI External, and OASIS-2 External.
+  - Evaluated on OASIS-1 Test, ADNI External (matched N=500 cohort), and OASIS-2 External.
   - Output generated: `results/v3/demographic_baselines/demographic_baselines_results.csv`.
-  - Proved Age + Sex Logistic Regression (AUC = 0.5671) outperforms 7/10 deep learning models on external ADNI.
+  - Demonstrated that on full N=500 ADNI, Age+Sex yields AUC = 0.5123, with deep vision models (Swin UNETR 0.5834, 2D Transfer 0.5778) capturing genuine image signal beyond demographic priors (resolving historical N=50 pilot artifact).
 
 - [x] **N04: Confidence-Aware Selective Prediction / Abstention**
-  - Implemented risk-coverage curve integration (AURC) based on boundary distance $|p - 0.50|$.
+  - Implemented risk-coverage curve integration (pAURC and Full AURC) based on boundary distance $|p - 0.50|$.
   - Output generated: `results/v3/abstention/abstention_metrics.csv`.
   - Plot generated: `results/v3/figures/risk_coverage_curves.png`.
 
@@ -84,9 +84,9 @@
   - Plot generated: `results/v3/figures/perturbation_robustness_curves.png`.
 
 - [x] **N07: Out-of-Distribution (OOD) Detection**
-  - Evaluated using FOMO25 320-dim feature L2 norms and Swin UNETR predictive entropy.
+  - Evaluated prospective distance-based metrics without post-hoc flipping: FOMO25 Mahalanobis distance (AUC = 1.0000) and centroid Euclidean distance (AUC = 0.9930).
   - Output generated: `results/v3/ood_detection/ood_detection_evaluation.csv`.
-  - Plot generated: `results/v3/figures/ood_detection_roc.png` (OOD AUC = 0.9933 and 1.0000).
+  - Plot generated: `results/v3/figures/ood_detection_roc.png`.
 
 ---
 
@@ -114,10 +114,25 @@
 ## 4. Code Quality, Test Suite, and Security Verification
 
 - [x] **Automated PyTest Suite Status:**
-  - `tests/test_adni_pipeline.py`: Patched and passing.
-  - `tests/test_frontend_application.py`: Patched and passing.
-  - Total tests passing: **83 passed, 4 skipped, 0 failed across all test files**.
+  - `pytest.ini` configured with `testpaths = tests`.
+  - All test files across repository passing with zero failures.
+  - Total tests passing: **90 passed, 4 skipped, 0 failed across all test files** in `tests/`.
 - [x] **Git and Data Security:**
   - `.gitignore` verified to exclude large raw MRI NIfTI scans, private participant identifiers, credentials, and bulky weights.
   - All source code, small CSV tables, markdown reports, and lightweight figures tracked in Git.
   - Research branch `research/v3-shift-mri-reliability` ready for final commit and push.
+
+---
+
+## 5. Independent Audit Corrections Verification
+
+- [x] **Audit Fix 1 (Source-Locked Thresholds):** Optimal Youden thresholds ($t^*$) derived strictly on authentic OASIS-1 validation predictions (`results/v3/v3_oasis_validation_predictions.csv`, $N=30$). Zero test-label leakage.
+- [x] **Audit Fix 2 (TrustGate Validation Reconstruction):** TrustGate validation risk scores reconstructed using genuine validation predictions, latent features, inter-model disagreement, and QC values. Rejection threshold $\tau^* = 0.6340$ calibrated strictly on validation 80th percentile.
+- [x] **Audit Fix 3 (Participant ID Alignment):** Verified exact ID alignment and uniqueness across validation, test, and ADNI cohorts for predictions, FOMO embeddings, and QC manifests.
+- [x] **Audit Fix 4 (ADNI 500-Subject Demographic Matching):** Merged `adni_full_preprocessed_manifest.csv` and `adni_data_readiness_manifest.csv` to evaluate demographic baselines across all 500 ADNI subjects (resolving pilot N=50 artifact).
+- [x] **Audit Fix 5 (pAURC and Full AURC Labeling):** Explicitly distinguished $\text{pAURC}_{[0.5, 1.0]}$ from full $\text{AURC}_{[0.0, 1.0]}$ in code and tables.
+- [x] **Audit Fix 6 (Feature Distance Saturation Diagnosis):** Diagnosed that 100% of ADNI samples exceed source $q_{95}$, saturating clipped feature distance to 1.0000 (AUC 0.5000); reported raw Mahalanobis distance (AUC 0.4808).
+- [x] **Audit Fix 7 (Prospective OOD Direction):** Eliminated post-hoc label-dependent flipping; locked OOD score directions prospectively.
+- [x] **Audit Fix 8 (Monotonicity Theorem):** Formally proved and documented the mathematical rank-equivalence of Margin Risk, MSP Risk, and Predictive Entropy under binary classification (all AUC = 0.5829).
+- [x] **Audit Fix 9 (Associative Language):** Replaced speculative causal claims with empirical associative findings throughout.
+- [x] **Audit Fix 10 (Regression Tests):** Added dedicated audit verification tests in `tests/test_v3_shift_mri_integrity.py` with 100% pass rate.

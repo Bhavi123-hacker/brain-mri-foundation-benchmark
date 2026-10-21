@@ -1,8 +1,10 @@
-Method,ADNI_Error_Detection_AUC,ADNI_AUC_95CI,OASIS_Test_Error_Detection_AUC,OASIS_AUC_95CI
-Maximum Probability (MSP),0.5829,"[0.5337, 0.6306]",0.3364,"[0.1499, 0.5575]"
-Predictive Entropy,0.5829,"[0.5337, 0.6306]",0.3364,"[0.1499, 0.5575]"
-Classification Margin,0.5829,"[0.5337, 0.6306]",0.3364,"[0.1499, 0.5575]"
-Regularized Feature Distance (FOMO),0.5,"[0.5000, 0.5000]",0.275,"[0.0950, 0.4826]"
-Model Disagreement (6 Architectures),0.4674,"[0.4155, 0.5190]",0.6112,"[0.3900, 0.8100]"
-Simple Confidence Aggregation,0.5829,"[0.5337, 0.6306]",0.3364,"[0.1499, 0.5575]"
-Proposed TrustGate Composite,0.4697,"[0.4172, 0.5221]",0.3666,"[0.1699, 0.5751]"
+Method,ADNI_Error_Detection_AUC,ADNI_AUC_95CI,OASIS_Test_Error_Detection_AUC,OASIS_AUC_95CI,Theoretical_Empirical_Note
+Maximum Probability (MSP) Risk,0.5829,"[0.5337, 0.6306]",0.5374,"[0.3036, 0.7456]",Rank-equivalent to Margin and Entropy under binary classification (|p - 0.5| monotonic)
+Predictive Entropy,0.5829,"[0.5337, 0.6306]",0.5374,"[0.3036, 0.7456]",Rank-equivalent to Margin and MSP under binary classification (symmetric concave around 0.5)
+Classification Margin Risk,0.5829,"[0.5337, 0.6306]",0.5374,"[0.3036, 0.7456]",Primary confidence baseline 1 - 2*|p - 0.5|
+Regularized Feature Distance (Raw Mahalanobis),0.4808,"[0.4288, 0.5332]",0.4527,"[0.2454, 0.6696]",Unclipped latent Mahalanobis distance from source manifold
+Regularized Feature Distance (Clipped / Saturated),0.5,"[0.5000, 0.5000]",0.4529,"[0.2455, 0.6652]",Saturated to 1.0000 across 100% of ADNI scans (zero variance -> AUC 0.5000)
+Model Disagreement (6 Architectures),0.4674,"[0.4155, 0.5190]",0.5951,"[0.3795, 0.7946]",Normalized inter-model standard deviation across diverse architectures
+Acquisition / Image QC Anomaly,0.5,"[0.5000, 0.5000]",0.5585,"[0.3393, 0.7590]",Foreground intensity std and nonzero brain fraction deviations
+Simple Confidence Aggregation,0.5829,"[0.5337, 0.6306]",0.5374,"[0.3036, 0.7456]",Average of margin risk and entropy
+Proposed TrustGate Composite,0.4697,"[0.4172, 0.5221]",0.5129,"[0.2991, 0.7277]",Prespecified equal-weighted composite (0.25*A + 0.25*B + 0.25*C + 0.25*D)

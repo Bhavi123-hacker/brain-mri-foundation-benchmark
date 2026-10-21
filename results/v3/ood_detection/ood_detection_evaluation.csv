@@ -1,3 +1,4 @@
-method,id_cohort,ood_cohort,ood_roc_auc
-FOMO-25 Representation L2 Norm,OASIS-1 Locked Test (N=30),ADNI Zero-Shot External (N=500),0.9933
-MONAI Swin UNETR Predictive Entropy,OASIS-1 Locked Test (N=30),ADNI Zero-Shot External (N=500),1.0
+method,id_cohort,ood_cohort,ood_roc_auc,direction
+FOMO-25 Regularized Mahalanobis Distance,OASIS-1 Locked Test (N=30),ADNI Zero-Shot External (N=500),1.0,Prospective d_M > tau
+FOMO-25 Latent Centroid Distance (Euclidean),OASIS-1 Locked Test (N=30),ADNI Zero-Shot External (N=500),0.993,Prospective d_2 > tau
+MONAI Swin UNETR Prediction Collapse Indicator,OASIS-1 Locked Test (N=30),ADNI Zero-Shot External (N=500),1.0,Prospective |p - 0.5| > tau

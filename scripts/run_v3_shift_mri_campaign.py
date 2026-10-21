@@ -58,8 +58,11 @@ for d in [V3_RELIABILITY_DIR, V3_FAILURE_DIR, V3_DEMO_DIR, V3_ABSTENTION_DIR, V3
     os.makedirs(d, exist_ok=True)
 
 
-def load_all_predictions() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Consolidate predictions from V1, V2, and FOMO runs across all cohorts."""
+def load_all_predictions() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Consolidate predictions from V1, V2, and FOMO runs across all cohorts, including OASIS-1 validation."""
+    # OASIS-1 Validation
+    oasis_val_df = pd.read_csv(os.path.join(V3_RESULTS_DIR, "v3_oasis_validation_predictions.csv"))
+
     # OASIS-1 Test
     v1_o = pd.read_csv(os.path.join(PROJECT_ROOT, "results", "report", "oasis_locked_test_predictions.csv"))
     v2_o = pd.read_csv(os.path.join(V2_TABLES_DIR, "v2_oasis_locked_test_predictions.csv"))
@@ -118,7 +121,7 @@ def load_all_predictions() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         "Dual-Branch Hybrid (ResNet-10 + Radiomics)": v2_o2["dual_branch_hybrid_prob"],
     })
 
-    return oasis_test_df, adni_df, oasis2_df
+    return oasis_val_df, oasis_test_df, adni_df, oasis2_df
 
 
 def main():
@@ -127,9 +130,23 @@ def main():
     print(f"Device: {DEVICE}")
     print("=" * 80)
 
-    # 1. Load All Consolidated Predictions
-    oasis_test_df, adni_df, oasis2_df = load_all_predictions()
-    print(f"Loaded predictions: OASIS-1 Test N={len(oasis_test_df)}, ADNI N={len(adni_df)}, OASIS-2 N={len(oasis2_df)}")
+    # 1. Load All Consolidated Predictions (including authentic OASIS-1 validation predictions)
+    oasis_val_df, oasis_test_df, adni_df, oasis2_df = load_all_predictions()
+    print(f"Loaded predictions: OASIS-1 Val N={len(oasis_val_df)}, OASIS-1 Test N={len(oasis_test_df)}, ADNI N={len(adni_df)}, OASIS-2 N={len(oasis2_df)}")
+
+    # Map model display names to validation column names
+    val_col_map = {
+        "3D ResNet-18 (Scratch Baseline)": "resnet18_prob",
+        "3D ResNet-34 (Scratch Baseline)": "resnet34_prob",
+        "2D Transfer ResNet-18 (Slice-Aggregated)": "resnet2d_transfer_prob",
+        "Classical Radiomics (Linear SVM)": "classical_radiomics_prob",
+        "MONAI Swin UNETR SSL (Linear Probe)": "swin_unetr_ssl_prob",
+        "FOMO25 AMAES ResEnc-B (Linear Probe)": "fomo_amaes_prob",
+        "3D ResNet-10 (Pipeline B)": "3d_resnet_10_prob",
+        "3D DenseNet-121 (Pipeline B)": "3d_densenet_121_prob",
+        "2.5D Multi-View ResNet-18 (Pipeline B)": "2.5d_multi_view_resnet_18_prob",
+        "Dual-Branch Hybrid (ResNet-10 + Radiomics)": "dual_branch_hybrid_prob",
+    }
 
     model_list_full = [
         "3D ResNet-18 (Scratch Baseline)",
@@ -150,28 +167,33 @@ def main():
     print("\n>>> NOVELTY 1: Generating Cross-Cohort Reliability Matrix (results/v3/reliability/)")
     reliability_rows = []
 
-    # First, derive source-locked optimal threshold t* on OASIS-1 test for each model
+    # Derive source-locked optimal threshold t* STRICTLY on OASIS-1 validation predictions
     source_stats = {}
     for m in model_list_full:
-        y_true_o = oasis_test_df["ground_truth"].values
-        y_prob_o = oasis_test_df[m].values
-        t_star, j_score = find_optimal_youden_threshold(y_true_o, y_prob_o)
-        auc_o, _ = compute_stratified_auc_ci(y_true_o, y_prob_o, n_bootstraps=2000)
-        brier_o = float(brier_score_loss(y_true_o, y_prob_o))
+        val_col = val_col_map[m]
+        y_true_val = oasis_val_df["ground_truth"].values
+        y_prob_val = oasis_val_df[val_col].values
+        t_star, j_score_val = find_optimal_youden_threshold(y_true_val, y_prob_val)
+        auc_val, _ = compute_stratified_auc_ci(y_true_val, y_prob_val, n_bootstraps=2000)
+        brier_val = float(brier_score_loss(y_true_val, y_prob_val))
+
         source_stats[m] = {
             "t_star": t_star,
-            "source_auc": auc_o,
-            "source_brier": brier_o,
+            "source_auc": auc_val,
+            "source_brier": brier_val,
         }
-        # Compute row for OASIS-1 locked test
+
+        # Compute row for OASIS-1 locked test (evaluated using validation-derived t*)
+        y_true_o = oasis_test_df["ground_truth"].values
+        y_prob_o = oasis_test_df[m].values
         row_o = compute_reliability_matrix_row(
             cohort_name="OASIS-1 Locked Test (In-Domain)",
             model_name=m,
             y_true=y_true_o,
             y_prob=y_prob_o,
             source_optimal_threshold=t_star,
-            source_auc=auc_o,
-            source_brier=brier_o,
+            source_auc=auc_val,
+            source_brier=brier_val,
         )
         reliability_rows.append(row_o)
 
@@ -293,7 +315,8 @@ def main():
     # --------------------------------------------------------------------------
     print("\n>>> NOVELTY 3: Fitting and Evaluating Demographic Shortcut Baselines (results/v3/demographic_baselines/)")
     oasis_splits_manifest = pd.read_csv("D:/brain_mri_data/OASIS1/manifests/oasis1_primary_cohort_splits.csv")
-    adni_benchmark_manifest = pd.read_csv("results/adni_cn_ad_benchmark_manifest.csv")
+    adni_full_manifest = pd.read_csv("D:/brain_mri_data/ADNI/manifests/adni_full_preprocessed_manifest.csv")
+    adni_readiness_manifest = pd.read_csv("D:/brain_mri_data/ADNI/manifests/adni_data_readiness_manifest.csv")
     oasis2_baseline_manifest = pd.read_csv("D:/brain_mri_data/OASIS2/manifests/oasis2_baseline_manifest.csv")
 
     # OASIS-1 Train
@@ -304,8 +327,15 @@ def main():
     oasis_test_meta = oasis_splits_manifest[oasis_splits_manifest["split"] == "test"].copy()
     oasis_test_meta = oasis_test_meta.rename(columns={"gender": "sex", "binary_label": "label"})
 
-    # ADNI External
-    adni_meta = adni_benchmark_manifest[["subject_id", "age", "sex", "label"]].copy()
+    # ADNI External (Full 500-subject cohort merged on subject_id and image_data_id)
+    adni_500 = pd.merge(
+        adni_full_manifest[["subject_id", "image_data_id", "binary_label"]],
+        adni_readiness_manifest[["subject_id", "image_data_id", "csv_age", "csv_sex"]],
+        on=["subject_id", "image_data_id"],
+        how="inner",
+    ).rename(columns={"csv_age": "age", "csv_sex": "sex", "binary_label": "label"})
+    assert len(adni_500) == 500, f"Expected 500 matched ADNI subjects, got {len(adni_500)}"
+    adni_meta = adni_500[["subject_id", "image_data_id", "age", "sex", "label"]].copy()
 
     # OASIS-2 External
     oasis2_meta = oasis2_baseline_manifest[["participant_id", "age", "sex", "binary_label"]].copy()
@@ -562,68 +592,78 @@ def main():
     print(f"Saved Perturbation Robustness Curves plot to: {rob_fig_path}")
 
     # --------------------------------------------------------------------------
-    # NOVELTY 7: Out-of-Distribution (OOD) Detection via Representation Norm & Entropy (N07)
+    # NOVELTY 7: Out-of-Distribution (OOD) Detection via Representation Manifold & Prospective Scoring (N07)
     # --------------------------------------------------------------------------
     print("\n>>> NOVELTY 7: Evaluating Out-of-Distribution Detection (results/v3/ood_detection/)")
     # Load FOMO representations
     f_o = torch.load("results/fomo_linear_probe/oasis_fomo_features.pt", map_location="cpu", weights_only=False)
     f_a = torch.load("results/fomo_linear_probe/adni_fomo_features.pt", map_location="cpu", weights_only=False)
 
-    # In-domain test set (OASIS-1 test)
-    oasis_test_mask = (np.array(f_o["splits"]) == "test")
-    id_features = f_o["features"][oasis_test_mask]  # (30, 320)
+    # In-domain source splits
+    splits = np.array(f_o["splits"])
+    tr_feats = f_o["features"][splits == "train"]   # (138, 320)
+    id_features = f_o["features"][splits == "test"]  # (30, 320)
     ood_features = f_a["features"]                 # (500, 320)
 
-    # Compute Feature L2 Norms as OOD score
-    id_norms = np.linalg.norm(id_features, axis=1)
-    ood_norms = np.linalg.norm(ood_features, axis=1)
+    # Manifold parameters strictly from source training split
+    mu_source = np.mean(tr_feats, axis=0)
+    tr_diff = tr_feats - mu_source
+    cov_empirical = (tr_diff.T @ tr_diff) / (len(tr_feats) - 1)
+    lambda_ridge = 0.10 * np.trace(cov_empirical) / 320.0
+    cov_reg = cov_empirical + lambda_ridge * np.eye(320)
+    inv_cov = np.linalg.pinv(cov_reg)
 
-    # Combined ground truth for OOD detection: 0 = ID (OASIS-1), 1 = OOD (ADNI)
-    ood_gt = np.concatenate([np.zeros(len(id_norms)), np.ones(len(ood_norms))])
-    ood_norm_scores = np.concatenate([id_norms, ood_norms])
+    def compute_reg_mahalanobis(feats):
+        diff = feats - mu_source
+        return np.sqrt(np.sum((diff @ inv_cov) * diff, axis=1))
 
-    # Also compute Prediction Entropy OOD score using Swin UNETR
+    id_mahal = compute_reg_mahalanobis(id_features)
+    ood_mahal = compute_reg_mahalanobis(ood_features)
+
+    # Euclidean distance from source centroid
+    id_euc = np.linalg.norm(id_features - mu_source, axis=1)
+    ood_euc = np.linalg.norm(ood_features - mu_source, axis=1)
+
+    # Prediction collapse / boundary distance indicator
     id_p = oasis_test_df["MONAI Swin UNETR SSL (Linear Probe)"].values
     ood_p = adni_df["MONAI Swin UNETR SSL (Linear Probe)"].values
+    id_collapse = np.abs(id_p - 0.50)
+    ood_collapse = np.abs(ood_p - 0.50)
 
-    def compute_entropy(p_arr):
-        p_c = np.clip(p_arr, 1e-6, 1.0 - 1e-6)
-        return - (p_c * np.log2(p_c) + (1.0 - p_c) * np.log2(1.0 - p_c))
+    # Combined ground truth for OOD detection: 0 = ID (OASIS-1 test), 1 = OOD (ADNI)
+    ood_gt = np.concatenate([np.zeros(len(id_features)), np.ones(len(ood_features))])
+    ood_mahal_scores = np.concatenate([id_mahal, ood_mahal])
+    ood_euc_scores = np.concatenate([id_euc, ood_euc])
+    ood_collapse_scores = np.concatenate([id_collapse, ood_collapse])
 
-    id_entropy = compute_entropy(id_p)
-    ood_entropy = compute_entropy(ood_p)
-    ood_entropy_scores = np.concatenate([id_entropy, ood_entropy])
-
-    auc_norm = roc_auc_score(ood_gt, ood_norm_scores)
-    # If higher norm corresponds to ID, flip direction
-    if auc_norm < 0.5:
-        auc_norm = 1.0 - auc_norm
-        ood_norm_scores = - ood_norm_scores
-
-    auc_entropy = roc_auc_score(ood_gt, ood_entropy_scores)
-    if auc_entropy < 0.5:
-        auc_entropy = 1.0 - auc_entropy
-        ood_entropy_scores = - ood_entropy_scores
+    # Prospective evaluation WITHOUT ANY post-hoc direction flipping
+    auc_mahal = float(roc_auc_score(ood_gt, ood_mahal_scores))
+    auc_euc = float(roc_auc_score(ood_gt, ood_euc_scores))
+    auc_collapse = float(roc_auc_score(ood_gt, ood_collapse_scores))
 
     ood_records = [
-        {"method": "FOMO-25 Representation L2 Norm", "id_cohort": "OASIS-1 Locked Test (N=30)", "ood_cohort": "ADNI Zero-Shot External (N=500)", "ood_roc_auc": round(auc_norm, 4)},
-        {"method": "MONAI Swin UNETR Predictive Entropy", "id_cohort": "OASIS-1 Locked Test (N=30)", "ood_cohort": "ADNI Zero-Shot External (N=500)", "ood_roc_auc": round(auc_entropy, 4)},
+        {"method": "FOMO-25 Regularized Mahalanobis Distance", "id_cohort": "OASIS-1 Locked Test (N=30)", "ood_cohort": "ADNI Zero-Shot External (N=500)", "ood_roc_auc": round(auc_mahal, 4), "direction": "Prospective d_M > tau"},
+        {"method": "FOMO-25 Latent Centroid Distance (Euclidean)", "id_cohort": "OASIS-1 Locked Test (N=30)", "ood_cohort": "ADNI Zero-Shot External (N=500)", "ood_roc_auc": round(auc_euc, 4), "direction": "Prospective d_2 > tau"},
+        {"method": "MONAI Swin UNETR Prediction Collapse Indicator", "id_cohort": "OASIS-1 Locked Test (N=30)", "ood_cohort": "ADNI Zero-Shot External (N=500)", "ood_roc_auc": round(auc_collapse, 4), "direction": "Prospective |p - 0.5| > tau"},
     ]
     ood_df = pd.DataFrame(ood_records)
     ood_csv = os.path.join(V3_OOD_DIR, "ood_detection_evaluation.csv")
     ood_df.to_csv(ood_csv, index=False)
     print(f"Saved OOD Detection Evaluation to: {ood_csv}")
-    print(f"  FOMO L2 Norm OOD AUC: {auc_norm:.4f}")
-    print(f"  Predictive Entropy OOD AUC: {auc_entropy:.4f}")
+    print(f"  FOMO Mahalanobis OOD AUC: {auc_mahal:.4f}")
+    print(f"  FOMO Euclidean OOD AUC: {auc_euc:.4f}")
+    print(f"  Swin UNETR Collapse OOD AUC: {auc_collapse:.4f}")
 
     # Plot OOD ROC Curve
     fig, ax = plt.subplots(figsize=(6, 5))
-    fpr_norm, tpr_norm, _ = roc_curve(ood_gt, ood_norm_scores)
-    fpr_ent, tpr_ent, _ = roc_curve(ood_gt, ood_entropy_scores)
-    ax.plot(fpr_norm, tpr_norm, label=f"FOMO Feature Norm (AUC={auc_norm:.3f})", lw=2)
-    ax.plot(fpr_ent, tpr_ent, label=f"Predictive Entropy (AUC={auc_entropy:.3f})", lw=2)
+    fpr_m, tpr_m, _ = roc_curve(ood_gt, ood_mahal_scores)
+    fpr_e, tpr_e, _ = roc_curve(ood_gt, ood_euc_scores)
+    fpr_c, tpr_c, _ = roc_curve(ood_gt, ood_collapse_scores)
+    ax.plot(fpr_m, tpr_m, label=f"FOMO Mahalanobis (AUC={auc_mahal:.3f})", lw=2)
+    ax.plot(fpr_e, tpr_e, label=f"FOMO Centroid L2 (AUC={auc_euc:.3f})", lw=2)
+    ax.plot(fpr_c, tpr_c, label=f"Swin Collapse Indicator (AUC={auc_collapse:.3f})", lw=2)
     ax.plot([0, 1], [0, 1], "k--", alpha=0.5)
-    ax.set_title("Out-of-Distribution Detection (OASIS ID vs ADNI OOD)", fontweight="bold")
+    ax.set_title("Prospective Out-of-Distribution Detection (OASIS ID vs ADNI OOD)", fontweight="bold")
     ax.set_xlabel("False Positive Rate (ID flagged as OOD)")
     ax.set_ylabel("True Positive Rate (OOD correctly identified)")
     ax.legend(loc="lower right"); ax.grid(True, alpha=0.3)

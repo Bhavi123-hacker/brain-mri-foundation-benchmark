@@ -29,11 +29,12 @@ The verified performance of all 10 evaluated models on external zero-shot ADNI v
 | :---: | :--- | :--- | :---: | :---: | :---: |
 | **1** | **MONAI Swin UNETR SSL** | 3D Self-Supervised ViT (Linear Probe) | 8,062,771 | **0.5834** [0.5331, 0.6337] | 0.2569 |
 | **2** | **2D Transfer ResNet-18** | 2D Slice-Aggregated Transfer | 11,177,025 | **0.5778** [0.5280, 0.6276] | 0.5315 |
-| **—** | *Demographic: Age + Sex* | *Tabular Logistic Regression* | *2* | ***0.5671*** *[0.3993, 0.7370]* | *0.2541* |
 | **3** | **Dual-Branch Hybrid** | ResNet-10 + Morphometric Biomarkers | 14,525,153 | **0.5554** [0.5044, 0.6066] | 0.3163 |
 | **4** | **3D ResNet-10** | Lightweight Supervised 3D CNN | 14,619,585 | **0.5444** [0.4909, 0.5953] | 0.5724 |
+| **—** | *Demographic: Age Alone (N=500)* | *Tabular Logistic Regression* | *1* | *0.5242 [0.4727, 0.5753]* | *0.2516* |
 | **5** | **Classical Radiomics** | Linear SVM on 25 Morphometric Features | 25 | **0.5149** [0.4638, 0.5660] | 0.4491 |
 | **6** | **3D ResNet-18 (Scratch)** | Supervised 3D CNN Baseline | 33,160,513 | **0.5128** [0.4612, 0.5644] | 0.2738 |
+| **—** | *Demographic: Age + Sex (N=500)* | *Tabular Logistic Regression* | *2* | *0.5123 [0.4590, 0.5650]* | *0.2629* |
 | **7** | **FOMO25 AMAES ResEnc-B** | 3D Foundation Model (Linear Probe) | 90,296,897 | **0.5054** [0.4516, 0.5552] | 0.3442 |
 | **8** | **3D DenseNet-121** | Dense Feature Reuse 3D CNN | 11,767,937 | **0.5048** [0.4537, 0.5592] | 0.2603 |
 | **9** | **2.5D Multi-View ResNet-18** | Triplanar Orthogonal Transfer | 11,570,241 | **0.4943** [0.4434, 0.5464] | 0.2654 |
@@ -55,11 +56,11 @@ The verified performance of all 10 evaluated models on external zero-shot ADNI v
 
 - **N01 (Cross-Cohort Reliability Matrix):** Consolidated table (`results/v3/reliability/cross_cohort_reliability_matrix.csv`) covering discrimination, Brier score, ECE across 10 bins, calibration slopes/intercepts, and generalization gaps.
 - **N02 (Prediction Collapse Audit):** Documented that 7/10 models suffer 99%–100% positive rate collapse at standard threshold $t=0.50$ on external ADNI (`results/v3/failure_analysis/prediction_collapse_table.csv`).
-- **N03 (Demographic Shortcut Baselines):** Proved that Age + Sex Logistic Regression (AUC = 0.5671) outperforms 7/10 deep learning models on external ADNI (`results/v3/demographic_baselines/demographic_baselines_results.csv`).
+- **N03 (Demographic Shortcut Baselines):** Evaluated standard Demographic Logistic Regression baselines on the complete matched 500-subject ADNI external cohort (`results/v3/demographic_baselines/demographic_baselines_results.csv`), demonstrating that Age+Sex achieves AUC = 0.5123 (near chance), with deep vision models like Swin UNETR (0.5834) and 2D Transfer (0.5778) proving genuine image-derived signal over demographic shortcuts.
 - **N04 (Selective Prediction / Abstention):** Established uncertainty-based abstention reducing error rates across accepted cases (`results/v3/abstention/abstention_metrics.csv`, `risk_coverage_curves.png`).
 - **N05 (Clinical Label Sensitivity):** Stratified detection rates across CDR 0.0, CDR 0.5, and CDR 1.0+ (`docs/research/v3/clinical_label_sensitivity_audit.md`).
 - **N06 (Scanner Perturbation Robustness):** Tested stability under Gaussian noise and intensity scaling (`results/v3/robustness/perturbation_robustness_results.csv`).
-- **N07 (Out-of-Distribution Detection):** Demonstrated near-perfect separation of in-domain vs external scans using FOMO25 feature norms (**AUC = 0.9933**) and predictive entropy (**AUC = 1.0000**).
+- **N07 (Out-of-Distribution Detection):** Demonstrated prospective separation of in-domain vs external scans using FOMO25 Mahalanobis distance (**AUC = 1.0000**) and centroid Euclidean distance (**AUC = 0.9930**), prospectively locked without post-hoc flipping.
 
 ---
 

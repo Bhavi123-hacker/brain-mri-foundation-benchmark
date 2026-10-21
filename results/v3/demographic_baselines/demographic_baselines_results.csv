@@ -2,9 +2,9 @@ Cohort,Model,N,ROC_AUC,ROC_AUC_95CI,Balanced_Accuracy,Brier_Score,ECE,Calibratio
 OASIS-1 Locked Test,Demographic: Age Alone,30,0.5303,"[0.3178, 0.7444]",0.5,0.25,0.0073,0.0,0.0
 OASIS-1 Locked Test,Demographic: Sex Alone,30,0.5302,"[0.3667, 0.6667]",0.5333,0.25,0.0383,0.5108,0.0267
 OASIS-1 Locked Test,Demographic: Age + Sex,30,0.528,"[0.3111, 0.7467]",0.5333,0.2503,0.0394,0.4819,0.026
-ADNI Zero-Shot External,Demographic: Age Alone,50,0.4399,"[0.2727, 0.6120]",0.5,0.251,0.067,-106.2999,2.7474
-ADNI Zero-Shot External,Demographic: Sex Alone,50,0.5206,"[0.3863, 0.6429]",0.5211,0.2543,0.0659,0.2559,-0.2488
-ADNI Zero-Shot External,Demographic: Age + Sex,50,0.5671,"[0.3993, 0.7370]",0.5211,0.2541,0.0667,0.2757,-0.2502
+ADNI Zero-Shot External,Demographic: Age Alone,500,0.5242,"[0.4727, 0.5753]",0.5,0.2516,0.1132,-0.0122,-0.4301
+ADNI Zero-Shot External,Demographic: Sex Alone,500,0.5232,"[0.4765, 0.5673]",0.5239,0.2628,0.1415,0.2614,-0.4699
+ADNI Zero-Shot External,Demographic: Age + Sex,500,0.5123,"[0.4590, 0.5650]",0.5239,0.2629,0.1418,0.2594,-0.4699
 OASIS-2 Exploratory External,Demographic: Age Alone,150,0.4682,"[0.3776, 0.5584]",0.5,0.251,0.0738,-0.0083,-0.268
 OASIS-2 Exploratory External,Demographic: Sex Alone,150,0.6239,"[0.5461, 0.7018]",0.624,0.2388,0.0858,1.4133,-0.396
 OASIS-2 Exploratory External,Demographic: Age + Sex,150,0.6346,"[0.5456, 0.7234]",0.624,0.2388,0.086,1.4135,-0.3975

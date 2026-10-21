@@ -7,16 +7,16 @@ In the primary OASIS-1 locked test set ($N=30$), 15 participants are Cognitively
 
 | Model | Specificity on CN (CDR 0.0) | Sensitivity on CDR 0.5 (Very Mild) | Sensitivity on CDR >= 1.0 (Mild/Mod) | Mean Probability CDR 0.0 | Mean Probability CDR 0.5 | Mean Probability CDR >= 1.0 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **3D ResNet-18 (Scratch Baseline)** | 40.0% | 100.0% | 100.0% | 0.534 | 0.542 | 0.553 |
-| **3D ResNet-34 (Scratch Baseline)** | 26.7% | 90.0% | 100.0% | 0.494 | 0.497 | 0.538 |
-| **2D Transfer ResNet-18 (Slice-Aggregated)** | 60.0% | 80.0% | 80.0% | 0.387 | 0.497 | 0.356 |
-| **Classical Radiomics (Linear SVM)** | 40.0% | 80.0% | 80.0% | 0.512 | 0.534 | 0.516 |
-| **MONAI Swin UNETR SSL (Linear Probe)** | 46.7% | 90.0% | 80.0% | 0.514 | 0.516 | 0.515 |
-| **FOMO25 AMAES ResEnc-B (Linear Probe)** | 66.7% | 90.0% | 0.0% | 0.432 | 0.488 | 0.377 |
-| **3D ResNet-10 (Pipeline B)** | 53.3% | 70.0% | 80.0% | 0.535 | 0.588 | 0.579 |
-| **3D DenseNet-121 (Pipeline B)** | 66.7% | 50.0% | 20.0% | 0.500 | 0.487 | 0.466 |
-| **2.5D Multi-View ResNet-18 (Pipeline B)** | 80.0% | 40.0% | 60.0% | 0.489 | 0.544 | 0.910 |
-| **Dual-Branch Hybrid (ResNet-10 + Radiomics)** | 40.0% | 90.0% | 80.0% | 0.402 | 0.422 | 0.419 |
+| **3D ResNet-18 (Scratch Baseline)** | 93.3% | 10.0% | 0.0% | 0.534 | 0.542 | 0.553 |
+| **3D ResNet-34 (Scratch Baseline)** | 66.7% | 30.0% | 60.0% | 0.494 | 0.497 | 0.538 |
+| **2D Transfer ResNet-18 (Slice-Aggregated)** | 66.7% | 30.0% | 0.0% | 0.387 | 0.497 | 0.356 |
+| **Classical Radiomics (Linear SVM)** | 80.0% | 40.0% | 20.0% | 0.512 | 0.534 | 0.516 |
+| **MONAI Swin UNETR SSL (Linear Probe)** | 6.7% | 100.0% | 100.0% | 0.514 | 0.516 | 0.515 |
+| **FOMO25 AMAES ResEnc-B (Linear Probe)** | 86.7% | 20.0% | 0.0% | 0.432 | 0.488 | 0.377 |
+| **3D ResNet-10 (Pipeline B)** | 93.3% | 20.0% | 20.0% | 0.535 | 0.588 | 0.579 |
+| **3D DenseNet-121 (Pipeline B)** | 26.7% | 60.0% | 40.0% | 0.500 | 0.487 | 0.466 |
+| **2.5D Multi-View ResNet-18 (Pipeline B)** | 86.7% | 20.0% | 20.0% | 0.489 | 0.544 | 0.910 |
+| **Dual-Branch Hybrid (ResNet-10 + Radiomics)** | 93.3% | 10.0% | 0.0% | 0.402 | 0.422 | 0.419 |
 
 ### Key Findings:
 - **CDR 0.5 Sensitivity Deficit:** Across all tested architectures, detecting very mild cognitive impairment (CDR 0.5) is markedly harder than CDR 1.0+. Most scratch 3D CNNs fail to reliably distinguish CDR 0.5 from CDR 0.0.

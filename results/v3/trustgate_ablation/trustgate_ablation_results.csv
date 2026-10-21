@@ -1,6 +1,6 @@
-Ablation_Variant,Error_Detection_AUC,AUC_95CI,AURC,Delta_AUC_vs_Full
-Full TrustGate (A + B + C + D),0.4697,"[0.4172, 0.5221]",0.3088,0.0
-Ablate A: No Margin (B + C + D),0.4674,"[0.4155, 0.5190]",0.3086,-0.0023
-Ablate B: No Feature Distance (A + C + D),0.4697,"[0.4172, 0.5221]",0.3088,0.0
-Ablate C: No Disagreement (A + B + D),0.5829,"[0.5337, 0.6306]",0.2871,0.1132
-Ablate D: No Acquisition Anomaly (A + B + C),0.4697,"[0.4172, 0.5221]",0.3088,0.0
+Ablation_Variant,Error_Detection_AUC,AUC_95CI,"pAURC_[0.5, 1.0]",Full_AURC,AURC,Delta_AUC_vs_Full
+Full TrustGate (A + B + C + D),0.4697,"[0.4172, 0.5221]",0.3088,0.647,0.3088,0.0
+Ablate A: No Margin (B + C + D),0.4674,"[0.4155, 0.5190]",0.3086,0.6481,0.3086,-0.0023
+Ablate B: No Feature Distance (A + C + D),0.4697,"[0.4172, 0.5221]",0.3088,0.647,0.3088,0.0
+Ablate C: No Disagreement (A + B + D),0.5829,"[0.5337, 0.6306]",0.2871,0.5488,0.2871,0.1132
+Ablate D: No Acquisition Anomaly (A + B + C),0.4697,"[0.4172, 0.5221]",0.3088,0.647,0.3088,0.0

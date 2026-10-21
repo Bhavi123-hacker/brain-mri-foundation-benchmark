@@ -244,14 +244,40 @@ def compute_selective_prediction_curve(
         covs.append(cov)
         risks.append(error_rate)
 
-    # Compute Area Under Risk-Coverage Curve (AURC) via robust trapezoidal integration
+    # Compute Partial Area Under Risk-Coverage Curve (pAURC) over specified coverages (e.g. [0.5, 1.0])
     risks_arr = np.array(risks)
     covs_arr = np.array(covs)
-    aurc = float(np.sum(0.5 * (risks_arr[:-1] + risks_arr[1:]) * np.abs(np.diff(covs_arr))))
+    cov_span = float(abs(covs_arr[0] - covs_arr[-1]))
+    paurc = float(np.sum(0.5 * (risks_arr[:-1] + risks_arr[1:]) * np.abs(np.diff(covs_arr))))
+    normalized_paurc = float(paurc / cov_span) if cov_span > 0 else paurc
+
+    # Also compute complete full AURC over [0.0, 1.0] by evaluating risk down to kappa -> 0
+    full_covs = np.linspace(1.0, 0.0, 101)
+    full_risks = []
+    for fc in full_covs:
+        k_f = max(1, int(round(fc * n)))
+        if fc == 0.0:
+            full_risks.append(0.0)
+        else:
+            ret_f = sorted_indices[:k_f]
+            preds_f = (y_prob[ret_f] >= threshold).astype(int)
+            full_risks.append(float(1.0 - accuracy_score(y_true[ret_f], preds_f)))
+    full_risks_arr = np.array(full_risks)
+    aurc_full = float(np.sum(0.5 * (full_risks_arr[:-1] + full_risks_arr[1:]) * np.abs(np.diff(full_covs))))
+
+    # Enrich each record with explicit labeling
+    for r in records:
+        r["paurc_05_10"] = round(paurc, 4)
+        r["aurc_full"] = round(aurc_full, 4)
+        r["normalized_paurc"] = round(normalized_paurc, 4)
+        r["aurc"] = round(paurc, 4)  # Retain for backwards compatibility
 
     return {
         "curve_records": records,
-        "aurc": round(aurc, 4),
+        "paurc_05_10": round(paurc, 4),
+        "aurc_full": round(aurc_full, 4),
+        "normalized_paurc": round(normalized_paurc, 4),
+        "aurc": round(paurc, 4),
     }
 
 

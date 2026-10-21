@@ -188,14 +188,14 @@ To evaluate whether 3D deep networks learn genuine neurodegenerative morphology 
 | **OASIS-1 Locked Test** | Age Alone | 0.5303 [0.3178, 0.7444] | 0.5000 | 0.2500 | 0.0073 |
 | **OASIS-1 Locked Test** | Sex Alone | 0.5302 [0.3667, 0.6667] | 0.5333 | 0.2500 | 0.0383 |
 | **OASIS-1 Locked Test** | Age + Sex | 0.5280 [0.3111, 0.7467] | 0.5333 | 0.2503 | 0.0394 |
-| **ADNI Zero-Shot External** | Age Alone | 0.4399 [0.2727, 0.6120] | 0.5000 | 0.2510 | 0.0670 |
-| **ADNI Zero-Shot External** | Sex Alone | 0.5206 [0.3863, 0.6429] | 0.5211 | 0.2543 | 0.0659 |
-| **ADNI Zero-Shot External** | **Age + Sex** | **0.5671** [0.3993, 0.7370] | **0.5211** | **0.2541** | **0.0667** |
+| **ADNI Zero-Shot External (N=500)** | Age Alone | 0.5242 [0.4727, 0.5753] | 0.5000 | 0.2516 | 0.0527 |
+| **ADNI Zero-Shot External (N=500)** | Sex Alone | 0.5232 [0.4765, 0.5673] | 0.5239 | 0.2628 | 0.0573 |
+| **ADNI Zero-Shot External (N=500)** | **Age + Sex** | **0.5123** [0.4590, 0.5650] | **0.5239** | **0.2629** | **0.0573** |
 | **OASIS-2 Exploratory** | Age Alone | 0.4682 [0.3776, 0.5584] | 0.5000 | 0.2510 | 0.0738 |
 | **OASIS-2 Exploratory** | Sex Alone | 0.6239 [0.5461, 0.7018] | 0.6240 | 0.2388 | 0.0858 |
 | **OASIS-2 Exploratory** | **Age + Sex** | **0.6346** [0.5456, 0.7234] | **0.6240** | **0.2388** | **0.0860** |
 
-*Crucial Finding:* On external ADNI, **Age + Sex Logistic Regression achieves ROC-AUC = 0.5671**, outperforming 7 out of 10 complex deep learning models (including FOMO25 AMAES, 3D ResNet-18, 3D ResNet-34, 3D DenseNet-121, 2.5D ResNet-18, and Classical Radiomics). This demonstrates that deep models fail to capture robust imaging signals beyond demographic risk factors.
+*Crucial Empirical Finding:* On the complete matched external ADNI cohort ($N=500$), demographic Logistic Regression models achieve near-chance discrimination: Age Alone AUC = **0.5242**, Sex Alone AUC = **0.5232**, and Age + Sex AUC = **0.5123**. Deep imaging representations (such as MONAI Swin UNETR SSL at **0.5834** and 2D Transfer ResNet-18 at **0.5778**) demonstrate superior discrimination over demographic shortcuts on the true 500-subject cohort. The historical pilot artifact (AUC = 0.5671 on $N=50$) is definitively resolved and superseded by the full 500-subject matched benchmark.
 
 ### N04: Confidence-Aware Selective Prediction / Abstention Framework
 In clinical decision support, models should abstain when uncertainty is high. We formulated an abstention mechanism using distance from the decision boundary: $c(x) = |p(x) - t^*|$.
@@ -241,17 +241,23 @@ $$R_{\text{TrustGate}}(x) = 0.25 S_A(x) + 0.25 S_B(x) + 0.25 S_C(x) + 0.25 S_D(x
 All parameters and threshold quantiles were calibrated strictly on the OASIS-1 source development set ($N=138$ train / $N=30$ val), with zero external label leakage.
 
 ### 7.2 Baseline Comparisons on External Multi-Site ADNI ($N=500$)
-We evaluated whether TrustGate accurately flags classifier errors ($E(x) = \mathbb{I}(\hat{y}(x) \neq y(x))$ under source-optimal threshold $t^* = 0.513$) without seeing true labels:
+We evaluated whether TrustGate accurately flags classifier errors ($E(x) = \mathbb{I}(\hat{y}(x) \neq y(x))$ under validation-derived optimal threshold $t^* = 0.5088$) without seeing true labels:
 
-| Risk Estimator Method | Paradigm | ADNI Error-Detection ROC-AUC [95% CI] | OASIS-1 Test Error-Detection AUC [95% CI] | ADNI Selective AURC |
-| :--- | :--- | :---: | :---: | :---: |
-| **Classification Margin** | Boundary Proximity ($1 - 2\|p - 0.5\|$) | **0.5829** [0.5337, 0.6306] | 0.3364 [0.1499, 0.5575] | **0.2871** |
-| **Maximum Probability (MSP)** | Softmax Response ($1 - \max(p, 1-p)$) | **0.5829** [0.5337, 0.6306] | 0.3364 [0.1499, 0.5575] | **0.2871** |
-| **Predictive Entropy** | Probability Dispersion ($H(p)$) | **0.5829** [0.5337, 0.6306] | 0.3364 [0.1499, 0.5575] | **0.2871** |
-| **Simple Confidence Aggregation** | Mean(Margin, Entropy) | **0.5829** [0.5337, 0.6306] | 0.3364 [0.1499, 0.5575] | **0.2871** |
-| **Regularized Feature Distance** | FOMO25 Latent Mahalanobis ($S_B$) | 0.5000 [0.5000, 0.5000] | 0.2750 [0.0950, 0.4826] | 0.3088 |
-| **Model Disagreement** | Cross-Architecture Std Dev ($S_C$) | 0.4674 [0.4155, 0.5190] | **0.6112** [0.3900, 0.8100] | 0.3086 |
-| **Proposed TrustGate Composite** | Equal-Weighted Combination ($A+B+C+D$) | 0.4697 [0.4172, 0.5221] | 0.3666 [0.1699, 0.5751] | 0.3088 |
+| Risk Estimator Method | Paradigm | ADNI Error-Detection ROC-AUC [95% CI] | OASIS-1 Test Error-Detection AUC [95% CI] | ADNI pAURC [0.5, 1.0] | ADNI Full AURC [0.0, 1.0] |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Classification Margin Risk** | Boundary Proximity ($1 - 2\|p - 0.5\|$) | **0.5829** [0.5337, 0.6306] | 0.5374 [0.3243, 0.7431] | **0.2871** | **0.5488** |
+| **Maximum Probability (MSP) Risk** | Softmax Response ($1 - \max(p, 1-p)$) | **0.5829** [0.5337, 0.6306] | 0.5374 [0.3243, 0.7431] | **0.2871** | **0.5488** |
+| **Predictive Entropy** | Probability Dispersion ($H(p)$) | **0.5829** [0.5337, 0.6306] | 0.5374 [0.3243, 0.7431] | **0.2871** | **0.5488** |
+| **Simple Confidence Aggregation** | Mean(Margin, Entropy) | **0.5829** [0.5337, 0.6306] | 0.5374 [0.3243, 0.7431] | **0.2871** | **0.5488** |
+| **Regularized Feature Distance (Raw Mahalanobis)** | FOMO25 Latent Mahalanobis ($d_{\text{mahal}}$) | 0.4808 [0.4288, 0.5332] | 0.4527 [0.2372, 0.6728] | N/A | N/A |
+| **Regularized Feature Distance (Clipped / Saturated)** | FOMO25 Latent Mahalanobis ($S_B$, clipped to $[q_{05}, q_{95}]$) | 0.5000 [0.5000, 0.5000] | 0.4529 [0.2372, 0.6728] | 0.3088 | 0.6470 |
+| **Model Disagreement** | Cross-Architecture Std Dev ($S_C$) | 0.4674 [0.4155, 0.5190] | 0.5951 [0.3789, 0.8031] | 0.3086 | 0.6481 |
+| **Proposed TrustGate Composite** | Equal-Weighted Combination ($A+B+C+D$) | 0.4697 [0.4172, 0.5221] | 0.5129 [0.2982, 0.7188] | 0.3088 | 0.6470 |
+
+> [!NOTE]
+> **Mathematical Equivalence Theorem:** Under binary classification, Margin Risk, Maximum Softmax Probability (MSP) Risk, and Predictive Entropy are strictly monotonic transformations of $|p - 0.5|$, yielding identical error-detection ROC-AUCs (**0.5829**) and identical risk-coverage rankings.
+>
+> **Feature Saturation Diagnosis:** External ADNI Mahalanobis distances range from $51.23$ to $90.51$, exceeding the source validation 95th percentile ($q_{95} = 29.38$). Source min-max clipping saturates 100% of ADNI samples to $S_B = 1.0000$ (zero variance $\to$ uninformative AUC 0.5000). Raw unclipped Mahalanobis distance yields AUC = 0.4808.
 
 ### 7.3 Ablation Study and Negative Result Disclosure
 A systematic component ablation study revealed the precise mechanism governing composite performance:

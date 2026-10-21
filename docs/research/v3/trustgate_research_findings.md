@@ -49,15 +49,25 @@ flowchart TD
 
 The table below summarizes error-detection performance across all evaluated methods on external ADNI ($N=500$, primary error rate under source-optimal threshold = 60.6%) and in-domain OASIS-1 test ($N=30$, error rate = 33.3%):
 
-| Method / Risk Estimator | Paradigm | ADNI Error-Detection ROC-AUC [95% CI] | OASIS-1 Test Error-Detection AUC [95% CI] | ADNI Selective AURC |
-| :--- | :--- | :---: | :---: | :---: |
-| **Classification Margin** | Decision Boundary Proximity ($1 - 2\|p - 0.5\|$) | **0.5829** [0.5337, 0.6306] | 0.3364 [0.1499, 0.5575] | **0.2871** |
-| **Maximum Probability (MSP)** | Softmax Response ($1 - \max(p, 1-p)$) | **0.5829** [0.5337, 0.6306] | 0.3364 [0.1499, 0.5575] | **0.2871** |
-| **Predictive Entropy** | Probability Dispersion ($H(p)$) | **0.5829** [0.5337, 0.6306] | 0.3364 [0.1499, 0.5575] | **0.2871** |
-| **Simple Confidence Aggregation** | Mean(Margin, Entropy) | **0.5829** [0.5337, 0.6306] | 0.3364 [0.1499, 0.5575] | **0.2871** |
-| **Regularized Feature Distance** | FOMO25 Latent Mahalanobis ($S_B$) | 0.5000 [0.5000, 0.5000] | 0.2750 [0.0950, 0.4826] | 0.3088 |
-| **Model Disagreement** | Cross-Architecture Std Dev ($S_C$) | 0.4674 [0.4155, 0.5190] | **0.6112** [0.3900, 0.8100] | 0.3086 |
-| **Proposed TrustGate Composite** | Equal-Weighted Convex Combination ($A+B+C+D$) | 0.4697 [0.4172, 0.5221] | 0.3666 [0.1699, 0.5751] | 0.3088 |
+| Method / Risk Estimator | Paradigm | ADNI Error-Detection ROC-AUC [95% CI] | OASIS-1 Test Error-Detection AUC [95% CI] | ADNI pAURC [0.5, 1.0] | ADNI Full AURC [0.0, 1.0] |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Classification Margin** | Decision Boundary Proximity ($1 - 2\|p - 0.5\|$) | **0.5829** [0.5337, 0.6306] | 0.5374 [0.3243, 0.7431] | **0.2871** | **0.5488** |
+| **Maximum Probability (MSP)** | Softmax Response ($1 - \max(p, 1-p)$) | **0.5829** [0.5337, 0.6306] | 0.5374 [0.3243, 0.7431] | **0.2871** | **0.5488** |
+| **Predictive Entropy** | Probability Dispersion ($H(p)$) | **0.5829** [0.5337, 0.6306] | 0.5374 [0.3243, 0.7431] | **0.2871** | **0.5488** |
+| **Simple Confidence Aggregation** | Mean(Margin, Entropy) | **0.5829** [0.5337, 0.6306] | 0.5374 [0.3243, 0.7431] | **0.2871** | **0.5488** |
+| **Regularized Feature Distance (Raw Mahalanobis)** | FOMO25 Latent Mahalanobis ($d_{\text{mahal}}$) | 0.4808 [0.4288, 0.5332] | 0.4527 [0.2372, 0.6728] | N/A | N/A |
+| **Regularized Feature Distance (Clipped / Saturated)** | FOMO25 Latent Mahalanobis ($S_B$, clipped to $[q_{05}, q_{95}]$) | 0.5000 [0.5000, 0.5000] | 0.4529 [0.2372, 0.6728] | 0.3088 | 0.6470 |
+| **Model Disagreement** | Cross-Architecture Std Dev ($S_C$) | 0.4674 [0.4155, 0.5190] | 0.5951 [0.3789, 0.8031] | 0.3086 | 0.6481 |
+| **Acquisition / Image QC Anomaly** | Foreground Std & Nonzero Fraction Dev ($S_D$) | 0.5000 [0.5000, 0.5000] | 0.5585 [0.3475, 0.7621] | N/A | N/A |
+| **Proposed TrustGate Composite** | Equal-Weighted Convex Combination ($A+B+C+D$) | 0.4697 [0.4172, 0.5221] | 0.5129 [0.2982, 0.7188] | 0.3088 | 0.6470 |
+
+> [!NOTE]
+> **Mathematical Equivalence Theorem for Binary Classification:**  
+> For any single-output binary probability prediction $p \in [0, 1]$, Classification Margin Risk ($1 - 2|p - 0.5|$), MSP Risk ($0.5 - |p - 0.5|$), and Predictive Entropy ($-p\log_2 p - (1-p)\log_2(1-p)$) are strictly monotonic transformations of the deviation $|p - 0.5|$. Because ROC-AUC and rank-based selective prediction metrics are invariant under strictly monotonic transformations, all three methods achieve mathematically identical error-detection AUC (**0.5829**) and identical risk-coverage curves.
+
+> [!WARNING]
+> **Component B Feature Saturation Diagnosis:**  
+> External ADNI Mahalanobis distances range from $51.23$ to $90.51$, with **100% of ADNI scans** exceeding the source validation 95th percentile ($q_{95} = 29.38$). When min-max standardization with $[q_{05}, q_{95}]$ clipping is applied, 100% of external scans saturate to $S_B = 1.0000$ (zero variance), yielding an uninformative ROC-AUC of **0.5000**. The raw unclipped Mahalanobis distance yields an error-detection AUC of **0.4808** (sub-chance on error discrimination).
 
 ---
 
@@ -114,7 +124,7 @@ Evaluating TrustGate flagging behavior across manufacturers and field strengths:
 | **1.5 Tesla Scanners** | 165 | 57.0% | 100.0% (165/165) | N/A | 57.0% |
 | **3.0 Tesla Scanners** | 335 | 62.4% | 100.0% (335/335) | N/A | 62.4% |
 
-At source-calibrated threshold $\tau^* = 0.6255$, every external scan across all scanner vendors and field strengths was flagged. This proves that source-calibrated distance estimators detect the global scanner shift rather than distinguishing within-cohort errors.
+At source-calibrated threshold $\tau^* = 0.6340$ (80th percentile of authentic OASIS-1 validation scores), every external scan across all scanner vendors and field strengths was flagged (100.0%, 500/500). This proves that source-calibrated distance estimators detect the global scanner shift rather than distinguishing within-cohort errors.
 
 ---
 
