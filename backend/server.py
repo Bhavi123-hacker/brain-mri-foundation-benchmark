@@ -29,6 +29,8 @@ import pandas as pd
 from PIL import Image
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
 FINAL_RESULTS_DIR = PROJECT_ROOT / "results" / "final"
 V3_RESULTS_DIR = PROJECT_ROOT / "results" / "v3"
@@ -498,9 +500,20 @@ class LiveCheckpointRunner:
                         tx_25d = torch.from_numpy(x_25d).float().unsqueeze(0).to(self.device)
                         out = m(tx_25d)
                     elif "Hybrid" in name:
-                        # DualBranch takes volume and dummy/extracted 25 radiomics
-                        rad = torch.zeros(1, 25, device=self.device)
-                        out = m(tensor_x, rad)
+                        # Genuine 6-dimensional anatomical radiomics feature extraction
+                        from preprocessing.enhanced_pipeline import AnatomicalROIExtractor
+                        extractor = AnatomicalROIExtractor()
+                        b = extractor.compute_morphometric_biomarkers(vol_array)
+                        rad_vec = np.array([
+                            b["total_brain_voxels"] / 1e5,
+                            b["ventricular_csf_voxels"] / 1e4,
+                            b["hippocampal_tissue_voxels"] / 1e4,
+                            b["ventricle_to_brain_ratio"] * 10.0,
+                            b["hippocampus_ratio"] * 10.0,
+                            b["intensity_skewness"]
+                        ], dtype=np.float32)
+                        rad_tensor = torch.from_numpy(rad_vec).unsqueeze(0).to(self.device)
+                        out = m(tensor_x, rad_tensor)
                     else:
                         out = m(tensor_x)
 
@@ -558,6 +571,19 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
         query = urllib.parse.parse_qs(parsed.query)
+
+        # 0. API: Health Check
+        if path == "/api/health":
+            self.send_json_response(200, {
+                "status": "healthy",
+                "version": "3.0.0-final",
+                "service": "SHIFT-MRI Benchmark & Inference Server",
+                "benchmarked_models": 10,
+                "adni_cohort_n": 500,
+                "oasis1_cohort_n": 416,
+                "oasis2_cohort_n": 150
+            })
+            return
 
         # 1. API: Canonical Registry
         if path == "/api/registry":
@@ -876,8 +902,8 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
                     c_max = cam_slice.max()
                     norm_cam = (cam_slice / (c_max + 1e-8)) if c_max > 0 else cam_slice
 
-                    import matplotlib.cm as cm
-                    cmap = cm.get_cmap("inferno")
+                    import matplotlib
+                    cmap = matplotlib.colormaps["inferno"]
                     colored_cam = cmap(norm_cam)
                     colored_cam[..., 3] = norm_cam * 0.65  # Alpha
 
@@ -1018,4 +1044,9 @@ def start_server(host: str = "127.0.0.1", port: int = 8000):
 
 
 if __name__ == "__main__":
-    start_server()
+    import argparse
+    parser = argparse.ArgumentParser(description="SHIFT-MRI Server")
+    parser.add_argument("--host", default="127.0.0.1", help="Host to bind")
+    parser.add_argument("--port", type=int, default=8000, help="Port to bind")
+    args = parser.parse_args()
+    start_server(host=args.host, port=args.port)
