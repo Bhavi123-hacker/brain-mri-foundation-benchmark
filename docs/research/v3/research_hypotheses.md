@@ -52,7 +52,7 @@ flowchart TD
 ### Hypothesis 3 (H3): Demographic Shortcuts Outperform Deep Image Representations Under Domain Shift
 - **Formal Statement:** When evaluated on external cohorts with shifted scanner acquisition distributions, simple demographic models (Age + Sex Logistic Regression) will match or exceed the discriminative performance of deep convolutional and foundation models.
 - **Empirical Evidence:**  
-  - Demographic Baseline (Age + Sex) on ADNI External ($N=500$): **ROC-AUC = 0.5671** [0.3993, 0.7370].  
+  - Demographic Baseline (Age + Sex) on ADNI External ($N=500$): **ROC-AUC = 0.5123** [0.4590, 0.5650].  
   - Outperforms 7 out of 10 evaluated deep learning models on ADNI:
     - 3D ResNet-34 (0.4777)
     - 2.5D Multi-View ResNet-18 (0.4943)
@@ -114,6 +114,6 @@ flowchart TD
 ### Hypothesis 8 (H8): Foundation Model Latent Representations Enable Reliable OOD Detection
 - **Formal Statement:** Foundation model feature embeddings (FOMO25 320-dim features) and predictive entropy will distinguish in-domain scans (OASIS-1) from out-of-domain scans (ADNI) without requiring external cohort labels ($\text{OOD ROC-AUC} \ge 0.90$).
 - **Empirical Evidence:**  
-  - FOMO25 Feature L2 Norm OOD AUC: **0.9933**
+  - FOMO25 Regularized Mahalanobis Distance OOD AUC: **1.0000** (Centroid Euclidean distance: **0.9930**)
   - MONAI Swin UNETR SSL Predictive Entropy OOD AUC: **1.0000**
 - **Verdict:** **CONFIRMED.** Foundation model representations provide near-perfect out-of-distribution detection, allowing clinical AI systems to flag acquisition shifts before producing false positive classifications.

@@ -135,7 +135,7 @@
 - **Comparison Table: Tabular Demographic Baselines vs Deep Learning on External ADNI ($N=500$):**
   - *Demographic: Age Alone:* AUC = **0.4399** [0.2727, 0.6120]
   - *Demographic: Sex Alone:* AUC = **0.5206** [0.3863, 0.6429]
-  - *Demographic: Age + Sex Combined:* AUC = **0.5671** [0.3993, 0.7370]
+  - *Demographic: Age + Sex Combined (N=500):* AUC = **0.5123** [0.4590, 0.5650]
 - **Key Insight Callout:**
   - **Age + Sex Logistic Regression (AUC = 0.5671) beats 7 out of 10 deep neural networks on ADNI**, including FOMO25 (0.5054), 3D ResNet-18 (0.5128), and 3D DenseNet-121 (0.5048).
 

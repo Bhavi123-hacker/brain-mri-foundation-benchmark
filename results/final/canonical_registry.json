@@ -1,0 +1,271 @@
+{
+  "benchmark_title": "SHIFT-MRI: Source-Locked, Label-Aware Cross-Cohort Reliability and Failure Analysis of Brain MRI Foundation Models",
+  "version": "3.0.0-final",
+  "date": "October 2026",
+  "verified_commit": "435daf0",
+  "environment": {
+    "os": "Windows 11",
+    "python": "3.12.10",
+    "pytorch": "2.11.0+cu128",
+    "monai": "1.6.1",
+    "gpu": "NVIDIA RTX PRO 2000 Blackwell (16 GB VRAM)"
+  },
+  "cohorts": {
+    "OASIS-1": {
+      "role": "Primary In-Domain Benchmark",
+      "sample_counts": {
+        "train": 138,
+        "val": 30,
+        "locked_test": 30,
+        "total": 198
+      },
+      "scanner": "Siemens Vision 1.5T",
+      "prevalence": 0.5
+    },
+    "ADNI": {
+      "role": "Zero-Shot Multi-Site External Cohort",
+      "sample_counts": {
+        "total": 500,
+        "CN": 229,
+        "AD": 271
+      },
+      "scanners": "GE, Siemens, Philips (1.5T & 3.0T)",
+      "prevalence": 0.542
+    },
+    "OASIS-2": {
+      "role": "Secondary Exploratory Cohort (Unverified Overlap)",
+      "sample_counts": {
+        "total": 150,
+        "CN": 85,
+        "AD": 65
+      },
+      "scanner": "Siemens Vision 1.5T",
+      "prevalence": 0.433
+    }
+  },
+  "model_rankings_adni": [
+    {
+      "rank": 1,
+      "model": "MONAI Swin UNETR SSL",
+      "auc": 0.5834,
+      "ci": [
+        0.5331,
+        0.6337
+      ],
+      "brier": 0.2569,
+      "params": 8062771
+    },
+    {
+      "rank": 2,
+      "model": "2D Transfer ResNet-18",
+      "auc": 0.5778,
+      "ci": [
+        0.528,
+        0.6276
+      ],
+      "brier": 0.5315,
+      "params": 11177025
+    },
+    {
+      "rank": 3,
+      "model": "Dual-Branch Hybrid",
+      "auc": 0.5554,
+      "ci": [
+        0.5044,
+        0.6066
+      ],
+      "brier": 0.3163,
+      "params": 14525153
+    },
+    {
+      "rank": 4,
+      "model": "3D ResNet-10",
+      "auc": 0.5444,
+      "ci": [
+        0.4909,
+        0.5953
+      ],
+      "brier": 0.5724,
+      "params": 14619585
+    },
+    {
+      "rank": "ref_demo_age",
+      "model": "Demographic: Age Alone",
+      "auc": 0.5242,
+      "ci": [
+        0.4727,
+        0.5753
+      ],
+      "brier": 0.2516,
+      "params": 1
+    },
+    {
+      "rank": 5,
+      "model": "Classical Radiomics",
+      "auc": 0.5149,
+      "ci": [
+        0.4638,
+        0.566
+      ],
+      "brier": 0.4491,
+      "params": 25
+    },
+    {
+      "rank": 6,
+      "model": "3D ResNet-18 (Scratch)",
+      "auc": 0.5128,
+      "ci": [
+        0.4612,
+        0.5644
+      ],
+      "brier": 0.2738,
+      "params": 33160513
+    },
+    {
+      "rank": "ref_demo_age_sex",
+      "model": "Demographic: Age + Sex",
+      "auc": 0.5123,
+      "ci": [
+        0.459,
+        0.565
+      ],
+      "brier": 0.2629,
+      "params": 2
+    },
+    {
+      "rank": 7,
+      "model": "FOMO25 AMAES ResEnc-B",
+      "auc": 0.5054,
+      "ci": [
+        0.4516,
+        0.5552
+      ],
+      "brier": 0.3442,
+      "params": 90296897
+    },
+    {
+      "rank": 8,
+      "model": "3D DenseNet-121",
+      "auc": 0.5048,
+      "ci": [
+        0.4537,
+        0.5592
+      ],
+      "brier": 0.2603,
+      "params": 11767937
+    },
+    {
+      "rank": 9,
+      "model": "2.5D Multi-View ResNet-18",
+      "auc": 0.4943,
+      "ci": [
+        0.4434,
+        0.5464
+      ],
+      "brier": 0.2654,
+      "params": 11570241
+    },
+    {
+      "rank": 10,
+      "model": "3D ResNet-34 (Scratch)",
+      "auc": 0.4777,
+      "ci": [
+        0.4261,
+        0.5293
+      ],
+      "brier": 0.2534,
+      "params": 63489217
+    }
+  ],
+  "trustgate_results_adni": [
+    {
+      "method": "Classification Margin Risk",
+      "auc": 0.5829,
+      "ci": [
+        0.5337,
+        0.6306
+      ],
+      "paurc_05_10": 0.2871,
+      "full_aurc": 0.5488,
+      "status": "Top error detector"
+    },
+    {
+      "method": "Maximum Probability (MSP) Risk",
+      "auc": 0.5829,
+      "ci": [
+        0.5337,
+        0.6306
+      ],
+      "paurc_05_10": 0.2871,
+      "full_aurc": 0.5488,
+      "status": "Rank-equivalent to Margin"
+    },
+    {
+      "method": "Predictive Entropy",
+      "auc": 0.5829,
+      "ci": [
+        0.5337,
+        0.6306
+      ],
+      "paurc_05_10": 0.2871,
+      "full_aurc": 0.5488,
+      "status": "Rank-equivalent to Margin"
+    },
+    {
+      "method": "Feature Distance (Raw Mahalanobis)",
+      "auc": 0.4808,
+      "ci": [
+        0.4288,
+        0.5332
+      ],
+      "status": "Sub-chance within-cohort error detection"
+    },
+    {
+      "method": "Feature Distance (Clipped / Saturated)",
+      "auc": 0.5,
+      "ci": [
+        0.5,
+        0.5
+      ],
+      "status": "100% ADNI saturated to 1.0000 (zero variance)"
+    },
+    {
+      "method": "Model Disagreement (6 Archs)",
+      "auc": 0.4674,
+      "ci": [
+        0.4155,
+        0.519
+      ],
+      "paurc_05_10": 0.3086,
+      "status": "Inverted consensus under collapse"
+    },
+    {
+      "method": "Proposed TrustGate Composite",
+      "auc": 0.4697,
+      "ci": [
+        0.4172,
+        0.5221
+      ],
+      "paurc_05_10": 0.3088,
+      "full_aurc": 0.647,
+      "status": "Negative result disclosed; degraded by disagreement"
+    }
+  ],
+  "ood_prospective_results": [
+    {
+      "method": "FOMO25 Regularized Mahalanobis Distance",
+      "auc": 1.0,
+      "direction": "Prospective d_M > tau"
+    },
+    {
+      "method": "FOMO25 Latent Centroid Euclidean Distance",
+      "auc": 0.993,
+      "direction": "Prospective d_2 > tau"
+    },
+    {
+      "method": "Swin UNETR Prediction Collapse Indicator",
+      "auc": 1.0,
+      "direction": "Prospective |p - 0.5| > tau"
+    }
+  ]
+}

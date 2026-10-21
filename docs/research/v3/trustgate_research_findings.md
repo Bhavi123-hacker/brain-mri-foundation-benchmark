@@ -22,8 +22,8 @@ TrustGate was implemented to combine four sources of risk information:
 ```mermaid
 flowchart TD
     subgraph InDomain["In-Domain (OASIS-1 Test)"]
-        DisIn["Model Disagreement Alone\nAUC = 0.6112 (Strongest)"]
-        MarIn["Margin Alone\nAUC = 0.3364 (Inverted)"]
+        DisIn["Model Disagreement Alone\nAUC = 0.5951 (Strongest)"]
+        MarIn["Margin Alone\nAUC = 0.5374"]
     end
     subgraph External["External Shifted Domain (ADNI N=500)"]
         MarExt["Classification Margin Alone\nAUC = 0.5829 [0.534, 0.631] (Strongest)\nAURC = 0.2871"]
@@ -37,7 +37,7 @@ flowchart TD
    On external multi-site ADNI ($N=500$), the strongest baseline for error detection is **Classification Margin alone** (Error-Detection ROC-AUC = **0.5829** [95% CI: 0.5337, 0.6306]; AURC = **0.2871**). The proposed prespecified equal-weighted TrustGate composite achieves an error-detection AUC of **0.4697** [95% CI: 0.4172, 0.5221] (AURC = **0.3088**).  
    *Conclusion:* Combining heterogeneous disagreement ($S_C$) and feature distance ($S_B$) with margin risk **degrades** error detection under severe domain shift compared to classification margin alone.
 2. **The Consensus Inversion Paradox:**  
-   While multi-model disagreement was the strongest error detector in-domain on OASIS-1 test (AUC = **0.6112**), its error detection inverted on external ADNI (AUC = **0.4674**). Under positive logit collapse on ADNI (where models predict positive for 99%–100% of scans), the models exhibit the *highest agreement* on false positive errors. Consequently, low disagreement falsely signals high trust on misclassified cases.
+   While multi-model disagreement was the strongest error detector in-domain on OASIS-1 test (AUC = **0.5951**), its error detection inverted on external ADNI (AUC = **0.4674**). Under positive logit collapse on ADNI (where models predict positive for 99%–100% of scans), the models exhibit the *highest agreement* on false positive errors. Consequently, low disagreement falsely signals high trust on misclassified cases.
 3. **Global OOD vs Selective Error Detection:**  
    When a rejection threshold $\tau^*$ is calibrated strictly on source validation to flag the top 20% most anomalous source scans, it flags **100.0% of external ADNI scans** (500/500). Because external scans from GE, Siemens, and Philips at 3.0T systematically drift from single-site 1.5T training scans in feature and intensity space, source-locked distance estimators act as global OOD detectors rather than fine-grained case-by-case error discriminators.
 4. **Maturity Declaration:**  

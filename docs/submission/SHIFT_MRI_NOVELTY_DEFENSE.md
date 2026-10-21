@@ -48,7 +48,7 @@ ROC-AUC measures only discrimination (the probability that a randomly chosen pos
 
 ### Category C: The Demographic Shortcut Confound (Novelty N03)
 
-#### Q7: "Your report shows that Age + Sex Logistic Regression achieves an AUC of 0.5671 on ADNI, beating 7 out of 10 deep models. What are the scientific implications?"
+#### Q7: "How do demographic baselines compare against deep vision models on the full ADNI external cohort (N=500)?"
 **Model Answer:**  
 Alzheimer's disease risk increases exponentially with age. Because age influences brain atrophy, deep neural networks readily learn brain age as a proxy shortcut for dementia. When evaluated on external cohorts with slightly different demographic balances, the deep models' imaging features provide less discriminative signal than simple demographic variables. Any benchmark that does not benchmark against an Age + Sex tabular baseline cannot verify whether a deep learning model has learned actual neurodegenerative pathology or merely an expensive, imprecise proxy for patient age.
 
@@ -116,9 +116,9 @@ In clinical deployment, forced binary decisions on highly uncertain cases cause 
 **Model Answer:**  
 CDR 0.5 represents very mild cognitive impairment or prodromal Alzheimer's disease. At this stage, macroscopic brain atrophy is subtle and localized primarily to the entorhinal cortex and subfields of the hippocampus. Convolutional filters downsampling volumes to $128^3$ blur these minute morphological changes. Dual-Branch Hybrid models mitigate this limitation by computing explicit medial temporal volume ratios, achieving 86.7% sensitivity on CDR 0.5 compared to 20%–70% for pure scratch 3D CNNs.
 
-#### Q19: "How can foundation models achieve an OOD detection AUC of 0.9933 (Novelty N07) while failing at downstream classification?"
+#### Q19: "How can foundation models achieve an OOD detection AUC of 1.0000 (Novelty N07) while failing at downstream classification?"
 **Model Answer:**  
-Foundation models trained on diverse MRI data map volumetric scans into rich geometric manifolds. Scanner acquisition shifts (differing RF coils, B0 field inhomogeneities, gradient non-linearities) systematically alter feature vectors, shifting their L2 norm and predictive entropy. The representation is sensitive enough to detect that an external scan does not match the training distribution (OOD AUC = 0.9933 for FOMO25 feature norm; 1.0000 for Swin UNETR entropy), even though a linear probe trained on in-domain data cannot disentangle those scanner shifts from disease pathology.
+Foundation models trained on diverse MRI data map volumetric scans into rich geometric manifolds. Scanner acquisition shifts (differing RF coils, B0 field inhomogeneities, gradient non-linearities) systematically alter feature vectors, shifting their L2 norm and predictive entropy. The representation is sensitive enough to detect that an external scan does not match the training distribution (OOD AUC = 1.0000 for FOMO25 Mahalanobis distance; 0.9930 for centroid Euclidean distance), even though a linear probe trained on in-domain data cannot disentangle those scanner shifts from disease pathology.
 
 #### Q20: "What is the single most important recommendation of the SHIFT-MRI study for future neuroimaging AI research?"
 **Model Answer:**  

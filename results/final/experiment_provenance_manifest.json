@@ -1,0 +1,55 @@
+{
+  "audit_metadata": {
+    "project": "SHIFT-MRI Benchmark",
+    "status": "Final Release Gate Complete",
+    "verified_commit": "435daf0",
+    "audit_date": "October 21, 2026",
+    "canonical_data_root": "results/v3/"
+  },
+  "provenance_records": [
+    {
+      "artifact": "cross_cohort_reliability_matrix.csv",
+      "path": "results/v3/reliability/cross_cohort_reliability_matrix.csv",
+      "generating_script": "scripts/run_v3_shift_mri_campaign.py",
+      "threshold_origin": "Strictly OASIS-1 validation split Youden J (N=30)",
+      "test_labels_accessed_at_threshold_selection": false,
+      "status": "Verified Canon"
+    },
+    {
+      "artifact": "prediction_collapse_table.csv",
+      "path": "results/v3/failure_analysis/prediction_collapse_table.csv",
+      "generating_script": "scripts/run_v3_shift_mri_campaign.py",
+      "status": "Verified Canon"
+    },
+    {
+      "artifact": "demographic_baselines_results.csv",
+      "path": "results/v3/demographic_baselines/demographic_baselines_results.csv",
+      "generating_script": "scripts/run_v3_shift_mri_campaign.py",
+      "cohort_definitions": "OASIS-1 Train (N=138), OASIS-1 Test (N=30), ADNI External (N=500), OASIS-2 (N=150)",
+      "matching_verified": true,
+      "status": "Verified Canon (N=500 Matched)"
+    },
+    {
+      "artifact": "trustgate_benchmark_results.csv",
+      "path": "results/v3/trustgate/trustgate_benchmark_results.csv",
+      "generating_script": "scripts/run_v3_trustgate_campaign.py",
+      "validation_split_isolation": true,
+      "feature_saturation_documented": true,
+      "status": "Verified Canon (Negative Result Disclosed)"
+    },
+    {
+      "artifact": "trustgate_risk_coverage_table.csv",
+      "path": "results/v3/trustgate/trustgate_risk_coverage_table.csv",
+      "generating_script": "scripts/run_v3_trustgate_campaign.py",
+      "metric_labeling": "Explicit pAURC_[0.5, 1.0] and Full_AURC_[0.0, 1.0]",
+      "status": "Verified Canon"
+    },
+    {
+      "artifact": "ood_detection_evaluation.csv",
+      "path": "results/v3/ood_detection/ood_detection_evaluation.csv",
+      "generating_script": "scripts/run_v3_shift_mri_campaign.py",
+      "direction_policy": "Strictly prospective non-flipped direction",
+      "status": "Verified Canon"
+    }
+  ]
+}
