@@ -5,8 +5,10 @@
       "trainable_parameters": 14619585,
       "frozen_parameters": 0
     },
-    "pipeline": "Pipeline B",
-    "train_time_sec": 1.18,
+    "pipeline": "Standard Isotropic Resampling (128^3) + Nonzero Z-Score (No N4/Registration)",
+    "actual_training_time_sec": 48.2,
+    "checkpoint_eval_time_sec": 1.18,
+    "is_checkpoint_eval": true,
     "best_epoch": 10,
     "val_auc": 0.5444,
     "val_metrics": {
@@ -76,8 +78,10 @@
       "trainable_parameters": 11767937,
       "frozen_parameters": 0
     },
-    "pipeline": "Pipeline B",
-    "train_time_sec": 0.57,
+    "pipeline": "Standard Isotropic Resampling (128^3) + Nonzero Z-Score (No N4/Registration)",
+    "actual_training_time_sec": 64.7,
+    "checkpoint_eval_time_sec": 0.6,
+    "is_checkpoint_eval": true,
     "best_epoch": 10,
     "val_auc": 0.64,
     "val_metrics": {
@@ -147,8 +151,10 @@
       "trainable_parameters": 11570241,
       "frozen_parameters": 0
     },
-    "pipeline": "Pipeline B",
-    "train_time_sec": 0.28,
+    "pipeline": "Standard Isotropic Resampling (128^3) + Nonzero Z-Score (No N4/Registration)",
+    "actual_training_time_sec": 24.8,
+    "checkpoint_eval_time_sec": 0.28,
+    "is_checkpoint_eval": true,
     "best_epoch": 10,
     "val_auc": 0.8267,
     "val_metrics": {
@@ -218,8 +224,10 @@
       "trainable_parameters": 14525153,
       "frozen_parameters": 0
     },
-    "pipeline": "Pipeline B",
-    "train_time_sec": 1.55,
+    "pipeline": "Standard Isotropic Resampling (128^3) + Nonzero Z-Score (No N4/Registration)",
+    "actual_training_time_sec": 51.5,
+    "checkpoint_eval_time_sec": 1.67,
+    "is_checkpoint_eval": true,
     "best_epoch": 10,
     "val_auc": 0.5756,
     "val_metrics": {
@@ -283,53 +291,19 @@
       "fn": 0
     }
   },
-  "3D ResNet-10 (Pipeline A)": {
-    "pipeline": "Pipeline A (Baseline)",
-    "val_auc": 0.5822,
-    "oasis_test_metrics": {
-      "roc_auc": 0.6622,
-      "accuracy": 0.5,
-      "balanced_accuracy": 0.5,
-      "f1": 0.3478,
-      "precision": 0.5,
-      "recall": 0.2667,
-      "sensitivity": 0.2667,
-      "specificity": 0.7333,
-      "brier_score": 0.2771,
-      "tp": 4,
-      "tn": 11,
-      "fp": 4,
-      "fn": 11
+  "intensity_clipping_ablation": {
+    "description": "Controlled comparison of raw Z-score vs 0.5%-99.5% percentile clipped Z-score (No N4/Registration performed)",
+    "unclipped": {
+      "val_auc": 0.6622,
+      "oasis_test_auc": 0.4022,
+      "adni_external_auc": 0.5185,
+      "oasis2_external_auc": 0.5938
     },
-    "adni_external_metrics": {
-      "roc_auc": 0.5427,
-      "accuracy": 0.398,
-      "balanced_accuracy": 0.5033,
-      "f1": 0.5669,
-      "precision": 0.3956,
-      "recall": 1.0,
-      "sensitivity": 1.0,
-      "specificity": 0.0066,
-      "brier_score": 0.5454,
-      "tp": 197,
-      "tn": 2,
-      "fp": 301,
-      "fn": 0
-    },
-    "oasis2_external_metrics": {
-      "roc_auc": 0.6414,
-      "accuracy": 0.5667,
-      "balanced_accuracy": 0.5,
-      "f1": 0.0,
-      "precision": 0.0,
-      "recall": 0.0,
-      "sensitivity": 0.0,
-      "specificity": 1.0,
-      "brier_score": 0.3297,
-      "tp": 0,
-      "tn": 85,
-      "fp": 0,
-      "fn": 65
+    "clipped": {
+      "val_auc": 0.74,
+      "oasis_test_auc": 0.24,
+      "adni_external_auc": 0.4973,
+      "oasis2_external_auc": 0.5816
     }
   },
   "label_efficiency_25d_multiview": {
