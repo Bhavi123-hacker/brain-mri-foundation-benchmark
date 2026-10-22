@@ -1,0 +1,8 @@
+[13:39:39] Initializing Experiment exp-55cb2ee5: Regression Test Run
+[13:39:39] Target Dataset: ADNI | Cohort: Zero-Shot External Multi-Site | Model: MONAI Swin UNETR SSL (Linear Probe) | Seed: 42
+[13:39:39] Loaded 500 predictions from authentic artifact: adni_external_predictions.csv
+[13:39:39] Calculating publication metrics using validation-derived threshold: t*=0.5088
+[13:39:41] Computed ROC-AUC = 0.5834 [95% CI: 0.5344 - 0.6333]
+[13:39:41] Balanced Accuracy = 0.5 | Brier Score = 0.2569
+[13:39:41] Sensitivity = 1.0 | Specificity = 0.0
+[13:39:41] Experiment execution finished successfully in 1.88s.

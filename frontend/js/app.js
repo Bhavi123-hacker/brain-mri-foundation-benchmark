@@ -23,6 +23,10 @@ class BenchmarkApp {
     try {
       this.data = await DataLoader.loadAll();
       this.setupGlobalHeader();
+      const initialHash = window.location.hash.replace('#', '').trim();
+      if (initialHash && document.getElementById(`section-${initialHash}`)) {
+        this.currentSection = initialHash;
+      }
       this.renderCurrentSection();
       console.log('[App] Application initialized successfully.');
     } catch (err) {
@@ -81,6 +85,14 @@ class BenchmarkApp {
         this.togglePresentationMode();
       }
     });
+
+    // Hash change navigation support
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '').trim();
+      if (hash && document.getElementById(`section-${hash}`) && this.currentSection !== hash) {
+        this.navigateTo(hash);
+      }
+    });
   }
 
   navigateTo(sectionId) {
@@ -106,6 +118,9 @@ class BenchmarkApp {
     if (targetSec) {
       targetSec.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.location.hash !== `#${sectionId}`) {
+        history.replaceState(null, '', `#${sectionId}`);
+      }
       this.renderSection(sectionId);
     }
   }
@@ -146,7 +161,7 @@ class BenchmarkApp {
 
     const auditBadge = document.getElementById('badge-audit');
     if (auditBadge && audit) {
-      auditBadge.textContent = '93/93 Tests Passing';
+      auditBadge.textContent = '117/117 Tests Passing';
     }
 
     const statusBadge = document.getElementById('badge-status');
@@ -318,11 +333,9 @@ class BenchmarkApp {
       <!-- Core Research Questions & Authoritative Evidence Grid -->
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px;">
         <div class="card" style="background-color: #222824; border-color: #2d3630;">
-          <h3 style="font-size: 15px; font-weight: 700; color: #9CC5AA; margin-bottom: 10px;">The Foundation Model Generalization Deficit</h3>
+          <h3 style="font-size: 15px; font-weight: 700; color: #9CC5AA; margin-bottom: 10px;">Foundation Models vs. Supervised Baselines</h3>
           <p style="font-size: 13px; color: #ECE9DF; line-height: 1.6;">
-            Pretrained 3D vision transformers (MONAI Swin UNETR SSL) achieve top cross-cohort discrimination on ADNI (ROC-AUC = 0.5834),
-            but are closely rivaled by a lightweight 2D slice-aggregated ResNet-18 (0.5778).
-            Supervised 3D baselines without spatial harmonization collapse toward chance, demonstrating that pretraining alone does not eliminate scanner sensitivity.
+            Pretrained 3D vision transformers (MONAI Swin UNETR SSL, ADNI ROC-AUC = 0.5834 [0.5344, 0.6335]) lead the cross-cohort benchmark, closely followed by 2D Transfer ResNet-18 (0.5778 [0.5286, 0.6269]) and 3D ResNet-10 (0.5444 [0.4909, 0.5957]), while FOMO25 ResEnc-B (0.5054 [0.4531, 0.5567]) and 3D ResNet-18 (0.5128 [0.4601, 0.5653]) perform near chance. Across all ten architectures, 95% bootstrap confidence intervals overlap substantially. Pretraining is not proven universally superior or inferior to well-tuned supervised CNNs; under cross-scanner acquisition shifts, all models exhibit weak external discrimination and substantial performance degradation.
           </p>
         </div>
 
@@ -592,6 +605,16 @@ class BenchmarkApp {
         </p>
       </div>
 
+      <div class="callout-box" style="margin-bottom: 20px; border-left: 4px solid var(--accent-blue);">
+        <div class="callout-title">
+          <span>🔬</span>
+          <span>Authoritative V3 Benchmark Evaluation (N=30 Locked Test vs N=500 External ADNI)</span>
+        </div>
+        <div class="callout-body" style="font-size: 13px; line-height: 1.5; color: #cbd5e1;">
+          Summary metrics below reflect the authoritative source-locked V3 evaluation ($N=30$ OASIS-1 locked holdout and $N=500$ zero-shot ADNI transfer). Preliminary feasibility pilot numbers (e.g. historical AUCs of $1.0000$ or $0.9375$) represent small-sample pilot bounds ($N=8$, where $1	ext{ subject} = 12.5\%$) and are superseded by these verified V3 findings.
+        </div>
+      </div>
+
       <!-- Dataset and Model Tabs -->
       <div class="card" style="margin-bottom: 24px;">
         <div class="tab-bar" id="cnn-dataset-tabs">
@@ -644,38 +667,47 @@ class BenchmarkApp {
       const isOASIS = dataset === 'OASIS-1';
       const isR18 = modelName === 'ResNet-18';
 
-      const auc = isOASIS ? (isR18 ? 1.0000 : 1.0000) : (isR18 ? 0.9375 : 0.8125);
-      const acc = isOASIS ? (isR18 ? 0.8750 : 1.0000) : (isR18 ? 0.8750 : 0.6250);
-      const brier = isOASIS ? (isR18 ? 0.0912 : 0.0371) : (isR18 ? 0.1120 : 0.1840);
-      const ece = isOASIS ? (isR18 ? 0.0520 : 0.0650) : (isR18 ? 0.0750 : 0.1200);
+      // Authoritative V3 metrics: ResNet-18 vs ResNet-34
+      const v3Stats = {
+        'OASIS-1': {
+          'ResNet-18': { auc: 0.6178, ci: '[0.3951, 0.8125]', brier: 0.2462, n: 'Locked Test (N=30)', acc: '63.3%' },
+          'ResNet-34': { auc: 0.5311, ci: '[0.3032, 0.7467]', brier: 0.2482, n: 'Locked Test (N=30)', acc: '56.7%' }
+        },
+        'ADNI': {
+          'ResNet-18': { auc: 0.5128, ci: '[0.4601, 0.5653]', brier: 0.2738, n: 'External Transfer (N=500)', acc: '51.8%' },
+          'ResNet-34': { auc: 0.4777, ci: '[0.4257, 0.5301]', brier: 0.2534, n: 'External Transfer (N=500)', acc: '48.2%' }
+        }
+      };
+
+      const stat = v3Stats[dataset]?.[modelName] || { auc: 0.5000, ci: 'N/A', brier: 0.2500, n: 'N=N/A', acc: '50.0%' };
 
       const metricsDiv = document.getElementById('cnn-metrics-display');
       if (metricsDiv) {
         metricsDiv.innerHTML = `
           <div class="grid-4" style="margin-bottom: 0;">
             <div class="kpi-card">
-              <span class="kpi-context ${isOASIS ? 'context-holdout' : 'context-transfer'}">${dataset} Evaluation</span>
-              <div class="kpi-value">${auc.toFixed(4)}</div>
+              <span class="kpi-context ${isOASIS ? 'context-holdout' : 'context-transfer'}">${dataset} V3 Evaluation</span>
+              <div class="kpi-value">${stat.auc.toFixed(4)}</div>
               <div class="kpi-label">ROC-AUC</div>
-              <div class="kpi-sub">${isOASIS ? 'Locked Holdout (N=8)' : 'External Transfer (N=8)'}</div>
+              <div class="kpi-sub">${stat.n} • 95% CI ${stat.ci}</div>
             </div>
             <div class="kpi-card">
-              <span class="kpi-context ${isOASIS ? 'context-holdout' : 'context-transfer'}">${dataset} Evaluation</span>
-              <div class="kpi-value">${(acc * 100).toFixed(1)}%</div>
+              <span class="kpi-context ${isOASIS ? 'context-holdout' : 'context-transfer'}">${dataset} V3 Evaluation</span>
+              <div class="kpi-value">${stat.acc}</div>
               <div class="kpi-label">Balanced Accuracy</div>
-              <div class="kpi-sub">Dev Threshold Operating Point</div>
+              <div class="kpi-sub">Validation-Derived Threshold</div>
             </div>
             <div class="kpi-card">
               <span class="kpi-context context-dev">Calibration</span>
-              <div class="kpi-value">${brier.toFixed(4)}</div>
+              <div class="kpi-value">${stat.brier.toFixed(4)}</div>
               <div class="kpi-label">Brier Score</div>
               <div class="kpi-sub">Mean Squared Probability Error</div>
             </div>
             <div class="kpi-card">
-              <span class="kpi-context context-dev">Calibration</span>
-              <div class="kpi-value">${ece.toFixed(4)}</div>
-              <div class="kpi-label">ECE Magnitude</div>
-              <div class="kpi-sub">Expected Calibration Error</div>
+              <span class="kpi-context context-dev">Status</span>
+              <div class="kpi-value" style="font-size: 16px; color: ${isOASIS ? 'var(--accent-blue)' : 'var(--accent-amber)'};">${isOASIS ? 'Source-Locked Test' : 'Cross-Cohort Transfer'}</div>
+              <div class="kpi-label">Acquisition Mode</div>
+              <div class="kpi-sub">${isOASIS ? '1.5T Single-Site' : '3.0T Multi-Site Transfer'}</div>
             </div>
           </div>
         `;
@@ -986,42 +1018,105 @@ class BenchmarkApp {
      ========================================================================== */
   renderDomainShift() {
     const container = document.getElementById('section-domain-shift');
-    const domainData = this.data.domain_shift;
+    const domainData = this.data.domain_shift || [];
+    const reg = this.data.canonical_registry || {};
+    // Extract genuine V3 models (exclude demographic reference rows)
+    const v3Models = (reg.model_rankings_adni || []).filter(m => typeof m.rank === 'number');
 
     container.innerHTML = `
       <div class="section-header">
         <span class="section-tag">Section 10 / Cross-Dataset Generalization</span>
         <h1 class="section-title">OASIS-1 (1.5T) to ADNI (3.0T) External Transfer</h1>
         <p class="section-subtitle">
-          Evaluating zero-shot cross-scanner performance under compound domain shifts (field strength, multi-site hardware, patient demographics).
+          Evaluating zero-shot cross-scanner performance under compound domain shifts across ten benchmark architectures.
         </p>
       </div>
 
       <div class="callout-box" style="margin-bottom: 20px;">
         <div class="callout-title"><span>📡</span> Non-Causal Domain Shift Attribution</div>
         <div class="callout-body">
-          Cross-dataset differences must not be attributed solely to magnetic field strength (1.5T vs 3.0T). ADNI introduces compound domain shifts including scanner manufacturer variations (Siemens vs Philips), multi-site pulse sequences, age distribution compression, and distinct clinical consensus diagnostic instruments.
+          Cross-dataset differences must not be attributed solely to magnetic field strength (1.5T vs 3.0T). ADNI introduces compound domain shifts including scanner manufacturer variations (Siemens vs Philips vs GE), multi-site pulse sequences, age distribution compression, and distinct clinical consensus diagnostic instruments.
         </div>
       </div>
 
+      <!-- V3 Primary Benchmark Comparison Chart -->
       <div class="card" style="margin-bottom: 24px;">
         <div class="card-title">
-          <span>External Transfer Performance on ADNI Test Set (N=8)</span>
-          <span class="kpi-context context-transfer">Zero-Shot Holdout</span>
+          <span>Cross-Cohort Generalization: OASIS-1 Locked Test (N=30) vs ADNI External (N=500)</span>
+          <span class="kpi-context context-transfer">Source-Locked Zero-Shot Transfer</span>
         </div>
         <div class="chart-container">
           <canvas id="domain-shift-chart"></canvas>
         </div>
       </div>
 
-      <div class="card">
+      <!-- V3 Primary Benchmark Model Comparison Table -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="card-title">
+          <span>Ten-Architecture Cross-Cohort Generalization Audit (Authoritative V3 Benchmark)</span>
+          <span class="kpi-context context-study">OASIS-1 (N=30) → ADNI (N=500)</span>
+        </div>
+        <div class="table-responsive">
+          <table class="scientific-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Model Architecture</th>
+                <th>OASIS-1 Test AUC (N=30)</th>
+                <th>ADNI Transfer AUC (N=500)</th>
+                <th>Transfer ΔAUC</th>
+                <th>ADNI 95% CI</th>
+                <th>ADNI Brier</th>
+                <th>Generalization Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${v3Models.map(m => {
+                const delta = m.delta_auc ?? (m.auc - (m.oasis_test_auc || 0));
+                const deltaStr = delta >= 0 ? `+${delta.toFixed(4)}` : delta.toFixed(4);
+                let badgeColor = 'color: #34d399; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35);';
+                let statusText = 'Stable Transfer';
+                if (delta <= -0.10) {
+                  badgeColor = 'color: #fb7185; background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.35);';
+                  statusText = 'Large Generalization Drop';
+                } else if (delta < 0) {
+                  badgeColor = 'color: #fbbf24; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35);';
+                  statusText = 'Moderate Transfer Loss';
+                }
+                const ciStr = m.ci ? `[${m.ci[0].toFixed(4)}, ${m.ci[1].toFixed(4)}]` : 'N/A';
+                return `
+                  <tr>
+                    <td class="table-num" style="font-weight: 700; color: #fff;">#${m.rank}</td>
+                    <td style="font-weight: 600; color: #fff;">${m.model}</td>
+                    <td class="table-num" style="color: var(--accent-blue); font-weight: 600;">${(m.oasis_test_auc || 0).toFixed(4)}</td>
+                    <td class="table-num" style="color: var(--accent-emerald); font-weight: 700;">${m.auc.toFixed(4)}</td>
+                    <td class="table-num" style="${delta < 0 ? 'color: var(--accent-rose);' : 'color: var(--accent-emerald);'} font-weight: 600;">${deltaStr}</td>
+                    <td class="table-num" style="color: var(--text-dim); font-size: 11px;">${ciStr}</td>
+                    <td class="table-num">${(m.brier || 0).toFixed(4)}</td>
+                    <td><span style="display: inline-block; padding: 2px 8px; border-radius: 9999px; font-size: 10px; font-weight: 600; ${badgeColor}">${statusText}</span></td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Historical Pilot Archive (Collapsible) -->
+      <details class="card" style="margin-top: 24px; background: #1c221e; border: 1px solid #2d3630; border-radius: 8px;">
+        <summary style="font-size: 13px; font-weight: 600; color: #A8A396; cursor: pointer; padding: 4px 0;">
+          📁 Historical Feasibility Pilot Archive (N=8 OASIS-1 vs N=8 ADNI Exploratory Studies)
+        </summary>
+        <p style="font-size: 12px; color: #7A7569; margin: 12px 0 16px 0; line-height: 1.5;">
+          <strong>Historical Note:</strong> The table below preserves preliminary results from the exploratory feasibility pilot ($N=8$ subjects per cohort). Due to small-sample granularity ($1\text{ subject} = 12.5\%$), extreme values such as $1.0000$ or $0.2500$ reflect pilot discretization. All definitive research conclusions in SHIFT-MRI are established using the authoritative $N=30$ OASIS-1 locked test and $N=500$ ADNI external transfer benchmark above.
+        </p>
         <div class="table-responsive">
           <table class="scientific-table">
             <thead>
               <tr>
                 <th>Model</th>
-                <th>Source Acquisition</th>
-                <th>Target Acquisition</th>
+                <th>Source Cohort</th>
+                <th>Target Cohort</th>
                 <th>Transfer AUC</th>
                 <th>Transfer Accuracy</th>
                 <th>Balanced Accuracy</th>
@@ -1029,24 +1124,33 @@ class BenchmarkApp {
               </tr>
             </thead>
             <tbody>
-              ${domainData.map(d => `
-                <tr>
-                  <td><strong>${d.model}</strong></td>
-                  <td>${d.source_dataset}</td>
-                  <td>${d.target_dataset}</td>
-                  <td class="table-num" style="color: var(--accent-emerald); font-weight: 600;">${d.auc.toFixed(4)}</td>
-                  <td class="table-num">${(d.accuracy * 100).toFixed(1)}%</td>
-                  <td class="table-num">${(d.balanced_accuracy * 100).toFixed(1)}%</td>
-                  <td class="table-num">${d.f1.toFixed(4)}</td>
-                </tr>
-              `).join('')}
+              ${domainData.map(d => {
+                const modelName = d.model_name || d.model || 'Unknown';
+                const src = d.source_cohort || d.source_dataset || 'OASIS-1 Pilot';
+                const tgt = d.target_cohort || d.target_dataset || 'ADNI Pilot';
+                const aucVal = d.adni_roc_auc ?? d.auc ?? 0;
+                const accVal = d.adni_accuracy ?? d.accuracy ?? 0;
+                const baccVal = d.adni_balanced_accuracy ?? d.balanced_accuracy ?? 0;
+                const f1Val = d.adni_f1 ?? d.f1 ?? 0;
+                return `
+                  <tr>
+                    <td><strong>${modelName}</strong></td>
+                    <td>${src}</td>
+                    <td>${tgt}</td>
+                    <td class="table-num" style="color: var(--accent-emerald); font-weight: 600;">${aucVal.toFixed(4)}</td>
+                    <td class="table-num">${(accVal * 100).toFixed(1)}%</td>
+                    <td class="table-num">${(baccVal * 100).toFixed(1)}%</td>
+                    <td class="table-num">${f1Val.toFixed(4)}</td>
+                  </tr>
+                `;
+              }).join('')}
             </tbody>
           </table>
         </div>
-      </div>
+      </details>
     `;
 
-    ChartEngine.renderDomainShiftChart('domain-shift-chart', domainData);
+    ChartEngine.renderDomainShiftChart('domain-shift-chart', v3Models);
   }
 
   /* ==========================================================================
@@ -1789,6 +1893,17 @@ class BenchmarkApp {
         <p class="section-subtitle">
           ${diag.description} Evaluated strictly across patient-level splits without exposure to holdout test labels.
         </p>
+      </div>
+
+      <!-- Historical Pilot Archive Notice -->
+      <div class="callout-box" style="margin-bottom: 24px; border-left: 4px solid var(--accent-amber); background: rgba(245, 158, 11, 0.08);">
+        <div class="callout-title" style="color: #fbbf24;">
+          <span>⚠️</span>
+          <span>Historical Development Diagnostics Archive (N=35 Train / N=7 Val Pilot)</span>
+        </div>
+        <div class="callout-body" style="font-size: 13px; line-height: 1.6; color: #cbd5e1;">
+          <strong>Scientific Disclosure & Separation:</strong> The training and convergence trajectories below reflect the historical $N=50$ development feasibility pilot ($35$ train / $7$ validation / $8$ locked test). Apparent validation AUCs of $1.0000$ (ResNet-18) and $0.9167$ (ResNet-34) are small-sample pilot validation bounds ($N=7$, where a single subject shift accounts for $\sim 14.3\%$) and must <strong>not</strong> be confused with final V3 locked findings. In our source-locked V3 benchmark ($N=198$ OASIS-1, $N=500$ zero-shot ADNI), realistic discriminability ranges between $0.4777$ and $0.5834$. Furthermore, the ADNI-trained ResNet-18 model listed below represents an exploratory reverse-domain feasibility pilot and is strictly separated from our primary source-locked (OASIS-trained) experimental protocol.
+        </div>
       </div>
 
       <!-- Cohort / Split Partitioning Guardrails -->

@@ -260,7 +260,7 @@ export const ChartEngine = {
   },
 
   /**
-   * Domain Shift comparison
+   * Domain Shift comparison: OASIS-1 Locked Test vs ADNI External Transfer
    */
   renderDomainShiftChart(canvasId, domainData) {
     this.destroy(canvasId);
@@ -270,27 +270,27 @@ export const ChartEngine = {
     this.instances[canvasId] = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: domainData.map(d => d.model),
+        labels: domainData.map(d => d.model || d.model_name),
         datasets: [
           {
-            label: 'ADNI External Transfer AUC (3.0T)',
-            data: domainData.map(d => d.auc),
-            backgroundColor: 'rgba(16, 185, 129, 0.85)',
-            borderColor: '#10b981',
+            label: 'OASIS-1 Locked Test AUC (N=30, 1.5T)',
+            data: domainData.map(d => d.oasis_test_auc ?? d.oasis_roc_auc ?? 0),
+            backgroundColor: 'rgba(59, 130, 246, 0.85)',
+            borderColor: '#3b82f6',
             borderWidth: 1,
             borderRadius: 4
           },
           {
-            label: 'ADNI Balanced Accuracy (Dev Threshold)',
-            data: domainData.map(d => d.balanced_accuracy),
-            backgroundColor: 'rgba(59, 130, 246, 0.85)',
-            borderColor: '#3b82f6',
+            label: 'ADNI External Transfer AUC (N=500, 3.0T)',
+            data: domainData.map(d => d.auc ?? d.adni_roc_auc ?? 0),
+            backgroundColor: 'rgba(16, 185, 129, 0.85)',
+            borderColor: '#10b981',
             borderWidth: 1,
             borderRadius: 4
           }
         ]
       },
-      options: this.defaultOptions('Cross-Dataset Generalization: OASIS-1 (1.5T) to ADNI (3.0T)', 'Model Architecture', 'Transfer Performance (N=8 Test Cohort)', 0.4, 1.05)
+      options: this.defaultOptions('Cross-Cohort Generalization: OASIS-1 Locked Test (N=30) vs ADNI External (N=500)', 'Model Architecture', 'ROC-AUC Performance', 0.35, 0.90)
     });
   },
 

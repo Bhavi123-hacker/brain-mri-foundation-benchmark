@@ -44,6 +44,9 @@ mimetypes.add_type("text/css", ".css")
 mimetypes.add_type("application/json", ".json")
 mimetypes.add_type("image/png", ".png")
 mimetypes.add_type("image/jpeg", ".jpg")
+mimetypes.add_type("image/jpeg", ".jpeg")
+mimetypes.add_type("image/svg+xml", ".svg")
+mimetypes.add_type("image/webp", ".webp")
 mimetypes.add_type("application/pdf", ".pdf")
 mimetypes.add_type("application/vnd.openxmlformats-officedocument.wordprocessingml.document", ".docx")
 mimetypes.add_type("application/vnd.openxmlformats-officedocument.presentationml.presentation", ".pptx")
@@ -1076,31 +1079,51 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         # Prevent traversal
         if ".." in norm:
-            return str(FRONTEND_DIR / "index.html")
+            return str(FRONTEND_DIR / "__non_existent_traversal_blocked__")
 
         if norm == "" or norm == "index.html":
             return str(FRONTEND_DIR / "index.html")
 
-        # Allowed subdirectories
+        # Canonical data directory
         if norm.startswith("data/") or norm.startswith("canonical_data/"):
             sub = norm.split("/", 1)[1]
-            return str(CANONICAL_DATA_DIR / sub)
+            target = CANONICAL_DATA_DIR / sub
+            if target.is_file():
+                return str(target)
+            return str(FRONTEND_DIR / "__missing_asset_404__")
 
+        # Submission downloads
         if norm.startswith("docs/submission/final/"):
             sub = norm.replace("docs/submission/final/", "")
             if sub in ALLOWED_DOWNLOADS:
-                return str(SUBMISSION_FINAL_DIR / sub)
+                target = SUBMISSION_FINAL_DIR / sub
+                if target.is_file():
+                    return str(target)
+            return str(FRONTEND_DIR / "__missing_asset_404__")
 
-        if norm.startswith("results/final_campaign/figures/"):
-            target = PROJECT_ROOT / norm
-            if target.exists():
-                return str(target)
+        # Authorized image, curve, and interpretability asset directories
+        authorized_prefixes = (
+            "results/final_campaign/figures/",
+            "results/final_campaign/training_diagnostics/train_vs_validation_curves/",
+            "results/final_campaign/frontend_data/interpretability/",
+            "results/final_campaign/interpretability/",
+            "results/final_campaign/foundation_adaptation/adaptation_curves/",
+        )
+        if any(norm.startswith(prefix) for prefix in authorized_prefixes):
+            allowed_exts = (".png", ".jpg", ".jpeg", ".svg", ".webp", ".json")
+            if norm.endswith(allowed_exts) and not norm.endswith((".py", ".pt", ".pth", ".csv", ".npy", ".nii", ".nii.gz", ".env")):
+                target = PROJECT_ROOT / norm
+                if target.is_file():
+                    return str(target)
+            return str(FRONTEND_DIR / "__missing_asset_404__")
 
+        # Frontend static files (js, css, icons)
         target = FRONTEND_DIR / norm
-        if target.exists() and not norm.endswith((".py", ".bat", ".ps1", ".env")):
+        if target.is_file() and not norm.endswith((".py", ".bat", ".ps1", ".env", ".csv", ".pt", ".npy", ".nii")):
             return str(target)
 
-        return str(FRONTEND_DIR / "index.html")
+        # Fallback for unknown or missing files: genuine 404 (do not return index.html)
+        return str(FRONTEND_DIR / "__missing_asset_404__")
 
     def send_json_response(self, status: int, data: dict):
         body = json.dumps(data, indent=2).encode("utf-8")
