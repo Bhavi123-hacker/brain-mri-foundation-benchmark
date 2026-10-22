@@ -1,41 +1,70 @@
 @echo off
-REM ============================================================================
-REM SHIFT-MRI Research Web Application Launcher (Windows Batch)
-REM Fair Benchmarking of Brain-MRI Foundation Models
-REM Version 3.0.0-final | October 2026
-REM ============================================================================
-
 setlocal enabledelayedexpansion
-title SHIFT-MRI Research Studio & Inference Server
+title SHIFT-MRI Research Platform Launcher
 
-cd /d "D:\ml project"
-
-echo ============================================================================
-echo   SHIFT-MRI: BRAIN MRI FOUNDATION BENCHMARK & FAILURE STUDIO
-echo   Source-Locked Cross-Cohort Reliability Benchmark
-echo ============================================================================
+echo ===============================================================================
+echo   SHIFT-MRI: Source-Locked Cross-Cohort Reliability Research Platform
+echo   Investigator: Bhavy Garg ^| VIT Chennai
+echo ===============================================================================
 echo.
 
-set PYTHON_EXE=D:\ml project\.venv\Scripts\python.exe
+:: 1. Check/Ensure Drive D: Mapping
+if not exist "D:\" (
+    echo [*] Virtual drive D: not found. Checking if E: exists...
+    if exist "E:\ml project" (
+        echo [*] Mapping E:\ to D:\ via subst for path compatibility...
+        subst D: E:\ >nul 2>&1
+        if exist "D:\" (
+            echo [OK] Virtual drive D: mapped successfully to E:\.
+        ) else (
+            echo [WARN] Could not automatically map D:. Proceeding in current directory.
+        )
+    )
+)
 
+:: Set working directory
+if exist "D:\ml project" (
+    cd /d "D:\ml project"
+) else (
+    cd /d "%~dp0"
+)
+
+:: 2. Verify Python Virtual Environment
+set "PYTHON_EXE=.venv\Scripts\python.exe"
 if not exist "%PYTHON_EXE%" (
-    echo [ERROR] Virtual environment python executable not found at:
-    echo   %PYTHON_EXE%
-    echo Please ensure the Python 3.12 virtual environment is configured.
+    echo [ERROR] Virtual environment python not found at %PYTHON_EXE%!
+    echo Please ensure the .venv directory is present.
     pause
     exit /b 1
 )
 
-echo [OK] Python Environment Verified:
-"%PYTHON_EXE%" --version
+:: 3. Verify Server Script
+if not exist "backend\server.py" (
+    echo [ERROR] backend\server.py not found in current directory (%CD%)!
+    pause
+    exit /b 1
+)
+
+:: 4. Check if Server is already running on Port 8000
+netstat -ano | findstr /R /C:":8000.*LISTENING" >nul 2>&1
+if %ERRORLEVEL% equ 0 (
+    echo [*] SHIFT-MRI Server is already active and listening on port 8000.
+) else (
+    echo [*] Launching SHIFT-MRI Background Server on http://127.0.0.1:8000 ...
+    start "" /b "%PYTHON_EXE%" backend\server.py --port 8000
+    timeout /t 3 /nobreak >nul
+)
+
+:: 5. Open Web Application in Default Browser
+echo [*] Opening research workstation in default browser...
+start http://127.0.0.1:8000
+
 echo.
-
-echo Launching SHIFT-MRI Web Application...
-echo Access URL: http://localhost:8000
+echo ===============================================================================
+echo   [OK] SHIFT-MRI Platform is Running!
+echo   URL: http://127.0.0.1:8000
+echo   Health Check: http://127.0.0.1:8000/api/health
 echo.
-
-start "" "http://localhost:8000"
-
-"%PYTHON_EXE%" run_frontend.py --port 8000
-
-pause
+echo   Press any key to close this launcher window (Server will remain active).
+echo ===============================================================================
+pause >nul

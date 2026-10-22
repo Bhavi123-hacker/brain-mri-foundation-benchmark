@@ -1,0 +1,11 @@
+{
+  "run_id": "exp-4ddc24f0",
+  "name": "PyTest OASIS-1 In-Domain Evaluation",
+  "model_name": "3D ResNet-10 (Pipeline B)",
+  "dataset": "OASIS-1",
+  "cohort": "Zero-Shot External Multi-Site",
+  "experiment_type": "external_evaluation",
+  "seed": 42,
+  "threshold": 0.686,
+  "provenance_csv": "authoritative_csv_lookup"
+}

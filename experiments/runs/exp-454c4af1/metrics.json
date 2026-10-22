@@ -1,0 +1,15 @@
+{
+  "roc_auc": 0.5444,
+  "ci_95": [
+    0.4909,
+    0.5953
+  ],
+  "balanced_accuracy": 0.5,
+  "brier_score": 0.5724,
+  "sensitivity": 1.0,
+  "specificity": 0.0,
+  "threshold_used": 0.686,
+  "sample_size": 500,
+  "positives": 197,
+  "negatives": 303
+}

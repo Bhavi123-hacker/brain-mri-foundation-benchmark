@@ -2,7 +2,12 @@
   "benchmark_title": "SHIFT-MRI: Source-Locked, Label-Aware Cross-Cohort Reliability and Failure Analysis of Brain MRI Foundation Models",
   "version": "3.0.0-final",
   "date": "October 2026",
-  "verified_commit": "435daf0",
+  "verified_commit": "934c86c",
+  "investigator": {
+    "name": "Bhavy Garg",
+    "institution": "Vellore Institute of Technology, Chennai",
+    "department": "School of Computer Science and Engineering"
+  },
   "environment": {
     "os": "Windows 11",
     "python": "3.12.10",
@@ -20,7 +25,8 @@
         "total": 198
       },
       "scanner": "Siemens Vision 1.5T",
-      "prevalence": 0.5
+      "prevalence": 0.5,
+      "clinical_label": "Clinical Dementia Rating (CDR): CDR 0 (Cognitively Normal) vs CDR >= 0.5 (Impaired)"
     },
     "ADNI": {
       "role": "Zero-Shot Multi-Site External Cohort",
@@ -29,8 +35,9 @@
         "CN": 303,
         "AD": 197
       },
-      "scanners": "GE, Siemens, Philips (1.5T & 3.0T)",
-      "prevalence": 0.394
+      "scanners": "Siemens (N=370, 1.5T/3.0T) and Philips (N=130, 3.0T)",
+      "prevalence": 0.394,
+      "clinical_label": "NINCDS-ADRDA Diagnostic Criteria: Clinically Confirmed Alzheimer's Disease (AD) vs Cognitively Normal (CN)"
     },
     "OASIS-2": {
       "role": "Secondary Exploratory Cohort (Unverified Overlap)",
@@ -40,8 +47,25 @@
         "AD": 65
       },
       "scanner": "Siemens Vision 1.5T",
-      "prevalence": 0.433
+      "prevalence": 0.433,
+      "clinical_label": "Longitudinal Clinical Dementia Rating (CDR): Nondemented vs Demented"
     }
+  },
+  "clinical_label_governance": {
+    "label_mismatch_disclosure": "OASIS-1 clinical impairment (CDR >= 0.5) reflects cognitive functional status and is not identical to ADNI's multi-modal clinical Alzheimer's disease diagnosis. Cross-cohort performance reflects joint domain and diagnostic label shift.",
+    "preprocessing_pipeline": "Standard 128^3 isotropic resampling + foreground non-zero Z-score normalization. No unverified non-linear deformation or N4 bias field correction claimed in primary benchmark."
+  },
+  "validation_derived_thresholds": {
+    "MONAI Swin UNETR SSL (Linear Probe)": 0.5088,
+    "3D ResNet-10 (Pipeline B)": 0.6860,
+    "3D DenseNet-121 (Pipeline B)": 0.4651,
+    "2.5D Multi-View ResNet-18 (Pipeline B)": 0.9741,
+    "Dual-Branch Hybrid (ResNet-10 + Radiomics)": 0.4763,
+    "FOMO25 AMAES ResEnc-B (Linear Probe)": 0.5457,
+    "3D ResNet-18 (Scratch Baseline)": 0.5725,
+    "3D ResNet-34 (Scratch Baseline)": 0.5512,
+    "2D Transfer ResNet-18 (Slice-Aggregated)": 0.6120,
+    "Classical Radiomics (Linear SVM)": 0.5693
   },
   "model_rankings_adni": [
     {
@@ -53,18 +77,20 @@
         0.6337
       ],
       "brier": 0.2569,
-      "params": 8062771
+      "params": 8062771,
+      "threshold_val": 0.5088
     },
     {
       "rank": 2,
       "model": "2D Transfer ResNet-18",
       "auc": 0.5778,
       "ci": [
-        0.528,
+        0.5280,
         0.6276
       ],
       "brier": 0.5315,
-      "params": 11177025
+      "params": 11177025,
+      "threshold_val": 0.6120
     },
     {
       "rank": 3,
@@ -75,7 +101,8 @@
         0.6066
       ],
       "brier": 0.3163,
-      "params": 14525153
+      "params": 14525153,
+      "threshold_val": 0.4763
     },
     {
       "rank": 4,
@@ -86,7 +113,8 @@
         0.5953
       ],
       "brier": 0.5724,
-      "params": 14619585
+      "params": 14619585,
+      "threshold_val": 0.6860
     },
     {
       "rank": "ref_demo_age",
@@ -97,7 +125,8 @@
         0.5753
       ],
       "brier": 0.2516,
-      "params": 1
+      "params": 1,
+      "threshold_val": 0.5000
     },
     {
       "rank": 5,
@@ -105,10 +134,11 @@
       "auc": 0.5149,
       "ci": [
         0.4638,
-        0.566
+        0.5660
       ],
       "brier": 0.4491,
-      "params": 25
+      "params": 25,
+      "threshold_val": 0.5693
     },
     {
       "rank": 6,
@@ -119,18 +149,20 @@
         0.5644
       ],
       "brier": 0.2738,
-      "params": 33160513
+      "params": 33160513,
+      "threshold_val": 0.5725
     },
     {
       "rank": "ref_demo_age_sex",
       "model": "Demographic: Age + Sex",
       "auc": 0.5123,
       "ci": [
-        0.459,
-        0.565
+        0.4590,
+        0.5650
       ],
       "brier": 0.2629,
-      "params": 2
+      "params": 2,
+      "threshold_val": 0.5000
     },
     {
       "rank": 7,
@@ -141,7 +173,8 @@
         0.5552
       ],
       "brier": 0.3442,
-      "params": 90296897
+      "params": 90296897,
+      "threshold_val": 0.5457
     },
     {
       "rank": 8,
@@ -152,7 +185,8 @@
         0.5592
       ],
       "brier": 0.2603,
-      "params": 11767937
+      "params": 11767937,
+      "threshold_val": 0.4651
     },
     {
       "rank": 9,
@@ -163,7 +197,8 @@
         0.5464
       ],
       "brier": 0.2654,
-      "params": 11570241
+      "params": 11570241,
+      "threshold_val": 0.9741
     },
     {
       "rank": 10,
@@ -174,7 +209,8 @@
         0.5293
       ],
       "brier": 0.2534,
-      "params": 63489217
+      "params": 63489217,
+      "threshold_val": 0.5512
     }
   ],
   "trustgate_results_adni": [
@@ -222,10 +258,10 @@
     },
     {
       "method": "Feature Distance (Clipped / Saturated)",
-      "auc": 0.5,
+      "auc": 0.5000,
       "ci": [
-        0.5,
-        0.5
+        0.5000,
+        0.5000
       ],
       "status": "100% ADNI saturated to 1.0000 (zero variance)"
     },
@@ -234,7 +270,7 @@
       "auc": 0.4674,
       "ci": [
         0.4155,
-        0.519
+        0.5190
       ],
       "paurc_05_10": 0.3086,
       "status": "Inverted consensus under collapse"
@@ -247,7 +283,7 @@
         0.5221
       ],
       "paurc_05_10": 0.3088,
-      "full_aurc": 0.647,
+      "full_aurc": 0.6470,
       "status": "Negative result disclosed; degraded by disagreement"
     }
   ],

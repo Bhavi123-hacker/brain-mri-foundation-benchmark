@@ -1,0 +1,8 @@
+[12:18:47] Initializing Experiment exp-4ddc24f0: PyTest OASIS-1 In-Domain Evaluation
+[12:18:47] Target Dataset: OASIS-1 | Cohort: Zero-Shot External Multi-Site | Model: 3D ResNet-10 (Pipeline B) | Seed: 42
+[12:18:47] Loaded 30 validation predictions from v3_oasis_validation_predictions.csv
+[12:18:47] Calculating publication metrics using validation-derived threshold: t*=0.6860
+[12:18:48] Computed ROC-AUC = 0.5444 [95% CI: 0.3235 - 0.756]
+[12:18:48] Balanced Accuracy = 0.5667 | Brier Score = 0.2726
+[12:18:48] Sensitivity = 0.4667 | Specificity = 0.6667
+[12:18:48] Experiment execution finished successfully in 1.13s.

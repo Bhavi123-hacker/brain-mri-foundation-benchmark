@@ -490,16 +490,7 @@ class LiveCheckpointRunner:
 
                 t0 = time.time()
                 with torch.no_grad():
-                    if "MultiView" in name:
-                        # 2.5D Multi-view expects 3 orthogonal central slices stacked
-                        mid = vol_array.shape[0] // 2
-                        sl_ax = vol_array[mid, :, :]
-                        sl_co = vol_array[:, mid, :]
-                        sl_sa = vol_array[:, :, mid]
-                        x_25d = np.stack([sl_ax, sl_co, sl_sa], axis=0) # (3, 128, 128)
-                        tx_25d = torch.from_numpy(x_25d).float().unsqueeze(0).to(self.device)
-                        out = m(tx_25d)
-                    elif "Hybrid" in name:
+                    if "Hybrid" in name:
                         # Genuine 6-dimensional anatomical radiomics feature extraction
                         from preprocessing.enhanced_pipeline import AnatomicalROIExtractor
                         extractor = AnatomicalROIExtractor()
@@ -515,6 +506,7 @@ class LiveCheckpointRunner:
                         rad_tensor = torch.from_numpy(rad_vec).unsqueeze(0).to(self.device)
                         out = m(tensor_x, rad_tensor)
                     else:
+                        # 3D ResNet-10, 3D DenseNet-121, and 2.5D Multi-View ResNet-18 all take 5D tensor (B, 1, D, H, W)
                         out = m(tensor_x)
 
                     prob = float(torch.sigmoid(out).item())
@@ -580,7 +572,7 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
                 "service": "SHIFT-MRI Benchmark & Inference Server",
                 "benchmarked_models": 10,
                 "adni_cohort_n": 500,
-                "oasis1_cohort_n": 416,
+                "oasis1_cohort_n": 198,
                 "oasis2_cohort_n": 150
             })
             return
@@ -610,13 +602,33 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.handle_api_explain(query)
             return
 
-        # 6. File Downloads (Strict Allowlist)
+        # 6. API: Experiment Lab History
+        if path == "/api/experiments/history":
+            self.handle_api_experiments_history()
+            return
+
+        # 7. API: Experiment Lab Compare
+        if path == "/api/experiments/compare":
+            self.handle_api_experiments_compare(query)
+            return
+
+        # 8. File Downloads (Strict Allowlist)
         if path.startswith("/downloads/"):
             self.handle_downloads(path)
             return
 
-        # 7. Standard static file translation
+        # 9. Standard static file translation
         super().do_GET()
+
+    def do_POST(self):
+        parsed = urllib.parse.urlparse(self.path)
+        path = parsed.path
+
+        if path == "/api/experiments/launch":
+            self.handle_api_experiments_launch()
+            return
+
+        self.send_json_response(404, {"error": f"POST endpoint '{path}' not found"})
 
     # --------------------------------------------------------------------------
     # API HANDLERS
@@ -634,6 +646,9 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
     def handle_api_scans(self, query):
         """Server-side filtering and pagination across all 848 indexed scans."""
         cohort_filter = query.get("cohort", [None])[0]
+        scanner_filter = query.get("scanner", [None])[0]
+        diagnosis_filter = query.get("diagnosis", [None])[0]
+        has_npy_filter = query.get("has_npy", [None])[0]
         search_query = query.get("search", [""])[0].strip().lower()
 
         try:
@@ -644,8 +659,16 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         filtered = []
         for s in SCAN_REPO.scans:
-            if cohort_filter and s["cohort"].upper() != cohort_filter.upper():
+            if cohort_filter and cohort_filter != "ALL" and s["cohort"].upper() != cohort_filter.upper():
                 continue
+            if scanner_filter and scanner_filter != "ALL" and scanner_filter.lower() not in s["manufacturer"].lower():
+                continue
+            if diagnosis_filter and diagnosis_filter != "ALL" and s["diagnosis"].upper() != diagnosis_filter.upper():
+                continue
+            if has_npy_filter and has_npy_filter != "ALL":
+                req_bool = has_npy_filter.lower() in ["true", "1", "yes"]
+                if s["has_npy"] != req_bool:
+                    continue
             if search_query:
                 haystack = f"{s['scan_id']} {s['subject_id']} {s['diagnosis']} {s['manufacturer']}".lower()
                 if search_query not in haystack:
@@ -676,6 +699,60 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
             "total_pages": total_pages,
             "scans": paginated_scans
         })
+
+    def handle_api_experiments_history(self):
+        """Returns all completed and active research experiment runs."""
+        try:
+            from experiments.experiment_lab import get_all_experiment_runs
+            runs = get_all_experiment_runs()
+            self.send_json_response(200, {"status": "success", "total_runs": len(runs), "runs": runs})
+        except Exception as e:
+            self.send_json_response(500, {"error": f"Failed to load experiment history: {str(e)}"})
+
+    def handle_api_experiments_compare(self, query):
+        """Compares two or more experiment runs with cross-cohort checks."""
+        try:
+            from experiments.experiment_lab import compare_experiment_runs
+            run_ids_raw = query.get("ids", [""])[0]
+            if not run_ids_raw:
+                self.send_json_response(400, {"error": "Missing 'ids' parameter (comma-separated run IDs)"})
+                return
+            ids = [x.strip() for x in run_ids_raw.split(",") if x.strip()]
+            res = compare_experiment_runs(ids)
+            self.send_json_response(200, res)
+        except Exception as e:
+            self.send_json_response(500, {"error": f"Failed to compare experiment runs: {str(e)}"})
+
+    def handle_api_experiments_launch(self):
+        """Executes a real model evaluation or audit experiment on local data."""
+        try:
+            content_len = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(content_len)
+            data = json.loads(body.decode("utf-8")) if body else {}
+
+            model_name = data.get("model_name")
+            dataset = data.get("dataset", "ADNI")
+            cohort = data.get("cohort", "Zero-Shot External Multi-Site")
+            experiment_type = data.get("experiment_type", "external_evaluation")
+            seed = int(data.get("seed", 42))
+            custom_name = data.get("name")
+
+            if not model_name:
+                self.send_json_response(400, {"error": "Missing required field 'model_name'"})
+                return
+
+            from experiments.experiment_lab import execute_evaluation_experiment
+            result = execute_evaluation_experiment(
+                model_name=model_name,
+                dataset=dataset,
+                cohort=cohort,
+                experiment_type=experiment_type,
+                seed=seed,
+                custom_name=custom_name
+            )
+            self.send_json_response(200, {"status": "success", "run": result})
+        except Exception as e:
+            self.send_json_response(500, {"error": f"Failed to launch experiment: {str(e)}"})
 
     def handle_api_slice(self, query):
         """Extracts genuine 2D orthogonal slices from authentic 3D volumes."""
@@ -753,6 +830,32 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         entry = SCAN_REPO.scan_by_id[scan_id]
 
+        tg = entry.get("trustgate")
+        if tg is None or tg.get("evaluation_status") in ["NOT_EVALUATED", "SOURCE_VALIDATION_SPLIT"]:
+            note_str = tg.get("note", "TrustGate evaluation not applicable for this cohort/split.") if tg else "Training scan; inference and failure detection not applicable."
+            tg_out = {
+                "evaluation_status": tg.get("evaluation_status", "NOT_EVALUATED") if tg else "NOT_EVALUATED",
+                "note": note_str,
+                "confidence_margin": None,
+                "confidence_margin_sa": None,
+                "mahalanobis_score": None,
+                "mahalanobis_sb": None,
+                "disagreement": None,
+                "disagreement_sc": None,
+                "qc_anomaly_sd": None,
+                "composite_risk": None,
+                "rejection_threshold_tau": 0.6340,
+                "gate_decision": "NOT EVALUATED",
+                "weights_formula": "0.25*SA + 0.25*SB + 0.25*SC + 0.25*SD"
+            }
+        else:
+            tg_out = dict(tg)
+            tg_out["confidence_margin"] = tg.get("confidence_margin_sa", tg.get("confidence_margin"))
+            tg_out["mahalanobis_score"] = tg.get("mahalanobis_sb", tg.get("mahalanobis_score"))
+            tg_out["disagreement"] = tg.get("disagreement_sc", tg.get("disagreement"))
+            tg_out["composite_risk"] = tg.get("composite_risk")
+            tg_out["gate_decision"] = tg.get("gate_decision", "EVALUATED")
+
         if mode == "live":
             # Genuine Live Checkpoint Inference
             npy_path = entry["npy_path"]
@@ -770,7 +873,8 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
                 "diagnosis": entry["diagnosis"],
                 "inference_mode": "LIVE_CHECKPOINT_INFERENCE",
                 "execution_summary": live_output,
-                "cached_reference_predictions": entry["predictions"]
+                "cached_reference_predictions": entry["predictions"],
+                "trustgate": tg_out
             }
             self.send_json_response(200, response_data)
 
@@ -786,7 +890,7 @@ class SHIFTMRIRequestHandler(http.server.SimpleHTTPRequestHandler):
                 "manufacturer": entry["manufacturer"],
                 "field_strength": entry["field_strength"],
                 "predictions": entry["predictions"],
-                "trustgate": entry["trustgate"],
+                "trustgate": tg_out,
                 "inference_mode": "CACHED_VERIFIED_PREDICTION",
                 "provenance": entry.get("provenance", {})
             }

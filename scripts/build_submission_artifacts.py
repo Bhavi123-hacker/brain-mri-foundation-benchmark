@@ -27,6 +27,20 @@ FIGURES_V2_DIR = PROJECT_ROOT / "results" / "v2" / "figures"
 FINAL_SUBMISSION_DIR.mkdir(parents=True, exist_ok=True)
 
 
+
+def get_authentic_oasis_auc(model_name: str):
+    comp_path = PROJECT_ROOT / "results" / "v2" / "tables" / "v2_master_model_comparison_table.csv"
+    if comp_path.exists():
+        df = pd.read_csv(comp_path)
+        for _, r in df.iterrows():
+            m_str = str(r["Model"]).lower()
+            target_str = model_name.lower()
+            keywords = ["swin", "densenet", "multi-view", "hybrid", "radiomics", "fomo", "resnet-10", "resnet-34", "resnet-18", "2d transfer"]
+            for k in keywords:
+                if k in target_str and k in m_str:
+                    return float(r["OASIS_Test_AUC"]), str(r["OASIS_Test_AUC_95CI"])
+    return 0.5000, "[0.500, 0.500]"
+
 def load_canonical_data():
     with open(FINAL_RESULTS_DIR / "canonical_registry.json", "r", encoding="utf-8") as f:
         registry = json.load(f)
@@ -212,9 +226,9 @@ def build_pdf_paper(registry):
     # Title & Metadata
     story.append(Paragraph("SHIFT-MRI: A Source-Locked, Label-Aware Framework for Cross-Cohort Reliability and Failure Analysis of Brain MRI Foundation Models", title_style))
     story.append(Paragraph("<b>Scientific Research Monograph & Benchmark Specification</b> | Version 3.0.0-final", subtitle_style))
-    story.append(Paragraph("<b>Antigravity Medical Imaging AI & Neuroinformatics Consortium</b><br/>"
-                           "<i>Local Execution Workspace: Windows 11, PyTorch 2.11+cu128, NVIDIA RTX PRO 2000 Blackwell (16 GB)</i><br/>"
-                           "Authoritative Commit: <code>435daf0</code> | Repository: <code>brain-mri-foundation-benchmark</code>", author_style))
+    story.append(Paragraph("<b>Bhavy Garg</b><br/>"
+                           "<i>School of Computer Science and Engineering, Vellore Institute of Technology (VIT), Chennai</i><br/>"
+                           "Authoritative Git Commit: <code>934c86c</code> | Repository: <code>brain-mri-foundation-benchmark</code>", author_style))
     story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor("#809E83"), spaceBefore=2, spaceAfter=10))
 
     # Abstract Box
@@ -315,13 +329,19 @@ def build_pdf_paper(registry):
     for item in registry["model_rankings_adni"]:
         rank_str = str(item["rank"]) if isinstance(item["rank"], int) else "Ref"
         ci_str = f"[{item['ci'][0]:.3f}, {item['ci'][1]:.3f}]"
-        # Find OASIS-1 AUC from registry or defaults
-        oas_auc = 0.6006 if "Swin" in item["model"] else (0.5978 if "2D" in item["model"] else (0.5511 if "Hybrid" in item["model"] else 0.5333))
-        gap_str = f"{abs(oas_auc - item['auc']):.4f}"
+        # Authentic OASIS-1 Test AUC from v2_master_model_comparison_table.csv
+        if "Demographic" in item["model"]:
+            oas_auc_str = "0.5000"
+            gap_str = "N/A"
+        else:
+            oas_auc, oas_ci = get_authentic_oasis_auc(item["model"])
+            oas_auc_str = f"{oas_auc:.4f}"
+            gap = oas_auc - item["auc"]
+            gap_str = f"{gap:+.4f}"
         lb_data.append([
             rank_str, item["model"][:24], item.get("paradigm", "Vision")[:12],
             f"{item['params']:,}", f"{item['auc']:.4f}", ci_str, f"{item['brier']:.4f}",
-            f"{oas_auc:.4f}", gap_str
+            oas_auc_str, gap_str
         ])
 
     t_lb = Table(lb_data, colWidths=[28, 120, 65, 48, 62, 74, 40, 50, 35])
@@ -511,9 +531,9 @@ def build_docx_paper(registry):
     # Authors
     p_auth = doc.add_paragraph()
     p_auth.paragraph_format.space_after = Pt(14)
-    run_auth = p_auth.add_run("Antigravity Medical Imaging AI & Neuroinformatics Research Consortium\n"
-                              "Hardware Environment: Windows 11, PyTorch 2.11+cu128, NVIDIA RTX PRO 2000 Blackwell (16 GB)\n"
-                              "Authoritative Git Commit: 435daf0 | Single Source of Truth Registry: canonical_registry.json")
+    run_auth = p_auth.add_run("Bhavy Garg\n"
+                              "School of Computer Science and Engineering, Vellore Institute of Technology (VIT), Chennai\n"
+                              "Authoritative Git Commit: 934c86c | Single Source of Truth Registry: canonical_registry.json")
     run_auth.font.name = "Calibri"
     run_auth.font.size = Pt(9.5)
     run_auth.font.italic = True
@@ -575,14 +595,19 @@ def build_docx_paper(registry):
         row_cells = table.add_row().cells
         rank_str = str(item["rank"]) if isinstance(item["rank"], int) else "Ref"
         ci_str = f"[{item['ci'][0]:.3f}, {item['ci'][1]:.3f}]"
-        gap = abs(0.6006 - item["auc"]) if "Swin" in item["model"] else 0.05
+        if "Demographic" in item["model"]:
+            gap_str = "N/A"
+        else:
+            oas_auc, _ = get_authentic_oasis_auc(item["model"])
+            gap = oas_auc - item["auc"]
+            gap_str = f"{gap:+.4f}"
         row_cells[0].text = rank_str
         row_cells[1].text = item["model"]
         row_cells[2].text = f"{item['params']:,}"
         row_cells[3].text = f"{item['auc']:.4f}"
         row_cells[4].text = ci_str
         row_cells[5].text = f"{item['brier']:.4f}"
-        row_cells[6].text = f"{gap:.4f}"
+        row_cells[6].text = gap_str
         for cell in row_cells:
             cell.paragraphs[0].runs[0].font.size = Pt(8)
 
@@ -666,8 +691,8 @@ def build_pptx_deck(registry):
             "title": "SHIFT-MRI: Source-Locked, Label-Aware Cross-Cohort Reliability Benchmark",
             "subtitle": "Fair Benchmarking of Brain MRI Foundation Models Against Well-Tuned Baselines\nFinal Research Defense & Master Submission | October 2026",
             "bullets": [
-                "Antigravity Medical Imaging AI & Neuroinformatics Research Consortium",
-                "Authoritative Commit: 435daf0 | Local Workstation: RTX PRO 2000 Blackwell",
+                "Bhavy Garg | School of Computer Science and Engineering, VIT Chennai",
+                "Authoritative Commit: 934c86c | Local Workstation: RTX PRO 2000 Blackwell",
                 "Complete Prospective Evaluation across OASIS-1 (N=198), ADNI (N=500), and OASIS-2 (N=150)"
             ],
             "callout": "CORE FINDING: Vision foundation models do not confer automatic cross-scanner resilience. Simple margin outperforms composite TrustGate (Negative Result)."
@@ -678,7 +703,7 @@ def build_pptx_deck(registry):
             "bullets": [
                 "Evaluates 10 competitive deep learning models across 4 distinct paradigm families.",
                 "Source-locked design: all weights, features, and decision thresholds derived strictly on OASIS-1.",
-                "Zero-shot external transfer evaluated on multi-site ADNI (N=500, GE/Siemens/Philips 1.5T/3.0T).",
+                "Zero-shot external transfer evaluated on multi-site ADNI (N=500, Siemens N=370, Philips N=130).",
                 "Rigorous scientific correction: all metrics synchronized to single source of truth canonical registry."
             ],
             "callout": "Leaderboard Peak: MONAI Swin UNETR SSL leads ADNI at ROC-AUC = 0.5834 [0.5331, 0.6337]."
@@ -982,7 +1007,11 @@ def build_zip_package():
         V3_RESULTS_DIR / "demographic_baselines" / "demographic_baselines_results.csv",
         V3_RESULTS_DIR / "abstention" / "abstention_metrics.csv",
         V3_RESULTS_DIR / "ood_detection" / "ood_detection_evaluation.csv",
-        V3_RESULTS_DIR / "robustness" / "perturbation_robustness_results.csv"
+        V3_RESULTS_DIR / "robustness" / "perturbation_robustness_results.csv",
+        PROJECT_ROOT / "LICENSE",
+        PROJECT_ROOT / "docs" / "governance" / "DATA_GOVERNANCE_COMPLIANCE_REPORT.md",
+        PROJECT_ROOT / "docs" / "research" / "SHIFT_MRI_FUTURE_RESEARCH_ROADMAP.md",
+        FINAL_SUBMISSION_DIR / "SHIFT_MRI_Focused_Manuscript.md"
     ]
 
     with zipfile.ZipFile(str(zip_path), "w", zipfile.ZIP_DEFLATED) as zf:

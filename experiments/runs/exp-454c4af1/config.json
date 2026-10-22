@@ -1,0 +1,11 @@
+{
+  "run_id": "exp-454c4af1",
+  "name": "Lab Run: 3D ResNet-10 (Pipeline B) on ADNI (Seed 42)",
+  "model_name": "3D ResNet-10 (Pipeline B)",
+  "dataset": "ADNI",
+  "cohort": "Zero-Shot External Multi-Site",
+  "experiment_type": "external_evaluation",
+  "seed": 42,
+  "threshold": 0.686,
+  "provenance_csv": "authoritative_csv_lookup"
+}

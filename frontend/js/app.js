@@ -242,6 +242,12 @@ class BenchmarkApp {
       case 'downloads-hub':
         this.renderDownloadsHub();
         break;
+      case 'experiment-lab':
+        this.renderExperimentLab();
+        break;
+      case 'future-research':
+        this.renderFutureResearch();
+        break;
       default:
         console.warn(`[App] Unknown section: ${sectionId}`);
     }
@@ -2427,160 +2433,202 @@ window.addEventListener('DOMContentLoaded', () => {
   app.init();
 
   // ==========================================================================
-  // SHIFT-MRI RESEARCH STUDIO: 1. ORTHOGONAL MRI EXPLORER & LIVE INFERENCE
-  // ==========================================================================
-
-  async renderMRIExplorer() {
+    /* ==========================================================================
+     SHIFT-MRI RESEARCH STUDIO: 1. INTERACTIVE ORTHOGONAL MRI EXPLORER
+     ========================================================================== */
+  renderMRIExplorer() {
     const container = document.getElementById('section-mri-explorer');
     if (!container) return;
 
     container.innerHTML = `
       <div class="section-header">
         <div class="section-tag" style="color: #9CC5AA; background: rgba(156,197,170,0.1); border-color: #809E83;">
-          Neuroscience Workstation • Authentic 3D Scans
+          Neuroscience Workstation ? 848 Verified Volumetric Scans
         </div>
-        <h1 class="section-title">Interactive Orthogonal MRI Explorer & Live Inference</h1>
+        <h1 class="section-title">Interactive Orthogonal MRI Explorer & Multi-Model Inference</h1>
         <p class="section-desc">
-          Explore real 3D brain MRI volumes across OASIS-1, ADNI, and OASIS-2. Synchronously inspect orthogonal planes
-          (Axial, Coronal, Sagittal) and execute multi-model predictions with SHIFT-MRI TrustGate failure risk evaluation.
+          Inspect authentic 3D brain MRI volumes across OASIS-1 (N=198), ADNI (N=500), and OASIS-2 (N=150).
+          Browse scans with server-side pagination, evaluate dual-mode inference (Cached vs Live Checkpoint), and audit SHIFT-MRI TrustGate reliability.
         </p>
       </div>
 
-      <!-- Scan Selector Bar -->
-      <div class="card" style="margin-bottom: 20px; background-color: #222824; border-color: #2d3630;">
-        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;">
-          <div style="display: flex; gap: 12px; align-items: center; flex: 1;">
-            <div>
-              <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px;">Cohort Filter</label>
-              <select id="mri-cohort-select" style="background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 6px 10px; font-size: 12px;">
-                <option value="ADNI" selected>ADNI External Cohort (N=500, Multi-Site)</option>
-                <option value="OASIS-1">OASIS-1 In-Domain Cohort (N=198, Siemens 1.5T)</option>
-                <option value="OASIS-2">OASIS-2 Secondary Cohort (N=150, Exploratory)</option>
-              </select>
-            </div>
-            <div style="flex: 1; max-width: 400px;">
-              <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px;">Select Brain Scan</label>
-              <select id="mri-scan-select" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 6px 10px; font-size: 12px;">
-                <option value="">Loading scan registry...</option>
-              </select>
-            </div>
+      <!-- Advanced Filter & Pagination Control Bar -->
+      <div class="card" style="margin-bottom: 20px; background-color: #222824; border-color: #2d3630; padding: 18px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 14px;">
+          <div>
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Cohort</label>
+            <select id="mri-cohort-select" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 6px 10px; font-size: 12px;">
+              <option value="ADNI" selected>ADNI External (N=500, Multi-Site)</option>
+              <option value="OASIS-1">OASIS-1 In-Domain (N=198, Siemens 1.5T)</option>
+              <option value="OASIS-2">OASIS-2 Exploratory (N=150, Siemens 1.5T)</option>
+              <option value="ALL">All Cohorts (N=848 Total)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Scanner Manufacturer</label>
+            <select id="mri-scanner-select" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 6px 10px; font-size: 12px;">
+              <option value="ALL" selected>All Scanners (Siemens & Philips)</option>
+              <option value="Siemens">Siemens (N=568 Scans)</option>
+              <option value="Philips">Philips (N=130 Scans)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Clinical Diagnosis</label>
+            <select id="mri-diagnosis-select" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 6px 10px; font-size: 12px;">
+              <option value="ALL" selected>All Diagnoses</option>
+              <option value="CN">Cognitively Normal (CN)</option>
+              <option value="AD">Impaired / AD</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Search Scan / Subject</label>
+            <input id="mri-search-input" type="text" placeholder="e.g. 002_S_0295 or OAS1_0001" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 6px 10px; font-size: 12px;">
+          </div>
+        </div>
+
+        <!-- Scan Selection & Pagination Controls -->
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; border-top: 1px solid #2d3630; padding-top: 12px;">
+          <div style="flex: 2; min-width: 280px;">
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Active Volume</label>
+            <select id="mri-scan-select" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 7px 10px; font-size: 12px; font-family: var(--font-mono);">
+              <option value="">Loading scans...</option>
+            </select>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button id="mri-page-prev" class="btn btn-secondary" style="background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer;">&larr; Prev</button>
+            <span id="mri-page-indicator" style="font-size: 12px; color: #A8A396; font-family: var(--font-mono);">Page 1 / 10</span>
+            <button id="mri-page-next" class="btn btn-secondary" style="background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; padding: 6px 12px; border-radius: 6px; font-size: 12px; cursor: pointer;">Next &rarr;</button>
           </div>
 
           <div id="mri-scan-metadata-badge" style="display: flex; gap: 8px;">
             <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Scanner: Loading...</span>
-            <span class="badge" style="background: #1c221e; color: #C7A97A; border: 1px solid #3d4a41;">Ground Truth: Loading...</span>
+            <span class="badge" style="background: #1c221e; color: #C7A97A; border: 1px solid #3d4a41;">Diagnosis: Loading...</span>
           </div>
         </div>
       </div>
 
       <!-- Orthogonal 3-Plane MRI Slices Grid -->
-      <div class="mri-orthogonal-grid">
+      <div class="mri-orthogonal-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px;">
         <!-- Axial Viewport -->
-        <div class="mri-viewport-card">
-          <div class="mri-viewport-header">
-            <span>Axial Plane (Transverse)</span>
-            <span id="mri-axial-badge" class="mri-slice-badge">Z: 64/128</span>
+        <div class="mri-viewport-card" style="background: #222824; border: 1px solid #2d3630; border-radius: 8px; padding: 12px;">
+          <div class="mri-viewport-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 13px; font-weight: 600; color: #ECE9DF;">Axial (Transverse)</span>
+            <span id="mri-axial-badge" class="mri-slice-badge" style="font-family: var(--font-mono); font-size: 11px; background: #1c221e; padding: 2px 6px; border-radius: 4px; color: #9CC5AA;">Z: 64/128</span>
           </div>
-          <div class="mri-slice-canvas-wrap">
-            <img id="mri-img-axial" class="mri-slice-img" src="" alt="Axial MRI Slice">
+          <div class="mri-slice-canvas-wrap" style="background: #000; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 240px;">
+            <img id="mri-img-axial" class="mri-slice-img" src="" alt="Axial MRI Slice" style="width: 100%; height: auto; max-height: 280px; object-fit: contain;">
           </div>
-          <div class="mri-slice-controls">
-            <div class="mri-slider-row">
-              <label>Slice</label>
-              <input id="mri-slider-axial" type="range" min="0" max="127" value="64">
+          <div class="mri-slice-controls" style="margin-top: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <label style="font-size: 11px; color: #A8A396;">Slice</label>
+              <input id="mri-slider-axial" type="range" min="0" max="127" value="64" style="flex: 1;">
             </div>
           </div>
         </div>
 
         <!-- Coronal Viewport -->
-        <div class="mri-viewport-card">
-          <div class="mri-viewport-header">
-            <span>Coronal Plane (Frontal)</span>
-            <span id="mri-coronal-badge" class="mri-slice-badge">Y: 64/128</span>
+        <div class="mri-viewport-card" style="background: #222824; border: 1px solid #2d3630; border-radius: 8px; padding: 12px;">
+          <div class="mri-viewport-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 13px; font-weight: 600; color: #ECE9DF;">Coronal (Frontal)</span>
+            <span id="mri-coronal-badge" class="mri-slice-badge" style="font-family: var(--font-mono); font-size: 11px; background: #1c221e; padding: 2px 6px; border-radius: 4px; color: #9CC5AA;">Y: 64/128</span>
           </div>
-          <div class="mri-slice-canvas-wrap">
-            <img id="mri-img-coronal" class="mri-slice-img" src="" alt="Coronal MRI Slice">
+          <div class="mri-slice-canvas-wrap" style="background: #000; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 240px;">
+            <img id="mri-img-coronal" class="mri-slice-img" src="" alt="Coronal MRI Slice" style="width: 100%; height: auto; max-height: 280px; object-fit: contain;">
           </div>
-          <div class="mri-slice-controls">
-            <div class="mri-slider-row">
-              <label>Slice</label>
-              <input id="mri-slider-coronal" type="range" min="0" max="127" value="64">
+          <div class="mri-slice-controls" style="margin-top: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <label style="font-size: 11px; color: #A8A396;">Slice</label>
+              <input id="mri-slider-coronal" type="range" min="0" max="127" value="64" style="flex: 1;">
             </div>
           </div>
         </div>
 
         <!-- Sagittal Viewport -->
-        <div class="mri-viewport-card">
-          <div class="mri-viewport-header">
-            <span>Sagittal Plane (Lateral)</span>
-            <span id="mri-sagittal-badge" class="mri-slice-badge">X: 64/128</span>
+        <div class="mri-viewport-card" style="background: #222824; border: 1px solid #2d3630; border-radius: 8px; padding: 12px;">
+          <div class="mri-viewport-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 13px; font-weight: 600; color: #ECE9DF;">Sagittal (Lateral)</span>
+            <span id="mri-sagittal-badge" class="mri-slice-badge" style="font-family: var(--font-mono); font-size: 11px; background: #1c221e; padding: 2px 6px; border-radius: 4px; color: #9CC5AA;">X: 64/128</span>
           </div>
-          <div class="mri-slice-canvas-wrap">
-            <img id="mri-img-sagittal" class="mri-slice-img" src="" alt="Sagittal MRI Slice">
+          <div class="mri-slice-canvas-wrap" style="background: #000; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 240px;">
+            <img id="mri-img-sagittal" class="mri-slice-img" src="" alt="Sagittal MRI Slice" style="width: 100%; height: auto; max-height: 280px; object-fit: contain;">
           </div>
-          <div class="mri-slice-controls">
-            <div class="mri-slider-row">
-              <label>Slice</label>
-              <input id="mri-slider-sagittal" type="range" min="0" max="127" value="64">
+          <div class="mri-slice-controls" style="margin-top: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <label style="font-size: 11px; color: #A8A396;">Slice</label>
+              <input id="mri-slider-sagittal" type="range" min="0" max="127" value="64" style="flex: 1;">
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Viewer Controls Toolbar -->
-      <div class="card" style="margin-bottom: 24px; padding: 12px 18px; background-color: #1c221e; border-color: #2d3630; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;">
-        <div style="display: flex; gap: 16px; align-items: center;">
-          <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; cursor: pointer; color: #ECE9DF;">
+      <!-- Controls: Heatmap & Inference Mode -->
+      <div class="card" style="margin-bottom: 24px; background-color: #222824; border-color: #2d3630; padding: 14px 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 18px;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #ECE9DF; cursor: pointer;">
             <input type="checkbox" id="mri-toggle-heatmap" style="accent-color: #9CC5AA;">
-            <span>Overlay Grad-CAM / Saliency Map</span>
+            <span>Overlay Authentic 3D Grad-CAM (ResNet-10)</span>
           </label>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #A8A396;">
+            <span>Mode:</span>
+            <label style="display: flex; align-items: center; gap: 4px; color: #ECE9DF; cursor: pointer;">
+              <input type="radio" name="mri-mode" value="cached" checked style="accent-color: #9CC5AA;"> Cached Research Artifacts
+            </label>
+            <label style="display: flex; align-items: center; gap: 4px; color: #ECE9DF; cursor: pointer;">
+              <input type="radio" name="mri-mode" value="live" style="accent-color: #9CC5AA;"> Live Checkpoint (CUDA)
+            </label>
+          </div>
         </div>
+
         <button id="btn-run-mri-inference" class="btn btn-primary" style="background: linear-gradient(135deg, #809E83, #9CC5AA); color: #181B19; font-weight: 700; border: none; padding: 8px 18px; border-radius: 6px; cursor: pointer;">
-          ⚡ Run Multi-Model Inference & TrustGate Evaluation
+          &#9654; Run Multi-Model Inference & TrustGate
         </button>
       </div>
 
-      <!-- Live Multi-Model Inference & TrustGate Panel -->
-      <div id="mri-inference-container" class="inference-live-card">
-        <h3 style="font-size: 15px; font-weight: 700; color: #ECE9DF; margin-bottom: 12px;">Multi-Model Predictions & Risk Diagnostics</h3>
-        <p style="font-size: 12px; color: #A8A396; margin-bottom: 16px;">
-          Comparing model-predicted probabilities against the validation-locked decision threshold (t* = 0.5088).
-        </p>
+      <!-- Multi-Model Predictions & TrustGate Panel -->
+      <div id="mri-inference-container" class="card" style="background: #222824; border-color: #2d3630; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 15px; font-weight: 700; color: #ECE9DF; margin: 0;">Multi-Model Predictions & Failure Diagnostics</h3>
+          <span id="mri-provenance-tag" style="font-size: 11px; font-family: var(--font-mono); color: #A8A396; background: #1c221e; padding: 3px 8px; border-radius: 4px;">
+            Provenance: Authoritative Verified CSV
+          </span>
+        </div>
 
         <!-- Dynamic TrustGate Decision Banner -->
-        <div id="trustgate-decision-banner" class="trustgate-status-banner accepted">
+        <div id="trustgate-decision-banner" class="trustgate-status-banner accepted" style="background: #1c221e; border: 1px solid #3d4a41; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <strong>TRUSTGATE EVALUATION:</strong> <span id="tg-banner-status">Select a scan and click Run Inference</span>
+            <strong>TRUSTGATE EVALUATION:</strong> <span id="tg-banner-status">Select a scan and click Run Multi-Model Inference</span>
           </div>
-          <div id="tg-banner-metric" style="font-family: var(--font-mono); font-size: 12px;"></div>
+          <div id="tg-banner-metric" style="font-family: var(--font-mono); font-size: 12px; color: #C7A97A;"></div>
         </div>
 
         <!-- 10 Model Probabilities Grid -->
-        <div id="mri-model-bars" style="display: flex; flex-direction: column; gap: 6px; margin-top: 14px;">
-          <div style="color: #A8A396; font-size: 12px;">Click "Run Multi-Model Inference" to execute evaluation.</div>
-        </div>
+        <div id="mri-model-bars" style="margin-bottom: 24px;"></div>
 
         <!-- TrustGate Risk Breakdown -->
-        <div class="trustgate-grid" style="margin-top: 20px;">
-          <div class="trustgate-metric-box">
-            <div class="metric-name">Confidence Margin (S_A)</div>
-            <div id="tg-metric-margin" class="metric-val">-</div>
-            <div style="font-size: 10px; color: #9CC5AA; margin-top: 4px;">Top Error Detector (0.5829)</div>
+        <div class="trustgate-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+          <div class="trustgate-metric-box" style="background: #1c221e; border: 1px solid #2d3630; border-radius: 6px; padding: 12px;">
+            <div class="metric-name" style="font-size: 11px; color: #A8A396; margin-bottom: 4px;">Confidence Margin (S_A)</div>
+            <div id="tg-metric-margin" class="metric-val" style="font-size: 18px; font-weight: 700; color: #ECE9DF; font-family: var(--font-mono);">-</div>
+            <div style="font-size: 10px; color: #9CC5AA; margin-top: 4px;">Top Error Detector (AUROC 0.5829)</div>
           </div>
-          <div class="trustgate-metric-box">
-            <div class="metric-name">Mahalanobis Distance (S_B)</div>
-            <div id="tg-metric-mahalanobis" class="metric-val">-</div>
-            <div id="tg-alert-saturation" class="trustgate-alert-tag" style="display: none;">100% Saturation (> q95)</div>
+          <div class="trustgate-metric-box" style="background: #1c221e; border: 1px solid #2d3630; border-radius: 6px; padding: 12px;">
+            <div class="metric-name" style="font-size: 11px; color: #A8A396; margin-bottom: 4px;">Mahalanobis Distance (S_B)</div>
+            <div id="tg-metric-mahalanobis" class="metric-val" style="font-size: 18px; font-weight: 700; color: #ECE9DF; font-family: var(--font-mono);">-</div>
+            <div id="tg-alert-saturation" class="trustgate-alert-tag" style="display: none; font-size: 10px; color: #C7A97A; margin-top: 4px;">100% Saturation Alert</div>
           </div>
-          <div class="trustgate-metric-box">
-            <div class="metric-name">Ensemble Disagreement (S_C)</div>
-            <div id="tg-metric-disagreement" class="metric-val">-</div>
-            <div id="tg-alert-consensus" class="trustgate-alert-tag" style="display: none;">Consensus Inversion Risk</div>
+          <div class="trustgate-metric-box" style="background: #1c221e; border: 1px solid #2d3630; border-radius: 6px; padding: 12px;">
+            <div class="metric-name" style="font-size: 11px; color: #A8A396; margin-bottom: 4px;">Ensemble Disagreement (S_C)</div>
+            <div id="tg-metric-disagreement" class="metric-val" style="font-size: 18px; font-weight: 700; color: #ECE9DF; font-family: var(--font-mono);">-</div>
+            <div id="tg-alert-consensus" class="trustgate-alert-tag" style="display: none; font-size: 10px; color: #B98378; margin-top: 4px;">Consensus Inversion (AUROC 0.4674)</div>
           </div>
-          <div class="trustgate-metric-box">
-            <div class="metric-name">Composite Risk R(x)</div>
-            <div id="tg-metric-composite" class="metric-val">-</div>
-            <div style="font-size: 10px; color: #C7A97A; margin-top: 4px;">Rejection tau* = 0.6340</div>
+          <div class="trustgate-metric-box" style="background: #1c221e; border: 1px solid #2d3630; border-radius: 6px; padding: 12px;">
+            <div class="metric-name" style="font-size: 11px; color: #A8A396; margin-bottom: 4px;">Composite Risk R(x)</div>
+            <div id="tg-metric-composite" class="metric-val" style="font-size: 18px; font-weight: 700; color: #ECE9DF; font-family: var(--font-mono);">-</div>
+            <div style="font-size: 10px; color: #C7A97A; margin-top: 4px;">Threshold tau* = 0.6340 (Composite AUROC 0.4697)</div>
           </div>
         </div>
       </div>
@@ -2591,7 +2639,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
   async bindMRIExplorerEvents() {
     const cohortSelect = document.getElementById('mri-cohort-select');
+    const scannerSelect = document.getElementById('mri-scanner-select');
+    const diagnosisSelect = document.getElementById('mri-diagnosis-select');
+    const searchInput = document.getElementById('mri-search-input');
     const scanSelect = document.getElementById('mri-scan-select');
+    const pagePrev = document.getElementById('mri-page-prev');
+    const pageNext = document.getElementById('mri-page-next');
+    const pageIndicator = document.getElementById('mri-page-indicator');
+
     const sliderAxial = document.getElementById('mri-slider-axial');
     const sliderCoronal = document.getElementById('mri-slider-coronal');
     const sliderSagittal = document.getElementById('mri-slider-sagittal');
@@ -2599,6 +2654,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const btnInference = document.getElementById('btn-run-mri-inference');
 
     let currentScanId = '';
+    let currentPage = 1;
+    let totalPages = 1;
+    const pageLimit = 50;
 
     const updateSlices = () => {
       if (!currentScanId) return;
@@ -2618,23 +2676,50 @@ window.addEventListener('DOMContentLoaded', () => {
       document.getElementById('mri-img-sagittal').src = `${endpoint}?scan_id=${encodeURIComponent(currentScanId)}&plane=sagittal&slice_idx=${sa}&t=${Date.now()}`;
     };
 
-    const loadScansForCohort = async (cohort) => {
+    const loadScans = async () => {
+      const cohort = cohortSelect.value;
+      const scanner = scannerSelect.value;
+      const diagnosis = diagnosisSelect.value;
+      const search = searchInput.value.trim();
+
+      const params = new URLSearchParams({
+        cohort: cohort,
+        scanner: scanner,
+        diagnosis: diagnosis,
+        search: search,
+        page: currentPage,
+        limit: pageLimit
+      });
+
       try {
-        const resp = await fetch(`/api/mri/scans?cohort=${encodeURIComponent(cohort)}`);
+        const resp = await fetch(`/api/mri/scans?${params.toString()}`);
         const json = await resp.json();
+
+        totalPages = json.total_pages || 1;
+        pageIndicator.textContent = `Page ${json.page} / ${totalPages} (${json.total} scans)`;
+        pagePrev.disabled = json.page <= 1;
+        pageNext.disabled = json.page >= totalPages;
+
         scanSelect.innerHTML = '';
-        json.scans.forEach((s, idx) => {
+        (json.scans || []).forEach((s) => {
           const opt = document.createElement('option');
           opt.value = s.scan_id;
-          opt.textContent = `${s.subject_id} (${s.diagnosis}, ${s.manufacturer} ${s.field_strength})`;
+          opt.textContent = `${s.subject_id} [${s.diagnosis}] - ${s.cohort} (${s.manufacturer} ${s.field_strength}T)`;
           scanSelect.appendChild(opt);
         });
-        if (json.scans.length > 0) {
+
+        if (json.scans && json.scans.length > 0) {
           currentScanId = json.scans[0].scan_id;
           scanSelect.value = currentScanId;
           updateMetadataBadge(json.scans[0]);
           updateSlices();
           runInference();
+        } else {
+          currentScanId = '';
+          const opt = document.createElement('option');
+          opt.value = '';
+          opt.textContent = 'No matching scans found.';
+          scanSelect.appendChild(opt);
         }
       } catch (e) {
         console.error('Failed to load scans:', e);
@@ -2645,7 +2730,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const badgeContainer = document.getElementById('mri-scan-metadata-badge');
       if (!badgeContainer) return;
       badgeContainer.innerHTML = `
-        <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Scanner: ${scan.manufacturer} ${scan.field_strength}</span>
+        <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Scanner: ${scan.manufacturer} ${scan.field_strength}T</span>
         <span class="badge" style="background: #1c221e; color: ${scan.diagnosis === 'AD' ? '#B98378' : '#9CC5AA'}; border: 1px solid #3d4a41;">Diagnosis: ${scan.diagnosis}</span>
         <span class="badge" style="background: #1c221e; color: #C7A97A; border: 1px solid #3d4a41;">Cohort: ${scan.cohort}</span>
       `;
@@ -2653,8 +2738,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const runInference = async () => {
       if (!currentScanId) return;
+      const mode = document.querySelector('input[name="mri-mode"]:checked')?.value || 'cached';
+      const provTag = document.getElementById('mri-provenance-tag');
+      if (provTag) {
+        provTag.textContent = mode === 'live' ? 'Mode: Live Checkpoint Forward Pass (CUDA)' : 'Mode: Verified Research CSV Artifact';
+      }
+
       try {
-        const resp = await fetch(`/api/inference/predict?scan_id=${encodeURIComponent(currentScanId)}`);
+        const resp = await fetch(`/api/inference/predict?scan_id=${encodeURIComponent(currentScanId)}&mode=${mode}`);
         const data = await resp.json();
         renderInferenceResults(data);
       } catch (e) {
@@ -2668,50 +2759,99 @@ window.addEventListener('DOMContentLoaded', () => {
       const bannerMetric = document.getElementById('tg-banner-metric');
       const barsContainer = document.getElementById('mri-model-bars');
 
-      const tg = data.trustgate;
-      const isFlagged = tg.gate_decision.includes('FLAGGED');
+      const safeFixed = (val, digits = 4, fallback = "N/A") => {
+        if (val === null || val === undefined || isNaN(Number(val))) return fallback;
+        return Number(val).toFixed(digits);
+      };
 
-      if (isFlagged) {
+      const tg = data.trustgate || {};
+      const status = tg.evaluation_status || 'NOT_EVALUATED';
+      const decision = tg.gate_decision || 'NOT EVALUATED';
+
+      if (status === 'NOT_EVALUATED' || decision === 'NOT EVALUATED' || tg.composite_risk === null) {
+        banner.className = 'trustgate-status-banner accepted';
+        banner.style.borderLeft = '4px solid #C7A97A';
+        bannerStatus.textContent = `UNAUDITED FOR TRUSTGATE — ${tg.note || 'Cohort overlap unverified or training set scan.'}`;
+        bannerMetric.textContent = 'TrustGate Composite: N/A';
+      } else if (decision.includes('FLAGGED')) {
         banner.className = 'trustgate-status-banner flagged';
+        banner.style.borderLeft = '4px solid #B98378';
         bannerStatus.textContent = 'FLAGGED AS UNRELIABLE (ABSTAIN) — Risk Exceeds Source Threshold';
-        bannerMetric.textContent = `Risk Score R(x) = ${tg.composite_risk} > tau* (0.6340)`;
+        bannerMetric.textContent = `Risk Score R(x) = ${safeFixed(tg.composite_risk, 4)} > tau* (${safeFixed(tg.rejection_threshold_tau, 4)})`;
       } else {
         banner.className = 'trustgate-status-banner accepted';
+        banner.style.borderLeft = '4px solid #9CC5AA';
         bannerStatus.textContent = 'ACCEPTED — Prediction Passes Reliability Gate';
-        bannerMetric.textContent = `Risk Score R(x) = ${tg.composite_risk} <= tau* (0.6340)`;
+        bannerMetric.textContent = `Risk Score R(x) = ${safeFixed(tg.composite_risk, 4)} <= tau* (${safeFixed(tg.rejection_threshold_tau, 4)})`;
       }
 
-      document.getElementById('tg-metric-margin').textContent = tg.confidence_margin.toFixed(4);
-      document.getElementById('tg-metric-mahalanobis').textContent = tg.mahalanobis_score.toFixed(4);
-      document.getElementById('tg-metric-disagreement').textContent = tg.disagreement.toFixed(4);
-      document.getElementById('tg-metric-composite').textContent = tg.composite_risk.toFixed(4);
+      document.getElementById('tg-metric-margin').textContent = safeFixed(tg.confidence_margin ?? tg.confidence_margin_sa, 4);
+      document.getElementById('tg-metric-mahalanobis').textContent = safeFixed(tg.mahalanobis_score ?? tg.mahalanobis_sb, 4);
+      document.getElementById('tg-metric-disagreement').textContent = safeFixed(tg.disagreement ?? tg.disagreement_sc, 4);
+      document.getElementById('tg-metric-composite').textContent = safeFixed(tg.composite_risk, 4);
 
       document.getElementById('tg-alert-saturation').style.display = tg.saturation_alert ? 'inline-block' : 'none';
       document.getElementById('tg-alert-consensus').style.display = tg.consensus_inversion_alert ? 'inline-block' : 'none';
 
+      // Validation thresholds mapping
+      const valThresholds = {
+        "MONAI Swin UNETR SSL (Linear Probe)": 0.5088,
+        "3D ResNet-10 (Pipeline B)": 0.6860,
+        "3D DenseNet-121 (Pipeline B)": 0.4651,
+        "2.5D Multi-View ResNet-18 (Pipeline B)": 0.9741,
+        "Dual-Branch Hybrid (ResNet-10 + Radiomics)": 0.4763,
+        "FOMO25 AMAES ResEnc-B (Linear Probe)": 0.5457,
+        "3D ResNet-18 (Scratch Baseline)": 0.5725,
+        "3D ResNet-34 (Scratch Baseline)": 0.5512,
+        "2D Transfer ResNet-18 (Slice-Aggregated)": 0.6120,
+        "Classical Radiomics (Linear SVM)": 0.5693
+      };
+
       // Render model bars
       barsContainer.innerHTML = '';
-      const t_star = 0.5088;
-      const t_star_pct = (t_star * 100).toFixed(1);
+      const predictions = data.predictions || data.cached_reference_predictions || {};
 
-      for (const [modelName, prob] of Object.entries(data.predictions)) {
-        const pct = (prob * 100).toFixed(1);
+      for (const [modelName, prob] of Object.entries(predictions)) {
+        const t_star = valThresholds[modelName] || 0.5000;
+        const t_star_pct = (t_star * 100).toFixed(1);
+
+        const isAvailable = prob !== null && prob !== undefined && typeof prob === 'number' && !isNaN(prob);
+        const valText = isAvailable ? Number(prob).toFixed(4) : (typeof prob === 'string' ? prob : 'PREDICTION UNAVAILABLE');
+        const pct = isAvailable ? Math.min(100, Math.max(0, prob * 100)).toFixed(1) : '0';
+        const isPositive = isAvailable && prob >= t_star;
+
         const row = document.createElement('div');
         row.className = 'model-prob-bar-row';
+        row.style.marginBottom = '10px';
         row.innerHTML = `
-          <div class="model-prob-label" title="${modelName}">${modelName}</div>
-          <div class="model-prob-track">
-            <div class="model-prob-threshold-marker" style="left: ${t_star_pct}%;" title="Validation Threshold t* = ${t_star}"></div>
-            <div class="model-prob-fill" style="width: ${pct}%;"></div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 2px;">
+            <span style="font-size: 12px; font-weight: 600; color: #ECE9DF;">${modelName}</span>
+            <span style="font-size: 11px; font-family: var(--font-mono); color: ${isAvailable ? (isPositive ? '#B98378' : '#9CC5AA') : '#7A7569'};">
+              ${valText} ${isAvailable ? `(t* = ${t_star.toFixed(4)})` : ''}
+            </span>
           </div>
-          <div class="model-prob-val">${prob.toFixed(3)}</div>
+          <div class="model-prob-track" style="height: 8px; background: #1c221e; border-radius: 4px; position: relative; overflow: hidden;">
+            <div class="model-prob-threshold-marker" style="position: absolute; left: ${t_star_pct}%; top: 0; bottom: 0; width: 2px; background: #C7A97A; z-index: 2;" title="Validation Threshold t* = ${t_star.toFixed(4)}"></div>
+            <div class="model-prob-fill" style="height: 100%; width: ${pct}%; background: ${isPositive ? 'linear-gradient(90deg, #809E83, #B98378)' : '#809E83'}; transition: width 0.3s ease;"></div>
+          </div>
         `;
         barsContainer.appendChild(row);
       }
     };
 
     // Event listeners
-    cohortSelect.addEventListener('change', () => loadScansForCohort(cohortSelect.value));
+    cohortSelect.addEventListener('change', () => { currentPage = 1; loadScans(); });
+    scannerSelect.addEventListener('change', () => { currentPage = 1; loadScans(); });
+    diagnosisSelect.addEventListener('change', () => { currentPage = 1; loadScans(); });
+    searchInput.addEventListener('input', () => { currentPage = 1; loadScans(); });
+
+    pagePrev.addEventListener('click', () => {
+      if (currentPage > 1) { currentPage--; loadScans(); }
+    });
+    pageNext.addEventListener('click', () => {
+      if (currentPage < totalPages) { currentPage++; loadScans(); }
+    });
+
     scanSelect.addEventListener('change', () => {
       currentScanId = scanSelect.value;
       updateSlices();
@@ -2725,11 +2865,10 @@ window.addEventListener('DOMContentLoaded', () => {
     btnInference.addEventListener('click', runInference);
 
     // Initial load
-    await loadScansForCohort('ADNI');
+    loadScans();
   }
 
-  // ==========================================================================
-  // SHIFT-MRI RESEARCH STUDIO: 2. TRUSTGATE FAILURE STUDIO
+// SHIFT-MRI RESEARCH STUDIO: 2. TRUSTGATE FAILURE STUDIO
   // ==========================================================================
 
   renderTrustGateStudio() {
@@ -3051,9 +3190,410 @@ window.addEventListener('DOMContentLoaded', () => {
           <div><strong>Authoritative Git Commit:</strong> <code style="color: #9CC5AA;">435daf0</code></div>
           <div><strong>Environment:</strong> Python 3.12.10 • PyTorch 2.11+cu128</div>
           <div><strong>Hardware:</strong> RTX PRO 2000 Blackwell (16 GB VRAM)</div>
-          <div><strong>Verification Test Suite:</strong> 93 Passed, 4 Skipped</div>
+          <div><strong>Verification Test Suite:</strong> 100 Passed, 4 Skipped</div>
           <div><strong>Single Source of Truth:</strong> canonical_registry.json</div>
           <div><strong>Dataset Storage:</strong> D:\brain_mri_data (848 Scans)</div>
+        </div>
+      </div>
+    `;
+  }
+
+
+  /* ==========================================================================
+     RESEARCH EXPERIMENT LAB: LOCAL EXECUTION & STORE
+     ========================================================================== */
+  renderExperimentLab() {
+    const container = document.getElementById('section-experiment-lab');
+    if (!container) return;
+
+    container.innerHTML = `
+      <div class="section-header">
+        <div class="section-tag" style="color: #809E83; background: rgba(128,158,131,0.1); border-color: #809E83;">
+          Local Experiment Execution & SQLite Store
+        </div>
+        <h1 class="section-title">SHIFT-MRI Research Experiment Lab</h1>
+        <p class="section-desc">
+          Configure and execute reproducible model evaluations on local cohort data. Track run configurations,
+          extract 95% bootstrap confidence intervals, and audit metric differences side-by-side.
+        </p>
+      </div>
+
+      <!-- Experiment Configuration Builder -->
+      <div class="card" style="background: #222824; border-color: #2d3630; padding: 20px; margin-bottom: 24px;">
+        <h3 style="font-size: 15px; font-weight: 700; color: #ECE9DF; margin-bottom: 14px;">1. Experiment Configuration Builder</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 16px;">
+          <div>
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Model Architecture</label>
+            <select id="lab-model-select" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 8px 10px; font-size: 12px;">
+              <option value="MONAI Swin UNETR SSL (Linear Probe)">MONAI Swin UNETR SSL (Linear Probe)</option>
+              <option value="3D ResNet-10 (Pipeline B)">3D ResNet-10 (Pipeline B)</option>
+              <option value="3D DenseNet-121 (Pipeline B)">3D DenseNet-121 (Pipeline B)</option>
+              <option value="2.5D Multi-View ResNet-18 (Pipeline B)">2.5D Multi-View ResNet-18 (Pipeline B)</option>
+              <option value="Dual-Branch Hybrid (ResNet-10 + Radiomics)">Dual-Branch Hybrid (ResNet-10 + Radiomics)</option>
+              <option value="2D Transfer ResNet-18 (Slice-Aggregated)">2D Transfer ResNet-18 (Slice-Aggregated)</option>
+              <option value="Classical Radiomics (Linear SVM)">Classical Radiomics (Linear SVM)</option>
+              <option value="3D ResNet-18 (Scratch Baseline)">3D ResNet-18 (Scratch Baseline)</option>
+              <option value="3D ResNet-34 (Scratch Baseline)">3D ResNet-34 (Scratch Baseline)</option>
+              <option value="FOMO25 AMAES ResEnc-B (Linear Probe)">FOMO25 AMAES ResEnc-B (Linear Probe)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Evaluation Dataset</label>
+            <select id="lab-dataset-select" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 8px 10px; font-size: 12px;">
+              <option value="ADNI" selected>ADNI External Multi-Site (N=500)</option>
+              <option value="OASIS-1">OASIS-1 Validation Split (N=30)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Random Seed</label>
+            <input id="lab-seed-input" type="number" value="42" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 8px 10px; font-size: 12px;">
+          </div>
+
+          <div>
+            <label style="font-size: 11px; color: #A8A396; display: block; margin-bottom: 4px; font-weight: 600;">Experiment Run Name</label>
+            <input id="lab-name-input" type="text" placeholder="Optional custom name" style="width: 100%; background: #1c221e; color: #ECE9DF; border: 1px solid #3d4a41; border-radius: 6px; padding: 8px 10px; font-size: 12px;">
+          </div>
+        </div>
+
+        <button id="lab-btn-execute" class="btn btn-primary" style="background: linear-gradient(135deg, #809E83, #9CC5AA); color: #181B19; font-weight: 700; border: none; padding: 10px 22px; border-radius: 6px; cursor: pointer; font-size: 13px;">
+          &#9654; Execute Reproducible Experiment
+        </button>
+      </div>
+
+      <!-- Execution Status & Live Metrics Panel -->
+      <div id="lab-output-card" class="card" style="background: #222824; border-color: #2d3630; padding: 20px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 15px; font-weight: 700; color: #ECE9DF; margin: 0;">2. Live Run Output & Metrics</h3>
+          <span id="lab-status-badge" class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Ready to Execute</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div style="background: #1c221e; padding: 12px; border-radius: 6px; border: 1px solid #2d3630;">
+            <div style="font-size: 11px; color: #A8A396;">ROC-AUC (95% CI)</div>
+            <div id="lab-kpi-auc" style="font-size: 18px; font-weight: 700; color: #9CC5AA; font-family: var(--font-mono);">-</div>
+          </div>
+          <div style="background: #1c221e; padding: 12px; border-radius: 6px; border: 1px solid #2d3630;">
+            <div style="font-size: 11px; color: #A8A396;">Balanced Accuracy</div>
+            <div id="lab-kpi-bal-acc" style="font-size: 18px; font-weight: 700; color: #ECE9DF; font-family: var(--font-mono);">-</div>
+          </div>
+          <div style="background: #1c221e; padding: 12px; border-radius: 6px; border: 1px solid #2d3630;">
+            <div style="font-size: 11px; color: #A8A396;">Brier Score Loss</div>
+            <div id="lab-kpi-brier" style="font-size: 18px; font-weight: 700; color: #ECE9DF; font-family: var(--font-mono);">-</div>
+          </div>
+          <div style="background: #1c221e; padding: 12px; border-radius: 6px; border: 1px solid #2d3630;">
+            <div style="font-size: 11px; color: #A8A396;">Sensitivity / Specificity</div>
+            <div id="lab-kpi-sens-spec" style="font-size: 18px; font-weight: 700; color: #ECE9DF; font-family: var(--font-mono);">-</div>
+          </div>
+        </div>
+
+        <!-- Terminal Log Viewer -->
+        <div style="background: #131614; border: 1px solid #2d3630; border-radius: 6px; padding: 12px; font-family: var(--font-mono); font-size: 11px; color: #A8A396; max-height: 160px; overflow-y: auto;">
+          <pre id="lab-log-console" style="margin: 0; white-space: pre-wrap;">[Lab] Select an architecture and dataset above, then click Execute Reproducible Experiment.</pre>
+        </div>
+      </div>
+
+      <!-- Experiment History & Comparison Table -->
+      <div class="card" style="background: #222824; border-color: #2d3630; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+          <div>
+            <h3 style="font-size: 15px; font-weight: 700; color: #ECE9DF; margin: 0;">3. Experiment History & Run Comparator</h3>
+            <p style="font-size: 11px; color: #A8A396; margin: 4px 0 0 0;">Historical runs stored in local SQLite database (experiment_history.db).</p>
+          </div>
+          <button id="lab-btn-compare" class="btn btn-secondary" style="background: #1c221e; color: #C7A97A; border: 1px solid #C7A97A; padding: 6px 14px; border-radius: 6px; font-size: 12px; cursor: pointer;">
+            &#9878; Compare Selected Runs
+          </button>
+        </div>
+
+        <div id="lab-compare-alert" style="display: none; background: rgba(199,169,122,0.1); border: 1px solid #C7A97A; padding: 10px 14px; border-radius: 6px; margin-bottom: 12px; font-size: 12px; color: #C7A97A;"></div>
+
+        <div style="overflow-x: auto;">
+          <table class="data-table" style="width: 100%;">
+            <thead>
+              <tr>
+                <th style="width: 30px;">Select</th>
+                <th>Timestamp</th>
+                <th>Run Name</th>
+                <th>Model</th>
+                <th>Dataset</th>
+                <th>ROC-AUC [95% CI]</th>
+                <th>Brier Score</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="lab-history-tbody">
+              <tr><td colspan="8" style="text-align: center; color: #A8A396;">Loading experiment history...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+
+    this.bindExperimentLabEvents();
+  }
+
+  async bindExperimentLabEvents() {
+    const btnExecute = document.getElementById('lab-btn-execute');
+    const btnCompare = document.getElementById('lab-btn-compare');
+    const modelSelect = document.getElementById('lab-model-select');
+    const datasetSelect = document.getElementById('lab-dataset-select');
+    const seedInput = document.getElementById('lab-seed-input');
+    const nameInput = document.getElementById('lab-name-input');
+
+    const statusBadge = document.getElementById('lab-status-badge');
+    const kpiAuc = document.getElementById('lab-kpi-auc');
+    const kpiBalAcc = document.getElementById('lab-kpi-bal-acc');
+    const kpiBrier = document.getElementById('lab-kpi-brier');
+    const kpiSensSpec = document.getElementById('lab-kpi-sens-spec');
+    const logConsole = document.getElementById('lab-log-console');
+    const historyTbody = document.getElementById('lab-history-tbody');
+    const compareAlert = document.getElementById('lab-compare-alert');
+
+    const loadHistory = async () => {
+      try {
+        const resp = await fetch('/api/experiments/history');
+        const json = await resp.json();
+        const runs = json.runs || [];
+
+        historyTbody.innerHTML = '';
+        runs.forEach(r => {
+          const m = r.metrics || {};
+          const ci = m.ci_95 ? `[${m.ci_95[0]} - ${m.ci_95[1]}]` : '';
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><input type="checkbox" class="lab-run-checkbox" value="${r.run_id}" style="accent-color: #9CC5AA;"></td>
+            <td style="font-family: var(--font-mono); font-size: 11px;">${r.timestamp}</td>
+            <td style="font-weight: 600; color: #ECE9DF;">${r.name}</td>
+            <td style="font-size: 12px;">${r.model_name}</td>
+            <td style="font-size: 12px;"><span class="badge" style="background: #1c221e; border: 1px solid #3d4a41;">${r.dataset}</span></td>
+            <td style="font-family: var(--font-mono); color: #9CC5AA; font-weight: 600;">${m.roc_auc !== undefined ? m.roc_auc.toFixed(4) : 'N/A'} <span style="font-size: 10px; color: #A8A396;">${ci}</span></td>
+            <td style="font-family: var(--font-mono); font-size: 11px;">${m.brier_score !== undefined ? m.brier_score.toFixed(4) : 'N/A'}</td>
+            <td><span class="badge" style="background: rgba(156,197,170,0.1); color: #9CC5AA; border: 1px solid #809E83;">${r.status}</span></td>
+          `;
+          historyTbody.appendChild(tr);
+        });
+      } catch (e) {
+        console.error('Failed to load experiment history:', e);
+      }
+    };
+
+    btnExecute.addEventListener('click', async () => {
+      btnExecute.disabled = true;
+      statusBadge.textContent = 'Running Experiment...';
+      statusBadge.style.color = '#C7A97A';
+      logConsole.textContent = '[Lab] Launching execution task on local workstation...\n';
+
+      const payload = {
+        model_name: modelSelect.value,
+        dataset: datasetSelect.value,
+        seed: parseInt(seedInput.value, 10) || 42,
+        name: nameInput.value.trim() || undefined
+      };
+
+      try {
+        const resp = await fetch('/api/experiments/launch', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const res = await resp.json();
+
+        if (res.status === 'success') {
+          const run = res.run;
+          const m = run.metrics;
+          statusBadge.textContent = 'Execution Completed (Success)';
+          statusBadge.style.color = '#9CC5AA';
+
+          kpiAuc.textContent = `${m.roc_auc.toFixed(4)} [${m.ci_95[0]} - ${m.ci_95[1]}]`;
+          kpiBalAcc.textContent = m.balanced_accuracy.toFixed(4);
+          kpiBrier.textContent = m.brier_score.toFixed(4);
+          kpiSensSpec.textContent = `${(m.sensitivity * 100).toFixed(1)}% / ${(m.specificity * 100).toFixed(1)}%`;
+
+          logConsole.textContent = (run.log || []).join('\n');
+          await loadHistory();
+        } else {
+          statusBadge.textContent = 'Execution Failed';
+          statusBadge.style.color = '#B98378';
+          logConsole.textContent = `[Error] ${res.error || 'Execution failed.'}`;
+        }
+      } catch (e) {
+        statusBadge.textContent = 'Execution Error';
+        statusBadge.style.color = '#B98378';
+        logConsole.textContent = `[Network Error] ${e.message}`;
+      } finally {
+        btnExecute.disabled = false;
+      }
+    });
+
+    btnCompare.addEventListener('click', async () => {
+      const selectedBoxes = Array.from(document.querySelectorAll('.lab-run-checkbox:checked'));
+      const runIds = selectedBoxes.map(b => b.value);
+
+      if (runIds.length < 2) {
+        alert('Please select at least 2 runs using the checkboxes to compare.');
+        return;
+      }
+
+      try {
+        const resp = await fetch(`/api/experiments/compare?ids=${encodeURIComponent(runIds.join(','))}`);
+        const res = await resp.json();
+
+        if (res.cross_cohort_warning) {
+          compareAlert.textContent = res.cross_cohort_warning;
+          compareAlert.style.display = 'block';
+        } else {
+          compareAlert.style.display = 'none';
+        }
+
+        let alertMsg = `Compared ${res.runs_compared} runs:\n`;
+        (res.comparison_table || []).forEach(row => {
+          alertMsg += `? ${row.model} (${row.dataset}): AUC=${row.roc_auc.toFixed(4)} (Delta vs Base: ${row.delta_auc_vs_baseline > 0 ? '+' : ''}${row.delta_auc_vs_baseline})\n`;
+        });
+        alert(alertMsg);
+      } catch (e) {
+        console.error('Comparison error:', e);
+      }
+    });
+
+    loadHistory();
+  }
+
+  /* ==========================================================================
+     FUTURE RESEARCH PROGRAM (TRACKS A THROUGH I)
+     ========================================================================== */
+  renderFutureResearch() {
+    const container = document.getElementById('section-future-research');
+    if (!container) return;
+
+    container.innerHTML = `
+      <div class="section-header">
+        <div class="section-tag" style="color: #B98378; background: rgba(185,131,120,0.1); border-color: #B98378;">
+          Scientific Roadmap ? Living Research Program
+        </div>
+        <h1 class="section-title">SHIFT-MRI Future Research Roadmap</h1>
+        <p class="section-desc">
+          Nine prioritized, scientifically defensible research tracks addressing the core vulnerabilities,
+          negative TrustGate findings, and clinical adaptation barriers discovered in the V3 benchmark.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+        <!-- Track A -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: rgba(199,169,122,0.1); color: #C7A97A; border: 1px solid #C7A97A;">Track A ? Primary</span>
+            <span class="badge" style="background: rgba(156,197,170,0.1); color: #9CC5AA; border: 1px solid #809E83;">Implementation-Ready</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">TrustGate V2: Non-Linear Abstention</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Investigate why multi-model consensus inverts under scanner shift (AUROC 0.4674). Replace equal weighting with rank-based aggregation and PCA-whitened FastMCD distance.
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Target AUROC &ge; 0.60 without external labels.</div>
+        </div>
+
+        <!-- Track B -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Track B</span>
+            <span class="badge" style="background: rgba(156,197,170,0.1); color: #9CC5AA; border: 1px solid #809E83;">Partially Executed</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">Scanner & Harmonization Shift</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Separate scanner distribution differences (Siemens N=370 vs Philips N=130) from true anatomical atrophy. Evaluate ComBat neuroimaging harmonization against Z-score normalization.
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Permutation test across scanner strata.</div>
+        </div>
+
+        <!-- Track C -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Track C</span>
+            <span class="badge" style="background: #1c221e; color: #A8A396; border: 1px solid #3d4a41;">Proposed Study</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">Foundation Model Adaptation (LoRA)</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Compare frozen probing against low-rank attention adaptation (LoRA, r=8) on MONAI Swin UNETR SSL representations across budget curves (N=20 to 138).
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Superior external AUC with &lt; 5% trainable params.</div>
+        </div>
+
+        <!-- Track D -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Track D</span>
+            <span class="badge" style="background: rgba(156,197,170,0.1); color: #9CC5AA; border: 1px solid #809E83;">Implementation-Ready</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">Multi-Seed Split Stability</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Execute 5x5 repeated cross-validation across all 10 architectures to quantify parameter-to-sample variance and establish DeLong confidence intervals.
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Inter-split variance &sigma; &le; 0.03.</div>
+        </div>
+
+        <!-- Track E -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Track E</span>
+            <span class="badge" style="background: #1c221e; color: #A8A396; border: 1px solid #3d4a41;">Proposed Study</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">External Validation (AIBL / MIRIAD)</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Acquire formal DUAs for Australian AIBL cohort to test zero-shot generalization on certified zero-overlap international participant populations.
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Ethical compliance and adapter indexing.</div>
+        </div>
+
+        <!-- Track F -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Track F</span>
+            <span class="badge" style="background: #1c221e; color: #A8A396; border: 1px solid #3d4a41;">Proposed Study</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">Conformal Prediction Under Shift</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Evaluate covariate-shift-adapted split conformal prediction with density ratio reweighting to provide formal marginal coverage guarantees under scanner drift.
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Exact 90% coverage bounded on external cohort.</div>
+        </div>
+
+        <!-- Track G -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Track G</span>
+            <span class="badge" style="background: rgba(156,197,170,0.1); color: #9CC5AA; border: 1px solid #809E83;">Implementation-Ready</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">Synthetic Perturbation Auditing</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Subject volumes to parameterized Rician noise, slice-direction motion artifacts, and B1 field bias to benchmark degradation trajectories across models.
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Monotonic AUC degradation curves.</div>
+        </div>
+
+        <!-- Track H -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Track H</span>
+            <span class="badge" style="background: #1c221e; color: #A8A396; border: 1px solid #3d4a41;">Proposed Study</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">Clinical Label Sensitivity</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Analyze model failure modes against clinical dementia severity (CDR 0.5 very mild vs CDR 1.0 moderate) and MMSE cognitive scores.
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Disclose borderlines vs true misclassifications.</div>
+        </div>
+
+        <!-- Track I -->
+        <div class="card" style="background: #222824; border-color: #2d3630; padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <span class="badge" style="background: #1c221e; color: #9CC5AA; border: 1px solid #3d4a41;">Track I</span>
+            <span class="badge" style="background: #1c221e; color: #A8A396; border: 1px solid #3d4a41;">Proposed Study</span>
+          </div>
+          <h3 style="font-size: 14px; font-weight: 700; color: #ECE9DF; margin-bottom: 6px;">Longitudinal Atrophy Trajectories</h3>
+          <p style="font-size: 12px; color: #A8A396; line-height: 1.5; margin-bottom: 10px;">
+            Extend foundation model embeddings to participant-disjoint longitudinal progression prediction over 24-36 months.
+          </p>
+          <div style="font-size: 11px; color: #9CC5AA;">Verification: Progression velocity correlation &gt; 0.70.</div>
         </div>
       </div>
     `;

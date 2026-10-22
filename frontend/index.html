@@ -25,25 +25,30 @@
       </div>
     </div>
 
-    <nav class="sidebar-nav">
-            <div class="nav-section-heading" style="color: #9CC5AA;">SHIFT-MRI Research Studio</div>
+        <nav class="sidebar-nav">
+      <div class="nav-section-heading" style="color: #9CC5AA;">Research Studio & Lab</div>
       <a href="#mri-explorer" class="nav-link" data-section="mri-explorer" style="color: #9CC5AA; font-weight: 700;">
-        <span class="nav-num">★</span>
-        <span>MRI Explorer & Inference</span>
+        <span class="nav-num">&#9670;</span>
+        <span>MRI Volume Explorer</span>
+      </a>
+      <a href="#experiment-lab" class="nav-link" data-section="experiment-lab" style="color: #809E83; font-weight: 700;">
+        <span class="nav-num">&#9670;</span>
+        <span>Research Experiment Lab</span>
       </a>
       <a href="#trustgate-studio" class="nav-link" data-section="trustgate-studio" style="color: #C7A97A; font-weight: 700;">
-        <span class="nav-num">★</span>
+        <span class="nav-num">&#9670;</span>
         <span>TrustGate Failure Studio</span>
       </a>
-      <a href="#demographic-shortcuts" class="nav-link" data-section="demographic-shortcuts">
-        <span class="nav-num">★</span>
-        <span>Demographic Resolution</span>
+      <a href="#future-research" class="nav-link" data-section="future-research" style="color: #B98378; font-weight: 700;">
+        <span class="nav-num">&#9670;</span>
+        <span>Future Research Roadmap</span>
       </a>
       <a href="#downloads-hub" class="nav-link" data-section="downloads-hub">
-        <span class="nav-num">★</span>
+        <span class="nav-num">&#9670;</span>
         <span>Submission Deliverables</span>
       </a>
-      <div class="nav-section-heading">Core Benchmark</div>
+
+      <div class="nav-section-heading">Core Benchmark (V3)</div>
       <a href="#overview" class="nav-link active" data-section="overview">
         <span class="nav-num">01</span>
         <span>Overview</span>
@@ -70,21 +75,21 @@
       </a>
 
       <div class="nav-section-heading">Multi-Axis Audits</div>
-      <a href="#data-efficiency" class="nav-link" data-section="data-efficiency">
+      <a href="#domain-shift" class="nav-link" data-section="domain-shift">
         <span class="nav-num">07</span>
-        <span>Data Efficiency</span>
-      </a>
-      <a href="#parameter-compute" class="nav-link" data-section="parameter-compute">
-        <span class="nav-num">08</span>
-        <span>Parameter & Compute</span>
+        <span>Domain Shift (ADNI N=500)</span>
       </a>
       <a href="#calibration" class="nav-link" data-section="calibration">
-        <span class="nav-num">09</span>
-        <span>Calibration</span>
+        <span class="nav-num">08</span>
+        <span>Calibration & Collapse</span>
       </a>
-      <a href="#domain-shift" class="nav-link" data-section="domain-shift">
+      <a href="#demographic-shortcuts" class="nav-link" data-section="demographic-shortcuts">
+        <span class="nav-num">09</span>
+        <span>Scanner & Robustness</span>
+      </a>
+      <a href="#statistics" class="nav-link" data-section="statistics">
         <span class="nav-num">10</span>
-        <span>Domain Shift (ADNI)</span>
+        <span>Statistics & CIs</span>
       </a>
       <a href="#representation" class="nav-link" data-section="representation">
         <span class="nav-num">11</span>
@@ -100,50 +105,46 @@
       </a>
       <a href="#interpretability" class="nav-link" data-section="interpretability">
         <span class="nav-num">14</span>
-        <span>CNN Grad-CAM</span>
-      </a>
-      <a href="#statistics" class="nav-link" data-section="statistics">
-        <span class="nav-num">15</span>
-        <span>Statistics & CIs</span>
+        <span>Authentic Grad-CAM</span>
       </a>
       <a href="#training-dynamics" class="nav-link" data-section="training-dynamics">
-        <span class="nav-num">16</span>
+        <span class="nav-num">15</span>
         <span>Training Dynamics</span>
       </a>
       <a href="#foundation-adaptation" class="nav-link" data-section="foundation-adaptation">
-        <span class="nav-num">17</span>
+        <span class="nav-num">16</span>
         <span>Foundation Adaptation</span>
       </a>
       <a href="#statistical-uncertainty" class="nav-link" data-section="statistical-uncertainty">
-        <span class="nav-num">18</span>
+        <span class="nav-num">17</span>
         <span>Statistical Uncertainty</span>
       </a>
 
-      <div class="nav-section-heading">Integrity & Assets</div>
+      <div class="nav-section-heading">Governance & Integrity</div>
       <a href="#methodology" class="nav-link" data-section="methodology">
-        <span class="nav-num">19</span>
+        <span class="nav-num">18</span>
         <span>Methodology</span>
       </a>
       <a href="#reproducibility" class="nav-link" data-section="reproducibility">
-        <span class="nav-num">20</span>
+        <span class="nav-num">19</span>
         <span>Reproducibility</span>
       </a>
       <a href="#limitations" class="nav-link" data-section="limitations">
-        <span class="nav-num">21</span>
+        <span class="nav-num">20</span>
         <span>Limitations</span>
       </a>
       <a href="#conclusion" class="nav-link" data-section="conclusion">
-        <span class="nav-num">22</span>
+        <span class="nav-num">21</span>
         <span>Conclusion</span>
       </a>
       <a href="#gallery" class="nav-link" data-section="gallery" style="color: var(--accent-cyan);">
-        <span class="nav-num">23</span>
+        <span class="nav-num">22</span>
         <span>Figure Gallery (28)</span>
       </a>
     </nav>
 
     <div class="sidebar-footer">
-      <button id="presentation-toggle" class="presentation-toggle-btn" title="Optimize view for viva / thesis presentation">
+      <button id="presentation-toggle" class="presentation-toggle-btn" title="Optimize view for scientific presentation">
         <span>📽</span>
         <span>Presentation Mode</span>
       </button>
@@ -176,7 +177,7 @@
           <a href="/downloads/SHIFT_MRI_Submission_Package.zip" class="btn-download-pill" download>📦 Submission ZIP</a>
         </div>
         <span class="badge badge-pilot" style="background-color: #2a322d; color: #9CC5AA; border: 1px solid #809E83;">v3.0.0-final</span>
-        <span id="badge-audit" class="badge badge-audit">93/93 Tests Passing</span>
+        <span id="badge-audit" class="badge badge-audit">100/100 Tests Passing</span>
         <span id="badge-status" class="badge badge-status" style="background-color: #222824; color: #ECE9DF;">Source-Locked: OASIS-1</span>
       </div>
     </header>
@@ -207,6 +208,8 @@
       <section id="section-conclusion" class="dashboard-section"></section>
       <section id="section-gallery" class="dashboard-section"></section>
       <section id="section-mri-explorer" class="dashboard-section"></section>
+      <section id="section-experiment-lab" class="dashboard-section"></section>
+      <section id="section-future-research" class="dashboard-section"></section>
       <section id="section-trustgate-studio" class="dashboard-section"></section>
       <section id="section-demographic-shortcuts" class="dashboard-section"></section>
       <section id="section-downloads-hub" class="dashboard-section"></section>

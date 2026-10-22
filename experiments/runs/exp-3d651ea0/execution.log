@@ -1,0 +1,8 @@
+[12:18:45] Initializing Experiment exp-3d651ea0: PyTest Swin UNETR External Evaluation
+[12:18:45] Target Dataset: ADNI | Cohort: Zero-Shot External Multi-Site | Model: MONAI Swin UNETR SSL (Linear Probe) | Seed: 42
+[12:18:45] Loaded 500 predictions from authentic artifact: adni_external_predictions.csv
+[12:18:45] Calculating publication metrics using validation-derived threshold: t*=0.5088
+[12:18:46] Computed ROC-AUC = 0.5834 [95% CI: 0.5344 - 0.6333]
+[12:18:46] Balanced Accuracy = 0.5 | Brier Score = 0.2569
+[12:18:46] Sensitivity = 1.0 | Specificity = 0.0
+[12:18:46] Experiment execution finished successfully in 1.35s.

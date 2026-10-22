@@ -1,0 +1,8 @@
+[12:03:11] Initializing Experiment exp-454c4af1: Lab Run: 3D ResNet-10 (Pipeline B) on ADNI (Seed 42)
+[12:03:11] Target Dataset: ADNI | Cohort: Zero-Shot External Multi-Site | Model: 3D ResNet-10 (Pipeline B) | Seed: 42
+[12:03:11] Loaded 500 predictions from authentic artifact: v2_adni_external_predictions.csv
+[12:03:11] Calculating publication metrics using validation-derived threshold: t*=0.6860
+[12:03:12] Computed ROC-AUC = 0.5444 [95% CI: 0.4909 - 0.5953]
+[12:03:12] Balanced Accuracy = 0.5 | Brier Score = 0.5724
+[12:03:12] Sensitivity = 1.0 | Specificity = 0.0
+[12:03:12] Experiment execution finished successfully in 1.78s.
