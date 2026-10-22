@@ -1,0 +1,24 @@
+[2026-10-22 15:50:04] [SUPERVISOR] SHIFT-MRI V4 Overnight Experiment Supervisor Initialized.
+[2026-10-22 15:50:04] [ENVIRONMENT] Platform: Windows 11, Python 3.12.10, PyTorch 2.11.0+cu128, MONAI 1.6.1.
+[2026-10-22 15:50:04] [HARDWARE] NVIDIA RTX PRO 2000 Blackwell (15.93 GB VRAM, Compute Capability 12.0).
+[2026-10-22 15:50:04] [DATASETS] OASIS-1 N=198 (138 train / 30 val / 30 locked test), ADNI N=500, OASIS-2 N=150 indexed without leakage.
+[2026-10-22 15:50:04] [EXECUTION] Master script 'scripts/run_v4_campaign.py' executed sequentially on GPU.
+[184.44s] [MODEL_01] 3D ResNet-10 (3d_resnet_10): OASIS-1 Test AUC=0.3786, ADNI AUC=0.5159, Gap=-0.1373 -> SUCCESS.
+[67.63s] [MODEL_02] 3D ResNet-18 (3d_resnet_18): OASIS-1 Test AUC=0.6477, ADNI AUC=0.4601, Gap=+0.1876 -> SUCCESS.
+[72.97s] [MODEL_03] 3D ResNet-34 (3d_resnet_34): OASIS-1 Test AUC=0.4586, ADNI AUC=0.4606, Gap=-0.0020 -> SUCCESS.
+[58.37s] [MODEL_04] 3D DenseNet-121 (3d_densenet_121): OASIS-1 Test AUC=0.4275, ADNI AUC=0.4991, Gap=-0.0715 -> SUCCESS.
+[21.3s] [MODEL_05] 2.5D Multi-View ResNet-18 (2_5d_multi_view_resnet_18): OASIS-1 Test AUC=0.5293, ADNI AUC=0.5373, Gap=-0.0080 -> SUCCESS.
+[285.83s] [MODEL_06] Dual-Branch Hybrid (ResNet-10 + Radiomics) (dual_branch_hybrid): OASIS-1 Test AUC=0.6025, ADNI AUC=0.4783, Gap=+0.1241 -> SUCCESS.
+[10.89s] [MODEL_07] 2D Transfer ResNet-18 (2d_transfer_resnet_18): OASIS-1 Test AUC=0.6104, ADNI AUC=0.4963, Gap=+0.1141 -> SUCCESS.
+[0.01s] [MODEL_08] Classical Radiomics (Linear SVM) (classical_radiomics): OASIS-1 Test AUC=0.6467, ADNI AUC=0.5140, Gap=+0.1328 -> SUCCESS.
+[26.73s] [MODEL_09] BrainIAC ViT-B/16 (Linear Probe) (brainiac_vit_b16_linear_probe): OASIS-1 Test AUC=0.5394, ADNI AUC=0.4574, Gap=+0.0820 -> SUCCESS.
+[29.84s] [MODEL_10] BrainIAC ViT-B/16 (Partial Fine-Tuning) (brainiac_vit_b16_partial_ft): OASIS-1 Test AUC=0.4437, ADNI AUC=0.4492, Gap=-0.0055 -> SUCCESS.
+[18.51s] [MODEL_11] Random ViT-B/16 Control (Linear Probe) (random_vit_b16_control): OASIS-1 Test AUC=0.5304, ADNI AUC=0.5044, Gap=+0.0260 -> SUCCESS.
+[853.94s] [MODEL_12] MONAI Swin UNETR SSL (Linear Probe) (swin_unetr_ssl_linear_probe): OASIS-1 Test AUC=0.6010, ADNI AUC=0.5756, Gap=+0.0255 -> SUCCESS.
+[973.27s] [MODEL_13] MONAI Swin UNETR SSL (Partial Fine-Tuning) (swin_unetr_ssl_partial_ft): OASIS-1 Test AUC=0.4960, ADNI AUC=0.5084, Gap=-0.0124 -> SUCCESS.
+[210.33s] [MODEL_14] FOMO25 AMAES ResEnc-B (Linear Probe) (fomo25_amaes_linear_probe): OASIS-1 Test AUC=0.5585, ADNI AUC=0.5324, Gap=+0.0261 -> SUCCESS.
+[192.65s] [MODEL_15] FOMO25 AMAES ResEnc-B (Partial Fine-Tuning) (fomo25_amaes_partial_ft): OASIS-1 Test AUC=0.4691, ADNI AUC=0.4878, Gap=-0.0187 -> SUCCESS.
+[2026-10-22 15:50:04] [STATISTICS] 9 Matched Bootstrap Hypothesis Tests (H1-H7) completed with Holm-Bonferroni correction.
+[2026-10-22 15:50:04] [TRUSTGATE] Failure gating evaluation on N=500 ADNI volumes completed. Domain shift collapse confirmed.
+[2026-10-22 15:50:04] [ARTIFACTS] Authoritative CSV tables and publication figures saved in results/v4/.
+[2026-10-22 15:50:04] [SUPERVISOR] All 15 model configurations completed successfully with zero unhandled exceptions.

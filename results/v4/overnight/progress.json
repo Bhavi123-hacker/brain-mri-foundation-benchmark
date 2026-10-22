@@ -1,0 +1,19 @@
+{
+  "campaign_name": "SHIFT-MRI V4 Authentic Foundation Retraining & Baselines",
+  "total_target_models": 15,
+  "completed_models": 15,
+  "failed_models": 0,
+  "unverified_models": 0,
+  "progress_percent": 100.0,
+  "gpu": "NVIDIA RTX PRO 2000 Blackwell (16 GB VRAM)",
+  "current_stage": "STAGE_COMPLETE_AWAITING_VERIFICATION_AND_PAPER_PACKAGING",
+  "stage_status": {
+    "dataset_audit": "COMPLETED",
+    "checkpoint_provenance": "COMPLETED",
+    "training_execution": "COMPLETED",
+    "statistical_testing": "COMPLETED",
+    "trustgate_revalidation": "COMPLETED",
+    "publication_figures": "COMPLETED",
+    "double_verification": "IN_PROGRESS"
+  }
+}

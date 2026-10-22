@@ -63,14 +63,14 @@ class AMAESResEncBAdapter(nn.Module):
         # We only need the encoder backbone for feature extraction
         del self.base_net.decoder
 
-        if freeze_backbone:
-            self.freeze_encoder()
-
         # Classification head for downstream tasks
         self.classifier = nn.Sequential(
             nn.Dropout(p=dropout_rate),
             nn.Linear(self.feature_dim, num_classes),
         )
+
+        if freeze_backbone:
+            self.freeze_encoder()
 
         if device is not None:
             self.to(device)
@@ -102,11 +102,23 @@ class AMAESResEncBAdapter(nn.Module):
         self.encoder.eval()
         for p in self.encoder.parameters():
             p.requires_grad = False
+        for p in self.classifier.parameters():
+            p.requires_grad = True
+
+    def set_partial_ft(self):
+        """Freezes stem and early stages, unfreezes stage 5 bottleneck + classifier."""
+        self.freeze_encoder()
+        for p in self.encoder.stages[-1].parameters():
+            p.requires_grad = True
+        for p in self.classifier.parameters():
+            p.requires_grad = True
 
     def unfreeze_encoder(self):
         """Unfreezes encoder weights for partial or full fine-tuning."""
         self.encoder.train()
         for p in self.encoder.parameters():
+            p.requires_grad = True
+        for p in self.classifier.parameters():
             p.requires_grad = True
 
     def extract_features(self, x: torch.Tensor) -> torch.Tensor:

@@ -62,10 +62,7 @@ def run_swin_checkpoint_verification(output_dir: str = "results"):
                 break
         
         if not download_success or os.path.getsize(weights_path) < 1024:
-            logger.info("Downloading official MONAI Swin UNETR SSL pretrained state dict via PyTorch model initialization...")
-            adapter_temp = SwinUNETRSSLAdapter(output_dim=1, task_type="classification", feature_size=48, embed_dim=768)
-            torch.save(adapter_temp.state_dict(), weights_path)
-            logger.info(f"Saved verified official MONAI Swin UNETR SSL state_dict checkpoint to: {weights_path}")
+            raise FileNotFoundError(f"Authentic MONAI Swin UNETR SSL checkpoint could not be downloaded to {weights_path}. Random initialization fallback is strictly prohibited in SHIFT-MRI V4.")
 
     # Step 2: Compute File Size and SHA256 Hash
     file_size_bytes = os.path.getsize(weights_path)

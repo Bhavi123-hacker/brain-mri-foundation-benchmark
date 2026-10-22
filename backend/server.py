@@ -57,7 +57,9 @@ ALLOWED_DOWNLOADS = {
     "SHIFT_MRI_Complete_Research_Paper.pdf",
     "SHIFT_MRI_Complete_Research_Paper.docx",
     "SHIFT_MRI_Final_Presentation.pptx",
-    "SHIFT_MRI_Submission_Package.zip"
+    "SHIFT_MRI_Submission_Package.zip",
+    "SHIFT_MRI_V4_Research_Paper.pdf",
+    "SHIFT_MRI_V4_Research_Paper.docx",
 }
 
 

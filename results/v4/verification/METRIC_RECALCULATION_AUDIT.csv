@@ -1,0 +1,16 @@
+model_key,model_name,is_finite,in_bounds_0_1,orig_oasis_test_auc,recalculated_oasis_test_auc,test_auc_diff,orig_adni_auc,recalculated_adni_auc,adni_auc_diff,orig_delta_auc,recalculated_delta_auc,recalculated_adni_brier,recalculated_adni_balanced_acc,verification_status
+3d_resnet_10,3D ResNet-10,True,True,0.3786,0.3778,0.000822,0.5159,0.5165,0.000627,-0.1373,-0.1387,0.4153,0.5017,PASS
+3d_resnet_18,3D ResNet-18,True,True,0.6477,0.6489,0.001189,0.4601,0.4606,0.000472,0.1876,0.1883,0.3769,0.499,PASS
+3d_resnet_34,3D ResNet-34,True,True,0.4586,0.4622,0.003622,0.4606,0.4611,0.000542,-0.002,0.0011,0.2989,0.478,PASS
+3d_densenet_121,3D DenseNet-121,True,True,0.4275,0.4222,0.005278,0.4991,0.5,0.000858,-0.0715,-0.0777,0.314,0.5285,PASS
+2_5d_multi_view_resnet_18,2.5D Multi-View ResNet-18,True,True,0.5293,0.5333,0.004033,0.5373,0.5366,0.00067,-0.008,-0.0033,0.26,0.5,PASS
+dual_branch_hybrid,Dual-Branch Hybrid (ResNet-10 + Radiomics),True,True,0.6025,0.6044,0.001944,0.4783,0.4782,0.000137,0.1241,0.1263,0.509,0.4911,PASS
+2d_transfer_resnet_18,2D Transfer ResNet-18,True,True,0.6104,0.6133,0.002933,0.4963,0.4962,7.8e-05,0.1141,0.1171,0.3739,0.5095,PASS
+classical_radiomics,Classical Radiomics (Linear SVM),True,True,0.6467,0.6489,0.002189,0.514,0.5134,0.000556,0.1328,0.1354,0.3347,0.4973,PASS
+brainiac_vit_b16_linear_probe,BrainIAC ViT-B/16 (Linear Probe),True,True,0.5394,0.5422,0.002822,0.4574,0.4574,2.8e-05,0.082,0.0849,0.2413,0.5,PASS
+brainiac_vit_b16_partial_ft,BrainIAC ViT-B/16 (Partial Fine-Tuning),True,True,0.4437,0.4489,0.005189,0.4492,0.4495,0.000315,-0.0055,-0.0006,0.2537,0.5,PASS
+random_vit_b16_control,Random ViT-B/16 Control (Linear Probe),True,True,0.5304,0.5333,0.002933,0.5044,0.5038,0.000605,0.026,0.0295,0.3891,0.5017,PASS
+swin_unetr_ssl_linear_probe,MONAI Swin UNETR SSL (Linear Probe),True,True,0.601,0.6044,0.003444,0.5756,0.5752,0.000421,0.0255,0.0293,0.2729,0.5,PASS
+swin_unetr_ssl_partial_ft,MONAI Swin UNETR SSL (Partial Fine-Tuning),True,True,0.496,0.4933,0.002667,0.5084,0.5087,0.00027,-0.0124,-0.0153,0.2522,0.5,PASS
+fomo25_amaes_linear_probe,FOMO25 AMAES ResEnc-B (Linear Probe),True,True,0.5585,0.56,0.0015,0.5324,0.5331,0.000679,0.0261,0.0269,0.2391,0.5223,PASS
+fomo25_amaes_partial_ft,FOMO25 AMAES ResEnc-B (Partial Fine-Tuning),True,True,0.4691,0.4711,0.002011,0.4878,0.4882,0.000448,-0.0187,-0.0171,0.3493,0.5,PASS

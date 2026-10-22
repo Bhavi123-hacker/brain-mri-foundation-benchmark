@@ -1,0 +1,242 @@
+{
+  "N01_reliability_matrix": [
+    {
+      "model_key": "3d_resnet_18",
+      "oasis1_test_auc": 0.6489,
+      "adni_auc": 0.4606,
+      "oasis2_auc": 0.6197,
+      "generalization_gap": 0.1883,
+      "oasis1_brier": 0.297,
+      "adni_brier": 0.3769
+    },
+    {
+      "model_key": "3d_resnet_10",
+      "oasis1_test_auc": 0.3778,
+      "adni_auc": 0.5165,
+      "oasis2_auc": 0.5558,
+      "generalization_gap": -0.1387,
+      "oasis1_brier": 0.3496,
+      "adni_brier": 0.4153
+    },
+    {
+      "model_key": "3d_densenet_121",
+      "oasis1_test_auc": 0.4222,
+      "adni_auc": 0.5,
+      "oasis2_auc": 0.4107,
+      "generalization_gap": -0.0777,
+      "oasis1_brier": 0.3477,
+      "adni_brier": 0.314
+    },
+    {
+      "model_key": "2_5d_multi_view_resnet_18",
+      "oasis1_test_auc": 0.5333,
+      "adni_auc": 0.5366,
+      "oasis2_auc": 0.6923,
+      "generalization_gap": -0.0033,
+      "oasis1_brier": 0.415,
+      "adni_brier": 0.26
+    },
+    {
+      "model_key": "dual_branch_hybrid",
+      "oasis1_test_auc": 0.6044,
+      "adni_auc": 0.4782,
+      "oasis2_auc": 0.5871,
+      "generalization_gap": 0.1263,
+      "oasis1_brier": 0.2954,
+      "adni_brier": 0.509
+    },
+    {
+      "model_key": "classical_radiomics",
+      "oasis1_test_auc": 0.6489,
+      "adni_auc": 0.5134,
+      "oasis2_auc": 0.6047,
+      "generalization_gap": 0.1354,
+      "oasis1_brier": 0.2318,
+      "adni_brier": 0.3347
+    },
+    {
+      "model_key": "brainiac_vit_b16_linear_probe",
+      "oasis1_test_auc": 0.5422,
+      "adni_auc": 0.4574,
+      "oasis2_auc": 0.5065,
+      "generalization_gap": 0.0849,
+      "oasis1_brier": 0.2766,
+      "adni_brier": 0.2413
+    },
+    {
+      "model_key": "swin_unetr_ssl_linear_probe",
+      "oasis1_test_auc": 0.6044,
+      "adni_auc": 0.5752,
+      "oasis2_auc": 0.6789,
+      "generalization_gap": 0.0293,
+      "oasis1_brier": 0.2549,
+      "adni_brier": 0.2729
+    },
+    {
+      "model_key": "fomo25_amaes_linear_probe",
+      "oasis1_test_auc": 0.56,
+      "adni_auc": 0.5331,
+      "oasis2_auc": 0.4997,
+      "generalization_gap": 0.0269,
+      "oasis1_brier": 0.2743,
+      "adni_brier": 0.2391
+    }
+  ],
+  "N02_probability_saturation": [
+    {
+      "model_key": "3d_resnet_18",
+      "adni_prob_mean": 0.0783,
+      "adni_prob_std": 0.1774,
+      "tail_saturation_fraction": 0.844,
+      "mid_uncertainty_fraction": 0.02,
+      "collapse_mode": "OVERCONFIDENT_SATURATION"
+    },
+    {
+      "model_key": "3d_resnet_10",
+      "adni_prob_mean": 0.8116,
+      "adni_prob_std": 0.0645,
+      "tail_saturation_fraction": 0.078,
+      "mid_uncertainty_fraction": 0.0,
+      "collapse_mode": "MODERATE_DISPERSION"
+    },
+    {
+      "model_key": "3d_densenet_121",
+      "adni_prob_mean": 0.6643,
+      "adni_prob_std": 0.0674,
+      "tail_saturation_fraction": 0.0,
+      "mid_uncertainty_fraction": 0.118,
+      "collapse_mode": "MODERATE_DISPERSION"
+    },
+    {
+      "model_key": "2_5d_multi_view_resnet_18",
+      "adni_prob_mean": 0.5152,
+      "adni_prob_std": 0.1244,
+      "tail_saturation_fraction": 0.0,
+      "mid_uncertainty_fraction": 0.53,
+      "collapse_mode": "UNDERCONFIDENT_ENTROPY"
+    },
+    {
+      "model_key": "dual_branch_hybrid",
+      "adni_prob_mean": 0.8781,
+      "adni_prob_std": 0.1698,
+      "tail_saturation_fraction": 0.654,
+      "mid_uncertainty_fraction": 0.052,
+      "collapse_mode": "OVERCONFIDENT_SATURATION"
+    },
+    {
+      "model_key": "classical_radiomics",
+      "adni_prob_mean": 0.1211,
+      "adni_prob_std": 0.1407,
+      "tail_saturation_fraction": 0.616,
+      "mid_uncertainty_fraction": 0.038,
+      "collapse_mode": "OVERCONFIDENT_SATURATION"
+    },
+    {
+      "model_key": "brainiac_vit_b16_linear_probe",
+      "adni_prob_mean": 0.3443,
+      "adni_prob_std": 0.0013,
+      "tail_saturation_fraction": 0.0,
+      "mid_uncertainty_fraction": 0.0,
+      "collapse_mode": "MODERATE_DISPERSION"
+    },
+    {
+      "model_key": "swin_unetr_ssl_linear_probe",
+      "adni_prob_mean": 0.579,
+      "adni_prob_std": 0.0005,
+      "tail_saturation_fraction": 0.0,
+      "mid_uncertainty_fraction": 1.0,
+      "collapse_mode": "UNDERCONFIDENT_ENTROPY"
+    },
+    {
+      "model_key": "fomo25_amaes_linear_probe",
+      "adni_prob_mean": 0.3682,
+      "adni_prob_std": 0.0085,
+      "tail_saturation_fraction": 0.0,
+      "mid_uncertainty_fraction": 0.0,
+      "collapse_mode": "MODERATE_DISPERSION"
+    }
+  ],
+  "N03_demographic_baselines": {
+    "demographic_baseline": "Logistic Regression (Age + Sex)",
+    "oasis1_test_auc": 0.528,
+    "adni_external_auc": 0.5123,
+    "oasis2_external_auc": 0.6346,
+    "imaging_vs_demo_adni": {
+      "swin_unetr_advantage": 0.0633,
+      "resnet18_advantage": -0.0522
+    },
+    "interpretation": "Age and sex alone achieve ADNI AUC=0.5123 and OASIS-1 AUC=0.5280. On OASIS-2, age+sex reaches AUC=0.6346 due to demographic selection effects in the longitudinal cohort."
+  },
+  "N04_selective_prediction": [
+    {
+      "rejection_pct": 0,
+      "coverage_pct": 100,
+      "accuracy": 0.596
+    },
+    {
+      "rejection_pct": 10,
+      "coverage_pct": 90,
+      "accuracy": 0.5911
+    },
+    {
+      "rejection_pct": 20,
+      "coverage_pct": 80,
+      "accuracy": 0.5875
+    },
+    {
+      "rejection_pct": 30,
+      "coverage_pct": 70,
+      "accuracy": 0.5886
+    },
+    {
+      "rejection_pct": 40,
+      "coverage_pct": 60,
+      "accuracy": 0.58
+    },
+    {
+      "rejection_pct": 50,
+      "coverage_pct": 50,
+      "accuracy": 0.576
+    }
+  ],
+  "N05_clinical_severity_subgroups": [
+    {
+      "cdr_level": "CDR=0.5 vs CDR=0.0",
+      "sample_size": 25,
+      "swin_unetr_auc": 0.64
+    },
+    {
+      "cdr_level": "CDR=1.0 vs CDR=0.0",
+      "sample_size": 20,
+      "swin_unetr_auc": 0.5333
+    }
+  ],
+  "N06_perturbation_robustness": [
+    {
+      "noise_std": 0.0,
+      "swin_unetr_auc": 0.6044,
+      "auc_retention_ratio": 1.0057
+    },
+    {
+      "noise_std": 0.05,
+      "swin_unetr_auc": 0.5333,
+      "auc_retention_ratio": 0.8874
+    },
+    {
+      "noise_std": 0.1,
+      "swin_unetr_auc": 0.5911,
+      "auc_retention_ratio": 0.9835
+    },
+    {
+      "noise_std": 0.2,
+      "swin_unetr_auc": 0.32,
+      "auc_retention_ratio": 0.5324
+    }
+  ],
+  "N07_latent_geometry_ood": {
+    "technique": "Feature Centroid Mahalanobis Proxy in 6D Morphometric Space",
+    "source_centroid": "OASIS-1 Train Morphometric Centroid",
+    "adni_ood_detection_auroc": 0.5113,
+    "ood_interpretation": "Morphometric feature distance achieves an AUROC of 0.5113 for identifying misclassified ADNI scans, indicating that geometric feature distance from the source training distribution alone is insufficient to reliably detect classification failures under real clinical MRI domain shift."
+  }
+}

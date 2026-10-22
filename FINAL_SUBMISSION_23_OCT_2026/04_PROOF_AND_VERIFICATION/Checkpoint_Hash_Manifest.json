@@ -1,0 +1,114 @@
+{
+  "2d_transfer_resnet_18_seed42_best.pt": {
+    "file_name": "2d_transfer_resnet_18_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\2d_transfer_resnet_18_seed42_best.pt",
+    "size_bytes": 44790795,
+    "sha256": "e9be037f61c363e30fe65b8df94dcda6d8d037f60b1fc69bc2d44ab63288b1db",
+    "can_reload": true,
+    "keys_count": 122
+  },
+  "2_5d_multi_view_resnet_18_seed42_best.pt": {
+    "file_name": "2_5d_multi_view_resnet_18_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\2_5d_multi_view_resnet_18_seed42_best.pt",
+    "size_bytes": 46365507,
+    "sha256": "c387404be8bf2245325037656e060ec9fb1bbc06f1ba66e3f4b965b3631daaec",
+    "can_reload": true,
+    "keys_count": 124
+  },
+  "3d_densenet_121_seed42_best.pt": {
+    "file_name": "3d_densenet_121_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\3d_densenet_121_seed42_best.pt",
+    "size_bytes": 47719673,
+    "sha256": "55980d2e7a0eaa90b927d3ea7ed141b5ba6fd349df413c3c2b24900b29649514",
+    "can_reload": true,
+    "keys_count": 729
+  },
+  "3d_resnet_10_seed42_best.pt": {
+    "file_name": "3d_resnet_10_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\3d_resnet_10_seed42_best.pt",
+    "size_bytes": 58530779,
+    "sha256": "07efb8be01d44c0dec920c1a486eebe867aa24f9749f3b2fe97dcb4f2d48c605",
+    "can_reload": true,
+    "keys_count": 79
+  },
+  "3d_resnet_18_seed42_best.pt": {
+    "file_name": "3d_resnet_18_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\3d_resnet_18_seed42_best.pt",
+    "size_bytes": 132723659,
+    "sha256": "4ff705454ca9279d4ec0524eec4c737b7b41e4dd900b548acb467da2b9d71ecf",
+    "can_reload": true,
+    "keys_count": 122
+  },
+  "3d_resnet_34_seed42_best.pt": {
+    "file_name": "3d_resnet_34_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\3d_resnet_34_seed42_best.pt",
+    "size_bytes": 254025131,
+    "sha256": "e19f3874f3b2c9f2316fc54974b1b124f86e6ef51acd2d2baf45f7ce15792373",
+    "can_reload": true,
+    "keys_count": 218
+  },
+  "brainiac_vit_b16_linear_probe_seed42_best.pt": {
+    "file_name": "brainiac_vit_b16_linear_probe_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\brainiac_vit_b16_linear_probe_seed42_best.pt",
+    "size_bytes": 353510251,
+    "sha256": "baff165450b698a88d626abf3402895d022ecd1946d34d51ee002ea865139978",
+    "can_reload": true,
+    "keys_count": 163
+  },
+  "brainiac_vit_b16_partial_ft_seed42_best.pt": {
+    "file_name": "brainiac_vit_b16_partial_ft_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\brainiac_vit_b16_partial_ft_seed42_best.pt",
+    "size_bytes": 353509913,
+    "sha256": "188ececfffeac94243c5e81f0e8b5028764a140ddf724007f527f9a210beed52",
+    "can_reload": true,
+    "keys_count": 163
+  },
+  "dual_branch_hybrid_seed42_best.pt": {
+    "file_name": "dual_branch_hybrid_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\dual_branch_hybrid_seed42_best.pt",
+    "size_bytes": 58156429,
+    "sha256": "8b33a811ac97d8e972605437e885516b2ea1b2ddd93faa8e43e63320c277e02c",
+    "can_reload": true,
+    "keys_count": 88
+  },
+  "fomo25_amaes_linear_probe_seed42_best.pt": {
+    "file_name": "fomo25_amaes_linear_probe_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\fomo25_amaes_linear_probe_seed42_best.pt",
+    "size_bytes": 361433963,
+    "sha256": "83f8910019529aa7d64df25ab571205a224f42c67e4725e409008315bf674306",
+    "can_reload": true,
+    "keys_count": 898
+  },
+  "fomo25_amaes_partial_ft_seed42_best.pt": {
+    "file_name": "fomo25_amaes_partial_ft_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\fomo25_amaes_partial_ft_seed42_best.pt",
+    "size_bytes": 361433499,
+    "sha256": "bf862eb2f9814ffc7547c86f663b81c7018d85a37ebdf788b21c5d45df7204ba",
+    "can_reload": true,
+    "keys_count": 898
+  },
+  "random_vit_b16_control_seed42_best.pt": {
+    "file_name": "random_vit_b16_control_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\random_vit_b16_control_seed42_best.pt",
+    "size_bytes": 353509068,
+    "sha256": "07cb5cdd9d5565d86ed265e98ba00eae1c0f9a3b5ebb165bb6cad6f8ae5fafa5",
+    "can_reload": true,
+    "keys_count": 163
+  },
+  "swin_unetr_ssl_linear_probe_seed42_best.pt": {
+    "file_name": "swin_unetr_ssl_linear_probe_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\swin_unetr_ssl_linear_probe_seed42_best.pt",
+    "size_bytes": 39838463,
+    "sha256": "193db193fd5f0951b8dc0fc702fe11a787d61644234365884a2993db6debd06c",
+    "can_reload": true,
+    "keys_count": 128
+  },
+  "swin_unetr_ssl_partial_ft_seed42_best.pt": {
+    "file_name": "swin_unetr_ssl_partial_ft_seed42_best.pt",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\swin_unetr_ssl_partial_ft_seed42_best.pt",
+    "size_bytes": 39838067,
+    "sha256": "5b8d5276cbbc1ce48b42cfec02238bf87b46c92a3d458cf825049d03e1af57f3",
+    "can_reload": true,
+    "keys_count": 128
+  }
+}

@@ -1,0 +1,4 @@
+foundation_backbone,linear_probe_auc,partial_ft_auc,linear_probe_brier,partial_ft_brier,auc_delta_ft_minus_probe,brier_delta_ft_minus_probe
+BrainIAC (ViT-B/16³),0.4574,0.4492,0.2413,0.2537,-0.0082,0.0124
+MONAI Swin UNETR SSL,0.5756,0.5084,0.2729,0.2522,-0.0672,-0.0207
+FOMO25 AMAES (ResEnc-B),0.5324,0.4878,0.2391,0.3493,-0.0446,0.1102

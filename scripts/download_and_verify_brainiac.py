@@ -63,10 +63,7 @@ def run_brainiac_checkpoint_verification(output_dir: str = "results"):
                 break
         
         if not download_success or os.path.getsize(weights_path) < 1024:
-            logger.info("Downloading official BrainIAC pretrained state dict via PyTorch model initialization...")
-            adapter_temp = BrainIACAdapter(output_dim=1, task_type="classification", embed_dim=768)
-            torch.save(adapter_temp.state_dict(), weights_path)
-            logger.info(f"Saved verified official BrainIAC state_dict checkpoint to: {weights_path}")
+            raise FileNotFoundError(f"Authentic BrainIAC checkpoint could not be downloaded to {weights_path}. Random initialization fallback is strictly prohibited in SHIFT-MRI V4.")
 
     # Step 2: Compute File Size and SHA256 Hash
     file_size_bytes = os.path.getsize(weights_path)

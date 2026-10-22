@@ -1,0 +1,7 @@
+model_name,model_key,oasis_test_auc,adni_auc,adni_delta_vs_resnet18,adni_brier,adni_brier_vs_resnet18,generalization_gap,trainable_params,total_params
+BrainIAC ViT-B/16 (Linear Probe),brainiac_vit_b16_linear_probe,0.5394,0.4574,-0.0027,0.2413,-0.1356,0.082,769,88359937
+BrainIAC ViT-B/16 (Partial Fine-Tuning),brainiac_vit_b16_partial_ft,0.4437,0.4492,-0.0109,0.2537,-0.1232,-0.0055,14174977,88359937
+MONAI Swin UNETR SSL (Linear Probe),swin_unetr_ssl_linear_probe,0.601,0.5756,0.1155,0.2729,-0.104,0.0255,769,8062771
+MONAI Swin UNETR SSL (Partial Fine-Tuning),swin_unetr_ssl_partial_ft,0.496,0.5084,0.0483,0.2522,-0.1247,-0.0124,6020593,8062771
+FOMO25 AMAES ResEnc-B (Linear Probe),fomo25_amaes_linear_probe,0.5585,0.5324,0.0723,0.2391,-0.1378,0.0261,321,90296897
+FOMO25 AMAES ResEnc-B (Partial Fine-Tuning),fomo25_amaes_partial_ft,0.4691,0.4878,0.0277,0.3493,-0.0276,-0.0187,33189441,90296897

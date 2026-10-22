@@ -1,0 +1,6 @@
+detector_name,error_detection_auroc,baseline_accuracy,accuracy_at_20pct_rejection,accuracy_gain_at_20pct_rejection,effective_failure_gating,domain_shift_collapse_observed
+Confidence Margin,0.4722,0.596,0.5875,-0.0085,False,True
+Predictive Entropy,0.4722,0.596,0.5875,-0.0085,False,True
+Ensemble Disagreement,0.5398,0.596,0.62,0.024,False,True
+Feature Centroid Distance,0.5113,0.596,0.61,0.014,False,True
+Composite TrustGate Risk,0.5082,0.596,0.59,-0.006,False,True

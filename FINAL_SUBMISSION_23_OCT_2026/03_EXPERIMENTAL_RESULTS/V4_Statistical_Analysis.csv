@@ -1,0 +1,10 @@
+hypothesis_id,description,model_A,model_B,cohort,auc_A,auc_B,delta_auc,ci_95_lower,ci_95_upper,raw_p_value,holm_bonferroni_p_value,statistically_significant
+H6b,Foundation Probe: MONAI Swin UNETR SSL vs 3D ResNet-18 on ADNI,swin_unetr_ssl_linear_probe,3d_resnet_18,adni,0.5752,0.4606,0.1146,0.0327,0.1968,0.004,0.036,True
+H5,Dual-Branch Synergy: Hybrid vs 3D ResNet-10 on OASIS-1 Test,dual_branch_hybrid,3d_resnet_10,oasis_test,0.6044,0.3778,0.2267,0.0489,0.4089,0.008,0.064,False
+H6c,Foundation Probe: FOMO25 AMAES vs 3D ResNet-18 on ADNI,fomo25_amaes_linear_probe,3d_resnet_18,adni,0.5331,0.4606,0.0725,0.0019,0.1403,0.045,0.315,False
+H3,Multi-Planar 2.5D: 2.5D ResNet-18 vs 3D ResNet-18 on ADNI,2_5d_multi_view_resnet_18,3d_resnet_18,adni,0.5366,0.4606,0.0761,-0.0023,0.1541,0.058,0.348,False
+H7,Pretraining Control: BrainIAC ViT-B/16 vs Random ViT-B/16 Control on ADNI,brainiac_vit_b16_linear_probe,random_vit_b16_control,adni,0.4574,0.5038,-0.0464,-0.1066,0.0132,0.138,0.69,False
+H2,Dense vs Residual: 3D DenseNet-121 vs 3D ResNet-18 on ADNI,3d_densenet_121,3d_resnet_18,adni,0.5,0.4606,0.0394,-0.036,0.1148,0.307,1.0,False
+H1,Model Capacity: 3D ResNet-10 vs 3D ResNet-34 on OASIS-1 Test,3d_resnet_10,3d_resnet_34,oasis_test,0.3778,0.4622,-0.0844,-0.249,0.0844,0.321,1.0,False
+H4,Pretrained Transfer 2D: 2D Transfer ResNet-18 vs 3D ResNet-18 on ADNI,2d_transfer_resnet_18,3d_resnet_18,adni,0.4962,0.4606,0.0357,-0.04,0.1069,0.363,1.0,False
+H6a,Foundation Probe: BrainIAC ViT-B/16 vs 3D ResNet-18 on ADNI,brainiac_vit_b16_linear_probe,3d_resnet_18,adni,0.4574,0.4606,-0.0032,-0.0892,0.0854,0.976,1.0,False

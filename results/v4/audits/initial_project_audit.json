@@ -1,0 +1,106 @@
+{
+  "v4_audit_meta": {
+    "title": "SHIFT-MRI V4 Initial Scientific & Software Audit",
+    "campaign": "research/v4-authentic-foundation-retraining",
+    "date": "2026-10-22 13:51:07",
+    "investigator": "Bhavy Garg, Vellore Institute of Technology, Chennai"
+  },
+  "environment": {
+    "timestamp": "2026-10-22T13:51:07.510807",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "python_version": "3.12.10",
+    "torch_version": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8",
+    "gpu_count": 1,
+    "gpu_name": "NVIDIA RTX PRO 2000 Blackwell",
+    "gpu_vram_gb": 15.93,
+    "system_ram_total_gb": 63.34,
+    "system_ram_avail_gb": 50.4,
+    "disk_c_free_gb": 409.29,
+    "disk_c_total_gb": 610.21,
+    "disk_d_free_gb": 310.12,
+    "disk_d_total_gb": 341.8,
+    "monai_version": "1.6.1",
+    "torchvision_version": "0.26.0+cu128",
+    "timm_version": "1.0.30",
+    "nibabel_version": "5.4.2"
+  },
+  "datasets": {
+    "oasis1": {
+      "manifest_path": "D:\\brain_mri_data\\OASIS1\\manifests\\oasis1_primary_cohort_splits.csv",
+      "manifest_found": true,
+      "total_subjects": 198,
+      "cn_count": 98,
+      "ad_count": 100,
+      "split_counts": {
+        "train": 138,
+        "val": 30,
+        "test": 30
+      },
+      "patient_overlap_check": "PASS: ZERO PATIENT OVERLAP (138 train / 30 val / 30 test)"
+    },
+    "adni": {
+      "manifest_path": "D:\\brain_mri_data\\ADNI\\manifests\\adni_full_preprocessed_manifest.csv",
+      "manifest_found": true,
+      "total_subjects": 500,
+      "cn_count": 303,
+      "ad_count": 197,
+      "scanner_manufacturers": {
+        "Siemens": 370,
+        "Philips": 130
+      }
+    },
+    "oasis2": {
+      "manifest_path": "D:\\brain_mri_data\\OASIS2\\manifests\\oasis2_baseline_manifest.csv",
+      "manifest_found": true,
+      "total_subjects": 150,
+      "cn_count": 85,
+      "ad_count": 65,
+      "overlap_with_oasis1": "UNRESOLVED / EXPLORATORY ONLY"
+    },
+    "data_root_nifti_count": 150
+  },
+  "checkpoints_and_adapters": {
+    "total_checkpoint_files_found": 5,
+    "checkpoints": [
+      {
+        "path": "results\\v2\\checkpoints\\2.5d_multi_view_resnet_18_seed42_best.pt",
+        "size_mb": 44.22
+      },
+      {
+        "path": "results\\v2\\checkpoints\\3d_densenet_121_seed42_best.pt",
+        "size_mb": 45.51
+      },
+      {
+        "path": "results\\v2\\checkpoints\\3d_resnet_10_seed42_best.pt",
+        "size_mb": 55.82
+      },
+      {
+        "path": "results\\v2\\checkpoints\\dual_branch_hybrid_resnet_10___radiomics_seed42_best.pt",
+        "size_mb": 55.46
+      },
+      {
+        "path": "results\\v2\\checkpoints\\dual_branch_hybrid_seed42_best.pt",
+        "size_mb": 55.46
+      }
+    ],
+    "adapter_files": {
+      "brainiac": false,
+      "swin_unetr": false,
+      "fomo25": false,
+      "amaes_resenc": false
+    }
+  },
+  "actionable_v4_requirements": [
+    "1. BrainIAC: Audit official ViT-B/16 implementation and official weights; reject simplified CNN proxy adapter.",
+    "2. MONAI Swin UNETR SSL: Formally document pretraining modality (CVPR 2022 CT-pretrained 5050 volumes); verify official weights hash.",
+    "3. FOMO25: Audit AMAES ResEnc-B official implementation; verify pretraining exposure and prevent OASIS leakage.",
+    "4. Disable all random weight fallbacks on failed checkpoint downloads.",
+    "5. Rebuild config-driven training engine with reproducible seeds (42, 43, 44), mixed precision, and early stopping on source validation.",
+    "6. Retrain supervised CNN baselines (3D ResNet-10, 18, 34, DenseNet-121, 2D Transfer, 2.5D, Hybrid).",
+    "7. Train authentic foundation models (linear probes and validation-selected fine-tuning).",
+    "8. Reevaluate cross-cohort transfer (OASIS-1 N=30 test vs ADNI N=500 zero-shot) and TrustGate failure estimation.",
+    "9. Generate IEEE Access research paper from verified V4 results."
+  ]
+}

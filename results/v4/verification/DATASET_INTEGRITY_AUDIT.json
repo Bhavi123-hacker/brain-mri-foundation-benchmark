@@ -1,0 +1,72 @@
+{
+  "audit_timestamp": "2026-10-22",
+  "student": "Bhavy Garg (24BAI1088)",
+  "institution": "Vellore Institute of Technology, Chennai",
+  "total_mri_volumes_verified": 848,
+  "cohorts": {
+    "OASIS1": {
+      "cohort_name": "OASIS-1 Primary Cross-Sectional Cohort",
+      "total_scans": 198,
+      "train_scans": 138,
+      "val_scans": 30,
+      "locked_test_scans": 30,
+      "unique_subjects": 198,
+      "cross_split_subject_leakage": {
+        "train_val_overlap": 0,
+        "train_test_overlap": 0,
+        "val_test_overlap": 0,
+        "leakage_percent": 0.0
+      },
+      "labels": {
+        "cognitively_normal_cdr_0": 98,
+        "dementia_cdr_gt_0": 100
+      },
+      "tensors_on_disk": 198,
+      "valid_128_cube_shapes": 198,
+      "nan_or_inf_detected": 0,
+      "scanner_field_strength": "1.5T (Siemens Vision)",
+      "audit_status": "PASS"
+    },
+    "ADNI": {
+      "cohort_name": "ADNI Zero-Shot External Transfer Cohort",
+      "total_evaluated_scans": 500,
+      "labels": {
+        "cognitively_normal_CN": 303,
+        "alzheimers_disease_AD": 197
+      },
+      "manufacturers": {
+        "Siemens": 370,
+        "Philips": 130,
+        "GE": 0
+      },
+      "ge_scanner_present": false,
+      "tensors_on_disk": 500,
+      "valid_128_cube_shapes": 500,
+      "nan_or_inf_detected": 0,
+      "field_strength": "1.5T / 3.0T multi-center",
+      "audit_status": "PASS"
+    },
+    "OASIS2": {
+      "cohort_name": "OASIS-2 Longitudinal Baseline Exploratory Cohort",
+      "total_scans": 150,
+      "labels": {
+        "nondemented": 85,
+        "demented": 65
+      },
+      "tensors_on_disk": 150,
+      "valid_128_cube_shapes": 150,
+      "nan_or_inf_detected": 0,
+      "exploratory_status": "EXPLORATORY_COHORT",
+      "overlap_with_oasis1_disclosed": true,
+      "overlap_notes": "Participant overlap between OASIS-1 cross-sectional and OASIS-2 longitudinal baseline cannot be completely excluded; therefore OASIS-2 is reported strictly as an exploratory cohort.",
+      "audit_status": "PASS"
+    }
+  },
+  "label_harmonization_disclosures": [
+    "OASIS CDR > 0 defines clinical dementia rating of very mild, mild, or moderate cognitive impairment.",
+    "ADNI binary label contrasts clinically confirmed Alzheimer's Disease (AD) vs Cognitively Normal (CN).",
+    "This slight clinical endpoint discrepancy is documented as a methodological reality of multi-cohort neuroimaging research."
+  ],
+  "scanner_disclosure": "ADNI cohort strictly contains Siemens (N=370, 74.0%) and Philips (N=130, 26.0%). Zero GE scanners are present.",
+  "overall_integrity_status": "PASS"
+}

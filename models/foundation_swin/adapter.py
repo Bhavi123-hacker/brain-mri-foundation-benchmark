@@ -57,6 +57,8 @@ class SwinUNETRSSLAdapter(BaseBenchModel):
 
         if adaptation_mode == "linear_probe":
             self.freeze_backbone()
+        elif adaptation_mode == "partial_ft":
+            self.set_partial_ft()
         else:
             self.unfreeze_backbone()
 
@@ -65,11 +67,25 @@ class SwinUNETRSSLAdapter(BaseBenchModel):
         self.adaptation_mode = "linear_probe"
         for param in self.swin_encoder.parameters():
             param.requires_grad = False
+        for param in self.head.parameters():
+            param.requires_grad = True
+
+    def set_partial_ft(self):
+        """Freeze early stages, unfreeze top stage (layers4) + head."""
+        self.adaptation_mode = "partial_ft"
+        for param in self.swin_encoder.parameters():
+            param.requires_grad = False
+        for param in self.swin_encoder.layers4.parameters():
+            param.requires_grad = True
+        for param in self.head.parameters():
+            param.requires_grad = True
 
     def unfreeze_backbone(self):
         """Unfreeze encoder for fine-tuning."""
         self.adaptation_mode = "fine_tuning"
         for param in self.swin_encoder.parameters():
+            param.requires_grad = True
+        for param in self.head.parameters():
             param.requires_grad = True
 
     def load_pretrained_weights(self, weights_path: str):
