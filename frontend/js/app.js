@@ -24,10 +24,8 @@ class BenchmarkApp {
       this.data = await DataLoader.loadAll();
       this.setupGlobalHeader();
       const initialHash = window.location.hash.replace('#', '').trim();
-      if (initialHash && document.getElementById(`section-${initialHash}`)) {
-        this.currentSection = initialHash;
-      }
-      this.renderCurrentSection();
+      const targetSection = (initialHash && document.getElementById(`section-${initialHash}`)) ? initialHash : this.currentSection;
+      this.navigateTo(targetSection);
       console.log('[App] Application initialized successfully.');
     } catch (err) {
       this.renderFatalError(err);
@@ -161,7 +159,7 @@ class BenchmarkApp {
 
     const auditBadge = document.getElementById('badge-audit');
     if (auditBadge && audit) {
-      auditBadge.textContent = '117/117 Tests Passing';
+      auditBadge.textContent = '122/122 Tests Passing';
     }
 
     const statusBadge = document.getElementById('badge-status');
@@ -302,7 +300,7 @@ class BenchmarkApp {
           <span class="kpi-context context-study">Zero-Shot Target</span>
           <div class="kpi-value">${adniCounts.total}</div>
           <div class="kpi-label">ADNI Scans</div>
-          <div class="kpi-sub">GE/Siemens/Philips 1.5/3.0T (${adniCounts.CN} CN / ${adniCounts.AD} AD)</div>
+          <div class="kpi-sub">Siemens (370) & Philips (130) 1.5/3.0T (${adniCounts.CN} CN / ${adniCounts.AD} AD)</div>
         </div>
         <div class="kpi-card" style="border-top: 3px solid #C7A97A;">
           <span class="kpi-context context-study">Exploratory Cohort</span>
@@ -340,11 +338,10 @@ class BenchmarkApp {
         </div>
 
         <div class="card" style="background-color: #222824; border-color: #2d3630;">
-          <h3 style="font-size: 15px; font-weight: 700; color: #C7A97A; margin-bottom: 10px;">Demographic Confounder Resolution (N=500)</h3>
+          <h3 style="font-size: 15px; font-weight: 700; color: #C7A97A; margin-bottom: 10px;">Demographic Confounder Evaluation (N=500)</h3>
           <p style="font-size: 13px; color: #ECE9DF; line-height: 1.6;">
             Evaluating non-imaging demographic predictors on the complete 500-subject ADNI cohort yields near-chance performance:
-            Age Alone (0.5242) and Age+Sex (0.5123). Top deep vision models significantly outperform demographic covariates,
-            definitively resolving the historical 50-patient pilot artifact (0.5671).
+            Age Alone (0.5242 [0.4727, 0.5753]) and Age+Sex (0.5123 [0.4590, 0.5650]). While top vision models achieve higher point estimates (e.g. Swin UNETR 0.5834 [0.5344, 0.6335]), their bootstrap confidence intervals overlap with demographic baselines, indicating generalized weak external discrimination rather than statistically conclusive imaging superiority.
           </p>
         </div>
       </div>
@@ -1035,7 +1032,7 @@ class BenchmarkApp {
       <div class="callout-box" style="margin-bottom: 20px;">
         <div class="callout-title"><span>📡</span> Non-Causal Domain Shift Attribution</div>
         <div class="callout-body">
-          Cross-dataset differences must not be attributed solely to magnetic field strength (1.5T vs 3.0T). ADNI introduces compound domain shifts including scanner manufacturer variations (Siemens vs Philips vs GE), multi-site pulse sequences, age distribution compression, and distinct clinical consensus diagnostic instruments.
+          Cross-dataset differences must not be attributed solely to magnetic field strength (1.5T vs 3.0T). ADNI introduces compound domain shifts including scanner manufacturer variations (Siemens N=370 vs Philips N=130; 0 GE), multi-site pulse sequences, age distribution compression, and distinct clinical consensus diagnostic instruments.
         </div>
       </div>
 

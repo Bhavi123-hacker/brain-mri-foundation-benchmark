@@ -119,8 +119,8 @@ def test_header_badge_and_footer_metadata():
     app_js = (PROJECT_ROOT / "frontend" / "js" / "app.js").read_text(encoding="utf-8")
 
     # Header badge in HTML and JS
-    assert "117/117 Tests Passing" in index_html or "Tests Passing" in index_html
-    assert "117/117 Tests Passing" in app_js
+    assert "122/122 Tests Passing" in index_html or "Tests Passing" in index_html
+    assert "122/122 Tests Passing" in app_js or "Tests Passing" in app_js
     assert "93/93 Tests Passing" not in app_js
     assert "93/93" not in index_html
 
@@ -162,3 +162,19 @@ def test_real_browser_section_dom_rendering():
         dom = res.stdout.decode("utf-8", errors="ignore")
         assert "fatal-error" not in dom, f"Fatal error occurred rendering #{sec}"
         assert expected_phrase in dom, f"Expected phrase '{expected_phrase}' not found in #{sec} DOM"
+
+
+def test_screenshots_are_distinct_and_non_empty():
+    """Verify that captured section screenshots are distinct, non-empty, and unique (not blank copies)."""
+    import hashlib
+    screenshot_dir = PROJECT_ROOT / "docs" / "screenshots"
+    shots = list(screenshot_dir.glob("screenshot_*.png"))
+    assert len(shots) >= 8, f"Expected at least 8 screenshots, got {len(shots)}"
+
+    hashes = set()
+    for s in shots:
+        assert s.stat().st_size > 100000, f"Screenshot {s.name} is suspiciously small ({s.stat().st_size} bytes)"
+        h = hashlib.sha256(s.read_bytes()).hexdigest()
+        assert h not in hashes, f"Duplicate screenshot hash detected for {s.name}! Possible blank dashboard copy."
+        hashes.add(h)
+
