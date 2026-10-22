@@ -110,5 +110,14 @@
     "sha256": "5b8d5276cbbc1ce48b42cfec02238bf87b46c92a3d458cf825049d03e1af57f3",
     "can_reload": true,
     "keys_count": 128
+  },
+  "classical_radiomics_model.joblib": {
+    "file_name": "classical_radiomics_model.joblib",
+    "path": "D:\\ml project\\results\\v4\\checkpoints\\classical_radiomics_model.joblib",
+    "size_bytes": 25091,
+    "sha256": "f861de7c83441668da2d1e79aff30ce3cf9d6e3e8b5b8036c4dff03d35558a7a",
+    "can_reload": true,
+    "model_type": "Linear SVM (Scikit-learn)",
+    "features_count": 24
   }
 }

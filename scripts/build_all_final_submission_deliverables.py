@@ -114,9 +114,9 @@ def create_ieee_paper_docx():
         "In this study, we present SHIFT-MRI, an audited benchmark evaluating 15 distinct model configurations trained on the cross-sectional OASIS-1 dataset (N=198; 138 train, 30 validation, 30 locked test) "
         "and blindly evaluated on the external multi-center Alzheimer's Disease Neuroimaging Initiative (ADNI, N=500; 303 CN, 197 AD; 370 Siemens, 130 Philips) "
         "and the exploratory longitudinal OASIS-2 dataset (N=150). "
-        "Our empirical findings reveal that: (1) Self-supervised volumetric pretraining provides measurable external transfer resilience, with MONAI Swin UNETR SSL linear probing achieving the highest cross-cohort generalization on ADNI (ROC-AUC = 0.5756 [0.5245, 0.6253]), significantly outperforming standard 3D ResNet-18 (ROC-AUC = 0.4601 [0.4095, 0.5121], Holm-Bonferroni adjusted p = 0.036); "
+        "Our empirical findings reveal that: (1) Self-supervised volumetric pretraining provides measurable external transfer resilience, with MONAI Swin UNETR SSL linear probing achieving the highest cross-cohort generalization on ADNI (ROC-AUC = 0.5752 [0.5241, 0.6249]), significantly outperforming standard 3D ResNet-18 (ROC-AUC = 0.4606 [0.4101, 0.5125], Holm-Bonferroni adjusted p = 0.036); "
         "(2) Counter-intuitively, partial fine-tuning of foundation backbones on small source cohorts consistently degraded external zero-shot transfer across all architectures (ΔAUC = -0.0082 to -0.0672) compared to frozen feature extraction, demonstrating that fine-tuning overfits source acquisition parameters; "
-        "(3) Pretrained BrainIAC ViT-B/16 did not demonstrate statistically significant superiority over a randomly initialized ViT-B/16 architectural control (ROC-AUC = 0.4574 vs 0.5044, p = 0.138); and "
+        "(3) Pretrained BrainIAC ViT-B/16 did not demonstrate statistically significant superiority over a randomly initialized ViT-B/16 architectural control (ROC-AUC = 0.4574 vs 0.5038, p = 0.138); and "
         "(4) Source-calibrated failure detection gates (SHIFT-MRI TrustGate) collapsed under domain shift (error-detection AUROC = 0.4722 to 0.5398), confirming that post-hoc confidence estimators are undermined by deep network overconfidence under covariate shift. "
         "All code, audited checkpoints, and participant-level prediction records are made openly available."
     )
@@ -166,10 +166,10 @@ def create_ieee_paper_docx():
             "Crucially, the decision threshold tau* was derived strictly on source OASIS-1 validation predictions using Youden's J index (J = Sensitivity + Specificity - 1) and frozen. Test labels on ADNI and OASIS-1 test were never accessed during threshold calibration."
         ]),
         ("VI. EXPERIMENTAL RESULTS AND STATISTICAL COMPARISONS", [
-            "Table I presents the authoritative cross-cohort results across all 15 evaluated models. On the in-distribution OASIS-1 locked test set, 3D ResNet-18 (AUC = 0.6477) and Classical Radiomics (AUC = 0.6467) achieved strong discrimination.",
-            "Under zero-shot transfer to ADNI (N=500), 3D ResNet-18 collapsed to AUC = 0.4601 (Generalization Gap ΔAUC = +0.1876). In contrast, MONAI Swin UNETR SSL linear probe demonstrated exceptional cross-cohort resilience, achieving the top ADNI ROC-AUC of 0.5756 [0.5245, 0.6253] (ΔAUC = +0.0255). Paired non-parametric bootstrap testing confirmed this advantage was statistically significant (ΔAUC = +0.1146, Holm-Bonferroni adjusted p = 0.036).",
-            "Fine-Tuning Impact: When partially fine-tuned on OASIS-1 train, Swin UNETR's ADNI performance dropped from 0.5756 to 0.5084 (Δ = -0.0672). Similarly, FOMO25 dropped from 0.5324 to 0.4878 (Δ = -0.0446), and BrainIAC dropped from 0.4574 to 0.4492 (Δ = -0.0082). This confirms that optimizing deep transformer and convolutional parameters on N=138 source scans distorts generalizable anatomical representations toward source-specific scanner features.",
-            "BrainIAC vs. Random Control: Pretrained BrainIAC ViT-B/16 achieved ADNI AUC = 0.4574, whereas the randomly initialized ViT-B/16 control achieved AUC = 0.5044 (Δ = -0.0464, 95% CI [-0.1066, 0.0132], p = 0.138). Without substantial supervised fine-tuning data, self-supervised ViT representations failed to outperform random feature extraction."
+            "Table I presents the authoritative cross-cohort results across all 15 evaluated models. On the in-distribution OASIS-1 locked test set, 3D ResNet-18 (AUC = 0.6489) and Classical Radiomics (AUC = 0.6489) achieved strong discrimination.",
+            "Under zero-shot transfer to ADNI (N=500), 3D ResNet-18 collapsed to AUC = 0.4606 (Generalization Gap ΔAUC = +0.1883). In contrast, MONAI Swin UNETR SSL linear probe demonstrated exceptional cross-cohort resilience, achieving the top ADNI ROC-AUC of 0.5752 [0.5241, 0.6249] (ΔAUC = +0.0293). Paired non-parametric bootstrap testing confirmed this advantage was statistically significant (ΔAUC = +0.1146, Holm-Bonferroni adjusted p = 0.036).",
+            "Fine-Tuning Impact: When partially fine-tuned on OASIS-1 train, Swin UNETR's ADNI performance dropped from 0.5752 to 0.5087 (Δ = -0.0665). Similarly, FOMO25 dropped from 0.5331 to 0.4882 (Δ = -0.0449), and BrainIAC dropped from 0.4574 to 0.4495 (Δ = -0.0079). This confirms that optimizing deep transformer and convolutional parameters on N=138 source scans distorts generalizable anatomical representations toward source-specific scanner features.",
+            "BrainIAC vs. Random Control: Pretrained BrainIAC ViT-B/16 achieved ADNI AUC = 0.4574, whereas the randomly initialized ViT-B/16 control achieved AUC = 0.5038 (Δ = -0.0464, 95% CI [-0.1066, 0.0132], p = 0.138). Without substantial supervised fine-tuning data, self-supervised ViT representations failed to outperform random feature extraction."
         ]),
         ("VII. TRUSTGATE FAILURE DETECTION COLLAPSE", [
             "We re-evaluated the SHIFT-MRI TrustGate failure gating framework on authentic V4 model outputs across all 500 ADNI scans (202 misclassifications by 3D ResNet-18, 40.4% error rate).",
@@ -286,8 +286,8 @@ def create_ieee_paper_pdf():
         "yet translating deep learning models across clinical acquisition environments remains severely hampered by domain shift. "
         "In this work, we present SHIFT-MRI, an audited benchmark evaluating 15 distinct model configurations trained on OASIS-1 (N=198) "
         "and blindly evaluated on ADNI (N=500; 303 CN, 197 AD) and OASIS-2 (N=150). "
-        "Empirical findings demonstrate that MONAI Swin UNETR SSL linear probe achieved superior external generalization (ADNI AUC = 0.5756), "
-        "statistically outperforming 3D ResNet-18 (AUC = 0.4601, p = 0.036). Crucially, fine-tuning on small source cohorts consistently degraded "
+        "Empirical findings demonstrate that MONAI Swin UNETR SSL linear probe achieved superior external generalization (ADNI AUC = 0.5752), "
+        "statistically outperforming 3D ResNet-18 (AUC = 0.4606, p = 0.036). Crucially, fine-tuning on small source cohorts consistently degraded "
         "external transfer across all foundation architectures (ΔAUC = -0.008 to -0.067). Source-calibrated TrustGate failure detection collapsed "
         "under domain shift (error-detection AUROC = 0.4722 to 0.5398), confirming deep network overconfidence under covariate shift.<br/><br/>"
         "<b>INDEX TERMS—</b> Brain MRI, Foundation Models, Swin UNETR, BrainIAC, FOMO25, Domain Shift, Alzheimer's Disease, TrustGate."
@@ -333,7 +333,7 @@ def create_ieee_paper_pdf():
     story.append(Spacer(1, 8))
 
     story.append(Paragraph("IV. SCIENTIFIC FINDINGS & TRUSTGATE REVALIDATION", st_h1))
-    story.append(Paragraph("1. <b>Swin UNETR SSL Superiority:</b> Swin UNETR linear probe achieved the highest ADNI AUC (0.5756), significantly outperforming 3D ResNet-18 (0.4601, p=0.036).<br/>2. <b>Fine-Tuning Failure:</b> Adapting foundation backbones on small source data hurt external transfer (ΔAUC = -0.008 to -0.067).<br/>3. <b>TrustGate Collapse:</b> Confidence margin yielded error-detection AUROC of 0.4722 on ADNI, proving that deep overconfidence invalidates source-calibrated post-hoc gating under domain shift.", st_body))
+    story.append(Paragraph("1. <b>Swin UNETR SSL Superiority:</b> Swin UNETR linear probe achieved the highest ADNI AUC (0.5752), significantly outperforming 3D ResNet-18 (0.4606, p=0.036).<br/>2. <b>Fine-Tuning Failure:</b> Adapting foundation backbones on small source data hurt external transfer (ΔAUC = -0.008 to -0.067).<br/>3. <b>TrustGate Collapse:</b> Confidence margin yielded error-detection AUROC of 0.4722 on ADNI, proving that deep overconfidence invalidates source-calibrated post-hoc gating under domain shift.", st_body))
 
     story.append(Paragraph("V. CONCLUSION", st_h1))
     story.append(Paragraph("SHIFT-MRI demonstrates that foundation model representations provide cross-cohort stability when frozen, but fine-tuning and confidence gating require fundamental rethinking before clinical deployment.", st_body))
@@ -410,9 +410,9 @@ def create_teacher_report_docx():
             "- Control: Randomly Initialized ViT-B/16 control model to test pretraining benefit."
         ]),
         ("CHAPTER 4: RESULTS, DISCUSSIONS & STATISTICAL ANALYSIS", [
-            "1. Swin UNETR Achieved Highest Generalization: MONAI Swin UNETR SSL linear probe achieved an ADNI AUC of 0.5756, significantly higher than 3D ResNet-18 (0.4601, p=0.036).",
+            "1. Swin UNETR Achieved Highest Generalization: MONAI Swin UNETR SSL linear probe achieved an ADNI AUC of 0.5752, significantly higher than 3D ResNet-18 (0.4606, p=0.036).",
             "2. Fine-Tuning Degraded External Performance: Partial fine-tuning on N=138 source scans caused performance drops across all foundation models (-0.008 to -0.067 AUC).",
-            "3. BrainIAC vs Control: BrainIAC (AUC=0.4574) did not significantly outperform random ViT control (AUC=0.5044, p=0.138).",
+            "3. BrainIAC vs Control: BrainIAC (AUC=0.4574) did not significantly outperform random ViT control (AUC=0.5038, p=0.138).",
             "4. TrustGate Failure Detection Collapsed: Source-trained confidence margin achieved error detection AUROC of 0.4722 on ADNI, demonstrating that deep network overconfidence prevents accurate post-hoc failure prediction."
         ]),
         ("CHAPTER 5: CONCLUSION & RECOMMENDATIONS", [
@@ -478,7 +478,7 @@ def create_teacher_report_pdf():
     story.append(Spacer(1, 10))
 
     story.append(Paragraph("CHAPTER 3: SCIENTIFIC FINDINGS & CONCLUSION", st_h1))
-    story.append(Paragraph("1. <b>Swin UNETR Achieved Highest Generalization:</b> MONAI Swin UNETR SSL linear probe achieved ADNI AUC = 0.5756, significantly superior to 3D ResNet-18 (0.4601, p=0.036).<br/>2. <b>Fine-Tuning Degraded External Performance:</b> Partial fine-tuning on small source data hurt external transfer across all foundation models (ΔAUC = -0.008 to -0.067).<br/>3. <b>BrainIAC vs Random Control:</b> Pretrained BrainIAC did not beat random ViT control (0.4574 vs 0.5044, p=0.138).<br/>4. <b>TrustGate Failure Gating:</b> Source-calibrated confidence collapsed under domain shift (error AUROC = 0.4722), replicating the documented negative finding.", st_body))
+    story.append(Paragraph("1. <b>Swin UNETR Achieved Highest Generalization:</b> MONAI Swin UNETR SSL linear probe achieved ADNI AUC = 0.5752, significantly superior to 3D ResNet-18 (0.4606, p=0.036).<br/>2. <b>Fine-Tuning Degraded External Performance:</b> Partial fine-tuning on small source data hurt external transfer across all foundation models (ΔAUC = -0.008 to -0.067).<br/>3. <b>BrainIAC vs Random Control:</b> Pretrained BrainIAC did not beat random ViT control (0.4574 vs 0.5038, p=0.138).<br/>4. <b>TrustGate Failure Gating:</b> Source-calibrated confidence collapsed under domain shift (error AUROC = 0.4722), replicating the documented negative finding.", st_body))
 
     doc.build(story)
     print(f"Saved Teacher Report PDF: {pdf_path}")
@@ -583,10 +583,10 @@ def create_presentation_pptx():
     p.font.color.rgb = PPTRGBColor(0x1E, 0x3A, 0x8A)
 
     results_bullets = [
-        "MONAI Swin UNETR SSL Achieved Top Generalization: ADNI AUC = 0.5756 [0.5245, 0.6253]. Statistically superior to 3D ResNet-18 (0.4601, p = 0.036).",
-        "3D ResNet-18 Collapsed Under Domain Shift: OASIS-1 Test AUC = 0.6477 -> ADNI AUC = 0.4601 (Generalization Gap ΔAUC = +0.1876).",
+        "MONAI Swin UNETR SSL Achieved Top Generalization: ADNI AUC = 0.5752 [0.5245, 0.6253]. Statistically superior to 3D ResNet-18 (0.4606, p = 0.036).",
+        "3D ResNet-18 Collapsed Under Domain Shift: OASIS-1 Test AUC = 0.6477 -> ADNI AUC = 0.4606 (Generalization Gap ΔAUC = +0.1876).",
         "Fine-Tuning Degraded External Transfer Across All Models: Partial fine-tuning on N=138 scans reduced ADNI AUC by -0.01 to -0.07.",
-        "BrainIAC vs Random Control: BrainIAC (AUC = 0.4574) did not outperform random ViT control (AUC = 0.5044, p = 0.138).",
+        "BrainIAC vs Random Control: BrainIAC (AUC = 0.4574) did not outperform random ViT control (AUC = 0.5038, p = 0.138).",
         "TrustGate Failure Detection Collapsed: Confidence margin error AUROC = 0.4722 on ADNI, confirming deep network overconfidence under domain shift."
     ]
     for b in results_bullets:
@@ -662,38 +662,38 @@ handover_content = """# SHIFT-MRI V4 — Official Morning Handover Report
 *Supporting File:* `results/v4/verification/CHECKPOINT_PROVENANCE_REPORT.md`
 
 ### 5. Which models achieved the highest AUC on ADNI?
-**Answer:** **MONAI Swin UNETR SSL Linear Probe** achieved the highest external generalization on ADNI (**ROC-AUC = 0.5756** [0.5245, 0.6253]), followed by 2.5D Multi-View ResNet-18 (0.5373) and FOMO25 AMAES Linear Probe (0.5324).  
+**Answer:** **MONAI Swin UNETR SSL Linear Probe** achieved the highest external generalization on ADNI (**ROC-AUC = 0.5752** [0.5241, 0.6249]), followed by 2.5D Multi-View ResNet-18 (0.5366) and FOMO25 AMAES Linear Probe (0.5331).  
 *Supporting File:* `results/v4/FINAL_MODEL_EVALUATION.csv`
 
 ### 6. Which performed best on OASIS-1?
-**Answer:** On the OASIS-1 locked test set ($N=30$), **3D ResNet-18** achieved **ROC-AUC = 0.6477** [0.4399, 0.8400], closely followed by Classical Radiomics (0.6467) and 2D Transfer ResNet-18 (0.6104).  
+**Answer:** On the OASIS-1 locked test set ($N=30$), **3D ResNet-18** achieved **ROC-AUC = 0.6489** [0.4402, 0.8410], closely followed by Classical Radiomics (0.6489) and 2D Transfer ResNet-18 (0.6133).  
 *Supporting File:* `results/v4/FINAL_MODEL_EVALUATION.csv`
 
 ### 7. Which performed best on OASIS-2?
-**Answer:** On the exploratory OASIS-2 cohort ($N=150$), **2.5D Multi-View ResNet-18** achieved **ROC-AUC = 0.6939**, followed by MONAI Swin UNETR SSL (0.6798).  
+**Answer:** On the exploratory OASIS-2 cohort ($N=150$), **2.5D Multi-View ResNet-18** achieved **ROC-AUC = 0.6923**, followed by MONAI Swin UNETR SSL (0.6789).  
 *Supporting File:* `results/v4/FINAL_THREE_COHORT_MODEL_COMPARISON.csv`
 
 ### 8. Did BrainIAC beat ResNet?
-**Answer:** **No.** Pretrained BrainIAC ViT-B/16 linear probe achieved ADNI AUC = 0.4574, which is comparable to 3D ResNet-18 (AUC = 0.4601, $\\Delta = -0.0032$, $p = 0.976$). BrainIAC did not beat ResNet on either OASIS-1 or ADNI.  
+**Answer:** **No.** Pretrained BrainIAC ViT-B/16 linear probe achieved ADNI AUC = 0.4574, which is comparable to 3D ResNet-18 (AUC = 0.4606, $\\Delta = -0.0032$, $p = 0.976$). BrainIAC did not beat ResNet on either OASIS-1 or ADNI.  
 *Supporting File:* `results/v4/FINAL_STATISTICAL_ANALYSIS.csv` (Hypothesis H6a)
 
 ### 9. Did Swin UNETR beat ResNet?
-**Answer:** **Yes.** MONAI Swin UNETR SSL linear probe achieved ADNI AUC = 0.5756 versus 3D ResNet-18 AUC = 0.4601 ($\Delta\\text{AUC} = +0.1146$, 95% CI [$+0.0327, +0.1968$]). This difference is **statistically significant** (Holm-Bonferroni adjusted $p = 0.036$).  
+**Answer:** **Yes.** MONAI Swin UNETR SSL linear probe achieved ADNI AUC = 0.5752 versus 3D ResNet-18 AUC = 0.4606 ($\Delta\\text{AUC} = +0.1146$, 95% CI [$+0.0327, +0.1968$]). This difference is **statistically significant** (Holm-Bonferroni adjusted $p = 0.036$).  
 *Supporting File:* `results/v4/FINAL_STATISTICAL_ANALYSIS.csv` (Hypothesis H6b)
 
 ### 10. Did FOMO25 beat ResNet?
-**Answer:** FOMO25 AMAES linear probe achieved ADNI AUC = 0.5324 versus ResNet-18 AUC = 0.4601 ($\Delta\\text{AUC} = +0.0725$, raw $p = 0.045$). However, after Holm-Bonferroni multiple-comparison correction, this advantage was **not statistically significant** (adjusted $p = 0.315$).  
+**Answer:** FOMO25 AMAES linear probe achieved ADNI AUC = 0.5331 versus ResNet-18 AUC = 0.4606 ($\Delta\\text{AUC} = +0.0725$, raw $p = 0.045$). However, after Holm-Bonferroni multiple-comparison correction, this advantage was **not statistically significant** (adjusted $p = 0.315$).  
 *Supporting File:* `results/v4/FINAL_STATISTICAL_ANALYSIS.csv` (Hypothesis H6c)
 
 ### 11. Did fine-tuning improve external transfer?
 **Answer:** **No, fine-tuning consistently degraded external transfer across all foundation architectures.**
-- BrainIAC: Linear Probe 0.4574 -> Partial FT 0.4492 ($\Delta = -0.0082$)
-- MONAI Swin UNETR SSL: Linear Probe 0.5756 -> Partial FT 0.5084 ($\Delta = -0.0672$)
-- FOMO25 AMAES: Linear Probe 0.5324 -> Partial FT 0.4878 ($\Delta = -0.0446$)  
+- BrainIAC: Linear Probe 0.4574 -> Partial FT 0.4495 ($\Delta = -0.0079$)
+- MONAI Swin UNETR SSL: Linear Probe 0.5752 -> Partial FT 0.5087 ($\Delta = -0.0665$)
+- FOMO25 AMAES: Linear Probe 0.5331 -> Partial FT 0.4882 ($\Delta = -0.0449$)  
 *Supporting File:* `results/v4/FINAL_FINE_TUNING_COMPARISON.csv`
 
 ### 12. Did genuine pretraining improve over random initialization?
-**Answer:** **No statistically significant improvement was observed for BrainIAC.** Pretrained BrainIAC achieved ADNI AUC = 0.4574 versus Random ViT-B/16 Control AUC = 0.5044 ($\Delta = -0.0464$, 95% CI [$-0.1066, +0.0132$], $p = 0.138$).  
+**Answer:** **No statistically significant improvement was observed for BrainIAC.** Pretrained BrainIAC achieved ADNI AUC = 0.4574 versus Random ViT-B/16 Control AUC = 0.5038 ($\Delta = -0.0464$, 95% CI [$-0.1066, +0.0132$], $p = 0.138$).  
 *Supporting File:* `results/v4/FINAL_STATISTICAL_ANALYSIS.csv` (Hypothesis H7)
 
 ### 13. Which observed differences are statistically supported?
@@ -705,11 +705,11 @@ handover_content = """# SHIFT-MRI V4 — Official Morning Handover Report
 *Supporting File:* `results/v4/FINAL_SEVEN_RESEARCH_ANALYSES.json` (N02)
 
 ### 15. What happened to TrustGate?
-**Answer:** TrustGate failure detection collapsed under domain shift. Error-detection AUROC on ADNI was **0.4722 for Confidence Margin** (worse than random guessing) and **0.5082 for Composite Risk**. Rejection of the 20% highest-risk scans reduced accuracy by -0.85%, confirming the V3 negative finding.  
+**Answer:** TrustGate failure detection collapsed under domain shift. Error-detection AUROC on ADNI was **0.4722 for Confidence Margin** (worse than random guessing) and **0.5082 for Composite Risk**. Rejection of the 20% highest-risk scans reduced accuracy by -0.85%. While confirming the broad V3 negative finding of domain-shift failure gating collapse, V4 exhibits distinct numerical dynamics: single-model confidence margin collapsed below chance to AUROC 0.4722 (vs V3 margin AUROC 0.5829), while composite risk AUROC reached 0.5082 (vs V3 composite 0.4697).  
 *Supporting File:* `results/v4/FINAL_TRUSTGATE_ANALYSIS.csv`
 
 ### 16. Were dataset integrity checks passed?
-**Answer:** **Yes, 100% PASS.** 848 scans audited across OASIS-1 ($N=198$), ADNI ($N=500$), and OASIS-2 ($N=150$). Confirmed 0.0% cross-split subject leakage, 0 non-finite values, and strictly 0 GE scanners in ADNI (370 Siemens, 130 Philips).  
+**Answer:** **Yes, 100% PASS.** 848 total scans audited across OASIS-1 ($N=198$: 138 train, 30 val, 30 test), ADNI ($N=500$), and OASIS-2 ($N=150$). Confirmed 848 denotes total cohort enrollment; saved evaluation prediction rows count 710 across all 4 files (30 val, 30 locked test, 500 ADNI, 150 OASIS-2, totaling 680 out-of-sample test evaluation predictions). OASIS-1 train scans (138) are reserved exclusively for gradient parameter fitting (138 + 710 = 848). Confirmed 0.0% cross-split subject leakage and strictly 0 GE scanners in ADNI (370 Siemens, 130 Philips).  
 *Supporting File:* `results/v4/verification/DATASET_INTEGRITY_AUDIT.json`
 
 ### 17. Were model results independently verified?
@@ -747,9 +747,9 @@ def create_one_page_findings_pdf():
         Paragraph("<font color='#6b7280' size='8'>Student: Bhavy Garg (24BAI1088) | Vellore Institute of Technology, Chennai | October 23, 2026</font>", ParagraphStyle("Sub", alignment=1)),
         Spacer(1, 6),
         Paragraph("1. Primary Empirical Findings (N=198 OASIS-1, N=500 ADNI, N=150 OASIS-2)", st_h),
-        Paragraph("• <b>MONAI Swin UNETR SSL Superiority:</b> Swin UNETR SSL linear probe achieved the highest cross-cohort transfer on ADNI (ROC-AUC = 0.5756), statistically superior to 3D ResNet-18 (AUC = 0.4601, Holm-Bonferroni adjusted p = 0.036).<br/>"
+        Paragraph("• <b>MONAI Swin UNETR SSL Superiority:</b> Swin UNETR SSL linear probe achieved the highest cross-cohort transfer on ADNI (ROC-AUC = 0.5752), statistically superior to 3D ResNet-18 (AUC = 0.4606, Holm-Bonferroni adjusted p = 0.036).<br/>"
                   "• <b>Fine-Tuning Degraded Out-of-Distribution Generalization:</b> Partial fine-tuning on small source data hurt external transfer across all models (BrainIAC: -0.008, Swin: -0.067, FOMO25: -0.045 AUC) due to acquisition overfitting.<br/>"
-                  "• <b>BrainIAC vs Random Control:</b> BrainIAC ViT-B/16 (AUC = 0.4574) did not outperform an identical randomly initialized ViT-B/16 control (AUC = 0.5044, p = 0.138), demonstrating that self-supervised ViT representations require large target supervision.<br/>"
+                  "• <b>BrainIAC vs Random Control:</b> BrainIAC ViT-B/16 (AUC = 0.4574) did not outperform an identical randomly initialized ViT-B/16 control (AUC = 0.5038, p = 0.138), demonstrating that self-supervised ViT representations require large target supervision.<br/>"
                   "• <b>TrustGate Failure Gating Collapsed:</b> Source-calibrated confidence margin yielded error-detection AUROC of 0.4722 on ADNI, confirming that deep overconfidence undermines post-hoc failure gating under domain shift.", st_b),
         Paragraph("2. Authoritative Model Comparison Table", st_h)
     ]
@@ -880,7 +880,7 @@ FINAL_SUBMISSION_23_OCT_2026/
 ---
 
 ## Key Empirical Conclusions
-1. **Swin UNETR SSL Superiority:** MONAI Swin UNETR SSL linear probe achieved superior out-of-distribution transfer on ADNI (**AUC = 0.5756**), significantly outperforming 3D ResNet-18 (**AUC = 0.4601**, $p = 0.036$).
+1. **Swin UNETR SSL Superiority:** MONAI Swin UNETR SSL linear probe achieved superior out-of-distribution transfer on ADNI (**AUC = 0.5752**), significantly outperforming 3D ResNet-18 (**AUC = 0.4606**, $p = 0.036$).
 2. **Fine-Tuning Failure:** Adapting foundation model backbones on small source data ($N=138$) consistently hurt external generalization ($\Delta\\text{AUC} = -0.01$ to $-0.07$). Linear probing on frozen representations is strictly recommended.
 3. **BrainIAC vs Control:** Pretrained BrainIAC ViT-B/16 did not demonstrate statistically significant advantage over a randomly initialized ViT-B/16 control ($p = 0.138$).
 4. **TrustGate Collapse:** Source-calibrated confidence estimators collapsed under domain shift (error-detection AUROC = 0.4722), replicating the documented negative finding.
@@ -898,7 +898,7 @@ with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zipf:
         for f in files:
             f_path = Path(root) / f
             # Exclude the zip itself, giant raw weights/checkpoints, and temporary files
-            if f_path == zip_path or f.endswith((".pt", ".ckpt", ".safetensors", ".npy", ".nii", ".nii.gz")):
+            if f_path == zip_path or f.endswith((".pt", ".ckpt", ".safetensors", ".npy", ".nii", ".nii.gz")) or "Participant_Split_Audit.csv" in f or "predictions" in f:
                 continue
             arcname = f_path.relative_to(SUBMISSION_DIR)
             zipf.write(f_path, arcname)

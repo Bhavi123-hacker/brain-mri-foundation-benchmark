@@ -30,38 +30,38 @@
 *Supporting File:* `results/v4/verification/CHECKPOINT_PROVENANCE_REPORT.md`
 
 ### 5. Which models achieved the highest AUC on ADNI?
-**Answer:** **MONAI Swin UNETR SSL Linear Probe** achieved the highest external generalization on ADNI (**ROC-AUC = 0.5756** [0.5245, 0.6253]), followed by 2.5D Multi-View ResNet-18 (0.5373) and FOMO25 AMAES Linear Probe (0.5324).  
+**Answer:** **MONAI Swin UNETR SSL Linear Probe** achieved the highest external generalization on ADNI (**ROC-AUC = 0.5752** [0.5241, 0.6249]), followed by 2.5D Multi-View ResNet-18 (0.5366) and FOMO25 AMAES Linear Probe (0.5331).  
 *Supporting File:* `results/v4/FINAL_MODEL_EVALUATION.csv`
 
 ### 6. Which performed best on OASIS-1?
-**Answer:** On the OASIS-1 locked test set ($N=30$), **3D ResNet-18** achieved **ROC-AUC = 0.6477** [0.4399, 0.8400], closely followed by Classical Radiomics (0.6467) and 2D Transfer ResNet-18 (0.6104).  
+**Answer:** On the OASIS-1 locked test set ($N=30$), **3D ResNet-18** achieved **ROC-AUC = 0.6489** [0.4402, 0.8410], closely followed by Classical Radiomics (0.6489) and 2D Transfer ResNet-18 (0.6133).  
 *Supporting File:* `results/v4/FINAL_MODEL_EVALUATION.csv`
 
 ### 7. Which performed best on OASIS-2?
-**Answer:** On the exploratory OASIS-2 cohort ($N=150$), **2.5D Multi-View ResNet-18** achieved **ROC-AUC = 0.6939**, followed by MONAI Swin UNETR SSL (0.6798).  
+**Answer:** On the exploratory OASIS-2 cohort ($N=150$), **2.5D Multi-View ResNet-18** achieved **ROC-AUC = 0.6923**, followed by MONAI Swin UNETR SSL (0.6789).  
 *Supporting File:* `results/v4/FINAL_THREE_COHORT_MODEL_COMPARISON.csv`
 
 ### 8. Did BrainIAC beat ResNet?
-**Answer:** **No.** Pretrained BrainIAC ViT-B/16 linear probe achieved ADNI AUC = 0.4574, which is comparable to 3D ResNet-18 (AUC = 0.4601, $\Delta = -0.0032$, $p = 0.976$). BrainIAC did not beat ResNet on either OASIS-1 or ADNI.  
+**Answer:** **No.** Pretrained BrainIAC ViT-B/16 linear probe achieved ADNI AUC = 0.4574, which is comparable to 3D ResNet-18 (AUC = 0.4606, $\Delta = -0.0032$, $p = 0.976$). BrainIAC did not beat ResNet on either OASIS-1 or ADNI.  
 *Supporting File:* `results/v4/FINAL_STATISTICAL_ANALYSIS.csv` (Hypothesis H6a)
 
 ### 9. Did Swin UNETR beat ResNet?
-**Answer:** **Yes.** MONAI Swin UNETR SSL linear probe achieved ADNI AUC = 0.5756 versus 3D ResNet-18 AUC = 0.4601 ($\Delta\text{AUC} = +0.1146$, 95% CI [$+0.0327, +0.1968$]). This difference is **statistically significant** (Holm-Bonferroni adjusted $p = 0.036$).  
+**Answer:** **Yes.** MONAI Swin UNETR SSL linear probe achieved ADNI AUC = 0.5752 versus 3D ResNet-18 AUC = 0.4606 ($\Delta\text{AUC} = +0.1146$, 95% CI [$+0.0327, +0.1968$]). This difference is **statistically significant** (Holm-Bonferroni adjusted $p = 0.036$).  
 *Supporting File:* `results/v4/FINAL_STATISTICAL_ANALYSIS.csv` (Hypothesis H6b)
 
 ### 10. Did FOMO25 beat ResNet?
-**Answer:** FOMO25 AMAES linear probe achieved ADNI AUC = 0.5324 versus ResNet-18 AUC = 0.4601 ($\Delta\text{AUC} = +0.0725$, raw $p = 0.045$). However, after Holm-Bonferroni multiple-comparison correction, this advantage was **not statistically significant** (adjusted $p = 0.315$).  
+**Answer:** FOMO25 AMAES linear probe achieved ADNI AUC = 0.5331 versus ResNet-18 AUC = 0.4606 ($\Delta\text{AUC} = +0.0725$, raw $p = 0.045$). However, after Holm-Bonferroni multiple-comparison correction, this advantage was **not statistically significant** (adjusted $p = 0.315$).  
 *Supporting File:* `results/v4/FINAL_STATISTICAL_ANALYSIS.csv` (Hypothesis H6c)
 
 ### 11. Did fine-tuning improve external transfer?
 **Answer:** **No, fine-tuning consistently degraded external transfer across all foundation architectures.**
-- BrainIAC: Linear Probe 0.4574 -> Partial FT 0.4492 ($\Delta = -0.0082$)
-- MONAI Swin UNETR SSL: Linear Probe 0.5756 -> Partial FT 0.5084 ($\Delta = -0.0672$)
-- FOMO25 AMAES: Linear Probe 0.5324 -> Partial FT 0.4878 ($\Delta = -0.0446$)  
+- BrainIAC: Linear Probe 0.4574 -> Partial FT 0.4495 ($\Delta = -0.0079$)
+- MONAI Swin UNETR SSL: Linear Probe 0.5752 -> Partial FT 0.5087 ($\Delta = -0.0665$)
+- FOMO25 AMAES: Linear Probe 0.5331 -> Partial FT 0.4882 ($\Delta = -0.0449$)  
 *Supporting File:* `results/v4/FINAL_FINE_TUNING_COMPARISON.csv`
 
 ### 12. Did genuine pretraining improve over random initialization?
-**Answer:** **No statistically significant improvement was observed for BrainIAC.** Pretrained BrainIAC achieved ADNI AUC = 0.4574 versus Random ViT-B/16 Control AUC = 0.5044 ($\Delta = -0.0464$, 95% CI [$-0.1066, +0.0132$], $p = 0.138$).  
+**Answer:** **No statistically significant improvement was observed for BrainIAC.** Pretrained BrainIAC achieved ADNI AUC = 0.4574 versus Random ViT-B/16 Control AUC = 0.5038 ($\Delta = -0.0464$, 95% CI [$-0.1066, +0.0132$], $p = 0.138$).  
 *Supporting File:* `results/v4/FINAL_STATISTICAL_ANALYSIS.csv` (Hypothesis H7)
 
 ### 13. Which observed differences are statistically supported?
@@ -73,11 +73,11 @@
 *Supporting File:* `results/v4/FINAL_SEVEN_RESEARCH_ANALYSES.json` (N02)
 
 ### 15. What happened to TrustGate?
-**Answer:** TrustGate failure detection collapsed under domain shift. Error-detection AUROC on ADNI was **0.4722 for Confidence Margin** (worse than random guessing) and **0.5082 for Composite Risk**. Rejection of the 20% highest-risk scans reduced accuracy by -0.85%, confirming the V3 negative finding.  
+**Answer:** TrustGate failure detection collapsed under domain shift. Error-detection AUROC on ADNI was **0.4722 for Confidence Margin** (worse than random guessing) and **0.5082 for Composite Risk**. Rejection of the 20% highest-risk scans reduced accuracy by -0.85%. While confirming the broad V3 negative finding of domain-shift failure gating collapse, V4 exhibits distinct numerical dynamics: single-model confidence margin collapsed below chance to AUROC 0.4722 (vs V3 margin AUROC 0.5829), while composite risk AUROC reached 0.5082 (vs V3 composite 0.4697).  
 *Supporting File:* `results/v4/FINAL_TRUSTGATE_ANALYSIS.csv`
 
 ### 16. Were dataset integrity checks passed?
-**Answer:** **Yes, 100% PASS.** 848 scans audited across OASIS-1 ($N=198$), ADNI ($N=500$), and OASIS-2 ($N=150$). Confirmed 0.0% cross-split subject leakage, 0 non-finite values, and strictly 0 GE scanners in ADNI (370 Siemens, 130 Philips).  
+**Answer:** **Yes, 100% PASS.** 848 total scans audited across OASIS-1 ($N=198$: 138 train, 30 val, 30 test), ADNI ($N=500$), and OASIS-2 ($N=150$). Confirmed 848 denotes total cohort enrollment; saved evaluation prediction rows count 710 across all 4 files (30 val, 30 locked test, 500 ADNI, 150 OASIS-2, totaling 680 out-of-sample test evaluation predictions). OASIS-1 train scans (138) are reserved exclusively for gradient parameter fitting (138 + 710 = 848). Confirmed 0.0% cross-split subject leakage and strictly 0 GE scanners in ADNI (370 Siemens, 130 Philips).  
 *Supporting File:* `results/v4/verification/DATASET_INTEGRITY_AUDIT.json`
 
 ### 17. Were model results independently verified?

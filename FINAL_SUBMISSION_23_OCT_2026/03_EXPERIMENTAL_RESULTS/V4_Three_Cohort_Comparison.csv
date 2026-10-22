@@ -1,16 +1,16 @@
 model_name,model_key,architecture_family,total_parameters,trainable_parameters,oasis1_test_auc,oasis1_test_bacc,adni_auc,adni_bacc,adni_brier,oasis2_auc,oasis2_bacc,generalization_gap_delta_auc,delta_sign_convention,double_verification
-3D ResNet-10,3d_resnet_10,supervised_3d,14619585,14619585,0.3778,0.4333,0.5165,0.5017,0.4153,0.5558,0.5,-0.1387,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-3D ResNet-18,3d_resnet_18,supervised_3d,33160513,33160513,0.6489,0.6333,0.4606,0.499,0.3769,0.6197,0.5,0.1883,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-3D ResNet-34,3d_resnet_34,supervised_3d,63470145,63470145,0.4622,0.5333,0.4611,0.478,0.2989,0.6355,0.5,0.0011,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-3D DenseNet-121,3d_densenet_121,supervised_3d,11767937,11767937,0.4222,0.5333,0.5,0.5285,0.314,0.4107,0.5,-0.0777,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-2.5D Multi-View ResNet-18,2_5d_multi_view_resnet_18,supervised_3d,11570241,11570241,0.5333,0.5667,0.5366,0.5,0.26,0.6923,0.6633,-0.0033,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-Dual-Branch Hybrid (ResNet-10 + Radiomics),dual_branch_hybrid,supervised_3d,14525153,14525153,0.6044,0.5667,0.4782,0.4911,0.509,0.5871,0.5,0.1263,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-2D Transfer ResNet-18,2d_transfer_resnet_18,transfer_2d,11177025,8394241,0.6133,0.5667,0.4962,0.5095,0.3739,0.6273,0.5,0.1171,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-Classical Radiomics (Linear SVM),classical_radiomics,classical,24,24,0.6489,0.5667,0.5134,0.4973,0.3347,0.6047,0.5,0.1354,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-BrainIAC ViT-B/16 (Linear Probe),brainiac_vit_b16_linear_probe,foundation,88359937,769,0.5422,0.5,0.4574,0.5,0.2413,0.5065,0.5,0.0849,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-BrainIAC ViT-B/16 (Partial Fine-Tuning),brainiac_vit_b16_partial_ft,foundation,88359937,14174977,0.4489,0.5,0.4495,0.5,0.2537,0.4706,0.5,-0.0006,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-Random ViT-B/16 Control (Linear Probe),random_vit_b16_control,foundation,88359937,769,0.5333,0.6,0.5038,0.5017,0.3891,0.5415,0.5,0.0295,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-MONAI Swin UNETR SSL (Linear Probe),swin_unetr_ssl_linear_probe,foundation,8062771,769,0.6044,0.5667,0.5752,0.5,0.2729,0.6789,0.5285,0.0293,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-MONAI Swin UNETR SSL (Partial Fine-Tuning),swin_unetr_ssl_partial_ft,foundation,8062771,6020593,0.4933,0.5,0.5087,0.5,0.2522,0.6157,0.5,-0.0153,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-FOMO25 AMAES ResEnc-B (Linear Probe),fomo25_amaes_linear_probe,foundation,90296897,321,0.56,0.5,0.5331,0.5223,0.2391,0.4997,0.5109,0.0269,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
-FOMO25 AMAES ResEnc-B (Partial Fine-Tuning),fomo25_amaes_partial_ft,foundation,90296897,33189441,0.4711,0.5,0.4882,0.5,0.3493,0.6024,0.5199,-0.0171,OASIS1_Test_minus_ADNI (Positive = Generalization Drop),VERIFIED_PASS
+3D ResNet-10,3d_resnet_10,supervised_3d,14619585,14619585,0.3778,0.4,0.5165,0.5017,0.4153,0.5558,0.5,-0.1387,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+3D ResNet-18,3d_resnet_18,supervised_3d,33160513,33160513,0.6489,0.6,0.4606,0.4989,0.3769,0.6197,0.5,0.1883,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+3D ResNet-34,3d_resnet_34,supervised_3d,63470145,63470145,0.4622,0.4667,0.4611,0.4728,0.2989,0.6355,0.5,0.0011,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+3D DenseNet-121,3d_densenet_121,supervised_3d,11767937,11767937,0.4222,0.5,0.5,0.5232,0.314,0.4107,0.5,-0.0777,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+2.5D Multi-View ResNet-18,2_5d_multi_view_resnet_18,supervised_3d,11570241,11570241,0.5333,0.5333,0.5366,0.5,0.26,0.6923,0.6348,-0.0033,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+Dual-Branch Hybrid (ResNet-10 + Radiomics),dual_branch_hybrid,supervised_3d,14525153,14525153,0.6044,0.5667,0.4782,0.4935,0.509,0.5871,0.5,0.1263,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+2D Transfer ResNet-18,2d_transfer_resnet_18,transfer_2d,11177025,8394241,0.6133,0.5667,0.4962,0.5136,0.3739,0.6273,0.5,0.1171,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+Classical Radiomics (Linear SVM),classical_radiomics,classical,24,24,0.6489,0.6,0.5134,0.4914,0.3347,0.6047,0.5,0.1354,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+BrainIAC ViT-B/16 (Linear Probe),brainiac_vit_b16_linear_probe,foundation,88359937,769,0.5422,0.5333,0.4574,0.5,0.2413,0.5065,0.5,0.0849,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+BrainIAC ViT-B/16 (Partial Fine-Tuning),brainiac_vit_b16_partial_ft,foundation,88359937,14174977,0.4489,0.5667,0.4495,0.5,0.2537,0.4706,0.5,-0.0006,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+Random ViT-B/16 Control (Linear Probe),random_vit_b16_control,foundation,88359937,769,0.5333,0.5667,0.5038,0.5,0.3891,0.5415,0.5,0.0295,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+MONAI Swin UNETR SSL (Linear Probe),swin_unetr_ssl_linear_probe,foundation,8062771,769,0.6044,0.5667,0.5752,0.5,0.2729,0.6789,0.5226,0.0293,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+MONAI Swin UNETR SSL (Partial Fine-Tuning),swin_unetr_ssl_partial_ft,foundation,8062771,6020593,0.4933,0.5333,0.5087,0.5,0.2522,0.6157,0.5783,-0.0153,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+FOMO25 AMAES ResEnc-B (Linear Probe),fomo25_amaes_linear_probe,foundation,90296897,321,0.56,0.5,0.5331,0.5207,0.2391,0.4997,0.5109,0.0269,OASIS1_Test_minus_ADNI,PASS_VERIFIED
+FOMO25 AMAES ResEnc-B (Partial Fine-Tuning),fomo25_amaes_partial_ft,foundation,90296897,33189441,0.4711,0.5,0.4882,0.5,0.3493,0.6024,0.548,-0.0171,OASIS1_Test_minus_ADNI,PASS_VERIFIED

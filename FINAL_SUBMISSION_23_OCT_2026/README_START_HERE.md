@@ -67,7 +67,7 @@ FINAL_SUBMISSION_23_OCT_2026/
 ---
 
 ## Key Empirical Conclusions
-1. **Swin UNETR SSL Superiority:** MONAI Swin UNETR SSL linear probe achieved superior out-of-distribution transfer on ADNI (**AUC = 0.5756**), significantly outperforming 3D ResNet-18 (**AUC = 0.4601**, $p = 0.036$).
+1. **Swin UNETR SSL Superiority:** MONAI Swin UNETR SSL linear probe achieved superior out-of-distribution transfer on ADNI (**AUC = 0.5752**), significantly outperforming 3D ResNet-18 (**AUC = 0.4606**, $p = 0.036$).
 2. **Fine-Tuning Failure:** Adapting foundation model backbones on small source data ($N=138$) consistently hurt external generalization ($\Delta\text{AUC} = -0.01$ to $-0.07$). Linear probing on frozen representations is strictly recommended.
 3. **BrainIAC vs Control:** Pretrained BrainIAC ViT-B/16 did not demonstrate statistically significant advantage over a randomly initialized ViT-B/16 control ($p = 0.138$).
 4. **TrustGate Collapse:** Source-calibrated confidence estimators collapsed under domain shift (error-detection AUROC = 0.4722), replicating the documented negative finding.
