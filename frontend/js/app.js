@@ -2438,16 +2438,9 @@ ${err.stack || err.message}
       `;
     }
   }
-}
-
-// Bootstrap application
-window.addEventListener('DOMContentLoaded', () => {
-  const app = new BenchmarkApp();
-  window.__app = app;
-  app.init();
 
   // ==========================================================================
-    /* ==========================================================================
+  /* ==========================================================================
      SHIFT-MRI RESEARCH STUDIO: 1. INTERACTIVE ORTHOGONAL MRI EXPLORER
      ========================================================================== */
   renderMRIExplorer() {
@@ -3625,3 +3618,10 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
 }
+
+// Bootstrap application
+window.addEventListener('DOMContentLoaded', () => {
+  const app = new BenchmarkApp();
+  window.__app = app;
+  app.init();
+});
