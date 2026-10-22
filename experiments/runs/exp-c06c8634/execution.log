@@ -1,0 +1,8 @@
+[12:48:54] Initializing Experiment exp-c06c8634: API Smoke Test Run
+[12:48:54] Target Dataset: ADNI | Cohort: Zero-Shot External Multi-Site | Model: MONAI Swin UNETR SSL (Linear Probe) | Seed: 42
+[12:48:54] Loaded 500 predictions from authentic artifact: adni_external_predictions.csv
+[12:48:54] Calculating publication metrics using validation-derived threshold: t*=0.5088
+[12:48:55] Computed ROC-AUC = 0.5834 [95% CI: 0.5344 - 0.6333]
+[12:48:55] Balanced Accuracy = 0.5 | Brier Score = 0.2569
+[12:48:55] Sensitivity = 1.0 | Specificity = 0.0
+[12:48:55] Experiment execution finished successfully in 1.79s.

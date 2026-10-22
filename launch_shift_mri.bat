@@ -40,7 +40,7 @@ if not exist "%PYTHON_EXE%" (
 
 :: 3. Verify Server Script
 if not exist "backend\server.py" (
-    echo [ERROR] backend\server.py not found in current directory (%CD%)!
+    echo [ERROR] backend\server.py not found in current directory: %CD%
     pause
     exit /b 1
 )
