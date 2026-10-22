@@ -1,0 +1,11 @@
+{
+  "run_id": "exp-e5f9298d",
+  "name": "Verification Lab Run",
+  "model_name": "MONAI Swin UNETR SSL (Linear Probe)",
+  "dataset": "ADNI",
+  "cohort": "Zero-Shot External Multi-Site",
+  "experiment_type": "external_evaluation",
+  "seed": 42,
+  "threshold": 0.5088,
+  "provenance_csv": "authoritative_csv_lookup"
+}

@@ -61,7 +61,7 @@ where:
 - $S_C(x) = \text{Var}_{m \in \mathcal{M}}(p_m(x))$: Inter-Architecture Ensemble Disagreement.
 - $S_D(x)$: MRI Intensity and Slice Quality Anomaly.
 
-The rejection threshold $\tau^* = 0.6340$ is derived strictly on the source OASIS-1 validation set to achieve $90\%$ target coverage.
+The rejection threshold $\tau^* = 0.6340$ is calibrated strictly as the 80th percentile of composite risk on the source OASIS-1 validation set (flagging the top 20% highest-risk scans on the source domain). In contrast, the 95th-percentile threshold ($q_{95} = 4.3905$) is used for standardization of the latent Mahalanobis feature distance ($S_B$). Under external ADNI domain shift ($N=500$), feature saturation pushes all composite risk scores above $\tau^* = 0.6340$ ($\min R(x) = 0.8033$), resulting in 100% of external scans (500/500) being flagged. Scans that pass or fail TrustGate are exploratory research flags and must not be treated as clinically reliable.
 
 ---
 

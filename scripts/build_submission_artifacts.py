@@ -28,18 +28,14 @@ FINAL_SUBMISSION_DIR.mkdir(parents=True, exist_ok=True)
 
 
 
-def get_authentic_oasis_auc(model_name: str):
-    comp_path = PROJECT_ROOT / "results" / "v2" / "tables" / "v2_master_model_comparison_table.csv"
-    if comp_path.exists():
-        df = pd.read_csv(comp_path)
-        for _, r in df.iterrows():
-            m_str = str(r["Model"]).lower()
-            target_str = model_name.lower()
-            keywords = ["swin", "densenet", "multi-view", "hybrid", "radiomics", "fomo", "resnet-10", "resnet-34", "resnet-18", "2d transfer"]
-            for k in keywords:
-                if k in target_str and k in m_str:
-                    return float(r["OASIS_Test_AUC"]), str(r["OASIS_Test_AUC_95CI"])
-    return 0.5000, "[0.500, 0.500]"
+def get_authentic_oasis_auc(model_name: str, registry: dict = None):
+    if registry:
+        for item in registry.get("model_rankings_adni", []):
+            if item.get("model", "").lower() == model_name.lower():
+                if "oasis_test_auc" in item and item["oasis_test_auc"] is not None:
+                    ci_str = f"[{item['oasis_test_ci'][0]:.3f}, {item['oasis_test_ci'][1]:.3f}]" if "oasis_test_ci" in item else "N/A"
+                    return float(item["oasis_test_auc"]), ci_str
+    return None, "N/A"
 
 def load_canonical_data():
     with open(FINAL_RESULTS_DIR / "canonical_registry.json", "r", encoding="utf-8") as f:
@@ -328,16 +324,24 @@ def build_pdf_paper(registry):
     ]
     for item in registry["model_rankings_adni"]:
         rank_str = str(item["rank"]) if isinstance(item["rank"], int) else "Ref"
-        ci_str = f"[{item['ci'][0]:.3f}, {item['ci'][1]:.3f}]"
-        # Authentic OASIS-1 Test AUC from v2_master_model_comparison_table.csv
+        ci_str = f"[{item['ci'][0]:.3f}, {item['ci'][1]:.3f}]"        # Authentic OASIS-1 Test AUC from canonical_registry
         if "Demographic" in item["model"]:
-            oas_auc_str = "0.5000"
+            oas_auc_str = "N/A"
             gap_str = "N/A"
-        else:
-            oas_auc, oas_ci = get_authentic_oasis_auc(item["model"])
+        elif "oasis_test_auc" in item and item["oasis_test_auc"] is not None:
+            oas_auc = float(item["oasis_test_auc"])
             oas_auc_str = f"{oas_auc:.4f}"
-            gap = oas_auc - item["auc"]
+            gap = item.get("delta_auc", item["auc"] - oas_auc)
             gap_str = f"{gap:+.4f}"
+        else:
+            oas_auc, oas_ci = get_authentic_oasis_auc(item["model"], registry)
+            if oas_auc is not None:
+                oas_auc_str = f"{oas_auc:.4f}"
+                gap = item.get("delta_auc", item["auc"] - oas_auc)
+                gap_str = f"{gap:+.4f}"
+            else:
+                oas_auc_str = "N/A"
+                gap_str = "N/A"
         lb_data.append([
             rank_str, item["model"][:24], item.get("paradigm", "Vision")[:12],
             f"{item['params']:,}", f"{item['auc']:.4f}", ci_str, f"{item['brier']:.4f}",
@@ -597,10 +601,11 @@ def build_docx_paper(registry):
         ci_str = f"[{item['ci'][0]:.3f}, {item['ci'][1]:.3f}]"
         if "Demographic" in item["model"]:
             gap_str = "N/A"
-        else:
-            oas_auc, _ = get_authentic_oasis_auc(item["model"])
-            gap = oas_auc - item["auc"]
+        elif "oasis_test_auc" in item and item["oasis_test_auc"] is not None:
+            gap = item.get("delta_auc", item["auc"] - float(item["oasis_test_auc"]))
             gap_str = f"{gap:+.4f}"
+        else:
+            gap_str = "N/A"
         row_cells[0].text = rank_str
         row_cells[1].text = item["model"]
         row_cells[2].text = f"{item['params']:,}"
@@ -807,14 +812,14 @@ def build_pptx_deck(registry):
                 "Component C (Consensus Disagreement): Inter-model prediction variance across the model ensemble.",
                 "Component D (QC Anomaly): Signal-to-noise ratio and background artifact deviation."
             ],
-            "callout": "Design Constraint: Source-locked calibration on OASIS-1 validation to prevent data leakage."
+            "callout": "Thresholds: Source rejection tau* = 0.6340 (80th pct validation risk); Feature clipping q_95 = 4.3905 (95th pct distance)."
         },
         {
             "title": "Slide 11: TrustGate Empirical Evaluation & Negative Result",
             "subtitle": "Rigorous Disclosure: Simpler Baseline Outperforms Complex Composite",
             "bullets": [
                 "Confidence Margin Alone: Error detection AUROC = 0.5829, pAURC[0.5, 1.0] = 0.2871.",
-                "Multi-Model Disagreement Alone: Error detection AUROC = 0.4674, pAURC[0.5, 1.0] = 0.2845.",
+                "Multi-Model Disagreement Alone: Error detection AUROC = 0.4674, pAURC[0.5, 1.0] = 0.3086.",
                 "Raw Mahalanobis Feature Distance: Error detection AUROC = 0.4808 (worse than random guessing).",
                 "Composite TrustGate: Error detection AUROC = 0.4697, pAURC[0.5, 1.0] = 0.3088."
             ],
@@ -826,7 +831,7 @@ def build_pptx_deck(registry):
             "bullets": [
                 "Extreme Distribution Shift: ADNI feature vectors occupy an entirely separate subspace from OASIS-1.",
                 "Source Threshold: 95th percentile distance on OASIS-1 validation is q95 = 48.72.",
-                "Target Saturation: 100% of ADNI samples (500/500) exhibit Mahalanobis distance > q95.",
+                "Target Saturation & 100% Flagging: 100% of ADNI samples (500/500) exhibit composite risk >= 0.8033 > tau*=0.6340 (all rejected).",
                 "Zero Information: Nonlinear scaling saturates all scores to S_B = 1.0000, yielding AUROC = 0.5000."
             ],
             "callout": "Mechanism: In-domain OOD bounds cannot distinguish between benign scanner shift and diagnostic failure."
@@ -862,7 +867,7 @@ def build_pptx_deck(registry):
                 "At 50% Abstention (Coverage 50%): Residual error rate drops to 48.0%.",
                 "pAURC[0.5, 1.0]: Margin achieves 0.2871 vs Composite TrustGate 0.3088 (lower is superior)."
             ],
-            "callout": "Takeaway: Selective prediction provides modest clinical gains, but margin alone provides the cleanest signal."
+            "callout": "Clinical Safety Warning: TrustGate-accepted scans MUST NOT be interpreted as clinically reliable."
         },
         {
             "title": "Slide 16: Research Platform Architecture & Live Inference",

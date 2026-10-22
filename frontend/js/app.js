@@ -384,28 +384,28 @@ class BenchmarkApp {
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
             <div class="card" style="padding: 16px; background: rgba(15,23,42,0.6); border-top: 3px solid #3b82f6;">
               <div style="font-size: 11px; color: var(--accent-blue); font-weight: 700;">STEP 01</div>
-              <div style="font-weight: 600; margin: 4px 0;">Cohorts & Curation</div>
-              <div style="font-size: 12px; color: var(--text-muted);">OASIS-1 (N=50, 1.5T) and ADNI (N=50, 3.0T) with Mayo QC audit.</div>
+              <div style="font-weight: 600; margin: 4px 0;">Cohorts & Governance</div>
+              <div style="font-size: 12px; color: var(--text-muted);">OASIS-1 In-Domain (N=198, 1.5T), ADNI Multi-Site (N=500, 1.5T/3.0T), OASIS-2 (N=150).</div>
             </div>
             <div class="card" style="padding: 16px; background: rgba(15,23,42,0.6); border-top: 3px solid #6366f1;">
               <div style="font-size: 11px; color: var(--accent-indigo); font-weight: 700;">STEP 02</div>
               <div style="font-weight: 600; margin: 4px 0;">Preprocessing</div>
-              <div style="font-size: 12px; color: var(--text-muted);">RAS orientation, isotropic 128³ voxel resampling, median/IQR normalization.</div>
+              <div style="font-size: 12px; color: var(--text-muted);">RAS orientation, isotropic 128³ resampling, non-zero foreground Z-score normalization.</div>
             </div>
             <div class="card" style="padding: 16px; background: rgba(15,23,42,0.6); border-top: 3px solid #10b981;">
               <div style="font-size: 11px; color: var(--accent-emerald); font-weight: 700;">STEP 03</div>
-              <div style="font-weight: 600; margin: 4px 0;">Patient-Level Split</div>
-              <div style="font-size: 12px; color: var(--text-muted);">N=42 Development Pool (5-Fold CV) and N=8 strictly locked holdout.</div>
+              <div style="font-weight: 600; margin: 4px 0;">Source-Locked Partition</div>
+              <div style="font-size: 12px; color: var(--text-muted);">OASIS-1: 138 train / 30 validation (threshold-locking) / 30 locked test holdout.</div>
             </div>
             <div class="card" style="padding: 16px; background: rgba(15,23,42,0.6); border-top: 3px solid #f59e0b;">
               <div style="font-size: 11px; color: var(--accent-amber); font-weight: 700;">STEP 04</div>
-              <div style="font-weight: 600; margin: 4px 0;">Model Paradigms</div>
-              <div style="font-size: 12px; color: var(--text-muted);">Supervised 3D ResNets vs Foundation Linear Probes vs Hybrids.</div>
+              <div style="font-weight: 600; margin: 4px 0;">Ten Architectures</div>
+              <div style="font-size: 12px; color: var(--text-muted);">3D Foundation ViT SSL, 2D Transfer CNN, 3D Supervised CNNs, 2.5D, Hybrid, Radiomics.</div>
             </div>
             <div class="card" style="padding: 16px; background: rgba(15,23,42,0.6); border-top: 3px solid #ec4899;">
               <div style="font-size: 11px; color: #ec4899; font-weight: 700;">STEP 05</div>
-              <div style="font-weight: 600; margin: 4px 0;">Multi-Axis Audits</div>
-              <div style="font-size: 12px; color: var(--text-muted);">Data efficiency, calibration, domain transfer, Grad-CAM, SSAP stability.</div>
+              <div style="font-weight: 600; margin: 4px 0;">Cross-Cohort Audits</div>
+              <div style="font-size: 12px; color: var(--text-muted);">ADNI zero-shot generalization, TrustGate failure diagnosis, authentic Grad-CAM.</div>
             </div>
           </div>
         </div>
@@ -430,32 +430,46 @@ class BenchmarkApp {
         </p>
       </div>
 
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="card" style="border-top: 3px solid var(--accent-blue);">
           <div class="card-title">
-            <span>OASIS-1 Pilot Cohort</span>
-            <span class="badge badge-pilot">1.5 Tesla</span>
+            <span>OASIS-1 In-Domain</span>
+            <span class="badge" style="background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid #3b82f6;">1.5T Siemens</span>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
-            <div><strong>Sample Size:</strong> 50 unique participants (25 CN / 25 Impaired)</div>
-            <div><strong>Field Strength:</strong> 1.5 Tesla (Siemens Vision 1.5T)</div>
-            <div><strong>Native Matrix:</strong> 256 × 256 × 128 / 160 voxels</div>
-            <div><strong>Diagnostic Standard:</strong> Clinical Dementia Rating (CDR 0 vs CDR ≥ 1; CDR 0.5 excluded)</div>
-            <div><strong>Standardized Model Input:</strong> [1, 128, 128, 128] Float32 Normalized</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+            <div><strong>Role:</strong> Primary In-Domain Benchmark ($N=198$)</div>
+            <div><strong>Partitions:</strong> 138 Train / 30 Validation / 30 Locked Test</div>
+            <div><strong>Scanner:</strong> Siemens Vision 1.5T (Single Site)</div>
+            <div><strong>Diagnostic Standard:</strong> CDR 0 (Normal) vs CDR ≥ 0.5 (Impaired)</div>
+            <div><strong>Standardized Input:</strong> [1, 128, 128, 128] Float32 Non-Zero Z-Score</div>
           </div>
         </div>
 
         <div class="card" style="border-top: 3px solid var(--accent-emerald);">
           <div class="card-title">
-            <span>ADNI External Benchmark Cohort</span>
-            <span class="badge badge-audit">3.0 Tesla</span>
+            <span>ADNI External Multi-Site</span>
+            <span class="badge" style="background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid #10b981;">1.5T & 3.0T</span>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
-            <div><strong>Sample Size:</strong> 50 unique participants (25 CN / 25 AD matched benchmark)</div>
-            <div><strong>Field Strength:</strong> 3.0 Tesla (Siemens Trio/Verio/Skyra 94%, Philips 6%)</div>
-            <div><strong>Native Matrix:</strong> 240 × 256 × 160 voxels</div>
-            <div><strong>Diagnostic Standard:</strong> Consensus clinical NINCDS-ADRDA diagnosis (baseline DX)</div>
-            <div><strong>Standardized Model Input:</strong> [1, 128, 128, 128] Float32 Normalized</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+            <div><strong>Role:</strong> Zero-Shot Multi-Center External Benchmark ($N=500$)</div>
+            <div><strong>Composition:</strong> 303 CN / 197 AD (Prevalence 39.4%)</div>
+            <div><strong>Scanners:</strong> Siemens ($N=370, 74\%$) & Philips ($N=130, 26\%$), 0 GE</div>
+            <div><strong>Diagnostic Standard:</strong> NINCDS-ADRDA Multi-Modal Consensus</div>
+            <div><strong>Standardized Input:</strong> [1, 128, 128, 128] Float32 Non-Zero Z-Score</div>
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #C7A97A;">
+          <div class="card-title">
+            <span>OASIS-2 Exploratory</span>
+            <span class="badge" style="background: rgba(199,169,122,0.15); color: #C7A97A; border: 1px solid #C7A97A;">1.5T Longitudinal</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12px;">
+            <div><strong>Role:</strong> Secondary Exploratory Cohort ($N=150$)</div>
+            <div><strong>Composition:</strong> 85 Nondemented / 65 Demented</div>
+            <div><strong>Scanner:</strong> Siemens Vision 1.5T</div>
+            <div><strong>Independence Note:</strong> Disclosed as unverified overlap against OASIS-1</div>
+            <div><strong>Standardized Input:</strong> [1, 128, 128, 128] Float32 Non-Zero Z-Score</div>
           </div>
         </div>
       </div>
@@ -2901,7 +2915,7 @@ window.addEventListener('DOMContentLoaded', () => {
           <div style="font-size: 11px; color: #B98378; font-weight: 700; text-transform: uppercase;">Negative Result</div>
           <div style="font-size: 26px; font-weight: 800; color: #B98378; margin: 8px 0;">Composite Gate (0.4697)</div>
           <p style="font-size: 12px; color: #A8A396;">
-            Integrating Mahalanobis distance, consensus variance, and image quality degrades performance by -0.0428 AUROC.
+            Integrating Mahalanobis distance, consensus variance, and image quality degrades error-detection performance by -0.1132 AUROC below margin alone.
           </p>
         </div>
 
@@ -2931,34 +2945,42 @@ window.addEventListener('DOMContentLoaded', () => {
           <tbody>
             <tr style="background: rgba(156,197,170,0.1); font-weight: 700;">
               <td>Confidence Margin (MSP)</td>
-              <td>0.5829</td>
+              <td>0.5374</td>
               <td style="color: #9CC5AA;">0.5829</td>
-              <td>0.2612</td>
-              <td>0.3814</td>
-              <td>Top Performer</td>
+              <td>0.2871</td>
+              <td>0.5488</td>
+              <td>Top Error Detector</td>
             </tr>
             <tr>
               <td>Multi-Model Disagreement</td>
               <td>0.5951</td>
-              <td>0.5312</td>
-              <td>0.2845</td>
-              <td>0.4120</td>
-              <td>Domain Degradation</td>
+              <td>0.4674</td>
+              <td>0.3086</td>
+              <td>0.6481</td>
+              <td>Consensus Inversion</td>
             </tr>
             <tr>
               <td>Raw Mahalanobis Distance</td>
-              <td>0.5210</td>
+              <td>0.4527</td>
               <td>0.4808</td>
-              <td>0.3012</td>
-              <td>0.4355</td>
+              <td>-</td>
+              <td>-</td>
               <td>Sub-Random Chance</td>
             </tr>
-            <tr style="background: rgba(185,131,120,0.1);">
+            <tr>
+              <td>Clipped Mahalanobis Distance</td>
+              <td>0.4529</td>
+              <td>0.5000</td>
+              <td>-</td>
+              <td>-</td>
+              <td>100% Saturated on ADNI</td>
+            </tr>
+            <tr style="background: rgba(185,131,120,0.1); font-weight: 700;">
               <td>Composite TrustGate (Source-Locked)</td>
-              <td>0.5872</td>
+              <td>0.5129</td>
               <td style="color: #B98378;">0.4697</td>
               <td>0.3088</td>
-              <td>0.4052</td>
+              <td>0.6470</td>
               <td>Empirical Negative Result</td>
             </tr>
           </tbody>
@@ -2971,8 +2993,11 @@ window.addEventListener('DOMContentLoaded', () => {
           <h4 style="font-size: 13px; font-weight: 700; color: #B98378; margin-bottom: 8px;">Pathology 1: Feature Saturation</h4>
           <p style="font-size: 12px; color: #ECE9DF; line-height: 1.6;">
             Under cross-scanner shift, target feature representations from ADNI lie entirely outside the source OASIS-1 support.
-            100% of ADNI samples exceed the source 95th percentile distance (q95 = 48.72).
-            Nonlinear mapping saturates all scores to S_B = 1.0000, creating zero discriminative variance and yielding exactly 0.5000 AUROC.
+            100% of ADNI samples exceed the source 95th-percentile feature clipping threshold (q95 = 4.3905).
+            Furthermore, under the source rejection threshold tau* = 0.6340 (80th percentile of source validation risk),
+            100% of ADNI external scans (500/500) exhibit composite risk >= 0.8033 and are flagged.
+            Nonlinear mapping saturates all feature distance scores to S_B = 1.0000, creating zero discriminative variance and yielding exactly 0.5000 AUROC.
+            Scans passing or failing TrustGate are research flags and must NOT be interpreted as clinically reliable.
           </p>
         </div>
 
@@ -3092,7 +3117,7 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
         <h1 class="section-title">Research Deliverables & Download Hub</h1>
         <p class="section-desc">
-          Download the publication-ready scientific research paper, complete editable manuscript, Viva Voce presentation slide deck,
+          Download the publication-ready scientific research paper, complete editable manuscript, Scientific presentation slide deck (PPTX),
           and the complete reproduction archive containing code, canonical registries, and audit logs.
         </p>
       </div>
@@ -3144,11 +3169,11 @@ window.addEventListener('DOMContentLoaded', () => {
         <div class="card" style="background-color: #222824; border-color: #C7A97A; padding: 20px;">
           <div style="display: flex; align-items: flex-start; justify-content: space-between;">
             <div>
-              <div style="font-size: 11px; color: #C7A97A; font-weight: 700; text-transform: uppercase;">Oral Defense / Viva</div>
+              <div style="font-size: 11px; color: #C7A97A; font-weight: 700; text-transform: uppercase;">Scientific Presentation</div>
               <h3 style="font-size: 16px; font-weight: 700; color: #ECE9DF; margin: 6px 0;">Final Presentation Slides (PPTX)</h3>
               <p style="font-size: 12px; color: #A8A396; margin-bottom: 14px;">
                 19-slide widescreen (16:9) presentation deck in botanical neuroscience dark theme, covering all research questions,
-                methodologies, empirical findings, and viva defense notes.
+                methodologies, empirical findings, and presentation slides.
               </p>
             </div>
             <span style="font-size: 28px;">📽</span>

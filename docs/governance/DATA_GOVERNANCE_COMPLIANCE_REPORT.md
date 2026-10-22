@@ -29,13 +29,21 @@ In strict accordance with international biomedical data governance standards and
 - **Data Source:** Alzheimer's Disease Neuroimaging Initiative (ADNI) multi-center study (adni.loni.usc.edu).
 - **Sponsorship:** National Institutes of Health (Grant U01 AG024904) and Department of Defense (Award W81XWH-12-2-0012).
 - **Data Use Terms:** Access granted under strict ADNI Data Use Agreement for research purposes only.
-- **Patient Privacy & Redistribution Prohibition:** Under the ADNI DUA, raw MRI files (`.nii`, `.dcm`) and identifiable individual-level clinical records must never be redistributed publicly or uploaded to open third-party code repositories.
+- **Patient Privacy & Redistribution Policy:** Under the ADNI DUA, raw MRI files (`.nii`, `.dcm`) and identifiable individual-level clinical records must never be redistributed publicly or uploaded to open third-party code repositories.
+- **Redistribution Audit & Pending Compliance Disclosure:** Historical repository commits retain participant-level prediction CSVs (e.g. containing `subject_id`, `image_data_id`, diagnosis, and model probabilities) and individual slice attribution images. While zero raw 3D scans or direct HIPAA patient identifiers are exposed, full redistribution rights for participant-level derived prediction tables remain pending formal institutional DUA review. Therefore, full public redistribution compliance is disclosed as pending this authorization.
 - **Safeguard Enforcement:** All ADNI imaging volumes reside strictly on private local workstation storage (`D:\brain_mri_data\ADNI`). `.gitignore` rules strictly prevent accidental tracking of `.nii`, `.nii.gz`, `.dcm`, and binary array files. The web server download endpoint (`/downloads/`) enforces a strict whitelist that completely blocks access to neuroimaging files.
 - **Diagnostic Criteria:** Formal clinical Alzheimer's disease diagnosis according to NINCDS-ADRDA criteria ($N=197$) vs cognitively normal controls ($N=303$).
 
 ### 2.3 OASIS-2 (Longitudinal MRI Cohort)
 - **Data Source:** Longitudinal MRI Study of Nondemented and Demented Older Adults.
 - **Role in Study:** Secondary exploratory cohort ($N=150$). Potential participant overlap with OASIS-1 is rigorously disclosed as unverified; therefore, OASIS-2 is treated as an exploratory validation cohort rather than a fully independent external multi-site benchmark.
+
+### 2.4 Sanitized Public-Release Plan
+To ensure total institutional alignment before open public release:
+1. **Aggregated Metric Distribution:** Future public releases should decouple participant-level CSVs into aggregated receiver-operating characteristic (ROC) curves, bootstrap distribution confidence intervals, and cohort confusion matrices.
+2. **Attribution Sanitization:** Individual subject Grad-CAM slice figures will be replaced with cohort-averaged saliency maps mapped to standard MNI-152 space.
+3. **Local Preservation:** All authentic participant-aligned predictions and raw NIfTI scans remain intact on the private local workstation for exact scientific reproducibility.
+4. **Git Policy:** In accordance with user guidance, zero historical Git commits will be deleted, force-pushed, or altered without explicit instruction, and no new restricted participant-level files will be committed to remote tracking.
 
 ---
 

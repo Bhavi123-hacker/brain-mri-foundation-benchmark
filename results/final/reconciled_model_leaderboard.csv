@@ -1,0 +1,11 @@
+model_name,col,threshold_val,oasis_test_auc,oasis_test_ci,oasis_test_brier,oasis_test_bacc,adni_auc,adni_ci,adni_brier,adni_bacc,delta_auc,rank_adni
+MONAI Swin UNETR SSL (Linear Probe),swin_unetr_ssl_prob,0.5088,0.6044,"(0.3889, 0.8056)",0.2495,0.5333,0.5834,"(0.5344, 0.6335)",0.2569,0.5,-0.021,1
+2D Transfer ResNet-18 (Slice-Aggregated),resnet2d_transfer_prob,0.612,0.6222,"(0.4, 0.8371)",0.2993,0.4333,0.5778,"(0.5286, 0.6269)",0.5315,0.5,-0.0444,2
+Dual-Branch Hybrid (ResNet-10 + Radiomics),dual_branch_hybrid_prob,0.4763,0.6311,"(0.4152, 0.817)",0.2503,0.5,0.5554,"(0.5044, 0.6066)",0.3163,0.5,-0.0757,3
+3D ResNet-10 (Pipeline B),3d_resnet_10_prob,0.686,0.6133,"(0.3973, 0.8148)",0.2447,0.5667,0.5444,"(0.4909, 0.5957)",0.5724,0.5,-0.0689,4
+Classical Radiomics (Linear SVM),classical_radiomics_prob,0.5693,0.5689,"(0.3589, 0.7799)",0.247,0.5667,0.5149,"(0.462, 0.5684)",0.4491,0.5006,-0.054,5
+3D ResNet-18 (Scratch Baseline),resnet18_prob,0.5725,0.6178,"(0.3951, 0.8125)",0.2462,0.5,0.5128,"(0.4601, 0.5653)",0.2738,0.5122,-0.105,6
+FOMO25 AMAES ResEnc-B (Linear Probe),fomo_amaes_prob,0.5457,0.5733,"(0.3661, 0.7946)",0.2512,0.5,0.5054,"(0.4531, 0.5567)",0.3442,0.5,-0.0679,7
+3D DenseNet-121 (Pipeline B),3d_densenet_121_prob,0.4651,0.4133,"(0.2188, 0.6296)",0.2635,0.4,0.5048,"(0.4537, 0.5599)",0.2603,0.5041,0.0915,8
+2.5D Multi-View ResNet-18 (Pipeline B),2.5d_multi_view_resnet_18_prob,0.9741,0.6444,"(0.4261, 0.8304)",0.3097,0.5333,0.4943,"(0.4434, 0.5465)",0.2654,0.5,-0.1501,9
+3D ResNet-34 (Scratch Baseline),resnet34_prob,0.5512,0.5311,"(0.3032, 0.7467)",0.2482,0.5333,0.4777,"(0.4257, 0.5301)",0.2534,0.4915,-0.0534,10
